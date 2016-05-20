@@ -1,11 +1,12 @@
 # TP Gestión
 TP Gestión Wololox 1er Cuatrimestre - 2016
 Integrantes:
-Alice, Pablo
 
-Cipriano, Agustín
+-Alice, Pablo
 
-Fernández, Federico
+-Cipriano, Agustín
 
-Minian, Matías
+-Fernández, Federico
+
+-Minian, Matías
 
