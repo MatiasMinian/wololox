@@ -1,2 +1,12 @@
 c:\users\matias\documents\visual studio 2012\Projects\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
 C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FormularioLogin.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MenuForm.resources

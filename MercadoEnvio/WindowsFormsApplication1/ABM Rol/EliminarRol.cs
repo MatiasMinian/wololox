@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.ABM_Rol
 {
-    public partial class Form1 : Form
+    public partial class PantallaEliminarRol : Form
     {
-        public Form1()
+        public PantallaEliminarRol()
         {
             InitializeComponent();
         }
