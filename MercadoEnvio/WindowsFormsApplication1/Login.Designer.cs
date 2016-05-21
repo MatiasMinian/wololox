@@ -41,14 +41,14 @@
             // 
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.Size = new System.Drawing.Size(117, 23);
             this.label1.TabIndex = 0;
             // 
             // labelUser
             // 
             this.labelUser.AutoSize = true;
             this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUser.Location = new System.Drawing.Point(39, 50);
+            this.labelUser.Location = new System.Drawing.Point(45, 50);
             this.labelUser.Name = "labelUser";
             this.labelUser.Size = new System.Drawing.Size(46, 13);
             this.labelUser.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             this.labelPass.AutoSize = true;
             this.labelPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPass.Location = new System.Drawing.Point(39, 79);
+            this.labelPass.Location = new System.Drawing.Point(45, 79);
             this.labelPass.Name = "labelPass";
             this.labelPass.Size = new System.Drawing.Size(64, 13);
             this.labelPass.TabIndex = 2;
@@ -66,35 +66,38 @@
             // 
             // textoUser
             // 
-            this.textoUser.Location = new System.Drawing.Point(114, 50);
+            this.textoUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textoUser.Location = new System.Drawing.Point(133, 50);
             this.textoUser.Name = "textoUser";
-            this.textoUser.Size = new System.Drawing.Size(100, 20);
+            this.textoUser.Size = new System.Drawing.Size(116, 20);
             this.textoUser.TabIndex = 3;
             // 
             // textoPass
             // 
-            this.textoPass.Location = new System.Drawing.Point(114, 76);
+            this.textoPass.Location = new System.Drawing.Point(133, 76);
             this.textoPass.Name = "textoPass";
-            this.textoPass.Size = new System.Drawing.Size(100, 20);
+            this.textoPass.Size = new System.Drawing.Size(116, 20);
             this.textoPass.TabIndex = 4;
             this.textoPass.UseSystemPasswordChar = true;
             // 
             // botonIngreso
             // 
             this.botonIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonIngreso.Location = new System.Drawing.Point(42, 135);
+            this.botonIngreso.Location = new System.Drawing.Point(49, 135);
             this.botonIngreso.Name = "botonIngreso";
-            this.botonIngreso.Size = new System.Drawing.Size(75, 23);
+            this.botonIngreso.Size = new System.Drawing.Size(87, 23);
             this.botonIngreso.TabIndex = 5;
             this.botonIngreso.Text = "Ingresar";
             this.botonIngreso.UseVisualStyleBackColor = true;
+            this.botonIngreso.Click += new System.EventHandler(this.botonIngreso_Click);
             // 
             // botonLimpieza
             // 
+            this.botonLimpieza.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.botonLimpieza.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonLimpieza.Location = new System.Drawing.Point(139, 135);
+            this.botonLimpieza.Location = new System.Drawing.Point(162, 135);
             this.botonLimpieza.Name = "botonLimpieza";
-            this.botonLimpieza.Size = new System.Drawing.Size(75, 23);
+            this.botonLimpieza.Size = new System.Drawing.Size(87, 23);
             this.botonLimpieza.TabIndex = 6;
             this.botonLimpieza.Text = "Limpiar";
             this.botonLimpieza.UseVisualStyleBackColor = true;
@@ -102,9 +105,11 @@
             // 
             // FormularioLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AcceptButton = this.botonIngreso;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(271, 214);
+            this.CancelButton = this.botonLimpieza;
+            this.ClientSize = new System.Drawing.Size(316, 214);
             this.Controls.Add(this.botonLimpieza);
             this.Controls.Add(this.botonIngreso);
             this.Controls.Add(this.textoPass);
@@ -112,7 +117,11 @@
             this.Controls.Add(this.labelPass);
             this.Controls.Add(this.labelUser);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HelpButton = true;
             this.Name = "FormularioLogin";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();

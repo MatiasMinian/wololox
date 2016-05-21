@@ -23,5 +23,14 @@ namespace WindowsFormsApplication1
             textoUser.Text = "";
         }
 
+        private void botonIngreso_Click(object sender, EventArgs e)
+        {
+            MenuForm menu = new MenuForm(textoUser.Text);
+            this.Hide();
+            menu.ShowDialog();
+            this.Close();
+            this.Dispose();
+        }
+
     }
 }
