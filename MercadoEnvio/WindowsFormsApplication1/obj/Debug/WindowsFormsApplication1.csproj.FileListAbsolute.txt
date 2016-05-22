@@ -10,3 +10,6 @@ C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\
 C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
 C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MenuForm.resources
+C:\Users\Matias\Desktop\Matias\UTN\Gestión de Datos\Desktop App\wololox\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Matias\Desktop\Matias\UTN\Gestión de Datos\Desktop App\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Matias\Desktop\Matias\UTN\Gestión de Datos\Desktop App\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
