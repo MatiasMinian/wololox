@@ -50,6 +50,24 @@
     <Compile Include="ABM Rol\ABM_Rol.Designer.cs">
       <DependentUpon>ABM_Rol.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Rol\Crear_Rol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Rol\Crear_Rol.Designer.cs">
+      <DependentUpon>Crear_Rol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Rol\EliminarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Rol\EliminarRol.Designer.cs">
+      <DependentUpon>EliminarRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Rol\ModificarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Rol\ModificarRol.Designer.cs">
+      <DependentUpon>ModificarRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Rubro\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +136,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ABM Rol\ABM_Rol.resx">
+      <DependentUpon>ABM_Rol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\Crear_Rol.resx">
+      <DependentUpon>Crear_Rol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\EliminarRol.resx">
+      <DependentUpon>EliminarRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\ModificarRol.resx">
+      <DependentUpon>ModificarRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
