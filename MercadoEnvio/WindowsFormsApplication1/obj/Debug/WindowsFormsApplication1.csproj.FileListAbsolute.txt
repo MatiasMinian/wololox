@@ -28,3 +28,4 @@ C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj
 C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
 C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
 C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Rubro.Pantalla_Rubro.resources
