@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApplication1.ABM_Rubro;
-using WindowsFormsApplication1.ABM_Usuario;
 
 namespace WindowsFormsApplication1
 {
