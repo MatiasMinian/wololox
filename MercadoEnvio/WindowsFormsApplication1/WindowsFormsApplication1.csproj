@@ -86,11 +86,23 @@
     <Compile Include="ABM Visibilidad\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Calificar\Form1.cs">
+    <Compile Include="Calificar\Pantalla_Calificacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calificar\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Calificar\Pantalla_Calificacion.Designer.cs">
+      <DependentUpon>Pantalla_Calificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Calificar\Pantalla_Calificar_Publicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calificar\Pantalla_Calificar_Publicacion.Designer.cs">
+      <DependentUpon>Pantalla_Calificar_Publicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Calificar\Pantalla_historial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calificar\Pantalla_historial.Designer.cs">
+      <DependentUpon>Pantalla_historial.cs</DependentUpon>
     </Compile>
     <Compile Include="ComprarOfertar\Form1.cs">
       <SubType>Form</SubType>
@@ -153,6 +165,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\ABM_Usuario.resx">
       <DependentUpon>ABM_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calificar\Pantalla_Calificacion.resx">
+      <DependentUpon>Pantalla_Calificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calificar\Pantalla_Calificar_Publicacion.resx">
+      <DependentUpon>Pantalla_Calificar_Publicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calificar\Pantalla_historial.resx">
+      <DependentUpon>Pantalla_historial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

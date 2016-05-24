@@ -59,6 +59,7 @@
             this.botonUser.TabIndex = 1;
             this.botonUser.Text = "ABM de Usuario";
             this.botonUser.UseVisualStyleBackColor = true;
+            this.botonUser.Click += new System.EventHandler(this.botonUser_Click);
             // 
             // botonVisibilidad
             // 
@@ -104,6 +105,7 @@
             this.botonCalificar.TabIndex = 6;
             this.botonCalificar.Text = "Calificar Vendedor";
             this.botonCalificar.UseVisualStyleBackColor = true;
+            this.botonCalificar.Click += new System.EventHandler(this.botonCalificar_Click);
             // 
             // botonFacturas
             // 

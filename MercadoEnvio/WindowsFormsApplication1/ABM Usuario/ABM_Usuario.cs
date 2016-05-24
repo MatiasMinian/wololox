@@ -35,5 +35,10 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

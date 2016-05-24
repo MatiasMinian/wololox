@@ -143,6 +143,7 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "Atras";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Pantalla_ABM_Usuario
             // 

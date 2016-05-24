@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApplication1.ABM_Usuario;
+using WindowsFormsApplication1.Calificar;
 
 namespace WindowsFormsApplication1
 {
@@ -35,6 +37,18 @@ namespace WindowsFormsApplication1
         {
             this.Close();
             this.Dispose();
+        }
+
+        private void botonCalificar_Click(object sender, EventArgs e)
+        {
+            Pantalla_Calificacion pCali = new Pantalla_Calificacion();
+            pCali.Show();
+        }
+
+        private void botonUser_Click(object sender, EventArgs e)
+        {
+            Pantalla_ABM_Usuario pantallaUser = new Pantalla_ABM_Usuario();
+            pantallaUser.Show();
         }
     }
 }
