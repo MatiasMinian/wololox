@@ -42,7 +42,7 @@
             this.Grupo_Crear_Rol.Controls.Add(this.textBox1);
             this.Grupo_Crear_Rol.Location = new System.Drawing.Point(12, 12);
             this.Grupo_Crear_Rol.Name = "Grupo_Crear_Rol";
-            this.Grupo_Crear_Rol.Size = new System.Drawing.Size(519, 128);
+            this.Grupo_Crear_Rol.Size = new System.Drawing.Size(188, 128);
             this.Grupo_Crear_Rol.TabIndex = 0;
             this.Grupo_Crear_Rol.TabStop = false;
             this.Grupo_Crear_Rol.Text = "Crear Rol";
@@ -50,7 +50,7 @@
             // Crear_Rol_Texto_Rol
             // 
             this.Crear_Rol_Texto_Rol.AutoSize = true;
-            this.Crear_Rol_Texto_Rol.Location = new System.Drawing.Point(6, 41);
+            this.Crear_Rol_Texto_Rol.Location = new System.Drawing.Point(29, 63);
             this.Crear_Rol_Texto_Rol.Name = "Crear_Rol_Texto_Rol";
             this.Crear_Rol_Texto_Rol.Size = new System.Drawing.Size(26, 13);
             this.Crear_Rol_Texto_Rol.TabIndex = 1;
@@ -58,34 +58,36 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(59, 38);
+            this.textBox1.Location = new System.Drawing.Point(61, 56);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 0;
             // 
             // Boton_Crear
             // 
-            this.Boton_Crear.Location = new System.Drawing.Point(127, 160);
+            this.Boton_Crear.Location = new System.Drawing.Point(125, 160);
             this.Boton_Crear.Name = "Boton_Crear";
             this.Boton_Crear.Size = new System.Drawing.Size(75, 23);
             this.Boton_Crear.TabIndex = 1;
             this.Boton_Crear.Text = "Crear";
             this.Boton_Crear.UseVisualStyleBackColor = true;
+            this.Boton_Crear.Click += new System.EventHandler(this.Boton_Crear_Click);
             // 
             // Boton_Cancelar
             // 
-            this.Boton_Cancelar.Location = new System.Drawing.Point(266, 160);
+            this.Boton_Cancelar.Location = new System.Drawing.Point(12, 160);
             this.Boton_Cancelar.Name = "Boton_Cancelar";
             this.Boton_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.Boton_Cancelar.TabIndex = 2;
-            this.Boton_Cancelar.Text = "Cancelar";
+            this.Boton_Cancelar.Text = "Atras";
             this.Boton_Cancelar.UseVisualStyleBackColor = true;
+            this.Boton_Cancelar.Click += new System.EventHandler(this.Boton_Cancelar_Click);
             // 
             // PantallaCrearRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(543, 198);
+            this.ClientSize = new System.Drawing.Size(211, 198);
             this.Controls.Add(this.Boton_Cancelar);
             this.Controls.Add(this.Boton_Crear);
             this.Controls.Add(this.Grupo_Crear_Rol);

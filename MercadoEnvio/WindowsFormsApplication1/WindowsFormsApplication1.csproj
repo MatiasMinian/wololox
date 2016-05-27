@@ -74,11 +74,35 @@
     <Compile Include="ABM Rubro\ABM_Rubro.Designer.cs">
       <DependentUpon>ABM_Rubro.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Usuario\ABM_Usuario.cs">
+    <Compile Include="ABM Usuario\Pantalla_Creacion_Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Usuario\ABM_Usuario.Designer.cs">
-      <DependentUpon>ABM_Usuario.cs</DependentUpon>
+    <Compile Include="ABM Usuario\Pantalla_Creacion_Usuario.Designer.cs">
+      <DependentUpon>Pantalla_Creacion_Usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Datos_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Datos_Cliente.Designer.cs">
+      <DependentUpon>Pantalla_Datos_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Datos_Empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Datos_Empresa.Designer.cs">
+      <DependentUpon>Pantalla_Datos_Empresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Modificacion_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Modificacion_Usuario.Designer.cs">
+      <DependentUpon>Pantalla_Modificacion_Usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Usuario_Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Usuario_Principal.Designer.cs">
+      <DependentUpon>Pantalla_Usuario_Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Visibilidad\Form1.cs">
       <SubType>Form</SubType>
@@ -86,11 +110,11 @@
     <Compile Include="ABM Visibilidad\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Calificar\Pantalla_Calificacion.cs">
+    <Compile Include="Calificar\Pantalla_Calificacion_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calificar\Pantalla_Calificacion.Designer.cs">
-      <DependentUpon>Pantalla_Calificacion.cs</DependentUpon>
+    <Compile Include="Calificar\Pantalla_Calificacion_Principal.Designer.cs">
+      <DependentUpon>Pantalla_Calificacion_Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Calificar\Pantalla_Calificar_Publicacion.cs">
       <SubType>Form</SubType>
@@ -98,11 +122,17 @@
     <Compile Include="Calificar\Pantalla_Calificar_Publicacion.Designer.cs">
       <DependentUpon>Pantalla_Calificar_Publicacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Calificar\Pantalla_historial.cs">
+    <Compile Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calificar\Pantalla_historial.Designer.cs">
-      <DependentUpon>Pantalla_historial.cs</DependentUpon>
+    <Compile Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.Designer.cs">
+      <DependentUpon>Pantalla_Historial_Cantidad_Segun_Estrellas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Historial Cliente\Pantalla_Historial_Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Historial Cliente\Pantalla_Historial_Principal.Designer.cs">
+      <DependentUpon>Pantalla_Historial_Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="ComprarOfertar\Form1.cs">
       <SubType>Form</SubType>
@@ -134,12 +164,6 @@
     <Compile Include="Generar Publicación\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Historial Cliente\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Historial Cliente\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Listado Estadistico\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,17 +187,32 @@
     <EmbeddedResource Include="ABM Rubro\ABM_Rubro.resx">
       <DependentUpon>ABM_Rubro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Usuario\ABM_Usuario.resx">
-      <DependentUpon>ABM_Usuario.cs</DependentUpon>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Creacion_Usuario.resx">
+      <DependentUpon>Pantalla_Creacion_Usuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Calificar\Pantalla_Calificacion.resx">
-      <DependentUpon>Pantalla_Calificacion.cs</DependentUpon>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Datos_Cliente.resx">
+      <DependentUpon>Pantalla_Datos_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Datos_Empresa.resx">
+      <DependentUpon>Pantalla_Datos_Empresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Modificacion_Usuario.resx">
+      <DependentUpon>Pantalla_Modificacion_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Usuario_Principal.resx">
+      <DependentUpon>Pantalla_Usuario_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calificar\Pantalla_Calificacion_Principal.resx">
+      <DependentUpon>Pantalla_Calificacion_Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Calificar\Pantalla_Calificar_Publicacion.resx">
       <DependentUpon>Pantalla_Calificar_Publicacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Calificar\Pantalla_historial.resx">
-      <DependentUpon>Pantalla_historial.cs</DependentUpon>
+    <EmbeddedResource Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.resx">
+      <DependentUpon>Pantalla_Historial_Cantidad_Segun_Estrellas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Historial Cliente\Pantalla_Historial_Principal.resx">
+      <DependentUpon>Pantalla_Historial_Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

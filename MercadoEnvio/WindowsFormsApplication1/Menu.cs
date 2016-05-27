@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApplication1.ABM_Rol;
 using WindowsFormsApplication1.ABM_Usuario;
 using WindowsFormsApplication1.Calificar;
+using WindowsFormsApplication1.Historial_Cliente;
 
 namespace WindowsFormsApplication1
 {
@@ -41,14 +43,31 @@ namespace WindowsFormsApplication1
 
         private void botonCalificar_Click(object sender, EventArgs e)
         {
-            Pantalla_Calificacion pCali = new Pantalla_Calificacion();
+            Pantalla_Calificacion_Principal pCali = new Pantalla_Calificacion_Principal();
             pCali.Show();
+  
         }
 
         private void botonUser_Click(object sender, EventArgs e)
         {
-            Pantalla_ABM_Usuario pantallaUser = new Pantalla_ABM_Usuario();
-            pantallaUser.Show();
+            Pantalla_Usuario_Principal pantallaUserPrincipal = new Pantalla_Usuario_Principal();
+            pantallaUserPrincipal.Show();
+    
+        }
+
+        private void botonHistorial_Click(object sender, EventArgs e)
+        {
+            Pantalla_Historial_Principal pantallaHistorial = new Pantalla_Historial_Principal();
+            pantallaHistorial.Show();
+     
+        }
+
+        private void botonRol_Click(object sender, EventArgs e)
+        {
+            Pantalla_ABM_Rol pantallaRubroPrincipal = new Pantalla_ABM_Rol();
+            pantallaRubroPrincipal.Show();
+
+       
         }
     }
 }

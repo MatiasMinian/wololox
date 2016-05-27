@@ -50,6 +50,7 @@
             this.botonRol.TabIndex = 0;
             this.botonRol.Text = "ABM de Rol";
             this.botonRol.UseVisualStyleBackColor = true;
+            this.botonRol.Click += new System.EventHandler(this.botonRol_Click);
             // 
             // botonUser
             // 
@@ -96,6 +97,7 @@
             this.botonHistorial.TabIndex = 5;
             this.botonHistorial.Text = "Ver Historial";
             this.botonHistorial.UseVisualStyleBackColor = true;
+            this.botonHistorial.Click += new System.EventHandler(this.botonHistorial_Click);
             // 
             // botonCalificar
             // 

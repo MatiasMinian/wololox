@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.Calificar
 {
-    public partial class Pantalla_historial : Form
+    public partial class Pantalla_Calificacion_Principal : Form
     {
-        public Pantalla_historial()
+        public Pantalla_Calificacion_Principal()
         {
             InitializeComponent();
         }
@@ -22,5 +22,11 @@ namespace WindowsFormsApplication1.Calificar
             this.Close();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Pantalla_Calificar_Publicacion pantallaCalificar = new Pantalla_Calificar_Publicacion();
+            this.Hide();
+            pantallaCalificar.Show();
+        }
     }
 }

@@ -10,35 +10,32 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
-    public partial class Pantalla_ABM_Usuario : Form
+    public partial class Pantalla_Usuario_Principal : Form
     {
-        public Pantalla_ABM_Usuario()
+        public Pantalla_Usuario_Principal()
         {
             InitializeComponent();
-            comboBox1.Items.Add("Cliente");
-            comboBox1.Items.Add("Empresa");
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            Text = comboBox1.Text;
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.ResetText();
-            textBox2.ResetText();
-            comboBox1.ResetText();
-
-
+            Pantalla_Creacion_Usuario pantallaCreacionUser = new Pantalla_Creacion_Usuario();
+            this.Hide();
+            pantallaCreacionUser.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Pantalla_Modificacion_Usuario pantallaModificacion = new Pantalla_Modificacion_Usuario();
+            this.Hide();
+            pantallaModificacion.Show();
+        }
+
+    
     }
 }

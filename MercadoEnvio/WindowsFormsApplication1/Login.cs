@@ -25,12 +25,40 @@ namespace WindowsFormsApplication1
 
         private void botonIngreso_Click(object sender, EventArgs e)
         {
-            MenuForm menu = new MenuForm(textoUser.Text);
-            this.Hide();
-            menu.ShowDialog();
-            this.Close();
-            this.Dispose();
+
+            if (textoUser.Text == "" && textoPass.Text == "")
+            {
+
+                MessageBox.Show("Ingresa usuario y contraseña");
+
+            }
+
+            else if (textoUser.Text == "")
+            {
+
+                MessageBox.Show("Ingresa usuario");
+
+            }
+            else if (textoPass.Text == "")
+            {
+
+                MessageBox.Show("Ingresa contraseña");
+
+            }
+
+            else
+            {
+
+                MenuForm menu = new MenuForm(textoUser.Text);
+                this.Hide();
+                menu.ShowDialog();
+                this.Close();
+                this.Dispose();
+
+            }
+
         }
 
     }
+
 }

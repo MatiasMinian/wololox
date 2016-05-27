@@ -8,22 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication1.Calificar
+namespace WindowsFormsApplication1.ABM_Usuario
 {
-    public partial class Pantalla_Calificar_Publicacion : Form
+    public partial class Pantalla_Datos_Empresa : Form
     {
-        public Pantalla_Calificar_Publicacion()
+        public Pantalla_Datos_Empresa()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Pantalla_Calificacion_Principal pantallaPrincipal = new Pantalla_Calificacion_Principal();
-            this.Close();
-            pantallaPrincipal.Show();
-        }
 
-      
+            Pantalla_Creacion_Usuario pantallaCreacionUser = new Pantalla_Creacion_Usuario();
+            this.Close();
+            pantallaCreacionUser.Show();
+
+        }
     }
 }

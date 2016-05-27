@@ -42,7 +42,7 @@
             this.Grupo_Modificar_Rol.Controls.Add(this.Modificar_Rol_Texto_Rol);
             this.Grupo_Modificar_Rol.Location = new System.Drawing.Point(13, 13);
             this.Grupo_Modificar_Rol.Name = "Grupo_Modificar_Rol";
-            this.Grupo_Modificar_Rol.Size = new System.Drawing.Size(403, 322);
+            this.Grupo_Modificar_Rol.Size = new System.Drawing.Size(215, 92);
             this.Grupo_Modificar_Rol.TabIndex = 0;
             this.Grupo_Modificar_Rol.TabStop = false;
             this.Grupo_Modificar_Rol.Text = "Modificar Rol";
@@ -66,27 +66,29 @@
             // 
             // Boton_Modificar
             // 
-            this.Boton_Modificar.Location = new System.Drawing.Point(82, 365);
+            this.Boton_Modificar.Location = new System.Drawing.Point(153, 127);
             this.Boton_Modificar.Name = "Boton_Modificar";
             this.Boton_Modificar.Size = new System.Drawing.Size(75, 23);
             this.Boton_Modificar.TabIndex = 1;
             this.Boton_Modificar.Text = "Modificar";
             this.Boton_Modificar.UseVisualStyleBackColor = true;
+            this.Boton_Modificar.Click += new System.EventHandler(this.Boton_Modificar_Click);
             // 
             // Boton_Cancelar
             // 
-            this.Boton_Cancelar.Location = new System.Drawing.Point(230, 365);
+            this.Boton_Cancelar.Location = new System.Drawing.Point(12, 127);
             this.Boton_Cancelar.Name = "Boton_Cancelar";
             this.Boton_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.Boton_Cancelar.TabIndex = 2;
-            this.Boton_Cancelar.Text = "Cancelar";
+            this.Boton_Cancelar.Text = "Atras";
             this.Boton_Cancelar.UseVisualStyleBackColor = true;
+            this.Boton_Cancelar.Click += new System.EventHandler(this.Boton_Cancelar_Click);
             // 
             // PantallaModificarRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 403);
+            this.ClientSize = new System.Drawing.Size(243, 164);
             this.Controls.Add(this.Boton_Cancelar);
             this.Controls.Add(this.Boton_Modificar);
             this.Controls.Add(this.Grupo_Modificar_Rol);

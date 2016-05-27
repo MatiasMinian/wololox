@@ -46,34 +46,34 @@
             // 
             // Boton_Eliminar_Rol
             // 
-            this.Boton_Eliminar_Rol.Location = new System.Drawing.Point(27, 89);
+            this.Boton_Eliminar_Rol.Location = new System.Drawing.Point(154, 131);
             this.Boton_Eliminar_Rol.Name = "Boton_Eliminar_Rol";
             this.Boton_Eliminar_Rol.Size = new System.Drawing.Size(75, 23);
             this.Boton_Eliminar_Rol.TabIndex = 1;
             this.Boton_Eliminar_Rol.Text = "Eliminar";
             this.Boton_Eliminar_Rol.UseVisualStyleBackColor = true;
+            this.Boton_Eliminar_Rol.Click += new System.EventHandler(this.Boton_Eliminar_Rol_Click);
             // 
             // Boton_Cancelar_Eliminar_Rol
             // 
-            this.Boton_Cancelar_Eliminar_Rol.Location = new System.Drawing.Point(147, 89);
+            this.Boton_Cancelar_Eliminar_Rol.Location = new System.Drawing.Point(7, 131);
             this.Boton_Cancelar_Eliminar_Rol.Name = "Boton_Cancelar_Eliminar_Rol";
             this.Boton_Cancelar_Eliminar_Rol.Size = new System.Drawing.Size(75, 23);
             this.Boton_Cancelar_Eliminar_Rol.TabIndex = 2;
-            this.Boton_Cancelar_Eliminar_Rol.Text = "Cancelar";
+            this.Boton_Cancelar_Eliminar_Rol.Text = "Atras";
             this.Boton_Cancelar_Eliminar_Rol.UseVisualStyleBackColor = true;
+            this.Boton_Cancelar_Eliminar_Rol.Click += new System.EventHandler(this.Boton_Cancelar_Eliminar_Rol_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.Texto_Rol);
             this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.Boton_Cancelar_Eliminar_Rol);
-            this.groupBox1.Controls.Add(this.Boton_Eliminar_Rol);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(259, 126);
+            this.groupBox1.Size = new System.Drawing.Size(216, 95);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Selección roles";
             // 
             // Texto_Rol
             // 
@@ -88,8 +88,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 151);
+            this.ClientSize = new System.Drawing.Size(241, 166);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.Boton_Eliminar_Rol);
+            this.Controls.Add(this.Boton_Cancelar_Eliminar_Rol);
             this.Name = "PantallaEliminarRol";
             this.Text = "Eliminar Rol";
             this.groupBox1.ResumeLayout(false);

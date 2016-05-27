@@ -16,5 +16,22 @@ namespace WindowsFormsApplication1.ABM_Rol
         {
             InitializeComponent();
         }
+
+        private void Boton_Cancelar_Click(object sender, EventArgs e)
+        {
+            Pantalla_ABM_Rol pantallaRol = new Pantalla_ABM_Rol();
+            this.Close();
+            pantallaRol.Show();
+        }
+
+        private void Boton_Crear_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+
+                MessageBox.Show("Ingresa rol a crear");
+            }
+
+        }
     }
 }

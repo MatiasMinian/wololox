@@ -32,6 +32,7 @@
             this.Boton_Crear_Rol = new System.Windows.Forms.Button();
             this.Boton_Mod_Rol = new System.Windows.Forms.Button();
             this.Boton_Eliminar_Rol = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Boton_Crear_Rol
@@ -55,10 +56,18 @@
             this.Boton_Eliminar_Rol.UseVisualStyleBackColor = true;
             this.Boton_Eliminar_Rol.Click += new System.EventHandler(this.Boton_Eliminar_Rol_Click);
             // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Pantalla_ABM_Rol
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Boton_Eliminar_Rol);
             this.Controls.Add(this.Boton_Mod_Rol);
             this.Controls.Add(this.Boton_Crear_Rol);
@@ -72,5 +81,6 @@
         private System.Windows.Forms.Button Boton_Crear_Rol;
         private System.Windows.Forms.Button Boton_Mod_Rol;
         private System.Windows.Forms.Button Boton_Eliminar_Rol;
+        private System.Windows.Forms.Button button1;
     }
 }

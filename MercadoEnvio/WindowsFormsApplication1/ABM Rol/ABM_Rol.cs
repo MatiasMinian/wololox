@@ -43,5 +43,13 @@ namespace WindowsFormsApplication1.ABM_Rol
             this.Close();
             this.Dispose();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+
+
+        }
     }
 }
