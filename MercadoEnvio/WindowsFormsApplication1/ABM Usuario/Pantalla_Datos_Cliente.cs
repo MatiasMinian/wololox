@@ -19,10 +19,10 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             Pantalla_Creacion_Usuario pantallaCreacionUser = new Pantalla_Creacion_Usuario();
             this.Close();
             pantallaCreacionUser.Show();
-
 
         }
 
@@ -41,22 +41,8 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textBox11.ResetText();
             comboBox1.ResetText();
 
-        }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            MonthCalendar calendarioFechaCreacion = new MonthCalendar();
-            calendarioFechaCreacion.Location = new System.Drawing.Point(50, 50);
-            calendarioFechaCreacion.Size = new System.Drawing.Size(50, 50);
-            calendarioFechaCreacion.Show();
-            this.Controls.Add(calendarioFechaCreacion);
-        }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            MonthCalendar calendarioFechaCreacion = new MonthCalendar();
-            calendarioFechaCreacion.Show();
         }
-
     }
 }

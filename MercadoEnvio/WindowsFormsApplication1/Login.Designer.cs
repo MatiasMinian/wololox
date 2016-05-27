@@ -71,6 +71,7 @@
             this.textoUser.Name = "textoUser";
             this.textoUser.Size = new System.Drawing.Size(116, 20);
             this.textoUser.TabIndex = 3;
+
             // 
             // textoPass
             // 

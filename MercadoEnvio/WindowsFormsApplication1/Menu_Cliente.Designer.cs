@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.botonRol = new System.Windows.Forms.Button();
-            this.botonUser = new System.Windows.Forms.Button();
             this.botonVisibilidad = new System.Windows.Forms.Button();
             this.botonPublic = new System.Windows.Forms.Button();
             this.botonCompra = new System.Windows.Forms.Button();
@@ -40,31 +38,12 @@
             this.botonSalir = new System.Windows.Forms.Button();
             this.labelBienvenida = new System.Windows.Forms.Label();
             this.labelUsuario = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // botonRol
-            // 
-            this.botonRol.Location = new System.Drawing.Point(241, 12);
-            this.botonRol.Name = "botonRol";
-            this.botonRol.Size = new System.Drawing.Size(122, 23);
-            this.botonRol.TabIndex = 0;
-            this.botonRol.Text = "ABM de Rol";
-            this.botonRol.UseVisualStyleBackColor = true;
-            this.botonRol.Click += new System.EventHandler(this.botonRol_Click);
-            // 
-            // botonUser
-            // 
-            this.botonUser.Location = new System.Drawing.Point(241, 41);
-            this.botonUser.Name = "botonUser";
-            this.botonUser.Size = new System.Drawing.Size(122, 23);
-            this.botonUser.TabIndex = 1;
-            this.botonUser.Text = "ABM de Usuario";
-            this.botonUser.UseVisualStyleBackColor = true;
-            this.botonUser.Click += new System.EventHandler(this.botonUser_Click);
             // 
             // botonVisibilidad
             // 
-            this.botonVisibilidad.Location = new System.Drawing.Point(241, 70);
+            this.botonVisibilidad.Location = new System.Drawing.Point(241, 22);
             this.botonVisibilidad.Name = "botonVisibilidad";
             this.botonVisibilidad.Size = new System.Drawing.Size(122, 23);
             this.botonVisibilidad.TabIndex = 2;
@@ -73,7 +52,7 @@
             // 
             // botonPublic
             // 
-            this.botonPublic.Location = new System.Drawing.Point(241, 99);
+            this.botonPublic.Location = new System.Drawing.Point(241, 51);
             this.botonPublic.Name = "botonPublic";
             this.botonPublic.Size = new System.Drawing.Size(122, 23);
             this.botonPublic.TabIndex = 3;
@@ -82,16 +61,16 @@
             // 
             // botonCompra
             // 
-            this.botonCompra.Location = new System.Drawing.Point(241, 128);
+            this.botonCompra.Location = new System.Drawing.Point(241, 80);
             this.botonCompra.Name = "botonCompra";
             this.botonCompra.Size = new System.Drawing.Size(122, 23);
             this.botonCompra.TabIndex = 4;
-            this.botonCompra.Text = "Compar/Ofertar";
+            this.botonCompra.Text = "Comprar/Ofertar";
             this.botonCompra.UseVisualStyleBackColor = true;
             // 
             // botonHistorial
             // 
-            this.botonHistorial.Location = new System.Drawing.Point(241, 157);
+            this.botonHistorial.Location = new System.Drawing.Point(241, 109);
             this.botonHistorial.Name = "botonHistorial";
             this.botonHistorial.Size = new System.Drawing.Size(122, 23);
             this.botonHistorial.TabIndex = 5;
@@ -101,7 +80,7 @@
             // 
             // botonCalificar
             // 
-            this.botonCalificar.Location = new System.Drawing.Point(241, 186);
+            this.botonCalificar.Location = new System.Drawing.Point(241, 138);
             this.botonCalificar.Name = "botonCalificar";
             this.botonCalificar.Size = new System.Drawing.Size(122, 23);
             this.botonCalificar.TabIndex = 6;
@@ -111,7 +90,7 @@
             // 
             // botonFacturas
             // 
-            this.botonFacturas.Location = new System.Drawing.Point(241, 215);
+            this.botonFacturas.Location = new System.Drawing.Point(241, 167);
             this.botonFacturas.Name = "botonFacturas";
             this.botonFacturas.Size = new System.Drawing.Size(122, 23);
             this.botonFacturas.TabIndex = 7;
@@ -120,7 +99,7 @@
             // 
             // botonEstadisticas
             // 
-            this.botonEstadisticas.Location = new System.Drawing.Point(241, 244);
+            this.botonEstadisticas.Location = new System.Drawing.Point(241, 196);
             this.botonEstadisticas.Name = "botonEstadisticas";
             this.botonEstadisticas.Size = new System.Drawing.Size(122, 23);
             this.botonEstadisticas.TabIndex = 8;
@@ -129,7 +108,7 @@
             // 
             // botonSalir
             // 
-            this.botonSalir.Location = new System.Drawing.Point(241, 273);
+            this.botonSalir.Location = new System.Drawing.Point(241, 254);
             this.botonSalir.Name = "botonSalir";
             this.botonSalir.Size = new System.Drawing.Size(122, 23);
             this.botonSalir.TabIndex = 9;
@@ -155,11 +134,21 @@
             this.labelUsuario.TabIndex = 11;
             this.labelUsuario.Text = "label1";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(241, 225);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Modificar datos";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 312);
+            this.ClientSize = new System.Drawing.Size(434, 298);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelUsuario);
             this.Controls.Add(this.labelBienvenida);
             this.Controls.Add(this.botonSalir);
@@ -170,8 +159,6 @@
             this.Controls.Add(this.botonCompra);
             this.Controls.Add(this.botonPublic);
             this.Controls.Add(this.botonVisibilidad);
-            this.Controls.Add(this.botonUser);
-            this.Controls.Add(this.botonRol);
             this.Name = "MenuForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -183,8 +170,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button botonRol;
-        private System.Windows.Forms.Button botonUser;
         private System.Windows.Forms.Button botonVisibilidad;
         private System.Windows.Forms.Button botonPublic;
         private System.Windows.Forms.Button botonCompra;
@@ -195,5 +180,6 @@
         private System.Windows.Forms.Button botonSalir;
         private System.Windows.Forms.Label labelBienvenida;
         private System.Windows.Forms.Label labelUsuario;
+        private System.Windows.Forms.Button button1;
     }
 }

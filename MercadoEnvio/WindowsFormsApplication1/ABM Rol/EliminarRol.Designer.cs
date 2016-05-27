@@ -39,7 +39,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(65, 30);
+            this.comboBox1.Location = new System.Drawing.Point(65, 41);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 0;
@@ -78,7 +78,7 @@
             // Texto_Rol
             // 
             this.Texto_Rol.AutoSize = true;
-            this.Texto_Rol.Location = new System.Drawing.Point(27, 37);
+            this.Texto_Rol.Location = new System.Drawing.Point(24, 49);
             this.Texto_Rol.Name = "Texto_Rol";
             this.Texto_Rol.Size = new System.Drawing.Size(26, 13);
             this.Texto_Rol.TabIndex = 3;

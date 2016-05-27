@@ -76,18 +76,19 @@ namespace WindowsFormsApplication1.ABM_Usuario
             }else if (comboBox1.Text == "Cliente")
             {
                 Pantalla_Datos_Cliente pantallaDatosCliente = new Pantalla_Datos_Cliente();
-                this.Hide();
+                this.Close();
                 pantallaDatosCliente.Show();
 
             }else
             {
                 Pantalla_Datos_Empresa pantallaDatosEmpresa = new Pantalla_Datos_Empresa();
-                this.Hide();
+                this.Close();
                 pantallaDatosEmpresa.Show();
 
             }
 
         }
+
     }
 
 }
