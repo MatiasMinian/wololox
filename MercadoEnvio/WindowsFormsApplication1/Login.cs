@@ -49,7 +49,7 @@ namespace WindowsFormsApplication1
             else
             {
 
-                MenuForm menu = new MenuForm(textoUser.Text);
+                Menu_Administradores menu = new Menu_Administradores();
                 this.Hide();
                 menu.ShowDialog();
                 this.Close();
