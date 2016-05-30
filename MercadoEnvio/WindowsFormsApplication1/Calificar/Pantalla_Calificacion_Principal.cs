@@ -24,9 +24,9 @@ namespace WindowsFormsApplication1.Calificar
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             Pantalla_Calificar_Publicacion pantallaCalificar = new Pantalla_Calificar_Publicacion();
-            this.Hide();
-            pantallaCalificar.Show();
+            pantallaCalificar.ShowDialog();
         }
     }
 }

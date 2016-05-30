@@ -148,7 +148,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Pantalla_Calificar_Publicacion";
-            this.Text = "Pantalla_Calificar_Publicacion";
+            this.Text = "Calificar publicación";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

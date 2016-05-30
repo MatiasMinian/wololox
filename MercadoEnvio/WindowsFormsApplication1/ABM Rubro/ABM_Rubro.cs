@@ -17,10 +17,5 @@ namespace WindowsFormsApplication1.ABM_Rubro
             InitializeComponent();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         }
     }

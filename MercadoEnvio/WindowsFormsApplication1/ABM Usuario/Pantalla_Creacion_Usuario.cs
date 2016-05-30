@@ -39,8 +39,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
-            Pantalla_Usuario_Principal pantallaPrincipal = new Pantalla_Usuario_Principal();
-            pantallaPrincipal.Show();
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -76,14 +75,12 @@ namespace WindowsFormsApplication1.ABM_Usuario
             }else if (comboBox1.Text == "Cliente")
             {
                 Pantalla_Datos_Cliente pantallaDatosCliente = new Pantalla_Datos_Cliente();
-                this.Close();
-                pantallaDatosCliente.Show();
+                pantallaDatosCliente.ShowDialog();
 
             }else
             {
                 Pantalla_Datos_Empresa pantallaDatosEmpresa = new Pantalla_Datos_Empresa();
-                this.Close();
-                pantallaDatosEmpresa.Show();
+                pantallaDatosEmpresa.ShowDialog();
 
             }
 

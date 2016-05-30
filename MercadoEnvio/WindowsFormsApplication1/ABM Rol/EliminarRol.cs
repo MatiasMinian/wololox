@@ -19,9 +19,9 @@ namespace WindowsFormsApplication1.ABM_Rol
 
         private void Boton_Cancelar_Eliminar_Rol_Click(object sender, EventArgs e)
         {
-            Pantalla_ABM_Rol pantallaRol = new Pantalla_ABM_Rol();
+
             this.Close();
-            pantallaRol.Show();
+
         }
 
         private void Boton_Eliminar_Rol_Click(object sender, EventArgs e)

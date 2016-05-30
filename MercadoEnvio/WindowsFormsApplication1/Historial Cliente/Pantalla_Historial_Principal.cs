@@ -26,8 +26,7 @@ namespace WindowsFormsApplication1.Historial_Cliente
         {
 
             Pantalla_Historial_Cantidad_Segun_Estrellas pantallaSegunEstrellas = new Pantalla_Historial_Cantidad_Segun_Estrellas();
-            this.Hide();
-            pantallaSegunEstrellas.Show();
+            pantallaSegunEstrellas.ShowDialog();
             
         }
 

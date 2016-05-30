@@ -10,18 +10,17 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
-    public partial class Pantalla_Modificacion_Usuario : Form
+    public partial class Pantalla_Modificacion_Empresa : Form
     {
-        public Pantalla_Modificacion_Usuario()
+        public Pantalla_Modificacion_Empresa()
         {
             InitializeComponent();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Pantalla_Usuario_Principal pantallaPrincipal = new Pantalla_Usuario_Principal();
             this.Close();
-            pantallaPrincipal.Show();
+
         }
 
         private void button1_Click(object sender, EventArgs e)

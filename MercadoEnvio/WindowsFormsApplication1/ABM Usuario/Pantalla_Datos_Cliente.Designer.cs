@@ -358,7 +358,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // Pantalla_Datos_Empresa
+            // Pantalla_Datos_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -367,8 +367,8 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Pantalla_Datos_Empresa";
-            this.Text = "Pantalla_Datos_Cliente";
+            this.Name = "Pantalla_Datos_Cliente";
+            this.Text = "Datos cliente";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

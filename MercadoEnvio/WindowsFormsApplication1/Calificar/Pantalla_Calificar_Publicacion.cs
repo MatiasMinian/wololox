@@ -19,9 +19,7 @@ namespace WindowsFormsApplication1.Calificar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Pantalla_Calificacion_Principal pantallaPrincipal = new Pantalla_Calificacion_Principal();
             this.Close();
-            pantallaPrincipal.Show();
         }
 
       

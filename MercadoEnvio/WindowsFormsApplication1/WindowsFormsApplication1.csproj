@@ -74,6 +74,18 @@
     <Compile Include="ABM Rubro\ABM_Rubro.Designer.cs">
       <DependentUpon>ABM_Rubro.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Modificacion_Empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Modificacion_Empresa.Designer.cs">
+      <DependentUpon>Pantalla_Modificacion_Empresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Modificacion_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Modificacion_Cliente.Designer.cs">
+      <DependentUpon>Pantalla_Modificacion_Cliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Usuario\Pantalla_Creacion_Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,11 +104,11 @@
     <Compile Include="ABM Usuario\Pantalla_Datos_Cliente.Designer.cs">
       <DependentUpon>Pantalla_Datos_Cliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Usuario\Pantalla_Modificacion_Usuario.cs">
+    <Compile Include="ABM Usuario\Pantalla_Modificacion_Admins.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Usuario\Pantalla_Modificacion_Usuario.Designer.cs">
-      <DependentUpon>Pantalla_Modificacion_Usuario.cs</DependentUpon>
+    <Compile Include="ABM Usuario\Pantalla_Modificacion_Admins.Designer.cs">
+      <DependentUpon>Pantalla_Modificacion_Admins.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Usuario\Pantalla_Usuario_Principal.cs">
       <SubType>Form</SubType>
@@ -199,6 +211,12 @@
     <EmbeddedResource Include="ABM Rubro\ABM_Rubro.resx">
       <DependentUpon>ABM_Rubro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Modificacion_Empresa.resx">
+      <DependentUpon>Pantalla_Modificacion_Empresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Modificacion_Cliente.resx">
+      <DependentUpon>Pantalla_Modificacion_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\Pantalla_Creacion_Usuario.resx">
       <DependentUpon>Pantalla_Creacion_Usuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,8 +226,8 @@
     <EmbeddedResource Include="ABM Usuario\Pantalla_Datos_Cliente.resx">
       <DependentUpon>Pantalla_Datos_Cliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Usuario\Pantalla_Modificacion_Usuario.resx">
-      <DependentUpon>Pantalla_Modificacion_Usuario.cs</DependentUpon>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Modificacion_Admins.resx">
+      <DependentUpon>Pantalla_Modificacion_Admins.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\Pantalla_Usuario_Principal.resx">
       <DependentUpon>Pantalla_Usuario_Principal.cs</DependentUpon>

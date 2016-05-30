@@ -343,7 +343,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Pantalla_Datos_Empresa";
-            this.Text = "Pantalla_Datos_Empresa";
+            this.Text = "Datos empresa";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

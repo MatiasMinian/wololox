@@ -109,7 +109,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.botonLimpieza;
-            this.ClientSize = new System.Drawing.Size(316, 214);
+            this.ClientSize = new System.Drawing.Size(296, 214);
             this.Controls.Add(this.botonLimpieza);
             this.Controls.Add(this.botonIngreso);
             this.Controls.Add(this.textoPass);

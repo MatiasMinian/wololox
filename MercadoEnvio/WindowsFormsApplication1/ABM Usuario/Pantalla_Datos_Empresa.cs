@@ -19,11 +19,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Pantalla_Creacion_Usuario pantallaCreacionUser = new Pantalla_Creacion_Usuario();
             this.Close();
-            pantallaCreacionUser.Show();
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)

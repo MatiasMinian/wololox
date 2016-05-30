@@ -19,9 +19,8 @@ namespace WindowsFormsApplication1.Historial_Cliente
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Pantalla_Historial_Principal pantallaHistoPrinci = new Pantalla_Historial_Principal();
             this.Close();
-            pantallaHistoPrinci.Show();
+
         }
     }
 }

@@ -7,27 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApplication1.ABM_Usuario;
 
-namespace WindowsFormsApplication1
+namespace WindowsFormsApplication1.ABM_Usuario
 {
-    public partial class Menu_Empresa : Form
+    public partial class Pantalla_Modificacion_Cliente : Form
     {
-        public Menu_Empresa()
+        public Pantalla_Modificacion_Cliente()
         {
             InitializeComponent();
         }
 
-        private void botonSalir_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Pantalla_Modificacion_Cliente pantallaModificacion = new Pantalla_Modificacion_Cliente();
-            pantallaModificacion.ShowDialog();
-        }
 
+        }
     }
 }

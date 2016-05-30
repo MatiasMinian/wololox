@@ -14,10 +14,10 @@ using WindowsFormsApplication1.Historial_Cliente;
 
 namespace WindowsFormsApplication1
 {
-    public partial class MenuForm : Form
+    public partial class Menu_Cliente : Form
     {
 
-        public MenuForm()
+        public Menu_Cliente()
         {
             InitializeComponent();
             foreach (Control control in this.Controls)
@@ -30,7 +30,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public MenuForm(String usuario) : this()
+        public Menu_Cliente(String usuario) : this()
         {
            labelUsuario.Text = usuario;
         }
@@ -44,7 +44,7 @@ namespace WindowsFormsApplication1
         private void botonCalificar_Click(object sender, EventArgs e)
         {
             Pantalla_Calificacion_Principal pCali = new Pantalla_Calificacion_Principal();
-            pCali.Show();
+            pCali.ShowDialog();
   
         }
 
@@ -58,16 +58,23 @@ namespace WindowsFormsApplication1
         private void botonHistorial_Click(object sender, EventArgs e)
         {
             Pantalla_Historial_Principal pantallaHistorial = new Pantalla_Historial_Principal();
-            pantallaHistorial.Show();
+            pantallaHistorial.ShowDialog();
      
         }
 
         private void botonRol_Click(object sender, EventArgs e)
         {
             Pantalla_ABM_Rol pantallaRubroPrincipal = new Pantalla_ABM_Rol();
-            pantallaRubroPrincipal.Show();
+            pantallaRubroPrincipal.ShowDialog();
 
        
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            Pantalla_Modificacion_Cliente pantallaModificacion = new Pantalla_Modificacion_Cliente();
+            pantallaModificacion.ShowDialog();
         }
     }
 }

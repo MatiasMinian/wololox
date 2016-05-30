@@ -19,29 +19,27 @@ namespace WindowsFormsApplication1.ABM_Rol
 
         private void Boton_Crear_Rol_Click(object sender, EventArgs e)
         {
+
             PantallaCrearRol pantallCrearRol = new PantallaCrearRol();
-            this.Hide();
             pantallCrearRol.ShowDialog();
-            this.Close();
-            this.Dispose();
+          
         }
 
         private void Boton_Mod_Rol_Click(object sender, EventArgs e)
         {
+ 
             PantallaModificarRol pantallaModRol = new PantallaModificarRol();
-            this.Hide();
             pantallaModRol.ShowDialog();
-            this.Close();
-            this.Dispose();
+           
         }
 
         private void Boton_Eliminar_Rol_Click(object sender, EventArgs e)
         {
+
             PantallaEliminarRol pantallaReliminarRol = new PantallaEliminarRol();
-            this.Hide();
             pantallaReliminarRol.ShowDialog();
-            this.Close();
-            this.Dispose();
+      
+  
         }
 
         private void button1_Click(object sender, EventArgs e)

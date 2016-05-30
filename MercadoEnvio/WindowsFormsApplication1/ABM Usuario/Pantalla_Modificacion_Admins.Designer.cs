@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1.ABM_Usuario
 {
-    partial class Pantalla_Modificacion_Usuario
+    partial class Pantalla_Modificacion_Admins
     {
         /// <summary>
         /// Required designer variable.
@@ -104,7 +104,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Pantalla_Modificacion_Usuario";
-            this.Text = "Pantalla_Modificacion_Usuario";
+            this.Text = "Modificaciones";
             this.ResumeLayout(false);
             this.PerformLayout();
 

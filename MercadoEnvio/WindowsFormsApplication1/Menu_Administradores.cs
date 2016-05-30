@@ -24,14 +24,14 @@ namespace WindowsFormsApplication1
         {
 
             Pantalla_ABM_Rol pantallaRol = new Pantalla_ABM_Rol();
-            pantallaRol.Show();
+            pantallaRol.ShowDialog();
 
         }
 
         private void botonUser_Click(object sender, EventArgs e)
         {
             Pantalla_Usuario_Principal pantallaUsuarioPrincipal = new Pantalla_Usuario_Principal();
-            pantallaUsuarioPrincipal.Show();
+            pantallaUsuarioPrincipal.ShowDialog();
         }
 
         private void botonSalir_Click(object sender, EventArgs e)
