@@ -67,6 +67,7 @@
             this.botonCompra.TabIndex = 4;
             this.botonCompra.Text = "Comprar/Ofertar";
             this.botonCompra.UseVisualStyleBackColor = true;
+            this.botonCompra.Click += new System.EventHandler(this.botonCompra_Click);
             // 
             // botonHistorial
             // 
@@ -144,7 +145,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // MenuForm
+            // Menu_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -160,7 +161,7 @@
             this.Controls.Add(this.botonCompra);
             this.Controls.Add(this.botonPublic);
             this.Controls.Add(this.botonVisibilidad);
-            this.Name = "MenuForm";
+            this.Name = "Menu_Cliente";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu de usuario";

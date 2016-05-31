@@ -11,6 +11,7 @@ using WindowsFormsApplication1.ABM_Rol;
 using WindowsFormsApplication1.ABM_Usuario;
 using WindowsFormsApplication1.Calificar;
 using WindowsFormsApplication1.Historial_Cliente;
+using WindowsFormsApplication1.ComprarOfertar;
 
 namespace WindowsFormsApplication1
 {
@@ -75,6 +76,13 @@ namespace WindowsFormsApplication1
 
             Pantalla_Modificacion_Cliente pantallaModificacion = new Pantalla_Modificacion_Cliente();
             pantallaModificacion.ShowDialog();
+        }
+
+        private void botonCompra_Click(object sender, EventArgs e)
+        {
+            
+            FormComprayOferta pantallaCompra = new FormComprayOferta();
+            pantallaCompra.ShowDialog();
         }
     }
 }

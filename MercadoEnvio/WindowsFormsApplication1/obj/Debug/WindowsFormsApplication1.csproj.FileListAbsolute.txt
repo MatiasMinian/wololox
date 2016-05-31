@@ -9,7 +9,6 @@ C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\
 C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
 C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
-C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MenuForm.resources
 C:\Users\Matias\Desktop\Matias\UTN\Gestión de Datos\Desktop App\wololox\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
 C:\Users\Matias\Desktop\Matias\UTN\Gestión de Datos\Desktop App\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\Matias\Desktop\Matias\UTN\Gestión de Datos\Desktop App\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
@@ -41,3 +40,24 @@ C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj
 C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Modificacion_Empresa.resources
 C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Modificacion_Cliente.resources
 C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Menu_Cliente.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Rol.Pantalla_ABM_Rol.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Rol.PantallaCrearRol.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Rol.PantallaEliminarRol.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Rol.PantallaModificarRol.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Rubro.Pantalla_Rubro.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Modificacion_Empresa.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Modificacion_Cliente.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Creacion_Usuario.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Datos_Empresa.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Datos_Cliente.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Modificacion_Admins.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Usuario_Principal.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Calificar.Pantalla_Calificacion_Principal.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Calificar.Pantalla_Calificar_Publicacion.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Historial_Cliente.Pantalla_Historial_Cantidad_Segun_Estrellas.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Historial_Cliente.Pantalla_Historial_Principal.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Menu_Cliente.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Menu_Administradores.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Menu_Empresa.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ComprarOfertar.FormComprayOferta.resources
+C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ComprarOfertar.FormSelecRubro.resources

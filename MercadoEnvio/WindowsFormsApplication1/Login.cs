@@ -48,8 +48,10 @@ namespace WindowsFormsApplication1
 
             else
             {
-
-                Menu_Administradores menu = new Menu_Administradores();
+                //Seleccionar por ahora para probar
+                Menu_Cliente menu = new Menu_Cliente();
+                //Menu_Empresa menu = new Menu_Empresa();
+                //Menu_Administradores menu = new Menu_Administradores();
                 this.Hide();
                 menu.ShowDialog();
                 this.Close();

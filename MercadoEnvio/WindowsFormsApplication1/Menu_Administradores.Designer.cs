@@ -88,7 +88,7 @@
             // 
             this.botonSalir.Location = new System.Drawing.Point(250, 122);
             this.botonSalir.Name = "botonSalir";
-            this.botonSalir.Size = new System.Drawing.Size(122, 23);
+            this.botonSalir.Size = new System.Drawing.Size(122, 27);
             this.botonSalir.TabIndex = 10;
             this.botonSalir.Text = "Salir";
             this.botonSalir.UseVisualStyleBackColor = true;

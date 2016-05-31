@@ -134,6 +134,12 @@
     <Compile Include="Calificar\Pantalla_Calificar_Publicacion.Designer.cs">
       <DependentUpon>Pantalla_Calificar_Publicacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComprarOfertar\FormSelecRubro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComprarOfertar\FormSelecRubro.Designer.cs">
+      <DependentUpon>FormSelecRubro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,11 +152,11 @@
     <Compile Include="Historial Cliente\Pantalla_Historial_Principal.Designer.cs">
       <DependentUpon>Pantalla_Historial_Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComprarOfertar\Form1.cs">
+    <Compile Include="ComprarOfertar\FormComprayOferta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ComprarOfertar\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ComprarOfertar\FormComprayOferta.Designer.cs">
+      <DependentUpon>FormComprayOferta.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturas\Form1.cs">
       <SubType>Form</SubType>
@@ -237,6 +243,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Calificar\Pantalla_Calificar_Publicacion.resx">
       <DependentUpon>Pantalla_Calificar_Publicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComprarOfertar\FormSelecRubro.resx">
+      <DependentUpon>FormSelecRubro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComprarOfertar\FormComprayOferta.resx">
+      <DependentUpon>FormComprayOferta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.resx">
       <DependentUpon>Pantalla_Historial_Cantidad_Segun_Estrellas.cs</DependentUpon>
