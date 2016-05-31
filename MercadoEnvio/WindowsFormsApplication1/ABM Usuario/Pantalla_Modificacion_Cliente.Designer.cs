@@ -36,7 +36,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(244, 36);
+            this.button1.Location = new System.Drawing.Point(211, 21);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 23);
             this.button1.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 226);
+            this.button3.Location = new System.Drawing.Point(12, 122);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
@@ -57,7 +57,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 36);
+            this.label1.Location = new System.Drawing.Point(9, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 13);
             this.label1.TabIndex = 3;
@@ -65,23 +65,24 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(244, 79);
+            this.button4.Location = new System.Drawing.Point(211, 66);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(112, 23);
             this.button4.TabIndex = 4;
             this.button4.Text = "Modificar password";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // Pantalla_Modificacion_Usuario
+            // Pantalla_Modificacion_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 261);
+            this.ClientSize = new System.Drawing.Size(338, 166);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
-            this.Name = "Pantalla_Modificacion_Usuario";
+            this.Name = "Pantalla_Modificacion_Cliente";
             this.Text = "Modificaciones";
             this.ResumeLayout(false);
             this.PerformLayout();

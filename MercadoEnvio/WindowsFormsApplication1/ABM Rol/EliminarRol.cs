@@ -30,6 +30,7 @@ namespace WindowsFormsApplication1.ABM_Rol
             {
 
                 MessageBox.Show("Ingresa rol a eliminar");
+
             }
         }
     }

@@ -19,18 +19,32 @@ namespace WindowsFormsApplication1.ABM_Rol
 
         private void Boton_Cancelar_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
 
         }
 
         private void Boton_Crear_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            if (textBox1.Text == "" && listBox1.SelectedItems.Count==0)
             {
 
-                MessageBox.Show("Ingresa rol a crear");
+                MessageBox.Show("Ingresa nombre de rol a crear y selecciona funcionalidades");
+            }
+            else if (textBox1.Text == "")
+            {
+
+                MessageBox.Show("Ingresa nombre de rol a crear");
+
+            }
+            else
+            {
+
+                MessageBox.Show("Selecciona funcionalidades de rol a crear");
+
             }
 
         }
+
+
     }
 }

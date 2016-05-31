@@ -58,7 +58,7 @@
             this.ColumnVendedor});
             this.dataGridView1.Location = new System.Drawing.Point(240, 40);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(343, 45);
+            this.dataGridView1.Size = new System.Drawing.Size(343, 158);
             this.dataGridView1.TabIndex = 1;
             // 
             // ColumnPublicacion

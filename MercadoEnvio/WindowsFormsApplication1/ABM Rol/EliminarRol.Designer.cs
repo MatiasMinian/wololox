@@ -38,6 +38,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(65, 41);
             this.comboBox1.Name = "comboBox1";
@@ -70,7 +71,7 @@
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(216, 95);
+            this.groupBox1.Size = new System.Drawing.Size(216, 101);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selección roles";
@@ -88,7 +89,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(241, 166);
+            this.ClientSize = new System.Drawing.Size(241, 172);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Boton_Eliminar_Rol);
             this.Controls.Add(this.Boton_Cancelar_Eliminar_Rol);

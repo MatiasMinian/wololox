@@ -61,3 +61,8 @@ C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\
 C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Menu_Empresa.resources
 C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ComprarOfertar.FormComprayOferta.resources
 C:\Users\usuario\Documents\Cole\2016\Gestión\TP\TP Frba MercadoEnvio - 1C 2016\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ComprarOfertar.FormSelecRubro.resources
+C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ComprarOfertar.FormSelecRubro.resources
+C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ComprarOfertar.FormComprayOferta.resources
+C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Rol.Pantalla_Habilitacion_Rol.resources
+C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Modificación_Password.resources
+C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Rol.Pantalla_Selección_De_Rol_Login.resources

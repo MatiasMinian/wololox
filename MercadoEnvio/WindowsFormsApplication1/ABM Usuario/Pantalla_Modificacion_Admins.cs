@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApplication1.ABM_Rol;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
@@ -27,5 +28,17 @@ namespace WindowsFormsApplication1.ABM_Usuario
         {
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Pantalla_Habilitacion_Rol pantallaHabilitacionRol = new Pantalla_Habilitacion_Rol();
+            pantallaHabilitacionRol.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

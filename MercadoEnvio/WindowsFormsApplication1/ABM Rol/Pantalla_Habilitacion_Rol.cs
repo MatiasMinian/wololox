@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication1.Historial_Cliente
+namespace WindowsFormsApplication1.ABM_Rol
 {
-    public partial class Pantalla_Historial_Principal : Form
+    public partial class Pantalla_Habilitacion_Rol : Form
     {
-        public Pantalla_Historial_Principal()
+        public Pantalla_Habilitacion_Rol()
         {
             InitializeComponent();
         }
@@ -24,13 +24,12 @@ namespace WindowsFormsApplication1.Historial_Cliente
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (comboBox1.Text == "")
+            {
 
-            Pantalla_Historial_Cantidad_Segun_Estrellas pantallaSegunEstrellas = new Pantalla_Historial_Cantidad_Segun_Estrellas();
-            pantallaSegunEstrellas.ShowDialog();
-            
+                MessageBox.Show("Ingresa rol a habilitar");
+
+            }
         }
-
-
     }
-
 }

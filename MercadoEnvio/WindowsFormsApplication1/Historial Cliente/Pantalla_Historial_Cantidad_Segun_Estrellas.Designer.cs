@@ -55,7 +55,7 @@
             this.ColumnaCantidad});
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(445, 45);
+            this.dataGridView1.Size = new System.Drawing.Size(636, 178);
             this.dataGridView1.TabIndex = 0;
             // 
             // ColumnaCompra

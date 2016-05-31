@@ -15,6 +15,16 @@ namespace WindowsFormsApplication1.ABM_Usuario
         public Pantalla_Datos_Cliente()
         {
             InitializeComponent();
+
+            //Formato fecha
+
+            textBox12.Format = DateTimePickerFormat.Custom;
+            textBox12.CustomFormat = "dd/MM/yyyy";
+
+            textBox13.Format = DateTimePickerFormat.Custom;
+            textBox13.CustomFormat = "dd/MM/yyyy";
+            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,5 +52,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
 
         }
+
     }
+
 }

@@ -68,11 +68,35 @@
     <Compile Include="ABM Rol\ModificarRol.Designer.cs">
       <DependentUpon>ModificarRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Rol\Pantalla_Habilitacion_Rol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Rol\Pantalla_Habilitacion_Rol.Designer.cs">
+      <DependentUpon>Pantalla_Habilitacion_Rol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Rol\Pantalla_Selección_De_Rol_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Rol\Pantalla_Selección_De_Rol_Login.Designer.cs">
+      <DependentUpon>Pantalla_Selección_De_Rol_Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Rubro\ABM_Rubro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ABM Rubro\ABM_Rubro.Designer.cs">
       <DependentUpon>ABM_Rubro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_Cliente.Designer.cs">
+      <DependentUpon>Pantalla_Busqueda_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_Empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_Empresa.Designer.cs">
+      <DependentUpon>Pantalla_Busqueda_Empresa.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Usuario\Pantalla_Modificacion_Empresa.cs">
       <SubType>Form</SubType>
@@ -109,6 +133,12 @@
     </Compile>
     <Compile Include="ABM Usuario\Pantalla_Modificacion_Admins.Designer.cs">
       <DependentUpon>Pantalla_Modificacion_Admins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Modificación_Password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Modificación_Password.Designer.cs">
+      <DependentUpon>Pantalla_Modificación_Password.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Usuario\Pantalla_Usuario_Principal.cs">
       <SubType>Form</SubType>
@@ -214,6 +244,12 @@
     <EmbeddedResource Include="ABM Rol\ModificarRol.resx">
       <DependentUpon>ModificarRol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\Pantalla_Habilitacion_Rol.resx">
+      <DependentUpon>Pantalla_Habilitacion_Rol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\Pantalla_Selección_De_Rol_Login.resx">
+      <DependentUpon>Pantalla_Selección_De_Rol_Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM Rubro\ABM_Rubro.resx">
       <DependentUpon>ABM_Rubro.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\Pantalla_Modificacion_Admins.resx">
       <DependentUpon>Pantalla_Modificacion_Admins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Modificación_Password.resx">
+      <DependentUpon>Pantalla_Modificación_Password.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\Pantalla_Usuario_Principal.resx">
       <DependentUpon>Pantalla_Usuario_Principal.cs</DependentUpon>

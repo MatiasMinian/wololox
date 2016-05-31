@@ -47,7 +47,7 @@
             // labelUser
             // 
             this.labelUser.AutoSize = true;
-            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUser.Location = new System.Drawing.Point(45, 50);
             this.labelUser.Name = "labelUser";
             this.labelUser.Size = new System.Drawing.Size(46, 13);
@@ -57,7 +57,7 @@
             // labelPass
             // 
             this.labelPass.AutoSize = true;
-            this.labelPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPass.Location = new System.Drawing.Point(45, 79);
             this.labelPass.Name = "labelPass";
             this.labelPass.Size = new System.Drawing.Size(64, 13);
@@ -109,7 +109,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.botonLimpieza;
-            this.ClientSize = new System.Drawing.Size(296, 214);
+            this.ClientSize = new System.Drawing.Size(293, 205);
             this.Controls.Add(this.botonLimpieza);
             this.Controls.Add(this.botonIngreso);
             this.Controls.Add(this.textoPass);

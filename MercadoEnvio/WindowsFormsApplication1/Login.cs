@@ -49,7 +49,7 @@ namespace WindowsFormsApplication1
             else
             {
                 //Seleccionar por ahora para probar
-                Menu_Cliente menu = new Menu_Cliente();
+                Menu_Administradores menu = new Menu_Administradores();
                 //Menu_Empresa menu = new Menu_Empresa();
                 //Menu_Administradores menu = new Menu_Administradores();
                 this.Hide();
