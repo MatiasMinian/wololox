@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1.ABM_Usuario
 {
-    partial class Pantalla_Modificacion_Empresa
+    partial class Pantalla_Modificacion_Principal_Empresa
     {
         /// <summary>
         /// Required designer variable.

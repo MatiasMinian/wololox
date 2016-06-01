@@ -32,7 +32,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
         private void button1_Click(object sender, EventArgs e)
         {
 
-            Pantalla_Modificacion_Admins pantallaModificacion = new Pantalla_Modificacion_Admins();
+            Pantalla_Modificacion_Principal_Admins pantallaModificacion = new Pantalla_Modificacion_Principal_Admins();
             pantallaModificacion.ShowDialog();
         }
 

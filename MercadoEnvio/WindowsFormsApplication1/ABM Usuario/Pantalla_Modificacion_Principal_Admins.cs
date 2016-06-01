@@ -11,9 +11,9 @@ using WindowsFormsApplication1.ABM_Rol;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
-    public partial class Pantalla_Modificacion_Admins : Form
+    public partial class Pantalla_Modificacion_Principal_Admins : Form
     {
-        public Pantalla_Modificacion_Admins()
+        public Pantalla_Modificacion_Principal_Admins()
         {
             InitializeComponent();
         }
@@ -26,7 +26,8 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Pantalla_Elección_Usuario_A_Modificar pantallaEleccion = new Pantalla_Elección_Usuario_A_Modificar();
+            pantallaEleccion.ShowDialog();
         }
 
         private void button6_Click(object sender, EventArgs e)

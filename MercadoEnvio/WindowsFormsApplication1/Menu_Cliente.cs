@@ -74,7 +74,7 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
 
-            Pantalla_Modificacion_Cliente pantallaModificacion = new Pantalla_Modificacion_Cliente();
+            Pantalla_Modificacion_Principal_Cliente pantallaModificacion = new Pantalla_Modificacion_Principal_Cliente();
             pantallaModificacion.ShowDialog();
         }
 

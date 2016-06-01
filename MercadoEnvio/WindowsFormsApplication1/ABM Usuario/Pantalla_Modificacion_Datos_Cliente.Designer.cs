@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1.ABM_Usuario
 {
-    partial class Pantalla_Datos_Cliente
+    partial class Pantalla_Modificacion_Datos_Cliente
     {
         /// <summary>
         /// Required designer variable.
@@ -89,7 +89,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Guardar";
+            this.button3.Text = "Modificar";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -358,7 +358,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // Pantalla_Datos_Cliente
+            // Pantalla_Modificacion_Datos_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -367,7 +367,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Pantalla_Datos_Cliente";
+            this.Name = "Pantalla_Modificacion_Datos_Cliente";
             this.Text = "Datos cliente";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

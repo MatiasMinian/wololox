@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
-    public partial class Pantalla_Datos_Cliente : Form
+    public partial class Pantalla_Modificacion_Datos_Cliente : Form
     {
-        public Pantalla_Datos_Cliente()
+        public Pantalla_Modificacion_Datos_Cliente()
         {
             InitializeComponent();
 

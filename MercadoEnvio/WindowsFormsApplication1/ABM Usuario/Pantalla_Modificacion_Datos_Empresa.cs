@@ -10,28 +10,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
-    public partial class Pantalla_Datos_Cliente : Form
+    public partial class Pantalla_Modificacion_Datos_Empresa : Form
     {
-        public Pantalla_Datos_Cliente()
+        public Pantalla_Modificacion_Datos_Empresa()
         {
             InitializeComponent();
-
-            //Formato fecha
-
-            textBox12.Format = DateTimePickerFormat.Custom;
-            textBox12.CustomFormat = "dd/MM/yyyy";
-
-            textBox13.Format = DateTimePickerFormat.Custom;
-            textBox13.CustomFormat = "dd/MM/yyyy";
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             this.Close();
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -47,26 +35,25 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textBox9.ResetText();
             textBox10.ResetText();
             textBox11.ResetText();
-            comboBox1.ResetText();
-
-
+            textBox12.ResetText();
+            textBox13.ResetText();
+            
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == ""
-               || textBox5.Text == "" || textBox6.Text == "" || textBox7.Text == "" || textBox8.Text == ""
-               || textBox9.Text == "" || textBox10.Text == "" || textBox11.Text == "" || comboBox1.Text == "")
+              || textBox5.Text == "" || textBox6.Text == "" || textBox7.Text == "" || textBox8.Text == ""
+              || textBox9.Text == "" || textBox10.Text == "" || textBox11.Text == "" || textBox12.Text == ""
+              || textBox13.Text == "")
             {
 
                 MessageBox.Show("Completar campos vacíos");
 
             }
-
         }
 
- 
-    }
 
+    }
 }
