@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
-    public partial class Pantalla_Busqueda_Cliente_A_Modificar : Form
+    public partial class Pantalla_Busqueda_Cliente_A_Habilitar : Form
     {
-        public Pantalla_Busqueda_Cliente_A_Modificar()
+        public Pantalla_Busqueda_Cliente_A_Habilitar()
         {
             InitializeComponent();
         }
@@ -41,9 +41,6 @@ namespace WindowsFormsApplication1.ABM_Usuario
             }
             else
             {
-
-                Pantalla_Modificacion_Datos_Cliente pantallaModificacionCliente = new Pantalla_Modificacion_Datos_Cliente();
-                pantallaModificacionCliente.ShowDialog();
 
             }
         }

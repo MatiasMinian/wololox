@@ -49,7 +49,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
               || textBox13.Text == "")
             {
 
-                MessageBox.Show("Completar campos vacíos");
+                MessageBox.Show("Complete campos vacíos");
 
             }
         }

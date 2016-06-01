@@ -79,7 +79,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
             }else
             {
-                Pantalla_Modificacion_Datos_Empresa pantallaDatosEmpresa = new Pantalla_Modificacion_Datos_Empresa();
+                Pantalla_Datos_Empresa pantallaDatosEmpresa = new Pantalla_Datos_Empresa();
                 pantallaDatosEmpresa.ShowDialog();
 
             }

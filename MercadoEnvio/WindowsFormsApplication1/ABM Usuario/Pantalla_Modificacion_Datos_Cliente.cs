@@ -55,12 +55,13 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == ""
-               || textBox5.Text == "" || textBox6.Text == "" || textBox7.Text == "" || textBox8.Text == ""
-               || textBox9.Text == "" || textBox10.Text == "" || textBox11.Text == "" || comboBox1.Text == "")
+            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == ""
+               && textBox5.Text == "" && textBox6.Text == "" && textBox7.Text == "" && textBox8.Text == ""
+               && textBox9.Text == "" && textBox10.Text == "" && textBox11.Text == "" && comboBox1.Text == "")
+    
             {
 
-                MessageBox.Show("Completar campos vacíos");
+                MessageBox.Show("Complete algún campo a modificar");
 
             }
 

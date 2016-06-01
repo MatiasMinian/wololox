@@ -133,7 +133,7 @@
             // textBox13
             // 
             this.textBox13.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.textBox13.Location = new System.Drawing.Point(570, 115);
+            this.textBox13.Location = new System.Drawing.Point(570, 94);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(100, 20);
             this.textBox13.TabIndex = 28;
@@ -149,7 +149,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(497, 122);
+            this.label14.Location = new System.Drawing.Point(497, 100);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(58, 13);
             this.label14.TabIndex = 26;

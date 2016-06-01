@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
-    public partial class Pantalla_Busqueda_Cliente_A_Modificar : Form
+    public partial class Pantalla_Busqueda_Empresa_A_Eliminar : Form
     {
-        public Pantalla_Busqueda_Cliente_A_Modificar()
+        public Pantalla_Busqueda_Empresa_A_Eliminar()
         {
             InitializeComponent();
         }
@@ -27,13 +27,11 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textBox1.ResetText();
             textBox2.ResetText();
             textBox3.ResetText();
-            textBox4.ResetText();
-
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == "")
+            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "")
             {
 
                 MessageBox.Show("Complete algún campo de búsqueda");
@@ -42,11 +40,9 @@ namespace WindowsFormsApplication1.ABM_Usuario
             else
             {
 
-                Pantalla_Modificacion_Datos_Cliente pantallaModificacionCliente = new Pantalla_Modificacion_Datos_Cliente();
-                pantallaModificacionCliente.ShowDialog();
+             
 
             }
         }
-
     }
 }

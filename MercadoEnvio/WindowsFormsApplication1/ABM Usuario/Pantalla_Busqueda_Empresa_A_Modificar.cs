@@ -37,6 +37,13 @@ namespace WindowsFormsApplication1.ABM_Usuario
                 MessageBox.Show("Complete algún campo de búsqueda");
 
             }
+            else
+            {
+
+                Pantalla_Modificacion_Datos_Empresa pantallaModificacionEmpresa = new Pantalla_Modificacion_Datos_Empresa();
+                pantallaModificacionEmpresa.ShowDialog();
+
+            }
         }
     }
 }

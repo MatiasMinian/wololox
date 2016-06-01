@@ -86,6 +86,42 @@
     <Compile Include="ABM Rubro\ABM_Rubro.Designer.cs">
       <DependentUpon>ABM_Rubro.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_Empresa_A_Eliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_Empresa_A_Eliminar.Designer.cs">
+      <DependentUpon>Pantalla_Busqueda_Empresa_A_Eliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_Cliente_A_Eliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_Cliente_A_Eliminar.Designer.cs">
+      <DependentUpon>Pantalla_Busqueda_Cliente_A_Eliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Elección_Usuario_A_Eliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Elección_Usuario_A_Eliminar.Designer.cs">
+      <DependentUpon>Pantalla_Elección_Usuario_A_Eliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Elección_Usuario_A_Habilitar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Elección_Usuario_A_Habilitar.Designer.cs">
+      <DependentUpon>Pantalla_Elección_Usuario_A_Habilitar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_Cliente_A_Habilitar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_Cliente_A_Habilitar.Designer.cs">
+      <DependentUpon>Pantalla_Busqueda_Cliente_A_Habilitar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_Empresa_A_Habilitar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_Empresa_A_Habilitar.Designer.cs">
+      <DependentUpon>Pantalla_Busqueda_Empresa_A_Habilitar.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Usuario\Pantalla_Elección_Usuario_A_Modificar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +306,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rubro\ABM_Rubro.resx">
       <DependentUpon>ABM_Rubro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Busqueda_Empresa_A_Eliminar.resx">
+      <DependentUpon>Pantalla_Busqueda_Empresa_A_Eliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Busqueda_Cliente_A_Eliminar.resx">
+      <DependentUpon>Pantalla_Busqueda_Cliente_A_Eliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Elección_Usuario_A_Eliminar.resx">
+      <DependentUpon>Pantalla_Elección_Usuario_A_Eliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Elección_Usuario_A_Habilitar.resx">
+      <DependentUpon>Pantalla_Elección_Usuario_A_Habilitar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Busqueda_Cliente_A_Habilitar.resx">
+      <DependentUpon>Pantalla_Busqueda_Cliente_A_Habilitar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Busqueda_Empresa_A_Habilitar.resx">
+      <DependentUpon>Pantalla_Busqueda_Empresa_A_Habilitar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\Pantalla_Busqueda_Empresa_A_Modificar.resx">
       <DependentUpon>Pantalla_Busqueda_Empresa_A_Modificar.cs</DependentUpon>

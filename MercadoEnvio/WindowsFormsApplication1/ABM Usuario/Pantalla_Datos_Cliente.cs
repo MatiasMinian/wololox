@@ -60,7 +60,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
                || textBox9.Text == "" || textBox10.Text == "" || textBox11.Text == "" || comboBox1.Text == "")
             {
 
-                MessageBox.Show("Completar campos vacíos");
+                MessageBox.Show("Complete campos vacíos");
 
             }
 

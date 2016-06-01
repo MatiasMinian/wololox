@@ -71,3 +71,9 @@ C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj
 C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Modificacion_Principal_Empresa.resources
 C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Modificacion_Principal_Cliente.resources
 C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Modificacion_Principal_Admins.resources
+C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Elección_Usuario_A_Habilitar.resources
+C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Busqueda_Cliente_A_Habilitar.resources
+C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Busqueda_Empresa_A_Habilitar.resources
+C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Busqueda_Empresa_A_Eliminar.resources
+C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Busqueda_Cliente_A_Eliminar.resources
+C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Elección_Usuario_A_Eliminar.resources

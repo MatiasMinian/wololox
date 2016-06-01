@@ -41,5 +41,17 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Pantalla_Elección_Usuario_A_Habilitar pantallaEleccionUserAhabilitar = new Pantalla_Elección_Usuario_A_Habilitar();
+            pantallaEleccionUserAhabilitar.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Pantalla_Elección_Usuario_A_Eliminar pantallaEleccionUserAeliminar = new Pantalla_Elección_Usuario_A_Eliminar();
+            pantallaEleccionUserAeliminar.ShowDialog();
+        }
+
     }
 }

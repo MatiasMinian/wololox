@@ -73,7 +73,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(298, 226);
+            this.button2.Location = new System.Drawing.Point(306, 226);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -83,7 +83,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(590, 226);
+            this.button3.Location = new System.Drawing.Point(599, 226);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
@@ -121,7 +121,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(653, 208);
+            this.groupBox1.Size = new System.Drawing.Size(662, 208);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos adicionales cliente";
@@ -135,15 +135,15 @@
             // 
             // textBox12
             // 
-            this.textBox12.Location = new System.Drawing.Point(549, 30);
+            this.textBox12.Location = new System.Drawing.Point(575, 30);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(98, 20);
+            this.textBox12.Size = new System.Drawing.Size(81, 20);
             this.textBox12.TabIndex = 26;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(507, 33);
+            this.label13.Location = new System.Drawing.Point(516, 33);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(36, 13);
             this.label13.TabIndex = 25;
@@ -338,7 +338,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 255);
+            this.ClientSize = new System.Drawing.Size(686, 255);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
