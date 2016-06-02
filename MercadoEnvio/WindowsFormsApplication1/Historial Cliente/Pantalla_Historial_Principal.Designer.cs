@@ -62,14 +62,14 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(6, 132);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(642, 79);
+            this.groupBox2.Size = new System.Drawing.Size(642, 87);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Historial de compras según calificaciones";
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(333, 15);
+            this.numericUpDown1.Location = new System.Drawing.Point(196, 39);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             5,
             0,
@@ -86,7 +86,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(286, 43);
+            this.button2.Location = new System.Drawing.Point(373, 36);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;
@@ -97,7 +97,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(143, 22);
+            this.label1.Location = new System.Drawing.Point(6, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 13);
             this.label1.TabIndex = 1;
@@ -106,7 +106,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(459, 22);
+            this.label2.Location = new System.Drawing.Point(322, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 3;

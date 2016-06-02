@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.Generar_Publicación
 {
-    public partial class Form1 : Form
+    public partial class Pantalla_Generar_Publicación_Compra_Inmediata : Form
     {
-        public Form1()
+        public Pantalla_Generar_Publicación_Compra_Inmediata()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

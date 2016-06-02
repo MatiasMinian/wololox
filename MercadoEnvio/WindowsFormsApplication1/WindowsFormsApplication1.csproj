@@ -242,6 +242,12 @@
     <Compile Include="ComprarOfertar\FormSelecRubro.Designer.cs">
       <DependentUpon>FormSelecRubro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Compra_Inmediata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Compra_Inmediata.Designer.cs">
+      <DependentUpon>Pantalla_Generar_Publicación_Compra_Inmediata.cs</DependentUpon>
+    </Compile>
     <Compile Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,11 +284,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generar Publicación\Form1.cs">
+    <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Generar Publicación\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Principal.Designer.cs">
+      <DependentUpon>Pantalla_Generar_Publicación_Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Listado Estadistico\Form1.cs">
       <SubType>Form</SubType>
@@ -402,6 +408,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ComprarOfertar\FormComprayOferta.resx">
       <DependentUpon>FormComprayOferta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\Pantalla_Generar_Publicación_Compra_Inmediata.resx">
+      <DependentUpon>Pantalla_Generar_Publicación_Compra_Inmediata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\Pantalla_Generar_Publicación_Principal.resx">
+      <DependentUpon>Pantalla_Generar_Publicación_Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.resx">
       <DependentUpon>Pantalla_Historial_Cantidad_Segun_Estrellas.cs</DependentUpon>

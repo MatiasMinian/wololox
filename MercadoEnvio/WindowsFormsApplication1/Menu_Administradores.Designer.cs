@@ -28,23 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.botonVisibilidad = new System.Windows.Forms.Button();
             this.botonUser = new System.Windows.Forms.Button();
             this.botonRol = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.botonSalir = new System.Windows.Forms.Button();
+            this.botonVisibilidad = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // botonVisibilidad
-            // 
-            this.botonVisibilidad.Location = new System.Drawing.Point(250, 89);
-            this.botonVisibilidad.Name = "botonVisibilidad";
-            this.botonVisibilidad.Size = new System.Drawing.Size(122, 27);
-            this.botonVisibilidad.TabIndex = 5;
-            this.botonVisibilidad.Text = "ABM de Visibilidad";
-            this.botonVisibilidad.UseVisualStyleBackColor = true;
-            this.botonVisibilidad.Click += new System.EventHandler(this.botonVisibilidad_Click);
             // 
             // botonUser
             // 
@@ -94,6 +84,16 @@
             this.botonSalir.UseVisualStyleBackColor = true;
             this.botonSalir.Click += new System.EventHandler(this.botonSalir_Click);
             // 
+            // botonVisibilidad
+            // 
+            this.botonVisibilidad.Location = new System.Drawing.Point(250, 89);
+            this.botonVisibilidad.Name = "botonVisibilidad";
+            this.botonVisibilidad.Size = new System.Drawing.Size(122, 27);
+            this.botonVisibilidad.TabIndex = 5;
+            this.botonVisibilidad.Text = "ABM de Visibilidad";
+            this.botonVisibilidad.UseVisualStyleBackColor = true;
+            this.botonVisibilidad.Click += new System.EventHandler(this.botonVisibilidad_Click);
+            // 
             // Menu_Administradores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,11 +114,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button botonVisibilidad;
         private System.Windows.Forms.Button botonUser;
         private System.Windows.Forms.Button botonRol;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button botonSalir;
+        private System.Windows.Forms.Button botonVisibilidad;
     }
 }

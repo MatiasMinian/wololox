@@ -80,3 +80,5 @@ C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj
 C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Busqueda_Empresa_A_Modificar_Password.resources
 C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Busqueda_Cliente_A_Modificar_Password.resources
 C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Usuario.Pantalla_Elección_Usuario_A_Modificar_Password.resources
+C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Generar_Publicación.Pantalla_Generar_Publicación_Principal.resources
+C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Generar_Publicación.Pantalla_Generar_Publicación_Compra_Inmediata.resources
