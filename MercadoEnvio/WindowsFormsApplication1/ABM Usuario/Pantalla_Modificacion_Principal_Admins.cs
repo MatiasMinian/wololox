@@ -53,5 +53,11 @@ namespace WindowsFormsApplication1.ABM_Usuario
             pantallaEleccionUserAeliminar.ShowDialog();
         }
 
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            Pantalla_Elección_Usuario_A_Modificar_Password pantallaUserModificacionPass = new Pantalla_Elección_Usuario_A_Modificar_Password();
+            pantallaUserModificacionPass.ShowDialog();
+        }
+
     }
 }
