@@ -131,3 +131,4 @@ C:\Users\usuario\workspace\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Deb
 C:\Users\usuario\workspace\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Menu_Empresa.resources
 C:\Users\usuario\workspace\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\usuario\workspace\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\feede\Desktop\TPSfacu\wololox\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Generar_Publicación.Pantalla_Generar_Publicación_Subasta.resources

@@ -25,7 +25,14 @@ namespace WindowsFormsApplication1.Generar_Publicación
         private void button2_Click(object sender, EventArgs e)
         {
 
-            if (radioButton1.Checked)
+
+            if (!(radioButton1.Checked) && !(radioButton2.Checked))
+            {
+
+                MessageBox.Show("Selecciona tipo de publicación a generar");
+
+            }
+            else if (radioButton1.Checked)
             {
 
                 Pantalla_Generar_Publicación_Compra_Inmediata pantallaCompraInmediata = new Pantalla_Generar_Publicación_Compra_Inmediata();
@@ -35,7 +42,8 @@ namespace WindowsFormsApplication1.Generar_Publicación
             else
             {
 
-
+                Pantalla_Generar_Publicación_Subasta pantallaSubasta = new Pantalla_Generar_Publicación_Subasta();
+                pantallaSubasta.ShowDialog();
 
             }
 

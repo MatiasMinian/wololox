@@ -123,9 +123,9 @@
             this.labelBienvenida.AutoSize = true;
             this.labelBienvenida.Location = new System.Drawing.Point(22, 22);
             this.labelBienvenida.Name = "labelBienvenida";
-            this.labelBienvenida.Size = new System.Drawing.Size(97, 13);
+            this.labelBienvenida.Size = new System.Drawing.Size(94, 13);
             this.labelBienvenida.TabIndex = 10;
-            this.labelBienvenida.Text = "Bienvenido usuario";
+            this.labelBienvenida.Text = "Bienvenido cliente";
             // 
             // labelUsuario
             // 

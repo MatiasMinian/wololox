@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.Generar_Publicación
 {
-    public partial class Pantalla_Generar_Publicación_Compra_Inmediata : Form
+    public partial class Pantalla_Generar_Publicación_Subasta : Form
     {
-        public Pantalla_Generar_Publicación_Compra_Inmediata()
+        public Pantalla_Generar_Publicación_Subasta()
         {
             InitializeComponent();
 
@@ -33,7 +33,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
         private void button2_Click(object sender, EventArgs e)
         {
             if(textBox1.Text == "" || textBox2.Text == "" || textBox4.Text == ""
-               || textBox5.Text == "" ||  comboBox1.Text == ""
+               || textBox5.Text == ""||  comboBox1.Text == ""
                || (!(radioButton1.Checked)) && (!(radioButton2.Checked))) {
 
                    MessageBox.Show("Completa campos vacíos");

@@ -34,5 +34,30 @@ namespace WindowsFormsApplication1.ABM_Usuario
             this.Close();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            if (!(radioButton1.Checked) && !(radioButton2.Checked))
+            {
+
+                MessageBox.Show("Selecciona tipo de usuario a modificar password");
+
+            }
+            else if (radioButton1.Checked)
+            {
+
+                Pantalla_Busqueda_Cliente_A_Modificar_Password pantallaBusquedaModifPassC = new Pantalla_Busqueda_Cliente_A_Modificar_Password();
+                pantallaBusquedaModifPassC.ShowDialog();
+
+            }
+            else
+            {
+
+                Pantalla_Busqueda_Empresa_A_Modificar_Password pantallaBusquedaModifPassE = new Pantalla_Busqueda_Empresa_A_Modificar_Password();
+                pantallaBusquedaModifPassE.ShowDialog();
+
+            }
+        }
+
     }
 }
