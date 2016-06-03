@@ -44,6 +44,36 @@ namespace WindowsFormsApplication1
 
         }
 
+        private void crearRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PantallaCrearRol pantallCrearRol = new PantallaCrearRol();
+            pantallCrearRol.ShowDialog();
+        }
+
+        private void modificarRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PantallaModificarRol pantallaModRol = new PantallaModificarRol();
+            pantallaModRol.ShowDialog();
+        }
+
+        private void eliminarRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PantallaEliminarRol pantallaReliminarRol = new PantallaEliminarRol();
+            pantallaReliminarRol.ShowDialog();
+        }
+
+        private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pantalla_Creacion_Usuario pantallaCreacionUser = new Pantalla_Creacion_Usuario();
+            pantallaCreacionUser.ShowDialog();
+        }
+
+        private void modificarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pantalla_Modificacion_Principal_Admins pantallaModificacion = new Pantalla_Modificacion_Principal_Admins();
+            pantallaModificacion.ShowDialog();
+        }
+
 
     }
 }
