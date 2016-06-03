@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace WindowsFormsApplication1
 {
@@ -26,20 +27,20 @@ namespace WindowsFormsApplication1
         private void botonIngreso_Click(object sender, EventArgs e)
         {
 
-            if (textoUser.Text == "" && textoPass.Text == "")
+            if (string.IsNullOrWhiteSpace(textoUser.Text) && string.IsNullOrWhiteSpace(textoPass.Text))
             {
 
                 MessageBox.Show("Ingresa usuario y contraseña");
 
             }
 
-            else if (textoUser.Text == "")
+            else if (string.IsNullOrWhiteSpace(textoUser.Text))
             {
 
                 MessageBox.Show("Ingresa usuario");
 
             }
-            else if (textoPass.Text == "")
+            else if (string.IsNullOrWhiteSpace(textoPass.Text))
             {
 
                 MessageBox.Show("Ingresa contraseña");
@@ -48,10 +49,16 @@ namespace WindowsFormsApplication1
 
             else
             {
+
+                //Hashear contraseña
+                SHA256 CriptoPass = SHA256Managed.Create();
+                byte[] valorHash;
+                valorHash = CriptoPass.ComputeHash(obtenerNumBytes(textoPass.Text));
+
                 //Seleccionar por ahora para probar
-                Menu_Cliente menu = new Menu_Cliente();
+                //Menu_Cliente menu = new Menu_Cliente();
                 //Menu_Empresa menu = new Menu_Empresa();
-                //Menu_Administradores menu = new Menu_Administradores();
+                Menu_Administradores menu = new Menu_Administradores();
                 this.Hide();
                 menu.ShowDialog();
                 this.Close();
@@ -59,6 +66,13 @@ namespace WindowsFormsApplication1
 
             }
 
+        }
+
+        static byte[] obtenerNumBytes(string input)
+        {
+            byte[] bytes = new byte[input.Length * sizeof(char)];
+            System.Buffer.BlockCopy(input.ToCharArray(), 0, bytes, 0, bytes.Length);
+            return bytes;
         }
 
     }
