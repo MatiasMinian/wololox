@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.Grupo_Modificar_Rol = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -39,8 +41,6 @@
             this.Boton_Cancelar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.Grupo_Modificar_Rol.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,24 @@
             this.Grupo_Modificar_Rol.TabIndex = 0;
             this.Grupo_Modificar_Rol.TabStop = false;
             this.Grupo_Modificar_Rol.Text = "Modificar Rol";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Enabled = false;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(175, 106);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(100, 21);
+            this.comboBox2.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(-1, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(172, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Lista de funcionalidades a agregar:";
             // 
             // comboBox1
             // 
@@ -88,29 +106,29 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(136, 29);
+            this.label2.Location = new System.Drawing.Point(143, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 13);
+            this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Rol";
+            this.label2.Text = "Rol:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 150);
+            this.label1.Location = new System.Drawing.Point(13, 150);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 13);
+            this.label1.Size = new System.Drawing.Size(156, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Lista de funcionalidades actual";
+            this.label1.Text = "Lista de funcionalidades actual:";
             // 
             // Modificar_Rol_Texto_Rol
             // 
             this.Modificar_Rol_Texto_Rol.AutoSize = true;
-            this.Modificar_Rol_Texto_Rol.Location = new System.Drawing.Point(68, 64);
+            this.Modificar_Rol_Texto_Rol.Location = new System.Drawing.Point(75, 67);
             this.Modificar_Rol_Texto_Rol.Name = "Modificar_Rol_Texto_Rol";
-            this.Modificar_Rol_Texto_Rol.Size = new System.Drawing.Size(91, 13);
+            this.Modificar_Rol_Texto_Rol.Size = new System.Drawing.Size(94, 13);
             this.Modificar_Rol_Texto_Rol.TabIndex = 0;
-            this.Modificar_Rol_Texto_Rol.Text = "Nuevo nombre rol";
+            this.Modificar_Rol_Texto_Rol.Text = "Nuevo nombre rol:";
             // 
             // Boton_Modificar
             // 
@@ -151,24 +169,6 @@
             this.button2.Text = "Agregar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 109);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(169, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Lista de funcionalidades a agregar";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Enabled = false;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(175, 106);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 21);
-            this.comboBox2.TabIndex = 8;
             // 
             // PantallaModificarRol
             // 

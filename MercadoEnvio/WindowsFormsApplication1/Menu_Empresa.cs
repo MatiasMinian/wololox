@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApplication1.ABM_Usuario;
+using WindowsFormsApplication1.Generar_Publicación;
 
 namespace WindowsFormsApplication1
 {
@@ -27,6 +28,12 @@ namespace WindowsFormsApplication1
         {
             Pantalla_Modificacion_Principal_Cliente pantallaModificacion = new Pantalla_Modificacion_Principal_Cliente();
             pantallaModificacion.ShowDialog();
+        }
+
+        private void botonPublic_Click(object sender, EventArgs e)
+        {
+            Pantalla_Generar_Publicación_Principal pantallaGeneracionPubliPrincipal = new Pantalla_Generar_Publicación_Principal();
+            pantallaGeneracionPubliPrincipal.ShowDialog();
         }
 
     }

@@ -64,18 +64,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(17, 99);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 13);
+            this.label1.Size = new System.Drawing.Size(136, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Listado de funcionalidades";
+            this.label1.Text = "Listado de funcionalidades:";
             // 
             // Crear_Rol_Texto_Rol
             // 
             this.Crear_Rol_Texto_Rol.AutoSize = true;
             this.Crear_Rol_Texto_Rol.Location = new System.Drawing.Point(92, 30);
             this.Crear_Rol_Texto_Rol.Name = "Crear_Rol_Texto_Rol";
-            this.Crear_Rol_Texto_Rol.Size = new System.Drawing.Size(58, 13);
+            this.Crear_Rol_Texto_Rol.Size = new System.Drawing.Size(61, 13);
             this.Crear_Rol_Texto_Rol.TabIndex = 1;
-            this.Crear_Rol_Texto_Rol.Text = "Nombre rol";
+            this.Crear_Rol_Texto_Rol.Text = "Nombre rol:";
             // 
             // textBox1
             // 

@@ -25,7 +25,8 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Pantalla_Modificacion_Datos_Empresa pantallaModiDatosEmpresa = new Pantalla_Modificacion_Datos_Empresa();
+            pantallaModiDatosEmpresa.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)

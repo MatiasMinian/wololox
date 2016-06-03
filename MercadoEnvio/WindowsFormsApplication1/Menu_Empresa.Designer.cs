@@ -74,6 +74,7 @@
             this.botonPublic.TabIndex = 11;
             this.botonPublic.Text = "Generar publicación";
             this.botonPublic.UseVisualStyleBackColor = true;
+            this.botonPublic.Click += new System.EventHandler(this.botonPublic_Click);
             // 
             // botonVisibilidad
             // 

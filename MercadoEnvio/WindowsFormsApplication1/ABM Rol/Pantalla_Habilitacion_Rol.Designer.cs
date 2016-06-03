@@ -61,9 +61,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(52, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 13);
+            this.label1.Size = new System.Drawing.Size(26, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Rol";
+            this.label1.Text = "Rol:";
             // 
             // button1
             // 

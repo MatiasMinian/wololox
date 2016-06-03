@@ -85,27 +85,27 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(227, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Email";
+            this.label3.Text = "Email:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "CUIT";
+            this.label2.Text = "CUIT:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Razón social";
+            this.label1.Text = "Razón social:";
             // 
             // dataGridView1
             // 
@@ -154,7 +154,7 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // Pantalla_Busqueda_Empresa_A_Modificar
+            // Pantalla_Busqueda_Empresa_A_Habilitar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -165,7 +165,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Pantalla_Busqueda_Empresa_A_Modificar";
+            this.Name = "Pantalla_Busqueda_Empresa_A_Habilitar";
             this.Text = "Selección empresa a habilitar";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
