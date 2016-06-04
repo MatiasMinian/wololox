@@ -98,6 +98,7 @@
             this.botonFacturas.TabIndex = 7;
             this.botonFacturas.Text = "Consultar Facturas";
             this.botonFacturas.UseVisualStyleBackColor = true;
+            this.botonFacturas.Click += new System.EventHandler(this.botonFacturas_Click);
             // 
             // botonEstadisticas
             // 

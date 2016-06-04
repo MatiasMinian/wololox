@@ -13,6 +13,7 @@ using WindowsFormsApplication1.Calificar;
 using WindowsFormsApplication1.Historial_Cliente;
 using WindowsFormsApplication1.ComprarOfertar;
 using WindowsFormsApplication1.Generar_Publicación;
+using WindowsFormsApplication1.Facturas;
 
 namespace WindowsFormsApplication1
 {
@@ -36,6 +37,7 @@ namespace WindowsFormsApplication1
         {
            labelUsuario.Text = usuario;
         }
+
 
         private void botonSalir_Click(object sender, EventArgs e)
         {
@@ -90,6 +92,12 @@ namespace WindowsFormsApplication1
         {
             Pantalla_Generar_Publicación_Principal pantallaGeneracionPubliPrincipal = new Pantalla_Generar_Publicación_Principal();
             pantallaGeneracionPubliPrincipal.ShowDialog();
+        }
+
+        private void botonFacturas_Click(object sender, EventArgs e)
+        {
+            Pantalla_Consultar_Facturas pantallaFacturas = new Pantalla_Consultar_Facturas();
+            pantallaFacturas.ShowDialog();
         }
     }
 }
