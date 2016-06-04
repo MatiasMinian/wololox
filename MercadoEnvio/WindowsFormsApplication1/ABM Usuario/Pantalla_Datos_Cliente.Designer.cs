@@ -136,7 +136,7 @@
             this.groupBox1.Size = new System.Drawing.Size(676, 198);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos adicionales empresa";
+            this.groupBox1.Text = "Datos adicionales cliente";
             // 
             // label15
             // 

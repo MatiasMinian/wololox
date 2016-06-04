@@ -242,10 +242,28 @@
     <Compile Include="ComprarOfertar\FormSelecRubro.Designer.cs">
       <DependentUpon>FormSelecRubro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturas\Pantalla_Busqueda_Contenido_Factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturas\Pantalla_Busqueda_Contenido_Factura.Designer.cs">
+      <DependentUpon>Pantalla_Busqueda_Contenido_Factura.cs</DependentUpon>
+    </Compile>
     <Compile Include="GD1C2016DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GD1C2016DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Compra_Inmediata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Compra_Inmediata.Designer.cs">
+      <DependentUpon>Pantalla_Generar_Publicación_Compra_Inmediata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Principal.Designer.cs">
+      <DependentUpon>Pantalla_Generar_Publicación_Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Subasta.cs">
       <SubType>Form</SubType>
@@ -253,11 +271,17 @@
     <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Subasta.Designer.cs">
       <DependentUpon>Pantalla_Generar_Publicación_Subasta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Compra_Inmediata.cs">
+    <Compile Include="Generar Publicación\Pantalla_Modificacion_Publicaciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Compra_Inmediata.Designer.cs">
-      <DependentUpon>Pantalla_Generar_Publicación_Compra_Inmediata.cs</DependentUpon>
+    <Compile Include="Generar Publicación\Pantalla_Modificacion_Publicaciones.Designer.cs">
+      <DependentUpon>Pantalla_Modificacion_Publicaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Modificación_Estado_Publicación.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Modificación_Estado_Publicación.Designer.cs">
+      <DependentUpon>Pantalla_Modificación_Estado_Publicación.cs</DependentUpon>
     </Compile>
     <Compile Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.cs">
       <SubType>Form</SubType>
@@ -277,11 +301,11 @@
     <Compile Include="ComprarOfertar\FormComprayOferta.Designer.cs">
       <DependentUpon>FormComprayOferta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facturas\Form1.cs">
+    <Compile Include="Facturas\Pantalla_Consultar_Facturas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Facturas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Facturas\Pantalla_Consultar_Facturas.Designer.cs">
+      <DependentUpon>Pantalla_Consultar_Facturas.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu_Cliente.cs">
       <SubType>Form</SubType>
@@ -294,12 +318,6 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Principal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Principal.Designer.cs">
-      <DependentUpon>Pantalla_Generar_Publicación_Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Listado Estadistico\Form1.cs">
       <SubType>Form</SubType>
@@ -420,14 +438,26 @@
     <EmbeddedResource Include="ComprarOfertar\FormComprayOferta.resx">
       <DependentUpon>FormComprayOferta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Generar Publicación\Pantalla_Generar_Publicación_Subasta.resx">
-      <DependentUpon>Pantalla_Generar_Publicación_Subasta.cs</DependentUpon>
+    <EmbeddedResource Include="Facturas\Pantalla_Busqueda_Contenido_Factura.resx">
+      <DependentUpon>Pantalla_Busqueda_Contenido_Factura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturas\Pantalla_Consultar_Facturas.resx">
+      <DependentUpon>Pantalla_Consultar_Facturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicación\Pantalla_Generar_Publicación_Compra_Inmediata.resx">
       <DependentUpon>Pantalla_Generar_Publicación_Compra_Inmediata.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicación\Pantalla_Generar_Publicación_Principal.resx">
       <DependentUpon>Pantalla_Generar_Publicación_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\Pantalla_Generar_Publicación_Subasta.resx">
+      <DependentUpon>Pantalla_Generar_Publicación_Subasta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\Pantalla_Modificacion_Publicaciones.resx">
+      <DependentUpon>Pantalla_Modificacion_Publicaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\Pantalla_Modificación_Estado_Publicación.resx">
+      <DependentUpon>Pantalla_Modificación_Estado_Publicación.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.resx">
       <DependentUpon>Pantalla_Historial_Cantidad_Segun_Estrellas.cs</DependentUpon>

@@ -113,7 +113,7 @@
             this.Controls.Add(this.Boton_Crear);
             this.Controls.Add(this.Grupo_Crear_Rol);
             this.Name = "PantallaCrearRol";
-            this.Text = "Crear_Rol";
+            this.Text = "Creación de Rol";
             this.Grupo_Crear_Rol.ResumeLayout(false);
             this.Grupo_Crear_Rol.PerformLayout();
             this.ResumeLayout(false);

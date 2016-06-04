@@ -31,19 +31,22 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button4_Click(object sender, EventArgs e)
         {
+   
+                Pantalla_Modificacion_Datos_Empresa pantallaModificacionEmpresa = new Pantalla_Modificacion_Datos_Empresa();
+                pantallaModificacionEmpresa.ShowDialog();
+
+ 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
             if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "")
             {
 
                 MessageBox.Show("Complete algún campo de búsqueda");
 
             }
-            else
-            {
 
-                Pantalla_Modificacion_Datos_Empresa pantallaModificacionEmpresa = new Pantalla_Modificacion_Datos_Empresa();
-                pantallaModificacionEmpresa.ShowDialog();
-
-            }
         }
     }
 }

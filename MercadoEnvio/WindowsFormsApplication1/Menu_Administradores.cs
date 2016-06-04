@@ -20,6 +20,13 @@ namespace WindowsFormsApplication1
 
         }
 
+        public void matchearUsuario(String usuario)
+        {
+
+            label2.Text = usuario;
+
+        }
+
         private void botonRol_Click(object sender, EventArgs e)
         {
 

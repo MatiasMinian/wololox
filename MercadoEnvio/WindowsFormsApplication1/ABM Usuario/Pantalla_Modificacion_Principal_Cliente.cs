@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApplication1.Generar_Publicación;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
@@ -33,6 +34,14 @@ namespace WindowsFormsApplication1.ABM_Usuario
         {
             Pantalla_Modificación_Password pantallaModificacionPassword = new Pantalla_Modificación_Password();
             pantallaModificacionPassword.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            Pantalla_Modificacion_Publicaciones pantallaModificacionPubli = new Pantalla_Modificacion_Publicaciones();
+            pantallaModificacionPubli.ShowDialog();
+
         }
     }
 }
