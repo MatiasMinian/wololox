@@ -271,6 +271,18 @@
     <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Subasta.Designer.cs">
       <DependentUpon>Pantalla_Generar_Publicación_Subasta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Modificacion_Publicaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Modificacion_Publicaciones.Designer.cs">
+      <DependentUpon>Pantalla_Modificacion_Publicaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Modificación_Estado_Publicación.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Modificación_Estado_Publicación.Designer.cs">
+      <DependentUpon>Pantalla_Modificación_Estado_Publicación.cs</DependentUpon>
+    </Compile>
     <Compile Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -440,6 +452,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicación\Pantalla_Generar_Publicación_Subasta.resx">
       <DependentUpon>Pantalla_Generar_Publicación_Subasta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\Pantalla_Modificacion_Publicaciones.resx">
+      <DependentUpon>Pantalla_Modificacion_Publicaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\Pantalla_Modificación_Estado_Publicación.resx">
+      <DependentUpon>Pantalla_Modificación_Estado_Publicación.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.resx">
       <DependentUpon>Pantalla_Historial_Cantidad_Segun_Estrellas.cs</DependentUpon>

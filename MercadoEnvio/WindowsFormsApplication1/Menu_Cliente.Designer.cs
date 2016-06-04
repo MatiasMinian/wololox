@@ -166,7 +166,7 @@
             this.Name = "Menu_Cliente";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu de usuario";
+            this.Text = "Menu cliente";
             this.ResumeLayout(false);
             this.PerformLayout();
 

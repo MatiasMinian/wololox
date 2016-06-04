@@ -128,7 +128,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Menu_Empresa";
-            this.Text = "Menu_Empresa";
+            this.Text = "Menu empresa";
             this.ResumeLayout(false);
             this.PerformLayout();
 

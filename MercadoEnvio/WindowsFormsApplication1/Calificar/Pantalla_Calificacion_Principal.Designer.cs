@@ -56,9 +56,9 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnPublicacion,
             this.ColumnVendedor});
-            this.dataGridView1.Location = new System.Drawing.Point(240, 40);
+            this.dataGridView1.Location = new System.Drawing.Point(191, 25);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(343, 158);
+            this.dataGridView1.Size = new System.Drawing.Size(416, 173);
             this.dataGridView1.TabIndex = 1;
             // 
             // ColumnPublicacion
@@ -78,7 +78,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 40);
+            this.label1.Location = new System.Drawing.Point(6, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(179, 13);
             this.label1.TabIndex = 0;

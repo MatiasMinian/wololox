@@ -33,9 +33,10 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public Menu_Cliente(String usuario) : this()
-        {
+        public void matchearUsuario(String usuario){
+        
            labelUsuario.Text = usuario;
+
         }
 
 

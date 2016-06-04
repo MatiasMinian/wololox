@@ -20,6 +20,13 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
+        public void matchearUsuario(String usuario)
+        {
+
+            label2.Text = usuario;
+
+        }
+
         private void botonSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -27,7 +34,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Pantalla_Modificacion_Principal_Cliente pantallaModificacion = new Pantalla_Modificacion_Principal_Cliente();
+            Pantalla_Modificacion_Principal_Empresa pantallaModificacion = new Pantalla_Modificacion_Principal_Empresa();
             pantallaModificacion.ShowDialog();
         }
 
