@@ -59,54 +59,23 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            double valorPorTipo;
-            double valorPorEnvio;
-            double valorPorProducto;
-            double costo;
+         
+            if (textBox1.Text == "" || textBox2.Text == "")
+            {
+
+                MessageBox.Show("Completa campos faltantes");
+
+            }
             
-            if (!string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-
-                if (double.TryParse(textBox2.Text, out costo))
-                {
-                    if (double.TryParse(textBox3.Text, out valorPorTipo))
-                    {
-                        if (double.TryParse(textBox4.Text, out valorPorProducto))
-                        {
-                            if (double.TryParse(textBox5.Text, out valorPorEnvio))
-                            {
-                                //Enviar a BD
-                                MessageBox.Show("Visibilidad creada correctamente");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Ingrese una comisión por envío numérica");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Ingrese una comisión por producto numérica");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ingrese una comisión por tipo de publicación numérica");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Ingrese un costo numérico");
-                } 
-            }
-            else
-            {
-                MessageBox.Show("Ingrese una descripción");
-            }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             limpiarTexto();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

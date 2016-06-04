@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.botonUser = new System.Windows.Forms.Button();
-            this.botonRol = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.botonSalir = new System.Windows.Forms.Button();
-            this.botonVisibilidad = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.rolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,77 +48,25 @@
             this.clienteToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.empresaToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clienteToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.empresaToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.visibilidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearVisibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarVisibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarVisibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // botonUser
-            // 
-            this.botonUser.Location = new System.Drawing.Point(250, 67);
-            this.botonUser.Name = "botonUser";
-            this.botonUser.Size = new System.Drawing.Size(122, 27);
-            this.botonUser.TabIndex = 4;
-            this.botonUser.Text = "ABM de Usuario";
-            this.botonUser.UseVisualStyleBackColor = true;
-            this.botonUser.Click += new System.EventHandler(this.botonUser_Click);
-            // 
-            // botonRol
-            // 
-            this.botonRol.Location = new System.Drawing.Point(250, 34);
-            this.botonRol.Name = "botonRol";
-            this.botonRol.Size = new System.Drawing.Size(122, 27);
-            this.botonRol.TabIndex = 3;
-            this.botonRol.Text = "ABM de Rol";
-            this.botonRol.UseVisualStyleBackColor = true;
-            this.botonRol.Click += new System.EventHandler(this.botonRol_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Bienvenido";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(87, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "label2";
-            // 
-            // botonSalir
-            // 
-            this.botonSalir.Location = new System.Drawing.Point(250, 133);
-            this.botonSalir.Name = "botonSalir";
-            this.botonSalir.Size = new System.Drawing.Size(122, 27);
-            this.botonSalir.TabIndex = 10;
-            this.botonSalir.Text = "Salir";
-            this.botonSalir.UseVisualStyleBackColor = true;
-            this.botonSalir.Click += new System.EventHandler(this.botonSalir_Click);
-            // 
-            // botonVisibilidad
-            // 
-            this.botonVisibilidad.Location = new System.Drawing.Point(250, 100);
-            this.botonVisibilidad.Name = "botonVisibilidad";
-            this.botonVisibilidad.Size = new System.Drawing.Size(122, 27);
-            this.botonVisibilidad.TabIndex = 5;
-            this.botonVisibilidad.Text = "ABM de Visibilidad";
-            this.botonVisibilidad.UseVisualStyleBackColor = true;
-            this.botonVisibilidad.Click += new System.EventHandler(this.botonVisibilidad_Click);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rolesToolStripMenuItem,
             this.usuariosToolStripMenuItem,
-            this.visibilidadesToolStripMenuItem});
+            this.visibilidadesToolStripMenuItem,
+            this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(448, 24);
@@ -276,10 +218,26 @@
             // 
             // cambiarContraseñaToolStripMenuItem
             // 
+            this.cambiarContraseñaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clienteToolStripMenuItem4,
+            this.empresaToolStripMenuItem4});
             this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
             this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar contraseña";
-            this.cambiarContraseñaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContraseñaToolStripMenuItem_Click);
+            // 
+            // clienteToolStripMenuItem4
+            // 
+            this.clienteToolStripMenuItem4.Name = "clienteToolStripMenuItem4";
+            this.clienteToolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
+            this.clienteToolStripMenuItem4.Text = "Cliente";
+            this.clienteToolStripMenuItem4.Click += new System.EventHandler(this.clienteToolStripMenuItem4_Click);
+            // 
+            // empresaToolStripMenuItem4
+            // 
+            this.empresaToolStripMenuItem4.Name = "empresaToolStripMenuItem4";
+            this.empresaToolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
+            this.empresaToolStripMenuItem4.Text = "Empresa";
+            this.empresaToolStripMenuItem4.Click += new System.EventHandler(this.empresaToolStripMenuItem4_Click);
             // 
             // visibilidadesToolStripMenuItem
             // 
@@ -311,17 +269,41 @@
             this.eliminarVisibilidadToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.eliminarVisibilidadToolStripMenuItem.Text = "Eliminar visibilidad";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 82);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(319, 31);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Bienvenido administrador";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(324, 82);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 31);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "label2";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
             // Menu_Administradores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 172);
-            this.Controls.Add(this.botonSalir);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(448, 175);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.botonVisibilidad);
-            this.Controls.Add(this.botonUser);
-            this.Controls.Add(this.botonRol);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menu_Administradores";
@@ -336,12 +318,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button botonUser;
-        private System.Windows.Forms.Button botonRol;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button botonSalir;
-        private System.Windows.Forms.Button botonVisibilidad;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem rolesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
@@ -366,5 +342,10 @@
         private System.Windows.Forms.ToolStripMenuItem habilitarUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem empresaToolStripMenuItem3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem empresaToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }
 }

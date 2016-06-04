@@ -307,6 +307,30 @@
     <Compile Include="Facturas\Pantalla_Consultar_Facturas.Designer.cs">
       <DependentUpon>Pantalla_Consultar_Facturas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Listado Estadistico\Pantalla_Clientes_Mayor_Cantidad_Productos_Comprados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listado Estadistico\Pantalla_Clientes_Mayor_Cantidad_Productos_Comprados.Designer.cs">
+      <DependentUpon>Pantalla_Clientes_Mayor_Cantidad_Productos_Comprados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listado Estadistico\Pantalla_Vendedores_Mayor_Cantidad_Productos_No_Vendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listado Estadistico\Pantalla_Vendedores_Mayor_Cantidad_Productos_No_Vendidos.Designer.cs">
+      <DependentUpon>Pantalla_Vendedores_Mayor_Cantidad_Productos_No_Vendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listado Estadistico\Pantalla_Vendedores_Con_Mayor_Cantidad_De_Facturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listado Estadistico\Pantalla_Vendedores_Con_Mayor_Cantidad_De_Facturas.Designer.cs">
+      <DependentUpon>Pantalla_Vendedores_Con_Mayor_Cantidad_De_Facturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listado Estadistico\Pantalla_Vendedores_Mayor_Monto_Facturado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listado Estadistico\Pantalla_Vendedores_Mayor_Monto_Facturado.Designer.cs">
+      <DependentUpon>Pantalla_Vendedores_Mayor_Monto_Facturado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,11 +343,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.cs">
+    <Compile Include="Listado Estadistico\Pantalla_Listado_Estadistico_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Listado Estadistico\Pantalla_Listado_Estadistico_Principal.Designer.cs">
+      <DependentUpon>Pantalla_Listado_Estadistico_Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu_Administradores.cs">
       <SubType>Form</SubType>
@@ -467,6 +491,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Historial Cliente\Pantalla_Historial_Principal.resx">
       <DependentUpon>Pantalla_Historial_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listado Estadistico\Pantalla_Clientes_Mayor_Cantidad_Productos_Comprados.resx">
+      <DependentUpon>Pantalla_Clientes_Mayor_Cantidad_Productos_Comprados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listado Estadistico\Pantalla_Listado_Estadistico_Principal.resx">
+      <DependentUpon>Pantalla_Listado_Estadistico_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listado Estadistico\Pantalla_Vendedores_Con_Mayor_Cantidad_De_Facturas.resx">
+      <DependentUpon>Pantalla_Vendedores_Con_Mayor_Cantidad_De_Facturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listado Estadistico\Pantalla_Vendedores_Mayor_Cantidad_Productos_No_Vendidos.resx">
+      <DependentUpon>Pantalla_Vendedores_Mayor_Cantidad_Productos_No_Vendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listado Estadistico\Pantalla_Vendedores_Mayor_Monto_Facturado.resx">
+      <DependentUpon>Pantalla_Vendedores_Mayor_Monto_Facturado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu_Cliente.resx">
       <DependentUpon>Menu_Cliente.cs</DependentUpon>

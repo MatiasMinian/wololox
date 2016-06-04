@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WindowsFormsApplication1.ABM_Usuario;
 using WindowsFormsApplication1.Facturas;
 using WindowsFormsApplication1.Generar_Publicación;
+using WindowsFormsApplication1.Listado_Estadistico;
 
 namespace WindowsFormsApplication1
 {
@@ -23,7 +24,7 @@ namespace WindowsFormsApplication1
         public void matchearUsuario(String usuario)
         {
 
-            label2.Text = usuario;
+            label2.Text = usuario+"!!";
 
         }
 
@@ -50,6 +51,12 @@ namespace WindowsFormsApplication1
             pantallaFacturas.ShowDialog();
 
 
+        }
+
+        private void botonEstadisticas_Click(object sender, EventArgs e)
+        {
+            Pantalla_Listado_Estadistico_Principal pantallaListadoE = new Pantalla_Listado_Estadistico_Principal();
+            pantallaListadoE.ShowDialog();
         }
 
     }

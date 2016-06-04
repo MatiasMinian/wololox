@@ -14,6 +14,7 @@ using WindowsFormsApplication1.Historial_Cliente;
 using WindowsFormsApplication1.ComprarOfertar;
 using WindowsFormsApplication1.Generar_Publicación;
 using WindowsFormsApplication1.Facturas;
+using WindowsFormsApplication1.Listado_Estadistico;
 
 namespace WindowsFormsApplication1
 {
@@ -35,7 +36,7 @@ namespace WindowsFormsApplication1
 
         public void matchearUsuario(String usuario){
         
-           labelUsuario.Text = usuario;
+           labelUsuario.Text = usuario+"!!";
 
         }
 
@@ -99,6 +100,12 @@ namespace WindowsFormsApplication1
         {
             Pantalla_Consultar_Facturas pantallaFacturas = new Pantalla_Consultar_Facturas();
             pantallaFacturas.ShowDialog();
+        }
+
+        private void botonEstadisticas_Click(object sender, EventArgs e)
+        {
+            Pantalla_Listado_Estadistico_Principal pantallaListadoE = new Pantalla_Listado_Estadistico_Principal();
+            pantallaListadoE.ShowDialog();
         }
     }
 }

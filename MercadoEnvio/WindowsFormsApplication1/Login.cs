@@ -57,8 +57,8 @@ namespace WindowsFormsApplication1
 
                 //Seleccionar por ahora para probar
                //Menu_Cliente menu = new Menu_Cliente();
-                //Menu_Empresa menu = new Menu_Empresa();
-               Menu_Administradores menu = new Menu_Administradores();
+                Menu_Empresa menu = new Menu_Empresa();
+               //Menu_Administradores menu = new Menu_Administradores();
                 menu.matchearUsuario(textoUser.Text);
                 this.Hide();
                 menu.ShowDialog();

@@ -24,7 +24,7 @@ namespace WindowsFormsApplication1
         public void matchearUsuario(String usuario)
         {
 
-            label2.Text = usuario;
+            label2.Text = usuario+"!!";
 
         }
 
@@ -94,11 +94,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Pantalla_Modificación_Password pantallaModificacionPassword = new Pantalla_Modificación_Password();
-            pantallaModificacionPassword.ShowDialog();
-        }
 
         private void habilitarRolToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -150,8 +145,32 @@ namespace WindowsFormsApplication1
 
         private void modificarVisibilidadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ModificacionVisibilidad pantallaModifVisibilidad = new ModificacionVisibilidad();
-            pantallaModifVisibilidad.ShowDialog();
+           // ModificacionVisibilidad pantallaModifVisibilidad = new ModificacionVisibilidad();
+            //pantallaModifVisibilidad.ShowDialog();
         }
+
+        private void clienteToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+
+            Pantalla_Busqueda_Cliente_A_Modificar_Password pantallaBusquedaCLpass = new Pantalla_Busqueda_Cliente_A_Modificar_Password();
+            pantallaBusquedaCLpass.ShowDialog();
+
+
+        }
+
+        private void empresaToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+
+            Pantalla_Busqueda_Empresa_A_Modificar_Password pantallaBusquedaEpass = new Pantalla_Busqueda_Empresa_A_Modificar_Password();
+            pantallaBusquedaEpass.ShowDialog();
+
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+  
     }
 }
