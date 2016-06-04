@@ -50,14 +50,14 @@
             this.eliminarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.empresaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cambiarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.habilitarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clienteToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.empresaToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambiarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.visibilidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearVisibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarVisibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarVisibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clienteToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.empresaToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +93,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(143, 34);
+            this.label2.Location = new System.Drawing.Point(87, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 7;
@@ -251,13 +251,6 @@
             this.empresaToolStripMenuItem2.Text = "Empresa";
             this.empresaToolStripMenuItem2.Click += new System.EventHandler(this.empresaToolStripMenuItem2_Click);
             // 
-            // cambiarContraseñaToolStripMenuItem
-            // 
-            this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
-            this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar contraseña";
-            this.cambiarContraseñaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContraseñaToolStripMenuItem_Click);
-            // 
             // habilitarUsuarioToolStripMenuItem
             // 
             this.habilitarUsuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -266,6 +259,27 @@
             this.habilitarUsuarioToolStripMenuItem.Name = "habilitarUsuarioToolStripMenuItem";
             this.habilitarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.habilitarUsuarioToolStripMenuItem.Text = "Habilitar usuario";
+            // 
+            // clienteToolStripMenuItem3
+            // 
+            this.clienteToolStripMenuItem3.Name = "clienteToolStripMenuItem3";
+            this.clienteToolStripMenuItem3.Size = new System.Drawing.Size(119, 22);
+            this.clienteToolStripMenuItem3.Text = "Cliente";
+            this.clienteToolStripMenuItem3.Click += new System.EventHandler(this.clienteToolStripMenuItem3_Click);
+            // 
+            // empresaToolStripMenuItem3
+            // 
+            this.empresaToolStripMenuItem3.Name = "empresaToolStripMenuItem3";
+            this.empresaToolStripMenuItem3.Size = new System.Drawing.Size(119, 22);
+            this.empresaToolStripMenuItem3.Text = "Empresa";
+            this.empresaToolStripMenuItem3.Click += new System.EventHandler(this.empresaToolStripMenuItem3_Click);
+            // 
+            // cambiarContraseñaToolStripMenuItem
+            // 
+            this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
+            this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar contraseña";
+            this.cambiarContraseñaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContraseñaToolStripMenuItem_Click);
             // 
             // visibilidadesToolStripMenuItem
             // 
@@ -282,32 +296,20 @@
             this.crearVisibilidadToolStripMenuItem.Name = "crearVisibilidadToolStripMenuItem";
             this.crearVisibilidadToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.crearVisibilidadToolStripMenuItem.Text = "Crear visibilidad";
+            this.crearVisibilidadToolStripMenuItem.Click += new System.EventHandler(this.crearVisibilidadToolStripMenuItem_Click);
             // 
             // modificarVisibilidadToolStripMenuItem
             // 
             this.modificarVisibilidadToolStripMenuItem.Name = "modificarVisibilidadToolStripMenuItem";
             this.modificarVisibilidadToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.modificarVisibilidadToolStripMenuItem.Text = "Modificar visibilidad";
+            this.modificarVisibilidadToolStripMenuItem.Click += new System.EventHandler(this.modificarVisibilidadToolStripMenuItem_Click);
             // 
             // eliminarVisibilidadToolStripMenuItem
             // 
             this.eliminarVisibilidadToolStripMenuItem.Name = "eliminarVisibilidadToolStripMenuItem";
             this.eliminarVisibilidadToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.eliminarVisibilidadToolStripMenuItem.Text = "Eliminar visibilidad";
-            // 
-            // clienteToolStripMenuItem3
-            // 
-            this.clienteToolStripMenuItem3.Name = "clienteToolStripMenuItem3";
-            this.clienteToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
-            this.clienteToolStripMenuItem3.Text = "Cliente";
-            this.clienteToolStripMenuItem3.Click += new System.EventHandler(this.clienteToolStripMenuItem3_Click);
-            // 
-            // empresaToolStripMenuItem3
-            // 
-            this.empresaToolStripMenuItem3.Name = "empresaToolStripMenuItem3";
-            this.empresaToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
-            this.empresaToolStripMenuItem3.Text = "Empresa";
-            this.empresaToolStripMenuItem3.Click += new System.EventHandler(this.empresaToolStripMenuItem3_Click);
             // 
             // Menu_Administradores
             // 

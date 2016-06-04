@@ -426,6 +426,9 @@
     <EmbeddedResource Include="ABM Usuario\Pantalla_Usuario_Principal.resx">
       <DependentUpon>Pantalla_Usuario_Principal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM Visibilidad\AltaVisibilidad.resx">
+      <DependentUpon>AltaVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Calificar\Pantalla_Calificacion_Principal.resx">
       <DependentUpon>Pantalla_Calificacion_Principal.cs</DependentUpon>
     </EmbeddedResource>

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApplication1.ABM_Rol;
 using WindowsFormsApplication1.ABM_Usuario;
+using WindowsFormsApplication1.ABM_Visibilidad;
 
 namespace WindowsFormsApplication1
 {
@@ -139,6 +140,18 @@ namespace WindowsFormsApplication1
         {
             Pantalla_Busqueda_Empresa_A_Habilitar pantallaEmpresaAhabilitar = new Pantalla_Busqueda_Empresa_A_Habilitar();
             pantallaEmpresaAhabilitar.ShowDialog();
+        }
+
+        private void crearVisibilidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AltaVisibilidad pantallaCreacionVisibilidad = new AltaVisibilidad();
+            pantallaCreacionVisibilidad.ShowDialog();
+        }
+
+        private void modificarVisibilidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModificacionVisibilidad pantallaModifVisibilidad = new ModificacionVisibilidad();
+            pantallaModifVisibilidad.ShowDialog();
         }
     }
 }
