@@ -47,6 +47,8 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textBox9.ResetText();
             textBox10.ResetText();
             textBox11.ResetText();
+            textBox14.ResetText();
+            textBox15.ResetText();
             comboBox1.ResetText();
 
 
@@ -57,7 +59,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
         {
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == ""
                || textBox5.Text == "" || textBox6.Text == "" || textBox7.Text == "" || textBox8.Text == ""
-               || textBox9.Text == "" || textBox10.Text == "" || textBox11.Text == "" || comboBox1.Text == "")
+               || textBox9.Text == "" || textBox10.Text == "" || textBox11.Text == "" || textBox14.Text=="" || textBox15.Text=="" || comboBox1.Text == "")
             {
 
                 MessageBox.Show("Complete campos vacíos");
@@ -65,7 +67,6 @@ namespace WindowsFormsApplication1.ABM_Usuario
             }
 
         }
-
  
     }
 

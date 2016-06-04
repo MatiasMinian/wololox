@@ -31,6 +31,10 @@ namespace WindowsFormsApplication1.ABM_Usuario
                 MessageBox.Show("Ingresa nueva password y verificala");
 
             }
+            else if (textBox3.Text=="")
+            {
+                MessageBox.Show("Ingresa el usuario");
+            }
             else if (textBox1.Text == "")
             {
 

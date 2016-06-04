@@ -344,7 +344,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Pantalla_Modificacion_Datos_Empresa";
-            this.Text = "Datos empresa";
+            this.ShowIcon = false;
+            this.Text = "Modificación de datos de empresa";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -41,11 +41,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 22);
+            this.label1.Location = new System.Drawing.Point(55, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 13);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Bienvenido empresa";
+            this.label1.Text = "Bienvenido";
             // 
             // label2
             // 
@@ -127,7 +127,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Menu_Empresa";
-            this.Text = "Menu_Empresa";
+            this.ShowIcon = false;
+            this.Text = "Menú de empresa";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1.ABM_Visibilidad
 {
-    partial class Form1
+    partial class AltaVisibilidad
     {
         /// <summary>
         /// Required designer variable.

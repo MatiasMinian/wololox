@@ -62,18 +62,76 @@ namespace WindowsFormsApplication1
             pantallaReliminarRol.ShowDialog();
         }
 
-        private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Pantalla_Creacion_Usuario pantallaCreacionUser = new Pantalla_Creacion_Usuario();
-            pantallaCreacionUser.ShowDialog();
+            Pantalla_Datos_Cliente pantallaAltaCliente = new Pantalla_Datos_Cliente();
+            pantallaAltaCliente.ShowDialog();
         }
 
-        private void modificarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void empresaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Pantalla_Modificacion_Principal_Admins pantallaModificacion = new Pantalla_Modificacion_Principal_Admins();
-            pantallaModificacion.ShowDialog();
+            Pantalla_Datos_Empresa pantallaAltaEmpresa = new Pantalla_Datos_Empresa();
+            pantallaAltaEmpresa.ShowDialog();
+
         }
 
+        private void datosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pantalla_Modificacion_Datos_Cliente pantallaModifDatosCliente = new Pantalla_Modificacion_Datos_Cliente();
+            pantallaModifDatosCliente.ShowDialog();
+        }
 
+        private void contraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pantalla_Modificación_Password pantallaModificacionPassword = new Pantalla_Modificación_Password();
+            pantallaModificacionPassword.ShowDialog();
+        }
+
+        private void habilitarRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pantalla_Habilitacion_Rol pantallaHabilitacionRol = new Pantalla_Habilitacion_Rol();
+            pantallaHabilitacionRol.ShowDialog();
+        }
+
+        private void clienteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Pantalla_Busqueda_Cliente_A_Modificar pantallaClienteAmodificar = new Pantalla_Busqueda_Cliente_A_Modificar();
+            pantallaClienteAmodificar.ShowDialog();
+        }
+
+        private void empresaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Pantalla_Busqueda_Empresa_A_Modificar pantallaEmpresaAmodificar = new Pantalla_Busqueda_Empresa_A_Modificar();
+            pantallaEmpresaAmodificar.ShowDialog();
+        }
+
+        private void clienteToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Pantalla_Busqueda_Cliente_A_Eliminar pantallaClienteAeliminar = new Pantalla_Busqueda_Cliente_A_Eliminar();
+            pantallaClienteAeliminar.ShowDialog();
+        }
+
+        private void empresaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Pantalla_Busqueda_Empresa_A_Eliminar pantallaEmpresaAeliminar = new Pantalla_Busqueda_Empresa_A_Eliminar();
+            pantallaEmpresaAeliminar.ShowDialog();
+        }
+
+        private void clienteToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Pantalla_Busqueda_Cliente_A_Habilitar pantallaClienteAhabilitar = new Pantalla_Busqueda_Cliente_A_Habilitar();
+            pantallaClienteAhabilitar.ShowDialog();
+        }
+
+        private void empresaToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Pantalla_Busqueda_Empresa_A_Habilitar pantallaEmpresaAhabilitar = new Pantalla_Busqueda_Empresa_A_Habilitar();
+            pantallaEmpresaAhabilitar.ShowDialog();
+        }
     }
 }
