@@ -54,9 +54,9 @@
             this.crearVisibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarVisibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarVisibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -228,14 +228,14 @@
             // clienteToolStripMenuItem4
             // 
             this.clienteToolStripMenuItem4.Name = "clienteToolStripMenuItem4";
-            this.clienteToolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
+            this.clienteToolStripMenuItem4.Size = new System.Drawing.Size(119, 22);
             this.clienteToolStripMenuItem4.Text = "Cliente";
             this.clienteToolStripMenuItem4.Click += new System.EventHandler(this.clienteToolStripMenuItem4_Click);
             // 
             // empresaToolStripMenuItem4
             // 
             this.empresaToolStripMenuItem4.Name = "empresaToolStripMenuItem4";
-            this.empresaToolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
+            this.empresaToolStripMenuItem4.Size = new System.Drawing.Size(119, 22);
             this.empresaToolStripMenuItem4.Text = "Empresa";
             this.empresaToolStripMenuItem4.Click += new System.EventHandler(this.empresaToolStripMenuItem4_Click);
             // 
@@ -268,6 +268,14 @@
             this.eliminarVisibilidadToolStripMenuItem.Name = "eliminarVisibilidadToolStripMenuItem";
             this.eliminarVisibilidadToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.eliminarVisibilidadToolStripMenuItem.Text = "Eliminar visibilidad";
+            this.eliminarVisibilidadToolStripMenuItem.Click += new System.EventHandler(this.eliminarVisibilidadToolStripMenuItem_Click);
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -288,13 +296,6 @@
             this.label2.Size = new System.Drawing.Size(86, 31);
             this.label2.TabIndex = 13;
             this.label2.Text = "label2";
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // Menu_Administradores
             // 

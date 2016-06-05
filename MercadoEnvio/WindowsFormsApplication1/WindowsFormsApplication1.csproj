@@ -224,6 +224,24 @@
     <Compile Include="ABM Visibilidad\AltaVisibilidad.Designer.cs">
       <DependentUpon>AltaVisibilidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Visibilidad\EditarDatosVisibilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Visibilidad\EditarDatosVisibilidad.Designer.cs">
+      <DependentUpon>EditarDatosVisibilidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Visibilidad\EliminarVisibilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Visibilidad\EliminarVisibilidad.Designer.cs">
+      <DependentUpon>EliminarVisibilidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Visibilidad\ModifVisibilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Visibilidad\ModifVisibilidad.Designer.cs">
+      <DependentUpon>ModifVisibilidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calificar\Pantalla_Calificacion_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -452,6 +470,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Visibilidad\AltaVisibilidad.resx">
       <DependentUpon>AltaVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Visibilidad\EditarDatosVisibilidad.resx">
+      <DependentUpon>EditarDatosVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Visibilidad\EliminarVisibilidad.resx">
+      <DependentUpon>EliminarVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Visibilidad\ModifVisibilidad.resx">
+      <DependentUpon>ModifVisibilidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Calificar\Pantalla_Calificacion_Principal.resx">
       <DependentUpon>Pantalla_Calificacion_Principal.cs</DependentUpon>

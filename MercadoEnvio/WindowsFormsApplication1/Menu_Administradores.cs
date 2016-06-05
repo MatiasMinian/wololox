@@ -145,8 +145,8 @@ namespace WindowsFormsApplication1
 
         private void modificarVisibilidadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // ModificacionVisibilidad pantallaModifVisibilidad = new ModificacionVisibilidad();
-            //pantallaModifVisibilidad.ShowDialog();
+            ModifVisibilidad pantallaModifVisibilidad = new ModifVisibilidad();
+           pantallaModifVisibilidad.ShowDialog();
         }
 
         private void clienteToolStripMenuItem4_Click(object sender, EventArgs e)
@@ -169,6 +169,12 @@ namespace WindowsFormsApplication1
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void eliminarVisibilidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EliminarVisibilidad pantallaEliminacion = new EliminarVisibilidad();
+            pantallaEliminacion.ShowDialog();
         }
 
   
