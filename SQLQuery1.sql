@@ -1,7 +1,7 @@
-if object_id('clientes') is not null
-  drop table clientes;
+if object_id('WOLOLOX.clientes') is not null
+  drop table WOLOLOX.clientes;
 
-create table clientes(
+create table WOLOLOX.clientes(
 dni numeric(18,0),
 nombre nvarchar(255),
 apellido nvarchar(255),
@@ -11,10 +11,10 @@ fecha_nacimiento datetime,
 primary key (id_usuario)
 );
 
-if object_id('empresas') is not null
-  drop table empresas;
+if object_id('WOLOLOX.empresas') is not null
+  drop table WOLOLOX.empresas;
 
-create table empresas(
+create table WOLOLOX.empresas(
 id_usuario numeric(18,0) identity,
 razon_social nvarchar(255),
 cuit nvarchar(50),
@@ -24,66 +24,66 @@ reputacion numeric(3,2),
 );
 
 
-if object_id('roles_usuarios') is not null
-  drop table roles_usuarios;
+if object_id('WOLOLOX.roles_usuarios') is not null
+  drop table WOLOLOX.roles_usuarios;
 
-create table roles_usuarios(
+create table WOLOLOX.roles_usuarios(
 id_rol numeric(2,0),
 id_usuario numeric(18,0),
 primary key(id_rol,id_usuario)
 );
 
-if object_id('funcionalidades_roles') is not null
-  drop table funcionalidades_roles;
+if object_id('WOLOLOX.funcionalidades_roles') is not null
+  drop table WOLOLOX.funcionalidades_roles;
 
-create table funcionalidades_roles(
+create table WOLOLOX.funcionalidades_roles(
 id_funcionalidad numeric(2,0),
 id_rol numeric(2,0),
 primary key(id_funcionalidad,id_rol)
 );
 
-if object_id('funcionalidades') is not null
-  drop table funcionalidades;
+if object_id('WOLOLOX.funcionalidades') is not null
+  drop table WOLOLOX.funcionalidades;
 
-create table funcionalidades(
+create table WOLOLOX.funcionalidades(
 id numeric(2,0) identity,
 nombre nvarchar(50),
 primary key(id)
 );
 
-if object_id('roles') is not null
-  drop table roles;
+if object_id('WOLOLOX.roles') is not null
+  drop table WOLOLOX.roles;
 
-create table roles(
+create table WOLOLOX.roles(
 id numeric(2,0) identity,
 nombre nvarchar(50),
 estado bit,
 primary key(id)
 );
 
-if object_id('publicaciones_rubros') is not null
-  drop table publicaciones_rubros;
+if object_id('WOLOLOX.publicaciones_rubros') is not null
+  drop table WOLOLOX.publicaciones_rubros;
 
-create table publicaciones_rubros(
+create table WOLOLOX.publicaciones_rubros(
 cod_publicacion numeric(18,0),
 cod_rubro numeric(18,0)
 primary key (cod_publicacion,cod_rubro)
 );
 
-if object_id('rubros') is not null
-  drop table rubros;
+if object_id('WOLOLOX.rubros') is not null
+  drop table WOLOLOX.rubros;
 
-create table rubros(
+create table WOLOLOX.rubros(
 codigo numeric(18,0) identity,
 descripcion_corta nvarchar(20),
 descripcion_larga nvarchar(100),
 primary key(codigo)
 );
 
-if object_id('ofertas') is not null
-  drop table ofertas;
+if object_id('WOLOLOX.ofertas') is not null
+  drop table WOLOLOX.ofertas;
 
-create table ofertas(
+create table WOLOLOX.ofertas(
 codigo numeric(18,0) identity,
 id_usuario numeric(18,0),
 cod_publicacion numeric(18,0),
@@ -92,10 +92,10 @@ monto numeric(18,2),
 primary key (codigo)
 );
 
-if object_id('item_factura') is not null
-  drop table item_factura;
+if object_id('WOLOLOX.item_factura') is not null
+  drop table WOLOLOX.item_factura;
 
-create table item_factura(
+create table WOLOLOX.item_factura(
 id_item numeric(18,0) identity,
 nro_fact numeric(18,0),
 tipo_fact nvarchar(1),
@@ -105,10 +105,10 @@ cantidad numeric(18,0),
 primary key (id_item)
 );
 
-if object_id('calificaciones') is not null
-  drop table calificaciones;
+if object_id('WOLOLOX.calificaciones') is not null
+  drop table WOLOLOX.calificaciones;
 
-create table calificaciones(
+create table WOLOLOX.calificaciones(
 id_calificacion numeric(18,0) identity,
 cod_compra numeric(18,0),
 estrellas numeric(18,0),
@@ -116,24 +116,10 @@ detalle nvarchar(255),
 primary key(id_calificacion)
 );
 
-if object_id('compras') is not null
-  drop table compras;
+if object_id('WOLOLOX.facturas') is not null
+  drop table WOLOLOX.facturas;
 
-create table compras(
-id_compra numeric(18,0) identity,
-cantidad numeric(18,0),
-nro_fact numeric(18,0),
-tipo_fact nvarchar(1),
-fecha datetime,
-cod_publicacion numeric(18,0),
-id_usuario numeric(18,0),
-primary key(id_compra)
-);
-
-if object_id('facturas') is not null
-  drop table facturas;
-
-create table facturas(
+create table WOLOLOX.facturas(
 nro_fact numeric(18,0),
 id_compra numeric(18,0),
 id_publicacion numeric(18,0),
@@ -144,10 +130,22 @@ forma_pago nvarchar(255),
 primary key (nro_fact, tipo)
 );
 
-if object_id('publicaciones') is not null
-  drop table publicaciones;
+if object_id('WOLOLOX.compras') is not null
+  drop table WOLOLOX.compras;
 
-create table publicaciones(
+create table WOLOLOX.compras(
+id_compra numeric(18,0) identity,
+cantidad numeric(18,0),
+fecha datetime,
+cod_publicacion numeric(18,0),
+id_usuario numeric(18,0),
+primary key(id_compra)
+);
+
+if object_id('WOLOLOX.publicaciones') is not null
+  drop table WOLOLOX.publicaciones;
+
+create table WOLOLOX.publicaciones(
 codigo numeric(18,0) identity,
 id_usuario numeric(18,0),
 id_estado numeric(18,0),
@@ -160,20 +158,20 @@ tipo nvarchar(255),
 primary key(codigo)
 );
 
-if object_id('estados') is not null
-  drop table estados;
+if object_id('WOLOLOX.estados') is not null
+  drop table WOLOLOX.estados;
 
-create table estados(
+create table WOLOLOX.estados(
 id_estado numeric(18,0) identity,
 fecha_inicio datetime,
 fecha_vencimiento datetime,
 primary key (id_estado)
 );
 
-if object_id('visibilidades') is not null
-  drop table visibilidades;
+if object_id('WOLOLOX.visibilidades') is not null
+  drop table WOLOLOX.visibilidades;
 
-create table visibilidades(
+create table WOLOLOX.visibilidades(
 codigo numeric(18,0) identity,
 descripcion nvarchar(255),
 porc_envio numeric(18,0),
@@ -183,10 +181,10 @@ costo numeric(18,0),
 primary key (codigo)
 );
 
-if object_id('usuarios') is not null
-  drop table usuarios;
+if object_id('WOLOLOX.usuarios') is not null
+  drop table WOLOLOX.usuarios;
 
-create table usuarios(
+create table WOLOLOX.usuarios(
 id_usuario numeric(18,0) identity,
 nombre_usuario nvarchar(25),
 contraseña nvarchar(25),
@@ -199,10 +197,10 @@ primary key (id_usuario),
 unique (nombre_usuario)
 );
 
-if object_id('direcciones') is not null
-  drop table direcciones;
+if object_id('WOLOLOX.direcciones') is not null
+  drop table WOLOLOX.direcciones;
 
-create table direcciones(
+create table WOLOLOX.direcciones(
 id numeric(18,0) identity,
 calle nvarchar(100),
 numero numeric(19,0),
@@ -214,104 +212,98 @@ ciudad nvarchar(100),
 primary key(id)
 );
 
-alter table usuarios
+alter table WOLOLOX.usuarios
 add constraint FK_usuarios_direccion
 foreign key (id_direccion)
-references direcciones (id);
+references WOLOLOX.direcciones (id);
 
-alter table compras
-add constraint FK_compras_factura
-foreign key (nro_fact,tipo_fact)
-references facturas (nro_fact,tipo);
-
-alter table compras
+alter table WOLOLOX.compras
 add constraint FK_compras_publicacion
 foreign key (cod_publicacion)
-references publicaciones (codigo);
+references WOLOLOX.publicaciones (codigo);
 
-alter table compras
+alter table WOLOLOX.compras
 add constraint FK_compras_usuario
 foreign key (id_usuario)
-references usuarios (id_usuario);
+references WOLOLOX.usuarios (id_usuario);
 
-alter table roles_usuarios
+alter table WOLOLOX.roles_usuarios
 add constraint FK_rolesUsuarios_rol
 foreign key (id_rol)
-references roles (id);
+references WOLOLOX.roles (id);
 
-alter table roles_usuarios
+alter table WOLOLOX.roles_usuarios
 add constraint FK_rolesUsuarios_usuario
 foreign key (id_usuario)
-references usuarios (id_usuario);
+references WOLOLOX.usuarios (id_usuario);
 
-alter table funcionalidades_roles
+alter table WOLOLOX.funcionalidades_roles
 add constraint FK_funcionalidadesRoles_rol
 foreign key (id_rol)
-references roles (id);
+references WOLOLOX.roles (id);
 
-alter table funcionalidades_roles
+alter table WOLOLOX.funcionalidades_roles
 add constraint FK_rfuncionalidadesRoles_funcionalidad
 foreign key (id_funcionalidad)
-references funcionalidades (id);
+references WOLOLOX.funcionalidades (id);
 
-alter table clientes
+alter table WOLOLOX.clientes
 add constraint FK_clientes_rol
 foreign key (id_rol)
-references roles (id);
+references WOLOLOX.roles (id);
 
-alter table clientes
+alter table WOLOLOX.clientes
 add constraint FK_clientes_usuario
 foreign key (id_usuario)
-references usuarios (id_usuario);
+references WOLOLOX.usuarios (id_usuario);
 
-alter table empresas
+alter table WOLOLOX.empresas
 add constraint FK_empresas_usuario
 foreign key (id_usuario)
-references usuarios (id_usuario);
+references WOLOLOX.usuarios (id_usuario);
 
-alter table empresas
+alter table WOLOLOX.empresas
 add constraint FK_empresas_rubro
 foreign key (cod_rubro)
-references rubros (codigo);
+references WOLOLOX.rubros (codigo);
 
-alter table ofertas
+alter table WOLOLOX.ofertas
 add constraint FK_ofertas_usuario
 foreign key (id_usuario)
-references usuarios (id_usuario);
+references WOLOLOX.usuarios (id_usuario);
 
-alter table ofertas
+alter table WOLOLOX.ofertas
 add constraint FK_empresas_publicacion
 foreign key (cod_publicacion)
-references publicaciones (codigo);
+references WOLOLOX.publicaciones (codigo);
 
-alter table publicaciones_rubros
+alter table WOLOLOX.publicaciones_rubros
 add constraint FK_publicacionesRubros_publicacion
 foreign key (cod_publicacion)
-references publicaciones (codigo);
+references WOLOLOX.publicaciones (codigo);
 
-alter table publicaciones_rubros
+alter table WOLOLOX.publicaciones_rubros
 add constraint FK_publicacionesRubros_rubro
 foreign key (cod_rubro)
-references rubros (codigo);
+references WOLOLOX.rubros (codigo);
 
-alter table calificaciones
+alter table WOLOLOX.calificaciones
 add constraint FK_calificaciones_compra
 foreign key (cod_compra)
-references compras (id_compra);
+references WOLOLOX.compras (id_compra);
 
-alter table facturas
+alter table WOLOLOX.facturas
 add constraint FK_facturas_compra
 foreign key (id_compra)
-references compras (id_compra);
+references WOLOLOX.compras (id_compra);
 
-alter table facturas
+alter table WOLOLOX.facturas
 add constraint FK_facturas_publicacion
 foreign key (id_publicacion)
-references publicaciones (codigo);
+references WOLOLOX.publicaciones (codigo);
 
-
-alter table item_factura
+alter table WOLOLOX.item_factura
 add constraint FK_itemFactura_factura
 foreign key (nro_fact,tipo_fact)
-references facturas (nro_fact,tipo);
+references WOLOLOX.facturas (nro_fact,tipo);
 
