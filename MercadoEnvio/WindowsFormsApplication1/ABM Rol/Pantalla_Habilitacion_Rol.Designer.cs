@@ -93,7 +93,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Pantalla_Habilitacion_Rol";
-            this.Text = "Habilitación rol";
+            this.ShowIcon = false;
+            this.Text = "Habilitar rol";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

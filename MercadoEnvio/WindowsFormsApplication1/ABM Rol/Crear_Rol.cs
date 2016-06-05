@@ -15,6 +15,11 @@ namespace WindowsFormsApplication1.ABM_Rol
         public PantallaCrearRol()
         {
             InitializeComponent();
+            listaFunc.Items.Add("ABM de roles");
+            listaFunc.Items.Add("ABM de usuarios");
+            listaFunc.Items.Add("ABM de visibilidades");
+            listaFunc.Items.Add("Generar publicación");
+            listaFunc.TopIndex = 0;
         }
 
         private void Boton_Cancelar_Click(object sender, EventArgs e)
@@ -25,21 +30,21 @@ namespace WindowsFormsApplication1.ABM_Rol
 
         private void Boton_Crear_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" && listBox1.SelectedItems.Count==0)
+            if (textNomRol.Text == "" && listaFunc.SelectedItems.Count==0)
             {
 
-                MessageBox.Show("Ingresa nombre de rol a crear y selecciona funcionalidades");
+                MessageBox.Show("Ingrese nombre de rol a crear y seleccione al menos una funcionalidad");
             }
-            else if (textBox1.Text == "")
+            else if (textNomRol.Text == "")
             {
 
-                MessageBox.Show("Ingresa nombre de rol a crear");
+                MessageBox.Show("Ingrese nombre de rol a crear");
 
             }
-            else
+            else if (listaFunc.SelectedItems.Count==0)
             {
 
-                MessageBox.Show("Selecciona funcionalidades de rol a crear");
+                MessageBox.Show("Seleccione funcionalidades de rol a crear");
 
             }
 
