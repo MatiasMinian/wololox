@@ -59,7 +59,7 @@
             this.Grupo_Modificar_Rol.Size = new System.Drawing.Size(359, 247);
             this.Grupo_Modificar_Rol.TabIndex = 0;
             this.Grupo_Modificar_Rol.TabStop = false;
-            this.Grupo_Modificar_Rol.Text = "Modificar Rol";
+            this.Grupo_Modificar_Rol.Text = "Datos del rol";
             // 
             // comboBox2
             // 
@@ -134,7 +134,7 @@
             this.Boton_Modificar.Name = "Boton_Modificar";
             this.Boton_Modificar.Size = new System.Drawing.Size(75, 23);
             this.Boton_Modificar.TabIndex = 1;
-            this.Boton_Modificar.Text = "Modificar";
+            this.Boton_Modificar.Text = "Guardar";
             this.Boton_Modificar.UseVisualStyleBackColor = true;
             this.Boton_Modificar.Click += new System.EventHandler(this.Boton_Modificar_Click);
             // 
@@ -179,7 +179,8 @@
             this.Controls.Add(this.Boton_Modificar);
             this.Controls.Add(this.Grupo_Modificar_Rol);
             this.Name = "PantallaModificarRol";
-            this.Text = "Modificar Rol";
+            this.ShowIcon = false;
+            this.Text = "Modificar rol";
             this.Grupo_Modificar_Rol.ResumeLayout(false);
             this.Grupo_Modificar_Rol.PerformLayout();
             this.ResumeLayout(false);

@@ -15,6 +15,10 @@ namespace WindowsFormsApplication1.ABM_Rol
         public PantallaEliminarRol()
         {
             InitializeComponent();
+            comboRoles.Items.Add("Administrador");
+            comboRoles.Items.Add("Cliente");
+            comboRoles.Items.Add("Empresa");
+
         }
 
         private void Boton_Cancelar_Eliminar_Rol_Click(object sender, EventArgs e)
@@ -26,7 +30,7 @@ namespace WindowsFormsApplication1.ABM_Rol
 
         private void Boton_Eliminar_Rol_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "")
+            if (comboRoles.Text == "")
             {
 
                 MessageBox.Show("Ingresa rol a eliminar");

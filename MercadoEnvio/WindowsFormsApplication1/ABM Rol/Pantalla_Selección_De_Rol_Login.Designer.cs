@@ -105,7 +105,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Pantalla_Selección_De_Rol_Login";
-            this.Text = "Selección de rol login";
+            this.ShowIcon = false;
+            this.Text = "Selección de rol";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -68,14 +68,6 @@ namespace WindowsFormsApplication1
      
         }
 
-        private void botonRol_Click(object sender, EventArgs e)
-        {
-            Pantalla_ABM_Rol pantallaRubroPrincipal = new Pantalla_ABM_Rol();
-            pantallaRubroPrincipal.ShowDialog();
-
-       
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
 
