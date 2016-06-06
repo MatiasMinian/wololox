@@ -1,3 +1,58 @@
+if OBJECT_ID('pa_migracion_maestra') is not null
+drop proc pa_migracion_maestra;
+
+go
+
+create procedure pa_migracion_maestra as
+
+insert into WOLOLOX.clientes (dni,apellido,nombre,fecha_nacimiento)
+select Publ_Cli_Dni, Publ_Cli_Apeliido,Publ_Cli_Nombre,Publ_Cli_Fecha_Nac from gd_esquema.Maestra
+
+insert into WOLOLOX.usuarios (mail)
+select Publ_Cli_Mail from gd_esquema.Maestra
+
+insert into WOLOLOX.usuarios (mail,fecha_creacion)
+select Publ_Empresa_Mail,Publ_Empresa_Fecha_Creacion from gd_esquema.Maestra
+
+insert into WOLOLOX.direcciones(calle,numero,piso,departamento,cod_postal)
+select Cli_Dom_Calle, Cli_Nro_Calle,Cli_Piso,Cli_Depto,Cli_Cod_Postal from gd_esquema.Maestra
+
+insert into WOLOLOX.direcciones(calle,numero,piso,departamento,cod_postal)
+select Publ_Empresa_Dom_Calle, Publ_Empresa_Nro_Calle,Publ_Empresa_Piso,Publ_Empresa_Depto,Publ_Empresa_Cod_Postal from gd_esquema.Maestra
+
+insert into WOLOLOX.empresas(razon_social,cuit)
+select Publ_Empresa_Razon_Social,Publ_Empresa_Cuit from gd_esquema.Maestra
+
+insert into WOLOLOX.publicaciones(codigo,descripcion,precio,stock,tipo,cod_visibilidad)
+select Publicacion_Cod,Publicacion_Descripcion,Publicacion_Precio,Publicacion_Stock,Publicacion_Tipo,Publicacion_Visibilidad_Cod from gd_esquema.Maestra
+
+insert into WOLOLOX.estados(fecha_inicio,fecha_vencimiento)
+select Publicacion_Fecha,Publicacion_Fecha_Venc from gd_esquema.Maestra;
+
+insert into WOLOLOX.rubros(descripcion_larga)
+select Publicacion_Rubro_Descripcion from gd_esquema.Maestra
+
+insert into WOLOLOX.publicaciones_rubros(cod_publicacion)
+select Publicacion_Cod from gd_esquema.Maestra
+
+insert into WOLOLOX.visibilidades(codigo,descripcion,porc_publicacion,costo)
+select Publicacion_Visibilidad_Cod,Publicacion_Visibilidad_Desc,Publicacion_Visibilidad_Porcentaje,Publicacion_Visibilidad_Precio from gd_esquema.Maestra
+
+insert into WOLOLOX.compras(cantidad,fecha,cod_publicacion)
+select Compra_Cantidad,Compra_Fecha,Publicacion_Cod from gd_esquema.Maestra
+
+insert into WOLOLOX.ofertas(fecha,monto,cod_publicacion)
+select Oferta_Fecha,Oferta_Monto,Publicacion_Cod from gd_esquema.Maestra
+
+insert into WOLOLOX.calificaciones(id_calificacion,estrellas,detalle)
+select Calificacion_Codigo,Calificacion_Cant_Estrellas,Calificacion_Descripcion from gd_esquema.Maestra
+
+insert into WOLOLOX.item_factura(cantidad,monto,nro_fact)
+select Item_Factura_Cantidad,Item_Factura_Monto,Factura_Nro from gd_esquema.Maestra
+
+insert into WOLOLOX.facturas(nro_fact,fecha,total,forma_pago,id_publicacion)
+select Factura_Nro,Factura_Fecha,Factura_Total,Forma_Pago_Desc,Publicacion_Cod from gd_esquema.Maestra;
+
 if object_id('WOLOLOX.clientes') is not null
   drop table WOLOLOX.clientes;
 
@@ -76,7 +131,7 @@ if object_id('WOLOLOX.rubros') is not null
 create table WOLOLOX.rubros(
 codigo numeric(18,0) identity,
 descripcion_corta nvarchar(20),
-descripcion_larga nvarchar(100),
+descripcion_larga nvarchar(255),
 primary key(codigo)
 );
 
@@ -165,6 +220,7 @@ create table WOLOLOX.estados(
 id_estado numeric(18,0) identity,
 fecha_inicio datetime,
 fecha_vencimiento datetime,
+descripcion_estado nvarchar(255),
 primary key (id_estado)
 );
 
