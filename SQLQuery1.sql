@@ -1,3 +1,17 @@
+-- Selecciona la base de datos
+use GD1C2016
+
+--Crea schema
+
+BEGIN TRANSACTION
+
+IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = N'WOLOLOX')
+EXEC sys.sp_executesql N'CREATE SCHEMA [WOLOLOX] AUTHORIZATION [gd]'
+
+COMMIT
+
+--
+
 if OBJECT_ID('pa_migracion_maestra') is not null
 drop proc pa_migracion_maestra;
 
@@ -71,7 +85,7 @@ if object_id('WOLOLOX.empresas') is not null
 
 create table WOLOLOX.empresas(
 id_usuario numeric(18,0) identity,
-razon_social nvarchar(255),
+razon_social nvarchar(255) unique,
 cuit nvarchar(50),
 nombre_contacto nvarchar(100),
 cod_rubro numeric(18,0),
@@ -245,6 +259,7 @@ id_usuario numeric(18,0) identity,
 nombre_usuario nvarchar(25),
 contraseña nvarchar(25),
 intentos_login numeric(1,0),
+estado bit,
 mail nvarchar(50),
 telefono nvarchar(50),
 id_direccion numeric(18,0),
@@ -362,4 +377,7 @@ alter table WOLOLOX.item_factura
 add constraint FK_itemFactura_factura
 foreign key (nro_fact,tipo_fact)
 references WOLOLOX.facturas (nro_fact,tipo);
+
+
+--Triggers y Procedures
 
