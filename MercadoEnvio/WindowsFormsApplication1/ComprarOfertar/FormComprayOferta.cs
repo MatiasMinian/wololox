@@ -50,5 +50,6 @@ namespace WindowsFormsApplication1.ComprarOfertar
             tablaPubl.Rows.Add("Producto4", 10);
             tablaPubl.Rows.Add("Producto5", 850);
         }
+
     }
 }

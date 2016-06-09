@@ -248,17 +248,41 @@
     <Compile Include="Calificar\Pantalla_Calificar_Publicacion.Designer.cs">
       <DependentUpon>Pantalla_Calificar_Publicacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Calificar\Pantalla_Últimas_5_Compras_Calificadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calificar\Pantalla_Últimas_5_Compras_Calificadas.Designer.cs">
+      <DependentUpon>Pantalla_Últimas_5_Compras_Calificadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComprarOfertar\Pantalla_Subastar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComprarOfertar\Pantalla_Subastar.Designer.cs">
+      <DependentUpon>Pantalla_Subastar.cs</DependentUpon>
+    </Compile>
     <Compile Include="ComprarOfertar\FormSelecRubro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ComprarOfertar\FormSelecRubro.Designer.cs">
       <DependentUpon>FormSelecRubro.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComprarOfertar\Pantalla_Comprar_Inmediata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComprarOfertar\Pantalla_Comprar_Inmediata.Designer.cs">
+      <DependentUpon>Pantalla_Comprar_Inmediata.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturas\Pantalla_Busqueda_Contenido_Factura.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Facturas\Pantalla_Busqueda_Contenido_Factura.Designer.cs">
       <DependentUpon>Pantalla_Busqueda_Contenido_Factura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturas\Pantalla_Mostrar_Factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturas\Pantalla_Mostrar_Factura.Designer.cs">
+      <DependentUpon>Pantalla_Mostrar_Factura.cs</DependentUpon>
     </Compile>
     <Compile Include="GD1C2016DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -477,17 +501,29 @@
     <EmbeddedResource Include="Calificar\Pantalla_Calificar_Publicacion.resx">
       <DependentUpon>Pantalla_Calificar_Publicacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Calificar\Pantalla_Últimas_5_Compras_Calificadas.resx">
+      <DependentUpon>Pantalla_Últimas_5_Compras_Calificadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComprarOfertar\Pantalla_Subastar.resx">
+      <DependentUpon>Pantalla_Subastar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ComprarOfertar\FormSelecRubro.resx">
       <DependentUpon>FormSelecRubro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ComprarOfertar\FormComprayOferta.resx">
       <DependentUpon>FormComprayOferta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ComprarOfertar\Pantalla_Comprar_Inmediata.resx">
+      <DependentUpon>Pantalla_Comprar_Inmediata.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturas\Pantalla_Busqueda_Contenido_Factura.resx">
       <DependentUpon>Pantalla_Busqueda_Contenido_Factura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturas\Pantalla_Consultar_Facturas.resx">
       <DependentUpon>Pantalla_Consultar_Facturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturas\Pantalla_Mostrar_Factura.resx">
+      <DependentUpon>Pantalla_Mostrar_Factura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicación\Pantalla_Generar_Publicación_Compra_Inmediata.resx">
       <DependentUpon>Pantalla_Generar_Publicación_Compra_Inmediata.cs</DependentUpon>

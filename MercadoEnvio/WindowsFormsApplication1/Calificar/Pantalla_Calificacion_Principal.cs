@@ -28,5 +28,11 @@ namespace WindowsFormsApplication1.Calificar
             Pantalla_Calificar_Publicacion pantallaCalificar = new Pantalla_Calificar_Publicacion();
             pantallaCalificar.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Pantalla_Últimas_5_Compras_Calificadas ultimas5compras = new Pantalla_Últimas_5_Compras_Calificadas();
+            ultimas5compras.ShowDialog();
+        }
     }
 }

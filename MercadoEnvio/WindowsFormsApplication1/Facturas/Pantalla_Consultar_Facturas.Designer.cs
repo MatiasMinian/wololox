@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,7 +48,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -74,6 +76,15 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtro de búsqueda";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(527, 20);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 20);
+            this.button6.TabIndex = 14;
+            this.button6.Text = "Seleccionar";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -231,20 +242,31 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button6
+            // button7
             // 
-            this.button6.Location = new System.Drawing.Point(527, 20);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 20);
-            this.button6.TabIndex = 14;
-            this.button6.Text = "Seleccionar";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button7.Location = new System.Drawing.Point(185, 296);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(87, 23);
+            this.button7.TabIndex = 6;
+            this.button7.Text = "Anterior página";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(357, 296);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(94, 23);
+            this.button8.TabIndex = 7;
+            this.button8.Text = "Siguiente página";
+            this.button8.UseVisualStyleBackColor = true;
             // 
             // Pantalla_Consultar_Facturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(633, 325);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -282,5 +304,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }
