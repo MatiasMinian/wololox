@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1.ABM_Rol
 {
     public partial class Pantalla_Habilitacion_Rol : Form
     {
+        GD1C2016DataSetTableAdapters.rolesTableAdapter rolAdapter = new GD1C2016DataSetTableAdapters.rolesTableAdapter();
         public Pantalla_Habilitacion_Rol()
         {
             InitializeComponent();
@@ -24,11 +25,13 @@ namespace WindowsFormsApplication1.ABM_Rol
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "")
+            if (comboRoles.Text == "")
             {
-
                 MessageBox.Show("Ingresa rol a habilitar");
-
+            }
+            else
+            {
+                rolAdapter.inhabilitarRol((decimal)comboRoles.SelectedValue);
             }
         }
     }

@@ -349,7 +349,7 @@ GO
 
 --Login
 
-CREATE PROCEDURE login(@UserName nvarchar(50), @Password nvarchar(25))
+CREATE PROCEDURE WOLOLOX.login(@UserName nvarchar(50), @Password nvarchar(25))
 AS
 DECLARE @estado int
 
@@ -366,7 +366,7 @@ select @estado
 
 GO
 
-CREATE PROCEDURE cantidadRoles(@UserName nvarchar(50))
+CREATE PROCEDURE WOLOLOX.cantidadRoles(@UserName nvarchar(50))
 AS
 DECLARE @roles int
 
@@ -377,7 +377,7 @@ and usuarios.id_usuario=roles_usuarios.id_usuario
 
 GO
 
-CREATE PROCEDURE obtenerRol(@UserName nvarchar(50))
+CREATE PROCEDURE WOLOLOX.obtenerRol(@UserName nvarchar(50))
 AS
 select nombre
 from WOLOLOX.roles, WOLOLOX.roles_usuarios
@@ -401,4 +401,62 @@ AS
    INNER JOIN usuarios
    ON compras.id_usuario = usuarios.id_usuario
    WHERE @id_usuario = usuarios.id_usuario
+GO
+
+--ABM de Rol
+
+CREATE PROCEDURE wololox.insertarRol(@nombreRol nvarchar(50))
+AS
+
+insert into WOLOLOX.roles(nombre,estado)
+values (@nombreRol,1)
+
+GO
+
+CREATE PROCEDURE wololox.insertarFuncXRol(@idFunc numeric(2,0), @idRol numeric(2,0))
+AS
+insert into WOLOLOX.funcionalidades_roles
+values (@idFunc,@idRol)
+
+GO
+
+CREATE PROCEDURE wololox.inhabilitarRol(@idRol numeric(2,0))
+AS
+update WOLOLOX.roles
+set estado=0
+where id=@idRol
+
+GO
+
+CREATE PROCEDURE wololox.habilitarRol(@idRol numeric(2,0))
+AS
+update WOLOLOX.roles
+set estado=1
+where id=@idRol
+
+GO
+
+CREATE PROCEDURE wololox.funcionalidadesDelRol(@idRol numeric(2,0))
+AS
+SELECT f.id, f.nombre
+FROM funcionalidades_roles fr, funcionalidades f
+WHERE fr.id_rol= @idRol
+AND f.id=fr.id_rol
+
+GO
+
+CREATE PROCEDURE wololox.funcionalidadesSinRol(@idRol numeric(2,0))
+AS
+SELECT f.id, f.nombre
+FROM funcionalidades_roles fr, funcionalidades f
+WHERE fr.id_rol!= @idRol
+AND f.id=fr.id_rol
+
+GO
+
+CREATE PROCEDURE wololox.borrarTodasFunciones(@idRol numeric(2,0))
+AS
+DELETE FROM WOLOLOX.funcionalidades_roles
+WHERE id_rol=@idRol
+
 GO

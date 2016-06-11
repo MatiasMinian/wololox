@@ -12,13 +12,17 @@ namespace WindowsFormsApplication1.ABM_Rol
 {
     public partial class PantallaCrearRol : Form
     {
+        GD1C2016DataSetTableAdapters.funcionalidadesTableAdapter funcAdapter = new GD1C2016DataSetTableAdapters.funcionalidadesTableAdapter();
+        GD1C2016DataSetTableAdapters.rolesTableAdapter rolAdapter = new GD1C2016DataSetTableAdapters.rolesTableAdapter();
+        GD1C2016DataSetTableAdapters.funcionalidades_rolesTableAdapter funcXRolAdapter = new GD1C2016DataSetTableAdapters.funcionalidades_rolesTableAdapter();
+
         public PantallaCrearRol()
         {
             InitializeComponent();
-            listaFunc.Items.Add("ABM de roles");
-            listaFunc.Items.Add("ABM de usuarios");
-            listaFunc.Items.Add("ABM de visibilidades");
-            listaFunc.Items.Add("Generar publicación");
+            GD1C2016DataSet.funcionalidadesDataTable funcData = funcAdapter.GetData();
+            listaFunc.DataSource = funcData;
+            listaFunc.DisplayMember = "nombre";
+            listaFunc.ValueMember = "id";
             listaFunc.TopIndex = 0;
         }
 
@@ -47,7 +51,16 @@ namespace WindowsFormsApplication1.ABM_Rol
                 MessageBox.Show("Seleccione funcionalidades de rol a crear");
 
             }
-
+            else
+            {
+                rolAdapter.insertarRol(textNomRol.Text);
+                decimal idRol = rolAdapter.GetData().Last().id;
+                foreach (object func in listaFunc.SelectedItems)
+                {
+                    funcXRolAdapter.insertarFuncXRol((decimal)listaFunc.SelectedValue, idRol);
+                }
+                this.Close();
+            }
         }
 
 
