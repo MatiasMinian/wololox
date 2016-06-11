@@ -285,16 +285,20 @@
     <Compile Include="Facturas\Pantalla_Mostrar_Factura.Designer.cs">
       <DependentUpon>Pantalla_Mostrar_Factura.cs</DependentUpon>
     </Compile>
-    <Compile Include="SeleccionRol.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SeleccionRol.Designer.cs">
-      <DependentUpon>SeleccionRol.cs</DependentUpon>
+    <Compile Include="GD1C2016DataSet.cs">
+      <DependentUpon>GD1C2016DataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="GD1C2016DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GD1C2016DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionRol.Designer.cs">
+      <DependentUpon>SeleccionRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Compra_Inmediata.cs">
       <SubType>Form</SubType>

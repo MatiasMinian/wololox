@@ -57,7 +57,7 @@ namespace WindowsFormsApplication1
                 byte[] valorHash;
                 valorHash = CriptoPass.ComputeHash(obtenerNumBytes(textoPass.Text));
 
-                switch (adapterUsuarios.login(textoUser.Text, textoPass.Text)){
+                switch ((int)(adapterUsuarios.login(textoUser.Text, textoPass.Text))){
                     case 0: MessageBox.Show("Usuario/Contraseña incorrectos!");
                         break;
                     case 1: loguearse(textoUser.Text);
@@ -81,18 +81,18 @@ namespace WindowsFormsApplication1
 
         private void loguearse(string User)
         {
-            if (adapterUsuarios.cantidadRoles(User) > 1)
+            if ((int)adapterUsuarios.cantidadRoles(User) > 1)
             {
                 SeleccionRol pantallaSeleccion = new SeleccionRol();
                 //A revisar dsp
             }
             else
             {
-                switch (adapterUsuarios.obtenerRol(User)){
+                switch ((String)adapterUsuarios.obtenerRol(User)){
                     case "Empresa": Menu_Empresa menu = new Menu_Empresa();
                         break;
-                    case "Cliente": Menu_Cliente menu = new Menu_Cliente();
-
+                    case "Cliente": Menu_Cliente menu2 = new Menu_Cliente();
+                        break;
                     //Ver que hacer con nuevos roles, ver cambiar este malicioso switch
                 }
             }
