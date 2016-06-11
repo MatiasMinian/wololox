@@ -90,7 +90,8 @@ estado bit,
 mail nvarchar(50),
 telefono nvarchar(50),
 id_direccion numeric(18,0) REFERENCES WOLOLOX.direcciones,
-fecha_creacion datetime
+fecha_creacion datetime,
+habilitado bit
 )
 
 create table WOLOLOX.roles(
@@ -267,3 +268,43 @@ select distinct Factura_Nro,Factura_Fecha,Factura_Total,Forma_Pago_Desc,Publicac
 
 --Triggers y Procedures
 
+GO
+
+--Login
+
+CREATE PROCEDURE login(@UserName nvarchar(50), @Password nvarchar(25))
+AS
+DECLARE @estado int
+
+if exists(select * from WOLOLOX.usuarios where nombre_usuario=@UserName and contraseña=@Password and habilitado=1)
+	   set @estado=1
+else if exists (select * from WOLOLOX.usuarios where nombre_usuario=@UserName and habilitado=0)
+       set @estado=2
+else
+	   set @estado=0
+	   update WOLOLOX.usuarios
+	   set intentos_login = intentos_login + 1
+	   where nombre_usuario=@UserName
+select @estado
+
+GO
+
+CREATE PROCEDURE cantidadRoles(@UserName nvarchar(50))
+AS
+DECLARE @roles int
+
+select COUNT(*)
+from WOLOLOX.usuarios, WOLOLOX.roles_usuarios
+where usuarios.nombre_usuario=@UserName
+and usuarios.id_usuario=roles_usuarios.id_usuario
+
+GO
+
+CREATE PROCEDURE obtenerRol(@UserName nvarchar(50))
+AS
+select nombre
+from WOLOLOX.roles, WOLOLOX.roles_usuarios
+where roles_usuarios.id_usuario=@UserName
+and roles.id=roles_usuarios.id_rol
+
+GO

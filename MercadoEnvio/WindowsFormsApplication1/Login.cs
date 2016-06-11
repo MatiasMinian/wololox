@@ -13,6 +13,8 @@ namespace WindowsFormsApplication1
 {
     public partial class FormularioLogin : Form
     {
+        GD1C2016DataSetTableAdapters.usuariosTableAdapter adapterUsuarios = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
+
         public FormularioLogin()
         {
             InitializeComponent();
@@ -55,9 +57,17 @@ namespace WindowsFormsApplication1
                 byte[] valorHash;
                 valorHash = CriptoPass.ComputeHash(obtenerNumBytes(textoPass.Text));
 
-                //Seleccionar por ahora para probar
-               //Menu_Cliente menu = new Menu_Cliente();
-                //Menu_Empresa menu = new Menu_Empresa();
+                switch (adapterUsuarios.login(textoUser.Text, textoPass.Text)){
+                    case 0: MessageBox.Show("Usuario/Contraseña incorrectos!");
+                        break;
+                    case 1: loguearse(textoUser.Text);
+                        break;
+                    case 2: MessageBox.Show("Usuario bloqueado!");
+                        break;
+                }
+                
+
+                
                Menu_Administradores menu = new Menu_Administradores();
                 menu.matchearUsuario(textoUser.Text);
                 this.Hide();
@@ -67,6 +77,26 @@ namespace WindowsFormsApplication1
 
             }
 
+        }
+
+        private void loguearse(string User)
+        {
+            if (adapterUsuarios.cantidadRoles(User) > 1)
+            {
+                SeleccionRol pantallaSeleccion = new SeleccionRol();
+                //A revisar dsp
+            }
+            else
+            {
+                switch (adapterUsuarios.obtenerRol(User)){
+                    case "Empresa": Menu_Empresa menu = new Menu_Empresa();
+                        break;
+                    case "Cliente": Menu_Cliente menu = new Menu_Cliente();
+
+                    //Ver que hacer con nuevos roles, ver cambiar este malicioso switch
+                }
+            }
+            
         }
 
         static byte[] obtenerNumBytes(string input)
