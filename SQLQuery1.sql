@@ -151,7 +151,8 @@ descripcion nvarchar(255),
 porc_envio numeric(18,0),
 porc_producto numeric(18,0),
 porc_publicacion numeric(18,0),
-costo numeric(18,0)
+costo numeric(18,0),
+habilitada BIT DEFAULT 1
 )
 
 create table WOLOLOX.publicaciones(
@@ -266,4 +267,89 @@ insert into WOLOLOX.facturas(nro_fact,fecha,total,forma_pago,id_publicacion)
 select distinct Factura_Nro,Factura_Fecha,Factura_Total,Forma_Pago_Desc,Publicacion_Cod from gd_esquema.Maestra;
 
 --Triggers y Procedures
+
+--Visibilidad
+
+--Creación de visibilidad
+
+IF OBJECT_ID('WOLOLOX.CrearVisibilidad') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.CrearVisibilidad;
+GO
+CREATE PROCEDURE WOLOLOX.CrearVisibilidad(@descripcion nvarchar(255),@porc_envio numeric(18,0),@porc_producto numeric(18,0),@porc_publicacion numeric(18,0),@costo numeric(18,0))
+AS
+     
+    INSERT INTO WOLOLOX.visibilidades(descripcion,porc_envio,porc_producto,porc_publicacion,costo)
+	VALUES	(@descripcion,@porc_envio,@porc_producto,@porc_publicacion,@costo)
+GO
+
+--Eliminación de visibilidad
+
+/* Deshabilita la visibilidad para que no pueda ser elegida en publicaciones */
+
+IF OBJECT_ID('WOLOLOX.EliminarVisibilidad') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.EliminarVisibilidad;
+GO
+CREATE PROCEDURE WOLOLOX.EliminarVisibilidad(@codigo numeric(18,0))
+AS
+
+    UPDATE WOLOLOX.visibilidades
+	SET habilitada = 0
+	WHERE @codigo = codigo
+GO
+
+--Modificación de visibilidad
+
+IF OBJECT_ID('WOLOLOX.ModificarVisibilidad') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.ModificarVisibilidad;
+GO
+CREATE PROCEDURE WOLOLOX.ModificarVisibilidad(@codigo numeric(18,0),@descripcion nvarchar(255),@porc_envio numeric(18,0),@porc_producto numeric(18,0),@porc_publicacion numeric(18,0),@costo numeric(18,0))
+AS
+
+    UPDATE WOLOLOX.visibilidades
+	SET   descripcion = @descripcion,porc_envio = @porc_envio, porc_producto = @porc_producto, porc_publicacion = @porc_publicacion, costo = @costo
+	WHERE @codigo = codigo
+GO
+
+--Busqueda por descripcion
+
+IF OBJECT_ID('WOLOLOX.BusquedaPorDescripcion') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.BusquedaPorDescripcion;
+GO
+CREATE PROCEDURE WOLOLOX.BusquedaPorDescripcion(@descripcionIngresada nvarchar(255))
+AS
+    SELECT codigo,descripcion,porc_envio,porc_producto,porc_publicacion,costo,habilitada FROM WOLOLOX.visibilidades
+	WHERE descripcion LIKE '%'+@descripcionIngresada+'%' AND habilitada = 1
+GO
+
+
+--Busqueda por costo mínimo y máximo
+
+IF OBJECT_ID('WOLOLOX.BusquedaPorCostos') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.BusquedaPorCostos;
+GO
+CREATE PROCEDURE WOLOLOX.BusquedaPorCostos(@costoMinimo numeric(18,0),@costoMaximo numeric(18,0))
+AS
+    SELECT codigo,descripcion,porc_envio,porc_producto,porc_publicacion,costo,habilitada FROM WOLOLOX.visibilidades
+	WHERE (costo>=@costoMinimo AND costo<=@costoMaximo) AND habilitada = 1
+GO
+
+--Busqueda por descripcion y costo
+
+IF OBJECT_ID('WOLOLOX.BusquedaPorDescripcionYcostos') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.BusquedaPorDescripcionYcostos;
+GO
+CREATE PROCEDURE WOLOLOX.BusquedaPorDescripcionYcostos(@descripcionIngresada nvarchar(255),@costoMinimo numeric(18,0),@costoMaximo numeric(18,0))
+AS
+    SELECT codigo,descripcion,porc_envio,porc_producto,porc_publicacion,costo,habilitada FROM WOLOLOX.visibilidades
+	WHERE descripcion LIKE '%'+@descripcionIngresada+'%' AND (costo>=@costoMinimo AND costo<=@costoMaximo) AND habilitada = 1
+	
+GO
+
+
+
+
+
+
+
+
 

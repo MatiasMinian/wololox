@@ -12,6 +12,9 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
 {
     public partial class EditarDatosVisibilidad : Form
     {
+        private GD1C2016DataSetTableAdapters.visibilidadesTableAdapter visiAdapter;
+        private decimal id;
+
         public EditarDatosVisibilidad()
         {
             InitializeComponent();
@@ -35,23 +38,27 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
 
         private void button2_Click(object sender, EventArgs e)
         {
-            {
-                double costo;
-                double valorPorTipo;
-                double valorPorProducto;
-                double valorPorEnvio;
+            {   String descripcion = textBox1.Text;
+                decimal costo;
+                decimal valorPorTipo;
+                decimal valorPorProducto;
+                decimal valorPorEnvio;
 
                 if (!string.IsNullOrWhiteSpace(textBox1.Text))
                 {
-                    if (double.TryParse(textBox2.Text, out costo) && !string.IsNullOrWhiteSpace(textBox2.Text))
+                    if (decimal.TryParse(textBox2.Text, out costo) && !string.IsNullOrWhiteSpace(textBox2.Text))
                     {
-                        if (double.TryParse(textBox3.Text, out valorPorTipo))
+                        if (decimal.TryParse(textBox3.Text, out valorPorTipo))
                         {
-                            if (double.TryParse(textBox4.Text, out valorPorProducto))
+                            if (decimal.TryParse(textBox4.Text, out valorPorProducto))
                             {
-                                if (double.TryParse(textBox5.Text, out valorPorEnvio))
+                                if (decimal.TryParse(textBox5.Text, out valorPorEnvio))
                                 {
                                     //Enviar a BD
+
+                                    visiAdapter = new GD1C2016DataSetTableAdapters.visibilidadesTableAdapter();
+                                    visiAdapter.modificarVisibilidad(id, descripcion, valorPorEnvio, valorPorProducto, valorPorTipo, costo);
+
                                     MessageBox.Show("Visibilidad modificada correctamente");
                                 }
                                 else
@@ -111,13 +118,14 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
             }
         }
 
-        internal void cargarDatos(DataGridViewRow dataGridViewRow)
+        internal void cargarDatos(object codigo,object descripcionActual, object costoEnvioActual, object costoProdActual, object costoTipoPActual,object costoActual)
         {
-            textBox1.Text = dataGridViewRow.Cells[0].Value.ToString();
-            textBox2.Text = dataGridViewRow.Cells[1].Value.ToString();
-            textBox3.Text = dataGridViewRow.Cells[2].Value.ToString();
-            textBox4.Text = dataGridViewRow.Cells[3].Value.ToString();
-            textBox5.Text = dataGridViewRow.Cells[4].Value.ToString();
+            id = Convert.ToDecimal(codigo);
+            textBox1.Text = Convert.ToString(descripcionActual);
+            textBox2.Text = Convert.ToString(costoActual);
+            textBox3.Text = Convert.ToString(costoTipoPActual);
+            textBox4.Text = Convert.ToString(costoProdActual);
+            textBox5.Text = Convert.ToString(costoEnvioActual);
         }
     }
 }

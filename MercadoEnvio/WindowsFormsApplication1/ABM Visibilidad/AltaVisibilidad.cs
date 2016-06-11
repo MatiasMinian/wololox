@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApplication1.GD1C2016DataSetTableAdapters;
 
 namespace WindowsFormsApplication1.ABM_Visibilidad
 {
     public partial class AltaVisibilidad : Form
     {
+        private GD1C2016DataSetTableAdapters.visibilidadesTableAdapter visiAdapter;
+
         public AltaVisibilidad()
         {
             InitializeComponent();
@@ -59,20 +62,26 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            double costo;
-            double valorPorTipo;
-            double valorPorProducto;
-            double valorPorEnvio;
+            String descripcion = textBox1.Text;
+            decimal costo;
+            decimal valorPorTipo;
+            decimal valorPorProducto;
+            decimal valorPorEnvio;
 
              if (!string.IsNullOrWhiteSpace(textBox1.Text)){
-                 if (double.TryParse(textBox2.Text, out costo) && !string.IsNullOrWhiteSpace(textBox2.Text)){
-                    if (double.TryParse(textBox3.Text, out valorPorTipo))
+                 if (decimal.TryParse(textBox2.Text, out costo) && !string.IsNullOrWhiteSpace(textBox2.Text)){
+                     if (decimal.TryParse(textBox3.Text, out valorPorTipo))
                     {
-                        if (double.TryParse(textBox4.Text, out valorPorProducto))
+                        if (decimal.TryParse(textBox4.Text, out valorPorProducto))
                         {
-                            if (double.TryParse(textBox5.Text, out valorPorEnvio))
+                            if (decimal.TryParse(textBox5.Text, out valorPorEnvio))
                             {
                                 //Enviar a BD
+
+                                visiAdapter = new GD1C2016DataSetTableAdapters.visibilidadesTableAdapter();
+                                visiAdapter.crearVisibilidad(descripcion, valorPorEnvio, valorPorProducto, valorPorTipo, costo);
+                                //visiAdapter.Insert(descripcion, valorPorEnvio, valorPorProducto, valorPorTipo, costo,true);
+
                                 MessageBox.Show("Visibilidad creada correctamente");
                             }
                             else
