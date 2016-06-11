@@ -385,3 +385,20 @@ where roles_usuarios.id_usuario=@UserName
 and roles.id=roles_usuarios.id_rol
 
 GO
+
+--Calificaciones
+
+IF OBJECT_ID('WOLOLOX.BuscarPublicacionesAcalificar') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.BuscarPublicacionesAcalificar;
+GO
+CREATE PROCEDURE BuscarPublicacionesAcalificar(@id_usuario numeric(18,0))
+AS
+  
+   SELECT publicaciones.codigo,publicaciones.descripcion,publicaciones.tipo,publicaciones.precio,compras.cantidad,publicaciones.id_usuario
+   FROM compras
+   INNER JOIN publicaciones
+   ON publicaciones.codigo = compras.cod_publicacion
+   INNER JOIN usuarios
+   ON compras.id_usuario = usuarios.id_usuario
+   WHERE @id_usuario = usuarios.id_usuario
+GO
