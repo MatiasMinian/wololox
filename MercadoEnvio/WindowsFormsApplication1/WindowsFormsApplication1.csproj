@@ -285,6 +285,12 @@
     <Compile Include="Facturas\Pantalla_Mostrar_Factura.Designer.cs">
       <DependentUpon>Pantalla_Mostrar_Factura.cs</DependentUpon>
     </Compile>
+    <Compile Include="SeleccionRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionRol.Designer.cs">
+      <DependentUpon>SeleccionRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="GD1C2016DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -525,6 +531,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturas\Pantalla_Mostrar_Factura.resx">
       <DependentUpon>Pantalla_Mostrar_Factura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionRol.resx">
+      <DependentUpon>SeleccionRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicación\Pantalla_Generar_Publicación_Compra_Inmediata.resx">
       <DependentUpon>Pantalla_Generar_Publicación_Compra_Inmediata.cs</DependentUpon>
