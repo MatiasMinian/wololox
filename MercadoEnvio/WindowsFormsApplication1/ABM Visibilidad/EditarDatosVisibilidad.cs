@@ -58,7 +58,7 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
 
                                     visiAdapter = new GD1C2016DataSetTableAdapters.visibilidadesTableAdapter();
                                     visiAdapter.modificarVisibilidad(id, descripcion, valorPorEnvio, valorPorProducto, valorPorTipo, costo);
-
+                             
                                     MessageBox.Show("Visibilidad modificada correctamente");
                                 }
                                 else

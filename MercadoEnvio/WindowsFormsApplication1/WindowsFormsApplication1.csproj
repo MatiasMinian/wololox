@@ -249,6 +249,12 @@
     <Compile Include="Calificar\Pantalla_Calificar_Publicacion.Designer.cs">
       <DependentUpon>Pantalla_Calificar_Publicacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Calificar\Pantalla_Compras_Segun_Estrellas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calificar\Pantalla_Compras_Segun_Estrellas.Designer.cs">
+      <DependentUpon>Pantalla_Compras_Segun_Estrellas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calificar\Pantalla_Últimas_5_Compras_Calificadas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -329,12 +335,6 @@
     </Compile>
     <Compile Include="Generar Publicación\Pantalla_Modificación_Estado_Publicación.Designer.cs">
       <DependentUpon>Pantalla_Modificación_Estado_Publicación.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.Designer.cs">
-      <DependentUpon>Pantalla_Historial_Cantidad_Segun_Estrellas.cs</DependentUpon>
     </Compile>
     <Compile Include="Historial Cliente\Pantalla_Historial_Principal.cs">
       <SubType>Form</SubType>
@@ -512,6 +512,9 @@
     <EmbeddedResource Include="Calificar\Pantalla_Calificar_Publicacion.resx">
       <DependentUpon>Pantalla_Calificar_Publicacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Calificar\Pantalla_Compras_Segun_Estrellas.resx">
+      <DependentUpon>Pantalla_Compras_Segun_Estrellas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Calificar\Pantalla_Últimas_5_Compras_Calificadas.resx">
       <DependentUpon>Pantalla_Últimas_5_Compras_Calificadas.cs</DependentUpon>
     </EmbeddedResource>
@@ -553,9 +556,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicación\Pantalla_Modificación_Estado_Publicación.resx">
       <DependentUpon>Pantalla_Modificación_Estado_Publicación.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.resx">
-      <DependentUpon>Pantalla_Historial_Cantidad_Segun_Estrellas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Historial Cliente\Pantalla_Historial_Principal.resx">
       <DependentUpon>Pantalla_Historial_Principal.cs</DependentUpon>

@@ -86,7 +86,6 @@ id_usuario numeric(18,0) IDENTITY PRIMARY KEY,
 nombre_usuario nvarchar(25) UNIQUE,
 contraseña nvarchar(25),
 intentos_login numeric(1,0),
-estado bit,
 mail nvarchar(50),
 telefono nvarchar(50),
 id_direccion numeric(18,0) REFERENCES WOLOLOX.direcciones,
@@ -272,8 +271,6 @@ select distinct Factura_Nro,Factura_Fecha,Factura_Total,Forma_Pago_Desc,Publicac
 
 --Visibilidad
 
---Creación de visibilidad
-
 IF OBJECT_ID('WOLOLOX.CrearVisibilidad') IS NOT NULL
     DROP PROCEDURE WOLOLOX.CrearVisibilidad;
 GO
@@ -283,8 +280,6 @@ AS
     INSERT INTO WOLOLOX.visibilidades(descripcion,porc_envio,porc_producto,porc_publicacion,costo)
 	VALUES	(@descripcion,@porc_envio,@porc_producto,@porc_publicacion,@costo)
 GO
-
---Eliminación de visibilidad
 
 /* Deshabilita la visibilidad para que no pueda ser elegida en publicaciones */
 
@@ -299,7 +294,6 @@ AS
 	WHERE @codigo = codigo
 GO
 
---Modificación de visibilidad
 
 IF OBJECT_ID('WOLOLOX.ModificarVisibilidad') IS NOT NULL
     DROP PROCEDURE WOLOLOX.ModificarVisibilidad;
@@ -312,7 +306,6 @@ AS
 	WHERE @codigo = codigo
 GO
 
---Busqueda por descripcion
 
 IF OBJECT_ID('WOLOLOX.BusquedaPorDescripcion') IS NOT NULL
     DROP PROCEDURE WOLOLOX.BusquedaPorDescripcion;
@@ -324,7 +317,6 @@ AS
 GO
 
 
---Busqueda por costo mínimo y máximo
 
 IF OBJECT_ID('WOLOLOX.BusquedaPorCostos') IS NOT NULL
     DROP PROCEDURE WOLOLOX.BusquedaPorCostos;
@@ -335,7 +327,6 @@ AS
 	WHERE (costo>=@costoMinimo AND costo<=@costoMaximo) AND habilitada = 1
 GO
 
---Busqueda por descripcion y costo
 
 IF OBJECT_ID('WOLOLOX.BusquedaPorDescripcionYcostos') IS NOT NULL
     DROP PROCEDURE WOLOLOX.BusquedaPorDescripcionYcostos;
@@ -366,23 +357,17 @@ select @estado
 
 GO
 
-CREATE PROCEDURE WOLOLOX.cantidadRoles(@UserName nvarchar(50))
-AS
-DECLARE @roles int
+--consulta de ID
 
-select COUNT(*)
-from WOLOLOX.usuarios, WOLOLOX.roles_usuarios
-where usuarios.nombre_usuario=@UserName
-and usuarios.id_usuario=roles_usuarios.id_usuario
+IF OBJECT_ID('WOLOLOX.consultaID') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.consultaID;
 
 GO
 
-CREATE PROCEDURE WOLOLOX.obtenerRol(@UserName nvarchar(50))
+CREATE PROCEDURE WOLOLOX.consultaID(@user nvarchar(50))
 AS
-select nombre
-from WOLOLOX.roles, WOLOLOX.roles_usuarios
-where roles_usuarios.id_usuario=@UserName
-and roles.id=roles_usuarios.id_rol
+SELECT id_usuario FROM WOLOLOX.usuarios
+WHERE @user = nombre_usuario
 
 GO
 
@@ -391,20 +376,126 @@ GO
 IF OBJECT_ID('WOLOLOX.BuscarPublicacionesAcalificar') IS NOT NULL
    DROP PROCEDURE WOLOLOX.BuscarPublicacionesAcalificar;
 GO
-CREATE PROCEDURE BuscarPublicacionesAcalificar(@id_usuario numeric(18,0))
+CREATE PROCEDURE WOLOLOX.BuscarPublicacionesAcalificar(@id_usuario numeric(18,0))
 AS
   
-   SELECT publicaciones.codigo,publicaciones.descripcion,publicaciones.tipo,publicaciones.precio,compras.cantidad,publicaciones.id_usuario
-   FROM compras
-   INNER JOIN publicaciones
-   ON publicaciones.codigo = compras.cod_publicacion
-   INNER JOIN usuarios
-   ON compras.id_usuario = usuarios.id_usuario
-   WHERE @id_usuario = usuarios.id_usuario
+SELECT comprasAcalificar.id_compra,comprasAcalificar.descripcion,comprasAcalificar.tipo,comprasAcalificar.precio,comprasAcalificar.cantidad,comprasAcalificar.id_usuario,usuarios.nombre_usuario
+FROM (SELECT compras.id_compra,publicaciones.descripcion,publicaciones.tipo,publicaciones.precio,compras.cantidad,publicaciones.id_usuario
+      FROM WOLOLOX.usuarios INNER JOIN WOLOLOX.compras 
+	  ON compras.id_usuario = usuarios.id_usuario 
+	  INNER JOIN WOLOLOX.publicaciones
+	  ON compras.cod_publicacion = publicaciones.codigo 
+	  WHERE @id_usuario = usuarios.id_usuario AND (compras.id_compra NOT IN (SELECT calificaciones.cod_compra FROM WOLOLOX.calificaciones)))
+	  AS comprasAcalificar ,WOLOLOX.usuarios
+WHERE usuarios.id_usuario = comprasAcalificar.id_usuario
+
 GO
 
+IF OBJECT_ID('WOLOLOX.comprasOrdenadasPorEstrellas') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.comprasOrdenadasPorEstrellas;
+GO
+CREATE PROCEDURE WOLOLOX.comprasOrdenadasPorEstrellas(@id_usuario numeric(18,0))
+AS
+  
+    SELECT id_compra,cantidad,fecha,descripcion,estrellas,usuarios.nombre_usuario
+  FROM WOLOLOX.compras
+  INNER JOIN WOLOLOX.publicaciones
+  ON compras.cod_publicacion = publicaciones.codigo
+  INNER JOIN WOLOLOX.calificaciones
+  ON compras.id_compra = calificaciones.cod_compra
+  INNER JOIN WOLOLOX.usuarios
+  ON publicaciones.id_usuario = usuarios.id_usuario
+  WHERE compras.id_usuario = @id_usuario
+  ORDER BY estrellas ASC
+   
+GO
+
+IF OBJECT_ID('WOLOLOX.ultimas5comprasCalificadas') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.ultimas5comprasCalificadas;
+GO
+CREATE PROCEDURE WOLOLOX.ultimas5comprasCalificadas(@id_usuario numeric(18,0))
+AS
+  
+    SELECT TOP 5 id_compra,cantidad,fecha,descripcion,estrellas,usuarios.nombre_usuario
+  FROM WOLOLOX.compras
+  INNER JOIN WOLOLOX.publicaciones
+  ON compras.cod_publicacion = publicaciones.codigo
+  INNER JOIN WOLOLOX.calificaciones
+  ON compras.id_compra = calificaciones.cod_compra
+  INNER JOIN WOLOLOX.usuarios
+  ON publicaciones.id_usuario = usuarios.id_usuario
+  WHERE compras.id_usuario = @id_usuario
+  ORDER BY id_calificacion DESC
+   
+--Comprar/Ofertar
+GO
+
+IF OBJECT_ID('WOLOLOX.buscarPublicacionPorDescripcion') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.buscarPublicacionesPorDescripcion;
+GO
+
+CREATE PROCEDURE WOLOLOX.buscarPublicacionesPorDescripcion(@descripcion nvarchar(255))
+AS
+
+SELECT publicaciones.codigo,publicaciones.descripcion,precio,stock,tipo,visibilidades.descripcion,nombre_usuario
+FROM WOLOLOX.publicaciones
+INNER JOIN WOLOLOX.usuarios
+ON publicaciones.id_usuario = usuarios.id_usuario
+INNER JOIN visibilidades
+ON publicaciones.cod_visibilidad = visibilidades.codigo
+INNER JOIN WOLOLOX.estados
+ON publicaciones.id_estado = estados.id_estado
+WHERE publicaciones.descripcion LIKE '%'+@descripcion+'%' AND estados.descripcion_estado = 'Activa'
+ORDER BY visibilidades.costo DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.buscarPublicacionesPorRubros') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.buscarPublicacionesPorRubros;
+GO
+
+CREATE PROCEDURE WOLOLOX.buscarPublicacionesPorRubros(@rubro nvarchar(20))
+AS
+  SELECT publicaciones.codigo,publicaciones.descripcion,precio,stock,tipo,visibilidades.descripcion,nombre_usuario
+FROM WOLOLOX.publicaciones
+INNER JOIN WOLOLOX.usuarios
+ON publicaciones.id_usuario = usuarios.id_usuario
+INNER JOIN visibilidades
+ON publicaciones.cod_visibilidad = visibilidades.codigo
+INNER JOIN WOLOLOX.estados
+ON publicaciones.id_estado = estados.id_estado
+INNER JOIN WOLOLOX.rubros
+ON publicaciones.cod_rubro = rubros.codigo
+WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa'
+ORDER BY visibilidades.costo DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.buscarPublicacionesPorRubrosYdescripcion') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.buscarPublicacionesPorRubrosYdescripcion;
+GO
+
+CREATE PROCEDURE WOLOLOX.buscarPublicacionesPorRubrosYdescripcion(@rubro nvarchar(20),@descripcion nvarchar(255))
+AS
+  SELECT publicaciones.codigo,publicaciones.descripcion,precio,stock,tipo,visibilidades.descripcion,nombre_usuario
+FROM WOLOLOX.publicaciones
+INNER JOIN WOLOLOX.usuarios
+ON publicaciones.id_usuario = usuarios.id_usuario
+INNER JOIN visibilidades
+ON publicaciones.cod_visibilidad = visibilidades.codigo
+INNER JOIN WOLOLOX.estados
+ON publicaciones.id_estado = estados.id_estado
+INNER JOIN WOLOLOX.rubros
+ON publicaciones.cod_rubro = rubros.codigo
+WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa' AND publicaciones.descripcion LIKE '%'+@descripcion+'%'
+ORDER BY visibilidades.costo DESC
+
+
+
+   
 --ABM de Rol
 
+GO
 CREATE PROCEDURE wololox.insertarRol(@nombreRol nvarchar(50))
 AS
 
@@ -458,5 +549,25 @@ CREATE PROCEDURE wololox.borrarTodasFunciones(@idRol numeric(2,0))
 AS
 DELETE FROM WOLOLOX.funcionalidades_roles
 WHERE id_rol=@idRol
+
+GO
+
+CREATE PROCEDURE WOLOLOX.cantidadRoles(@UserName nvarchar(50))
+AS
+DECLARE @roles int
+
+select COUNT(*)
+from WOLOLOX.usuarios, WOLOLOX.roles_usuarios
+where usuarios.nombre_usuario=@UserName
+and usuarios.id_usuario=roles_usuarios.id_usuario
+
+GO
+
+CREATE PROCEDURE WOLOLOX.obtenerRol(@UserName nvarchar(50))
+AS
+select nombre
+from WOLOLOX.roles, WOLOLOX.roles_usuarios
+where roles_usuarios.id_usuario=@UserName
+and roles.id=roles_usuarios.id_rol
 
 GO

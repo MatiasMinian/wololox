@@ -37,12 +37,17 @@
             this.textDescripcion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tablaPubl = new System.Windows.Forms.DataGridView();
-            this.ColDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColPrec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.ColumnaCodigoPublicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPrec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaVisibilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaPubl)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +63,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(600, 120);
+            this.groupBox1.Size = new System.Drawing.Size(733, 120);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
@@ -82,7 +87,7 @@
             this.textRubros.ReadOnly = true;
             this.textRubros.Size = new System.Drawing.Size(305, 20);
             this.textRubros.TabIndex = 5;
-            this.textRubros.Text = "RUBROS";
+            this.textRubros.TextChanged += new System.EventHandler(this.textRubros_TextChanged);
             // 
             // button2
             // 
@@ -136,34 +141,26 @@
             this.tablaPubl.AllowUserToResizeRows = false;
             this.tablaPubl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaPubl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnaCodigoPublicacion,
             this.ColDesc,
-            this.ColPrec});
+            this.ColPrec,
+            this.ColumnStock,
+            this.ColumnaTipo,
+            this.ColumnaVisibilidad,
+            this.ColumnaVendedor});
             this.tablaPubl.Location = new System.Drawing.Point(12, 138);
+            this.tablaPubl.MultiSelect = false;
             this.tablaPubl.Name = "tablaPubl";
             this.tablaPubl.ReadOnly = true;
             this.tablaPubl.RowHeadersWidth = 20;
             this.tablaPubl.RowTemplate.ReadOnly = true;
             this.tablaPubl.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaPubl.Size = new System.Drawing.Size(600, 133);
+            this.tablaPubl.Size = new System.Drawing.Size(733, 133);
             this.tablaPubl.TabIndex = 1;
-            // 
-            // ColDesc
-            // 
-            this.ColDesc.HeaderText = "Descripción";
-            this.ColDesc.Name = "ColDesc";
-            this.ColDesc.ReadOnly = true;
-            this.ColDesc.Width = 396;
-            // 
-            // ColPrec
-            // 
-            this.ColPrec.HeaderText = "Precio";
-            this.ColPrec.Name = "ColPrec";
-            this.ColPrec.ReadOnly = true;
-            this.ColPrec.Width = 182;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(217, 283);
+            this.button4.Location = new System.Drawing.Point(266, 285);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(92, 23);
             this.button4.TabIndex = 2;
@@ -172,7 +169,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(315, 283);
+            this.button5.Location = new System.Drawing.Point(389, 285);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(96, 23);
             this.button5.TabIndex = 3;
@@ -187,11 +184,11 @@
             this.button6.TabIndex = 4;
             this.button6.Text = "Comprar/Ofertar";
             this.button6.UseVisualStyleBackColor = true;
-
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(516, 283);
+            this.button7.Location = new System.Drawing.Point(653, 283);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(92, 23);
             this.button7.TabIndex = 5;
@@ -199,11 +196,57 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // ColumnaCodigoPublicacion
+            // 
+            this.ColumnaCodigoPublicacion.HeaderText = "Codigo";
+            this.ColumnaCodigoPublicacion.Name = "ColumnaCodigoPublicacion";
+            this.ColumnaCodigoPublicacion.ReadOnly = true;
+            this.ColumnaCodigoPublicacion.Width = 50;
+            // 
+            // ColDesc
+            // 
+            this.ColDesc.HeaderText = "Descripción";
+            this.ColDesc.Name = "ColDesc";
+            this.ColDesc.ReadOnly = true;
+            this.ColDesc.Width = 200;
+            // 
+            // ColPrec
+            // 
+            this.ColPrec.HeaderText = "Precio";
+            this.ColPrec.Name = "ColPrec";
+            this.ColPrec.ReadOnly = true;
+            // 
+            // ColumnStock
+            // 
+            this.ColumnStock.HeaderText = "Stock";
+            this.ColumnStock.Name = "ColumnStock";
+            this.ColumnStock.ReadOnly = true;
+            this.ColumnStock.Width = 50;
+            // 
+            // ColumnaTipo
+            // 
+            this.ColumnaTipo.HeaderText = "Tipo_Publicacion";
+            this.ColumnaTipo.Name = "ColumnaTipo";
+            this.ColumnaTipo.ReadOnly = true;
+            // 
+            // ColumnaVisibilidad
+            // 
+            this.ColumnaVisibilidad.HeaderText = "Visibilidad";
+            this.ColumnaVisibilidad.Name = "ColumnaVisibilidad";
+            this.ColumnaVisibilidad.ReadOnly = true;
+            // 
+            // ColumnaVendedor
+            // 
+            this.ColumnaVendedor.HeaderText = "Vendedor";
+            this.ColumnaVendedor.Name = "ColumnaVendedor";
+            this.ColumnaVendedor.ReadOnly = true;
+            this.ColumnaVendedor.Width = 110;
+            // 
             // FormComprayOferta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 320);
+            this.ClientSize = new System.Drawing.Size(758, 320);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -213,6 +256,7 @@
             this.Name = "FormComprayOferta";
             this.ShowIcon = false;
             this.Text = "Comprar producto";
+            this.Load += new System.EventHandler(this.FormComprayOferta_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaPubl)).EndInit();
@@ -235,7 +279,12 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaCodigoPublicacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColPrec;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaTipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaVisibilidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaVendedor;
     }
 }

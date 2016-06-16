@@ -20,6 +20,7 @@ namespace WindowsFormsApplication1
 {
     public partial class Menu_Cliente : Form
     {
+        private String user;
 
         public Menu_Cliente()
         {
@@ -35,11 +36,11 @@ namespace WindowsFormsApplication1
         }
 
         public void matchearUsuario(String usuario){
-        
+
+            user = usuario;
            labelUsuario.Text = usuario+"!!";
 
         }
-
 
         private void botonSalir_Click(object sender, EventArgs e)
         {
@@ -50,8 +51,10 @@ namespace WindowsFormsApplication1
         private void botonCalificar_Click(object sender, EventArgs e)
         {
             Pantalla_Calificacion_Principal pCali = new Pantalla_Calificacion_Principal();
+            pCali.generarListado(user); 
             pCali.ShowDialog();
-  
+             
+
         }
 
         private void botonUser_Click(object sender, EventArgs e)
@@ -79,6 +82,7 @@ namespace WindowsFormsApplication1
         {
             
             FormComprayOferta pantallaCompra = new FormComprayOferta();
+            pantallaCompra.guardaDatos(user);
             pantallaCompra.ShowDialog();
         }
 

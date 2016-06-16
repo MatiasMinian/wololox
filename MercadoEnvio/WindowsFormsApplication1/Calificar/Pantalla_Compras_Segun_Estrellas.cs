@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.Calificar
 {
-    public partial class Pantalla_Últimas_5_Compras_Calificadas : Form
+    public partial class Pantalla_Compras_Segun_Estrellas : Form
     {
-        private Decimal id_user;
+        private Decimal id;
         private GD1C2016DataSetTableAdapters.calificacionesTableAdapter caliAdapter;
         private GD1C2016DataSet.calificacionesDataTable caliData;
 
 
-        public Pantalla_Últimas_5_Compras_Calificadas()
+        public Pantalla_Compras_Segun_Estrellas()
         {
             InitializeComponent();
         }
@@ -27,12 +27,12 @@ namespace WindowsFormsApplication1.Calificar
             this.Close();
         }
 
-        internal void generarListado(decimal id)
+        internal void generarListado(decimal idUser)
         {
-            id_user = id;
+            id = idUser;
 
             caliAdapter = new GD1C2016DataSetTableAdapters.calificacionesTableAdapter();
-            caliData = caliAdapter.ultimas5comprasCalificadas(id);
+            caliData = caliAdapter.comprasOrdenadasPorEstrellas(id);
 
             foreach (DataRow row in caliData.Rows)
             {
@@ -44,10 +44,7 @@ namespace WindowsFormsApplication1.Calificar
                                        row.Field<Decimal>("estrellas"),
                                        row.Field<String>("nombre_usuario"));
 
-
             }
-
-
 
         }
     }

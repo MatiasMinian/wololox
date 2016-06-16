@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1.Calificar
 {
-    partial class Pantalla_Últimas_5_Compras_Calificadas
+    partial class Pantalla_Compras_Segun_Estrellas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,71 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.ColumnCompras = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaEstrellas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(549, 217);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Listado de últimas 5 compras calificadas";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnCompras,
-            this.ColumnCantidad,
-            this.ColumnFecha,
+            this.ColumnCompra,
+            this.ColumnaCantidad,
+            this.ColumnaFecha,
             this.ColumnaDescripcion,
             this.ColumnaEstrellas,
             this.ColumnaVendedor});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(537, 192);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Size = new System.Drawing.Size(523, 227);
+            this.dataGridView1.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 235);
+            this.button1.Location = new System.Drawing.Point(12, 245);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Atras";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // ColumnCompras
+            // ColumnCompra
             // 
-            this.ColumnCompras.HeaderText = "Codigo";
-            this.ColumnCompras.Name = "ColumnCompras";
-            this.ColumnCompras.Width = 50;
+            this.ColumnCompra.HeaderText = "Codigo";
+            this.ColumnCompra.Name = "ColumnCompra";
+            this.ColumnCompra.Width = 50;
             // 
-            // ColumnCantidad
+            // ColumnaCantidad
             // 
-            this.ColumnCantidad.HeaderText = "Cantidad";
-            this.ColumnCantidad.Name = "ColumnCantidad";
-            this.ColumnCantidad.Width = 50;
+            this.ColumnaCantidad.HeaderText = "Cantidad";
+            this.ColumnaCantidad.Name = "ColumnaCantidad";
+            this.ColumnaCantidad.Width = 50;
             // 
-            // ColumnFecha
+            // ColumnaFecha
             // 
-            this.ColumnFecha.HeaderText = "Fecha";
-            this.ColumnFecha.Name = "ColumnFecha";
-            this.ColumnFecha.Width = 140;
+            this.ColumnaFecha.HeaderText = "Fecha";
+            this.ColumnaFecha.Name = "ColumnaFecha";
+            this.ColumnaFecha.Width = 130;
             // 
             // ColumnaDescripcion
             // 
@@ -109,18 +97,16 @@
             // 
             this.ColumnaVendedor.HeaderText = "Vendedor";
             this.ColumnaVendedor.Name = "ColumnaVendedor";
-            this.ColumnaVendedor.Width = 104;
             // 
-            // Pantalla_Últimas_5_Compras_Calificadas
+            // Pantalla_Compras_Segun_Estrellas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 265);
+            this.ClientSize = new System.Drawing.Size(547, 274);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox1);
-            this.Name = "Pantalla_Últimas_5_Compras_Calificadas";
-            this.Text = "Compras calificadas";
-            this.groupBox1.ResumeLayout(false);
+            this.Controls.Add(this.dataGridView1);
+            this.Name = "Pantalla_Compras_Segun_Estrellas";
+            this.Text = "Pantalla_Compras_Segun_Estrellas";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -128,14 +114,13 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCompras;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCompra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaEstrellas;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaVendedor;
+        private System.Windows.Forms.Button button1;
     }
 }

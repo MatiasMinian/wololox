@@ -12,6 +12,13 @@ namespace WindowsFormsApplication1.ComprarOfertar
 {
     public partial class Pantalla_Subastar : Form
     {
+        private Decimal valorSubasta;
+        private Decimal id_User;
+        private Decimal codigoPublicacion;
+        private FormComprayOferta pantallaCompra;
+        private GD1C2016DataSetTableAdapters.ofertasTableAdapter ofertaAdapter;
+      
+
         public Pantalla_Subastar()
         {
             InitializeComponent();
@@ -20,6 +27,45 @@ namespace WindowsFormsApplication1.ComprarOfertar
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        internal void guardarDatos(decimal idUser, decimal codigo_publicacion,decimal valorSubastaActual,FormComprayOferta pantallaCO)
+        {
+            id_User = idUser;
+            codigoPublicacion = codigo_publicacion;
+            valorSubasta = valorSubastaActual;
+            pantallaCompra = pantallaCO;
+
+            textBox1.Text = Convert.ToString(valorSubasta);
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+
+                MessageBox.Show("Ingresa oferta");
+
+            }
+            else if (Convert.ToDecimal(textBox2.Text) < Convert.ToDecimal(textBox1.Text))
+            {
+
+                MessageBox.Show("El valor de la oferta debe ser mayor al actual");
+
+            }
+            else
+            {
+                MonthCalendar calendario = new MonthCalendar();
+                DateTime fechaActual = calendario.TodayDate;
+                ofertaAdapter = new GD1C2016DataSetTableAdapters.ofertasTableAdapter();
+                ofertaAdapter.Insert(id_User,codigoPublicacion,fechaActual,Convert.ToDecimal(textBox2.Text));
+                MessageBox.Show("Oferta realizada correctamente");
+                this.Close();
+                pantallaCompra.Close();
+
+            }
         }
     }
 }
