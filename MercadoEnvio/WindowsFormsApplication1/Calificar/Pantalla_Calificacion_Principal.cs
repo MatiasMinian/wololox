@@ -65,7 +65,7 @@ namespace WindowsFormsApplication1.Calificar
         private void button2_Click(object sender, EventArgs e)
         {
 
-            if (dataGridView1.Rows.Count <= 1)
+            if (dataGridView1.Rows.Count == 0)
             {
 
                 MessageBox.Show("No tienes compras pendientes de calificación");

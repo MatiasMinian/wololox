@@ -300,6 +300,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GD1C2016DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Seleccion_Rubros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Seleccion_Rubros.Designer.cs">
+      <DependentUpon>Pantalla_Seleccion_Rubros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Seleccion_Visibilidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Seleccion_Visibilidades.Designer.cs">
+      <DependentUpon>Pantalla_Seleccion_Visibilidades.cs</DependentUpon>
+    </Compile>
     <Compile Include="SeleccionRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -538,6 +550,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturas\Pantalla_Mostrar_Factura.resx">
       <DependentUpon>Pantalla_Mostrar_Factura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\Pantalla_Seleccion_Rubros.resx">
+      <DependentUpon>Pantalla_Seleccion_Rubros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\Pantalla_Seleccion_Visibilidades.resx">
+      <DependentUpon>Pantalla_Seleccion_Visibilidades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SeleccionRol.resx">
       <DependentUpon>SeleccionRol.cs</DependentUpon>

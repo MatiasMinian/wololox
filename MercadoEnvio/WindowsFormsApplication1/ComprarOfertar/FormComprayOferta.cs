@@ -70,7 +70,7 @@ namespace WindowsFormsApplication1.ComprarOfertar
             {
 
 
-                publiData = publiAdapter.buscarPublicacionesPorDescripcion(textDescripcion.Text);
+                publiData = publiAdapter.buscarPublicacionesPorDescripcion(textDescripcion.Text,idUser);
 
                 foreach (DataRow row in publiData.Rows)
                 {
@@ -93,7 +93,7 @@ namespace WindowsFormsApplication1.ComprarOfertar
                 {
 
 
-                    publiData = publiAdapter.buscarPublicacionesPorRubro(rubros[i]);
+                    publiData = publiAdapter.buscarPublicacionesPorRubros(rubros[i], idUser);
 
                     foreach (DataRow row in publiData.Rows)
                     {
@@ -118,7 +118,7 @@ namespace WindowsFormsApplication1.ComprarOfertar
                 for (int i = 0; i < rubros.Count; i++)
                 {
 
-                    publiData = publiAdapter.buscarPublicacionesPorRubroYdescripcion(rubros[i], textDescripcion.Text);
+                    publiData = publiAdapter.buscarPublicacionesPorRubrosYdescripcion(rubros[i], textDescripcion.Text, idUser);
 
                     foreach (DataRow row in publiData.Rows)
                     {
@@ -151,7 +151,7 @@ namespace WindowsFormsApplication1.ComprarOfertar
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (tablaPubl.Rows.Count <= 1)
+            if (tablaPubl.Rows.Count == 0)
             {
 
                 MessageBox.Show("No hay publicaciones disponibles según tu búsqueda");

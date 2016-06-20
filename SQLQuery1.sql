@@ -85,7 +85,7 @@ create table WOLOLOX.usuarios(
 id_usuario numeric(18,0) IDENTITY PRIMARY KEY,
 nombre_usuario nvarchar(25) UNIQUE,
 contraseña nvarchar(25),
-intentos_login numeric(1,0),
+intentos_login numeric(1,0) DEFAULT 0,
 mail nvarchar(50),
 telefono nvarchar(50),
 id_direccion numeric(18,0) REFERENCES WOLOLOX.direcciones,
@@ -140,8 +140,6 @@ id_rol numeric(2,0) REFERENCES WOLOLOX.roles
 
 create table WOLOLOX.estados(
 id_estado numeric(18,0) IDENTITY PRIMARY KEY,
-fecha_inicio datetime,
-fecha_vencimiento datetime,
 descripcion_estado nvarchar(255)
 )
 
@@ -160,7 +158,8 @@ codigo numeric(18,0) IDENTITY PRIMARY KEY,
 id_usuario numeric(18,0) REFERENCES WOLOLOX.usuarios,
 id_estado numeric(18,0) REFERENCES WOLOLOX.estados,
 cod_visibilidad numeric(18,0) REFERENCES WOLOLOX.visibilidades,
-cod_rubro numeric(18,0) REFERENCES WOLOLOX.rubros,
+fecha_inicio datetime,
+fecha_vencimiento datetime,
 descripcion nvarchar (255),
 stock numeric(18,0),
 precio numeric(18,0),
@@ -316,8 +315,6 @@ AS
 	WHERE descripcion LIKE '%'+@descripcionIngresada+'%' AND habilitada = 1
 GO
 
-
-
 IF OBJECT_ID('WOLOLOX.BusquedaPorCostos') IS NOT NULL
     DROP PROCEDURE WOLOLOX.BusquedaPorCostos;
 GO
@@ -428,13 +425,14 @@ AS
   ORDER BY id_calificacion DESC
    
 --Comprar/Ofertar
+
 GO
 
 IF OBJECT_ID('WOLOLOX.buscarPublicacionPorDescripcion') IS NOT NULL
    DROP PROCEDURE WOLOLOX.buscarPublicacionesPorDescripcion;
 GO
 
-CREATE PROCEDURE WOLOLOX.buscarPublicacionesPorDescripcion(@descripcion nvarchar(255))
+CREATE PROCEDURE WOLOLOX.buscarPublicacionesPorDescripcion(@descripcion nvarchar(255),@id numeric(18,0))
 AS
 
 SELECT publicaciones.codigo,publicaciones.descripcion,precio,stock,tipo,visibilidades.descripcion,nombre_usuario
@@ -445,7 +443,7 @@ INNER JOIN visibilidades
 ON publicaciones.cod_visibilidad = visibilidades.codigo
 INNER JOIN WOLOLOX.estados
 ON publicaciones.id_estado = estados.id_estado
-WHERE publicaciones.descripcion LIKE '%'+@descripcion+'%' AND estados.descripcion_estado = 'Activa'
+WHERE publicaciones.descripcion LIKE '%'+@descripcion+'%' AND estados.descripcion_estado = 'Activa' AND @id <> publicaciones.id_usuario
 ORDER BY visibilidades.costo DESC
 
 GO
@@ -454,7 +452,7 @@ IF OBJECT_ID('WOLOLOX.buscarPublicacionesPorRubros') IS NOT NULL
    DROP PROCEDURE WOLOLOX.buscarPublicacionesPorRubros;
 GO
 
-CREATE PROCEDURE WOLOLOX.buscarPublicacionesPorRubros(@rubro nvarchar(20))
+CREATE PROCEDURE WOLOLOX.buscarPublicacionesPorRubros(@rubro nvarchar(20),@id numeric(18,0))
 AS
   SELECT publicaciones.codigo,publicaciones.descripcion,precio,stock,tipo,visibilidades.descripcion,nombre_usuario
 FROM WOLOLOX.publicaciones
@@ -464,9 +462,12 @@ INNER JOIN visibilidades
 ON publicaciones.cod_visibilidad = visibilidades.codigo
 INNER JOIN WOLOLOX.estados
 ON publicaciones.id_estado = estados.id_estado
+INNER JOIN WOLOLOX.publicaciones_rubros
+ON publicaciones.codigo = publicaciones_rubros.cod_publicacion
 INNER JOIN WOLOLOX.rubros
-ON publicaciones.cod_rubro = rubros.codigo
-WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa'
+ON rubros.codigo = publicaciones_rubros.cod_rubro
+
+WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa' AND @id <> publicaciones.id_usuario
 ORDER BY visibilidades.costo DESC
 
 GO
@@ -475,24 +476,385 @@ IF OBJECT_ID('WOLOLOX.buscarPublicacionesPorRubrosYdescripcion') IS NOT NULL
    DROP PROCEDURE WOLOLOX.buscarPublicacionesPorRubrosYdescripcion;
 GO
 
-CREATE PROCEDURE WOLOLOX.buscarPublicacionesPorRubrosYdescripcion(@rubro nvarchar(20),@descripcion nvarchar(255))
+CREATE PROCEDURE WOLOLOX.buscarPublicacionesPorRubrosYdescripcion(@rubro nvarchar(20),@descripcion nvarchar(255),@id numeric(18,0))
 AS
   SELECT publicaciones.codigo,publicaciones.descripcion,precio,stock,tipo,visibilidades.descripcion,nombre_usuario
 FROM WOLOLOX.publicaciones
 INNER JOIN WOLOLOX.usuarios
 ON publicaciones.id_usuario = usuarios.id_usuario
-INNER JOIN visibilidades
+INNER JOIN WOLOLOX.visibilidades
 ON publicaciones.cod_visibilidad = visibilidades.codigo
 INNER JOIN WOLOLOX.estados
 ON publicaciones.id_estado = estados.id_estado
+INNER JOIN WOLOLOX.publicaciones_rubros
+ON publicaciones.codigo = publicaciones_rubros.cod_publicacion
 INNER JOIN WOLOLOX.rubros
-ON publicaciones.cod_rubro = rubros.codigo
-WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa' AND publicaciones.descripcion LIKE '%'+@descripcion+'%'
+ON rubros.codigo = publicaciones_rubros.cod_rubro
+WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa' AND publicaciones.descripcion LIKE '%'+@descripcion+'%' AND @id <> publicaciones.id_usuario
 ORDER BY visibilidades.costo DESC
 
+GO
+
+--Historial cliente
+
+IF OBJECT_ID('WOLOLOX.busquedaDeComprasYsubastas') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.busquedaDeComprasYsubastas;
+GO
+  CREATE PROCEDURE WOLOLOX.busquedaDeComprasYsubastas(@id numeric(18,0))
+AS
+
+(SELECT compras.id_compra AS codigo,publicaciones.descripcion,compras.cantidad,publicaciones.precio,publicaciones.tipo,compras.fecha,calificaciones.estrellas,usuarios.nombre_usuario
+FROM WOLOLOX.compras
+INNER JOIN WOLOLOX.publicaciones
+ON compras.cod_publicacion = publicaciones.codigo
+INNER JOIN WOLOLOX.calificaciones
+ON calificaciones.cod_compra = compras.id_compra
+INNER JOIN WOLOLOX.usuarios
+ON publicaciones.id_usuario = usuarios.id_usuario
+WHERE compras.id_usuario = @id
+UNION
+SELECT DISTINCT ofertas.codigo,publicaciones.descripcion,publicaciones.stock,ofertas.monto,publicaciones.tipo,ofertas.fecha,null,usuarios.nombre_usuario
+FROM WOLOLOX.ofertas
+INNER JOIN WOLOLOX.publicaciones
+ON publicaciones.codigo = ofertas.cod_publicacion
+INNER JOIN WOLOLOX.usuarios
+ON usuarios.id_usuario = publicaciones.id_usuario
+WHERE ofertas.id_usuario = @id)
+ORDER BY publicaciones.tipo ASC
+
+GO
+IF OBJECT_ID('WOLOLOX.cantidadDePublicacionesUsuario') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.cantidadDePublicacionesUsuario;
+GO
+  CREATE PROCEDURE WOLOLOX.cantidadDePublicacionesUsuario(@idUser numeric(18,0))
+AS
+DECLARE @cantidadCompras int
+
+set @cantidadCompras = (SELECT COUNT(*) FROM WOLOLOX.publicaciones WHERE publicaciones.id_usuario = @idUser)
+
+SELECT @cantidadCompras
+GO
+
+IF OBJECT_ID('WOLOLOX.consultaIDpublIngresada') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.consultaIDpublIngresada;
+GO
+  CREATE PROCEDURE WOLOLOX.consultaIDpublIngresada
+AS
+DECLARE @id int
+set @id =(SELECT TOP 1 publicaciones.codigo FROM WOLOLOX.publicaciones ORDER BY publicaciones.codigo DESC)
+SELECT @id
 
 
-   
+GO
+IF OBJECT_ID('WOLOLOX.consultaIDrubro') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.consultaIDrubro;
+GO
+  CREATE PROCEDURE WOLOLOX.consultaIDrubro(@rubro nvarchar(20))
+AS
+DECLARE @idrubro int
+set @idrubro = (SELECT rubros.codigo FROM WOLOLOX.rubros WHERE rubros.descripcion_corta = @rubro)
+SELECT @idrubro
+
+GO
+
+IF OBJECT_ID('WOLOLOX.consultaIDvisibilidad') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.consultaIDvisibilidad;
+GO
+  CREATE PROCEDURE WOLOLOX.consultaIDvisibilidad(@visi nvarchar(255))
+AS
+DECLARE @idvisi int
+set @idvisi=(SELECT visibilidades.codigo FROM WOLOLOX.visibilidades WHERE visibilidades.descripcion = @visi)
+SELECT @idvisi
+
+
+GO
+IF OBJECT_ID('WOLOLOX.consultaIDestado') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.consultaIDestado;
+GO
+  CREATE PROCEDURE WOLOLOX.consultaIDestado(@estado nvarchar(255))
+AS
+DECLARE @idestado int
+SET @idestado =(SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.descripcion_estado = @estado)
+
+SELECT @idestado
+
+GO
+IF OBJECT_ID('WOLOLOX.consultaIDestado') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.consultaIDestado;
+GO
+  CREATE PROCEDURE WOLOLOX.consultaIDestado(@estado nvarchar(255))
+AS
+DECLARE @idestado int
+SET @idestado =(SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.descripcion_estado = @estado)
+
+SELECT @idestado
+
+
+GO
+----Listado estadístico
+
+IF OBJECT_ID('WOLOLOX.vendedoresProductosNoVendidos1Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.vendedoresProductosNoVendidos1Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.vendedoresProductosNoVendidos1Trimestre(@anio nvarchar(4) ,@visi nvarchar(255))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,sum(publicaciones.stock) AS cant_no_vendidos FROM WOLOLOX.publicaciones 
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = publicaciones.id_usuario 
+INNER JOIN WOLOLOX.visibilidades ON visibilidades.codigo = publicaciones.cod_visibilidad
+AND visibilidades.descripcion = @visi 
+AND publicaciones.fecha_inicio BETWEEN @anio+'/1/1' AND @anio+'/3/31'
+AND publicaciones.fecha_vencimiento BETWEEN @anio+'/1/1' AND @anio+'/3/31'
+AND publicaciones.codigo NOT IN (SELECT compras.cod_publicacion FROM WOLOLOX.compras
+WHERE compras.fecha BETWEEN @anio+'/1/1' AND @anio+'/3/31')
+GROUP BY usuarios.nombre_usuario
+ORDER BY cant_no_vendidos DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.vendedoresProductosNoVendidos2Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.vendedoresProductosNoVendidos2Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.vendedoresProductosNoVendidos2Trimestre(@anio nvarchar(4) ,@visi nvarchar(255))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,sum(publicaciones.stock) AS cant_no_vendidos FROM WOLOLOX.publicaciones 
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = publicaciones.id_usuario 
+INNER JOIN WOLOLOX.visibilidades ON visibilidades.codigo = publicaciones.cod_visibilidad 
+AND visibilidades.descripcion = @visi 
+AND publicaciones.fecha_inicio BETWEEN @anio+'/4/1' AND @anio+'/6/30'
+AND publicaciones.fecha_vencimiento BETWEEN @anio+'/4/1' AND @anio+'/6/30'
+AND publicaciones.codigo NOT IN (SELECT compras.cod_publicacion FROM WOLOLOX.compras
+WHERE compras.fecha BETWEEN @anio+'/4/1' AND @anio+'/6/30')
+GROUP BY usuarios.nombre_usuario
+ORDER BY cant_no_vendidos DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.vendedoresProductosNoVendidos3Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.vendedoresProductosNoVendidos3Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.vendedoresProductosNoVendidos3Trimestre(@anio nvarchar(4) ,@visi nvarchar(255))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,sum(publicaciones.stock) AS cant_no_vendidos FROM WOLOLOX.publicaciones 
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = publicaciones.id_usuario 
+INNER JOIN WOLOLOX.visibilidades ON visibilidades.codigo = publicaciones.cod_visibilidad 
+AND visibilidades.descripcion = @visi 
+AND publicaciones.fecha_inicio BETWEEN @anio+'/7/1' AND @anio+'/9/30'
+AND publicaciones.fecha_vencimiento BETWEEN @anio+'/7/1' AND @anio+'/9/30'
+AND publicaciones.codigo NOT IN (SELECT compras.cod_publicacion FROM WOLOLOX.compras
+WHERE compras.fecha BETWEEN @anio+'/7/1' AND @anio+'/9/30')
+GROUP BY usuarios.nombre_usuario
+ORDER BY cant_no_vendidos DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.vendedoresProductosNoVendidos4Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.vendedoresProductosNoVendidos4Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.vendedoresProductosNoVendidos4Trimestre(@anio nvarchar(4) ,@visi nvarchar(255))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,sum(publicaciones.stock) AS cant_no_vendidos FROM WOLOLOX.publicaciones 
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = publicaciones.id_usuario 
+INNER JOIN WOLOLOX.visibilidades ON visibilidades.codigo = publicaciones.cod_visibilidad
+AND visibilidades.descripcion = @visi 
+AND publicaciones.fecha_inicio BETWEEN @anio+'/10/1' AND @anio+'/12/31'
+AND publicaciones.fecha_vencimiento BETWEEN @anio+'/10/1' AND @anio+'/12/31'
+AND publicaciones.codigo NOT IN (SELECT compras.cod_publicacion FROM WOLOLOX.compras
+WHERE compras.fecha BETWEEN @anio+'/10/1' AND @anio+'/12/31')
+GROUP BY usuarios.nombre_usuario
+ORDER BY cant_no_vendidos DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.clienteMayorCantCompras1Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.clienteMayorCantCompras1Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.clienteMayorCantCompras1Trimestre(@anio nvarchar(4) ,@rubro nvarchar(20))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,sum(compras.cantidad) AS cant_compras FROM WOLOLOX.compras
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = compras.id_usuario
+INNER JOIN WOLOLOX.publicaciones ON publicaciones.codigo = compras.cod_publicacion
+INNER JOIN WOLOLOX.publicaciones_rubros ON publicaciones_rubros.cod_publicacion = publicaciones.codigo
+INNER JOIN WOLOLOX.rubros ON publicaciones_rubros.cod_rubro = rubros.codigo
+WHERE compras.fecha BETWEEN @anio+'/1/1' AND @anio+'/3/31' AND rubros.descripcion_corta = @rubro
+GROUP BY usuarios.nombre_usuario
+ORDER BY cant_compras DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.clienteMayorCantCompras2Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.clienteMayorCantCompras2Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.clienteMayorCantCompras2Trimestre(@anio nvarchar(4) ,@rubro nvarchar(20))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,sum(compras.cantidad) AS cant_compras FROM WOLOLOX.compras
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = compras.id_usuario
+INNER JOIN WOLOLOX.publicaciones ON publicaciones.codigo = compras.cod_publicacion
+INNER JOIN WOLOLOX.publicaciones_rubros ON publicaciones_rubros.cod_publicacion = publicaciones.codigo
+INNER JOIN WOLOLOX.rubros ON publicaciones_rubros.cod_rubro = rubros.codigo
+WHERE compras.fecha BETWEEN @anio+'/4/1' AND @anio+'/6/30' AND rubros.descripcion_corta = @rubro
+GROUP BY usuarios.nombre_usuario
+ORDER BY cant_compras DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.clienteMayorCantCompras3Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.clienteMayorCantCompras3Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.clienteMayorCantCompras3Trimestre(@anio nvarchar(4) ,@rubro nvarchar(20))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,sum(compras.cantidad) AS cant_compras FROM WOLOLOX.compras
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = compras.id_usuario
+INNER JOIN WOLOLOX.publicaciones ON publicaciones.codigo = compras.cod_publicacion
+INNER JOIN WOLOLOX.publicaciones_rubros ON publicaciones_rubros.cod_publicacion = publicaciones.codigo
+INNER JOIN WOLOLOX.rubros ON publicaciones_rubros.cod_rubro = rubros.codigo
+WHERE compras.fecha BETWEEN @anio+'/7/1' AND @anio+'/9/30' AND rubros.descripcion_corta = @rubro
+GROUP BY usuarios.nombre_usuario
+ORDER BY cant_compras DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.clienteMayorCantCompras4Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.clienteMayorCantCompras4Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.clienteMayorCantCompras4Trimestre(@anio nvarchar(4) ,@rubro nvarchar(20))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,sum(compras.cantidad) AS cant_compras FROM WOLOLOX.compras
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = compras.id_usuario
+INNER JOIN WOLOLOX.publicaciones ON publicaciones.codigo = compras.cod_publicacion
+INNER JOIN WOLOLOX.publicaciones_rubros ON publicaciones_rubros.cod_publicacion = publicaciones.codigo
+INNER JOIN WOLOLOX.rubros ON publicaciones_rubros.cod_rubro = rubros.codigo
+WHERE compras.fecha BETWEEN @anio+'/10/1' AND @anio+'/12/31' AND rubros.descripcion_corta = @rubro
+GROUP BY usuarios.nombre_usuario
+ORDER BY cant_compras DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.vendedoresMayorCantFacturas1Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.vendedoresMayorCantFacturas1Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.vendedoresMayorCantFacturas1Trimestre(@anio nvarchar(4))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,count(facturas.nro_fact) AS cant_facturas FROM WOLOLOX.facturas
+INNER JOIN WOLOLOX.publicaciones ON publicaciones.codigo = facturas.id_publicacion
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = publicaciones.id_usuario
+WHERE facturas.fecha BETWEEN @anio+'/1/1' AND @anio+'/3/31'
+GROUP BY usuarios.nombre_usuario
+ORDER BY cant_facturas DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.vendedoresMayorCantFacturas2Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.vendedoresMayorCantFacturas2Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.vendedoresMayorCantFacturas2Trimestre(@anio nvarchar(4))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,count(facturas.nro_fact) AS cant_facturas FROM WOLOLOX.facturas
+INNER JOIN WOLOLOX.publicaciones ON publicaciones.codigo = facturas.id_publicacion
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = publicaciones.id_usuario
+WHERE facturas.fecha BETWEEN @anio+'/4/1' AND @anio+'/6/30'
+GROUP BY usuarios.nombre_usuario
+ORDER BY cant_facturas DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.vendedoresMayorCantFacturas3Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.vendedoresMayorCantFacturas3Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.vendedoresMayorCantFacturas3Trimestre(@anio nvarchar(4))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,count(facturas.nro_fact) AS cant_facturas FROM WOLOLOX.facturas
+INNER JOIN WOLOLOX.publicaciones ON publicaciones.codigo = facturas.id_publicacion
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = publicaciones.id_usuario
+WHERE facturas.fecha BETWEEN @anio+'/7/1' AND @anio+'/9/30'
+GROUP BY usuarios.nombre_usuario
+ORDER BY cant_facturas DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.vendedoresMayorCantFacturas4Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.vendedoresMayorCantFacturas4Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.vendedoresMayorCantFacturas4Trimestre(@anio nvarchar(4))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,count(facturas.nro_fact) AS cant_facturas FROM WOLOLOX.facturas
+INNER JOIN WOLOLOX.publicaciones ON publicaciones.codigo = facturas.id_publicacion
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = publicaciones.id_usuario
+WHERE facturas.fecha BETWEEN @anio+'/10/1' AND @anio+'/12/31'
+GROUP BY usuarios.nombre_usuario
+ORDER BY cant_facturas DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.vendedoresMayorMontoFacturado1Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.vendedoresMayorMontoFacturado1Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.vendedoresMayorMontoFacturado1Trimestre(@anio nvarchar(4))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,sum(facturas.total) AS monto_facturado FROM WOLOLOX.facturas
+INNER JOIN WOLOLOX.publicaciones ON publicaciones.codigo = facturas.id_publicacion
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = publicaciones.id_usuario
+WHERE facturas.fecha BETWEEN @anio+'/1/1' AND @anio+'/3/31'
+GROUP BY usuarios.nombre_usuario
+ORDER BY monto_facturado DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.vendedoresMayorMontoFacturado2Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.vendedoresMayorMontoFacturado2Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.vendedoresMayorMontoFacturado2Trimestre(@anio nvarchar(4))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,sum(facturas.total) AS monto_facturado FROM WOLOLOX.facturas
+INNER JOIN WOLOLOX.publicaciones ON publicaciones.codigo = facturas.id_publicacion
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = publicaciones.id_usuario
+WHERE facturas.fecha BETWEEN @anio+'/4/1' AND @anio+'/6/30'
+GROUP BY usuarios.nombre_usuario
+ORDER BY monto_facturado DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.vendedoresMayorMontoFacturado3Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.vendedoresMayorMontoFacturado3Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.vendedoresMayorMontoFacturado3Trimestre(@anio nvarchar(4))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,sum(facturas.total) AS monto_facturado FROM WOLOLOX.facturas
+INNER JOIN WOLOLOX.publicaciones ON publicaciones.codigo = facturas.id_publicacion
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = publicaciones.id_usuario
+WHERE facturas.fecha BETWEEN @anio+'/7/1' AND @anio+'/9/30'
+GROUP BY usuarios.nombre_usuario
+ORDER BY monto_facturado DESC
+
+GO
+
+IF OBJECT_ID('WOLOLOX.vendedoresMayorMontoFacturado4Trimestre') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.vendedoresMayorMontoFacturado4Trimestre;
+GO
+  CREATE PROCEDURE WOLOLOX.vendedoresMayorMontoFacturado4Trimestre(@anio nvarchar(4))
+AS
+
+SELECT TOP 5 usuarios.nombre_usuario,sum(facturas.total) AS monto_facturado FROM WOLOLOX.facturas
+INNER JOIN WOLOLOX.publicaciones ON publicaciones.codigo = facturas.id_publicacion
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = publicaciones.id_usuario
+WHERE facturas.fecha BETWEEN @anio+'/10/1' AND @anio+'/12/31'
+GROUP BY usuarios.nombre_usuario
+ORDER BY monto_facturado DESC
+
 --ABM de Rol
 
 GO

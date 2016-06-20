@@ -110,14 +110,13 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //var senderGrid = (DataGridView)sender;
 
-            //if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-              //  e.RowIndex >= 0)
 
-            visiAdapter.eliminarVisibilidad(Convert.ToDecimal(dataGridView1.CurrentRow.Cells[0].Value));
-            
+                visiAdapter.eliminarVisibilidad(Convert.ToDecimal(dataGridView1.CurrentRow.Cells[0].Value));
+
                 MessageBox.Show("Visibilidad eliminada correctamente");
+
+
             
         }
 

@@ -17,18 +17,13 @@ namespace WindowsFormsApplication1
         static void Main()
         {
 
- /*           // Open App.Config of executable
-        System.Configuration.Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            GD1C2016DataSetTableAdapters.publicacionesTableAdapter publiAdapter = new GD1C2016DataSetTableAdapters.publicacionesTableAdapter();
 
-        // Add an Application Setting.
-        config.AppSettings.Settings.Add("FechaActualSistema", DateTime.Now.ToString("dd/MM/yyyy"));
+            var value = System.Configuration.ConfigurationManager.AppSettings["DateKey"];
 
-        // Save the changes in App.config file.
-        config.Save(ConfigurationSaveMode.Modified);
+            var appDate = DateTime.Parse(value);
 
-        // Force a reload of a changed section.
-        ConfigurationManager.RefreshSection("appSettings");
-*/
+            //publiAdapter.actualizarPublicacionesVencidas(appDate);
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

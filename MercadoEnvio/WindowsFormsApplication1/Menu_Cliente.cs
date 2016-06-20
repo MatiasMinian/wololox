@@ -67,6 +67,8 @@ namespace WindowsFormsApplication1
         private void botonHistorial_Click(object sender, EventArgs e)
         {
             Pantalla_Historial_Principal pantallaHistorial = new Pantalla_Historial_Principal();
+
+            pantallaHistorial.generarListado(user);
             pantallaHistorial.ShowDialog();
      
         }
@@ -89,12 +91,14 @@ namespace WindowsFormsApplication1
         private void botonPublic_Click(object sender, EventArgs e)
         {
             Pantalla_Generar_Publicación_Principal pantallaGeneracionPubliPrincipal = new Pantalla_Generar_Publicación_Principal();
+            pantallaGeneracionPubliPrincipal.guardarDatos(user);
             pantallaGeneracionPubliPrincipal.ShowDialog();
         }
 
         private void botonFacturas_Click(object sender, EventArgs e)
         {
             Pantalla_Consultar_Facturas pantallaFacturas = new Pantalla_Consultar_Facturas();
+            pantallaFacturas.guardaDatos(user);
             pantallaFacturas.ShowDialog();
         }
 

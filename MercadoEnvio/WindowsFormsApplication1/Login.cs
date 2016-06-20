@@ -57,14 +57,14 @@ namespace WindowsFormsApplication1
                 byte[] valorHash;
                 valorHash = CriptoPass.ComputeHash(obtenerNumBytes(textoPass.Text));
 
-               switch ((int)(adapterUsuarios.login(textoUser.Text, textoPass.Text))){
+               /*switch ((int)(adapterUsuarios.login(textoUser.Text, textoPass.Text))){
                     case 0: MessageBox.Show("Usuario/Contraseña incorrectos!");
                         break;
                     case 1: loguearse(textoUser.Text);
                         break;
                     case 2: MessageBox.Show("Usuario bloqueado!");
                         break;
-                }
+                }*/
                
 
                Menu_Cliente menu = new Menu_Cliente();

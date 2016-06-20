@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEnvio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHabilitada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSelección = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -38,14 +46,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEnvio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnHabilitada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSelección = new System.Windows.Forms.DataGridViewButtonColumn();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -53,6 +53,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnCodigo,
@@ -70,6 +71,62 @@
             this.dataGridView1.Size = new System.Drawing.Size(554, 225);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // ColumnCodigo
+            // 
+            this.ColumnCodigo.HeaderText = "Codigo";
+            this.ColumnCodigo.Name = "ColumnCodigo";
+            this.ColumnCodigo.ReadOnly = true;
+            this.ColumnCodigo.Width = 50;
+            // 
+            // colDesc
+            // 
+            this.colDesc.HeaderText = "Descripción";
+            this.colDesc.Name = "colDesc";
+            this.colDesc.ReadOnly = true;
+            // 
+            // colEnvio
+            // 
+            this.colEnvio.HeaderText = "Com. por envío";
+            this.colEnvio.Name = "colEnvio";
+            this.colEnvio.ReadOnly = true;
+            this.colEnvio.Width = 50;
+            // 
+            // colProd
+            // 
+            this.colProd.HeaderText = "Com. por producto vendido";
+            this.colProd.Name = "colProd";
+            this.colProd.ReadOnly = true;
+            this.colProd.Width = 50;
+            // 
+            // colTipo
+            // 
+            this.colTipo.HeaderText = "Com. por tipo de publicación";
+            this.colTipo.Name = "colTipo";
+            this.colTipo.ReadOnly = true;
+            this.colTipo.Width = 50;
+            // 
+            // colCosto
+            // 
+            this.colCosto.HeaderText = "Costo";
+            this.colCosto.Name = "colCosto";
+            this.colCosto.ReadOnly = true;
+            this.colCosto.Width = 50;
+            // 
+            // ColumnHabilitada
+            // 
+            this.ColumnHabilitada.HeaderText = "Habilitada";
+            this.ColumnHabilitada.Name = "ColumnHabilitada";
+            this.ColumnHabilitada.ReadOnly = true;
+            this.ColumnHabilitada.Width = 60;
+            // 
+            // colSelección
+            // 
+            this.colSelección.HeaderText = "Eliminar";
+            this.colSelección.Name = "colSelección";
+            this.colSelección.ReadOnly = true;
+            this.colSelección.Text = "Eliminar";
+            this.colSelección.ToolTipText = "Eliminar";
             // 
             // groupBox1
             // 
@@ -153,62 +210,6 @@
             this.button2.Text = "Limpiar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // ColumnCodigo
-            // 
-            this.ColumnCodigo.HeaderText = "Codigo";
-            this.ColumnCodigo.Name = "ColumnCodigo";
-            this.ColumnCodigo.ReadOnly = true;
-            this.ColumnCodigo.Width = 50;
-            // 
-            // colDesc
-            // 
-            this.colDesc.HeaderText = "Descripción";
-            this.colDesc.Name = "colDesc";
-            this.colDesc.ReadOnly = true;
-            // 
-            // colEnvio
-            // 
-            this.colEnvio.HeaderText = "Com. por envío";
-            this.colEnvio.Name = "colEnvio";
-            this.colEnvio.ReadOnly = true;
-            this.colEnvio.Width = 50;
-            // 
-            // colProd
-            // 
-            this.colProd.HeaderText = "Com. por producto vendido";
-            this.colProd.Name = "colProd";
-            this.colProd.ReadOnly = true;
-            this.colProd.Width = 50;
-            // 
-            // colTipo
-            // 
-            this.colTipo.HeaderText = "Com. por tipo de publicación";
-            this.colTipo.Name = "colTipo";
-            this.colTipo.ReadOnly = true;
-            this.colTipo.Width = 50;
-            // 
-            // colCosto
-            // 
-            this.colCosto.HeaderText = "Costo";
-            this.colCosto.Name = "colCosto";
-            this.colCosto.ReadOnly = true;
-            this.colCosto.Width = 50;
-            // 
-            // ColumnHabilitada
-            // 
-            this.ColumnHabilitada.HeaderText = "Habilitada";
-            this.ColumnHabilitada.Name = "ColumnHabilitada";
-            this.ColumnHabilitada.ReadOnly = true;
-            this.ColumnHabilitada.Width = 60;
-            // 
-            // colSelección
-            // 
-            this.colSelección.HeaderText = "Eliminar";
-            this.colSelección.Name = "colSelección";
-            this.colSelección.ReadOnly = true;
-            this.colSelección.Text = "Eliminar";
-            this.colSelección.ToolTipText = "Eliminar";
             // 
             // button1
             // 

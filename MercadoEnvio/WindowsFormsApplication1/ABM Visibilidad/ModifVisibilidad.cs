@@ -118,15 +118,16 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
-            EditarDatosVisibilidad pantallaEditarDatos = new EditarDatosVisibilidad();
-            pantallaEditarDatos.cargarDatos(dataGridView1.CurrentRow.Cells[0].Value,
-                                dataGridView1.CurrentRow.Cells[1].Value,
-                                dataGridView1.CurrentRow.Cells[2].Value,
-                                dataGridView1.CurrentRow.Cells[3].Value,
-                                dataGridView1.CurrentRow.Cells[4].Value,
-                                dataGridView1.CurrentRow.Cells[5].Value);
 
-            pantallaEditarDatos.ShowDialog();
+                EditarDatosVisibilidad pantallaEditarDatos = new EditarDatosVisibilidad();
+                pantallaEditarDatos.cargarDatos(dataGridView1.CurrentRow.Cells[0].Value,
+                                    dataGridView1.CurrentRow.Cells[1].Value,
+                                    dataGridView1.CurrentRow.Cells[2].Value,
+                                    dataGridView1.CurrentRow.Cells[3].Value,
+                                    dataGridView1.CurrentRow.Cells[4].Value,
+                                    dataGridView1.CurrentRow.Cells[5].Value);
+
+                pantallaEditarDatos.ShowDialog();
 
 
 

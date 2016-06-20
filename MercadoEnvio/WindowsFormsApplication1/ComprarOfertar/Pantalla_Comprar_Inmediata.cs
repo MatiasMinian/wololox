@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApplication1.Facturas;
 
 namespace WindowsFormsApplication1.ComprarOfertar
 {
@@ -48,6 +49,8 @@ namespace WindowsFormsApplication1.ComprarOfertar
             MessageBox.Show("Compra realizada correctamente");
             this.Close();
             pantallaCompra.Close();
+            Pantalla_Mostrar_Factura pantallaFactura = new Pantalla_Mostrar_Factura();
+            pantallaFactura.ShowDialog();
 
 
         }
