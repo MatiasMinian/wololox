@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
 {
     public partial class Pantalla_Busqueda_Cliente_A_Modificar : Form
     {
+        private GD1C2016DataSetTableAdapters.clientesTableAdapter cliAdapter = new GD1C2016DataSetTableAdapters.clientesTableAdapter();
         public Pantalla_Busqueda_Cliente_A_Modificar()
         {
             InitializeComponent();
@@ -24,30 +25,36 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.ResetText();
-            textBox2.ResetText();
-            textBox3.ResetText();
-            textBox4.ResetText();
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-                Pantalla_Modificacion_Datos_Cliente pantallaModificacionCliente = new Pantalla_Modificacion_Datos_Cliente();
-                pantallaModificacionCliente.ShowDialog();
+            textNombre.ResetText();
+            textApellido.ResetText();
+            textDNI.ResetText();
+            textEmail.ResetText();
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == "")
+            if (textNombre.Text == "" && textApellido.Text == "" && textDNI.Text == "" && textEmail.Text == "")
             {
-
                 MessageBox.Show("Complete algún campo de búsqueda");
-
             }
+            dataClientes.DataSource=BuscarCliente(textNombre.Text, textApellido.Text, textEmail.Text, textDNI.Text);
+        }
 
+        private void Pantalla_Busqueda_Cliente_A_Modificar_Load(object sender, EventArgs e)
+        {
+           dataClientes.DataSource = cliAdapter.ObtenerClientesHabilitados();
+        }
+
+        private void dataClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                Pantalla_Modificacion_Datos_Cliente pantallaMod = new Pantalla_Modificacion_Datos_Cliente(dataClientes.Rows[e.RowIndex]);
+                
+            }
         }
 
     }

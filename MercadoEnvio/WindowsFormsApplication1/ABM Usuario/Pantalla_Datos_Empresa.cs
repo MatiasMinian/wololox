@@ -37,7 +37,6 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textDepto.ResetText();
             textCiudad.ResetText();
             textNomCon.ResetText();
-            textRubro.ResetText();
             textTel.ResetText();
             
 
@@ -47,8 +46,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
         {
             if (textNombre.Text == "" || textNumDom.Text == "" || textLocal.Text == "" || textMail.Text == ""
               || textPiso.Text == "" || textCuit.Text == "" || textDom.Text == "" || textCodPos.Text == ""
-              || textDepto.Text == "" || textCiudad.Text == "" || textNomCon.Text == "" || textRubro.Text == ""
-              || textTel.Text == "")
+              || textDepto.Text == "" || textCiudad.Text == "" || textNomCon.Text == "" || textTel.Text == "")
             {
 
                 MessageBox.Show("Complete campos vacíos");

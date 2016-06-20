@@ -63,8 +63,8 @@ namespace WindowsFormsApplication1.ABM_Usuario
             }
 
             cliAdapter = new GD1C2016DataSetTableAdapters.clientesTableAdapter();
-            cliAdapter.crearCliente(textUser.Text, textPass.Text, textNom.Text, textApe.Text, textMail.Text, textTel.Text, texDom.Text, textNumDom.Text, textPiso.Text, textDepto.Text, textLoc.Text, textCiudad.Text, textPost.Text, textDNI.Text, textFechaNac.Text);
-
+            cliAdapter.actualizarCliente(textUser.Text, textPass.Text, textNom.Text, textApe.Text, textMail.Text, textTel.Text, texDom.Text, textNumDom.Text, textPiso.Text, textDepto.Text, textLoc.Text, textCiudad.Text, textPost.Text, textDNI.Text, textFechaNac.Text);
+            
         }
 
     }
