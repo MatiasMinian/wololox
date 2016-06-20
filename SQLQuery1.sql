@@ -86,6 +86,9 @@ id_usuario numeric(18,0) IDENTITY PRIMARY KEY,
 nombre_usuario nvarchar(25) UNIQUE,
 contraseña nvarchar(25),
 intentos_login numeric(1,0) DEFAULT 0,
+contraseña varbinary(8000),
+intentos_login numeric(1,0),
+>>>>>>> e61b8cbadbfc8014a29a596c2d747a85b4b41d67
 mail nvarchar(50),
 telefono nvarchar(50),
 id_direccion numeric(18,0) REFERENCES WOLOLOX.direcciones,
@@ -337,21 +340,53 @@ GO
 
 --Login
 
-CREATE PROCEDURE WOLOLOX.login(@UserName nvarchar(50), @Password nvarchar(25))
+IF OBJECT_ID('WOLOLOX.login') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.login;
+GO
+
+CREATE PROCEDURE WOLOLOX.login(@UserName nvarchar(50), @Password varbinary(8000))
 AS
 DECLARE @estado int
+declare @cantUsuarios numeric
+declare @usrId numeric
 
-if exists(select * from WOLOLOX.usuarios where nombre_usuario=@UserName and contraseña=@Password and habilitado=1)
-	   set @estado=1
-else if exists (select * from WOLOLOX.usuarios where nombre_usuario=@UserName and habilitado=0)
-       set @estado=2
-else
-	   set @estado=0
-	   update WOLOLOX.usuarios
-	   set intentos_login = intentos_login + 1
-	   where nombre_usuario=@UserName
-select @estado
+set @cantUsuarios = (select isNull((select nombre_usuario FROM WOLOLOX.usuarios 
+	WHERE 1=1 AND nombre_usuario = @UserName
+	AND contraseña = @Password
+	group by nombre_usuario
+	having count(intentos_login)<3),0))
 
+IF @cantUsuarios = 0
+	BEGIN
+		set @usrId = (select id_usuario FROM WOLOLOX.usuarios where nombre_usuario = @UserName)
+		
+		if (not exists (select id_usuario FROM WOLOLOX.usuarios where id_usuario = @usrId))
+		begin 
+			RAISERROR (40001,-1,-1, 'El Usuario no existe!')
+			select 0
+			return;
+		end
+		
+		if((select intentos_login from WOLOLOX.usuarios  where id_usuario = @usrId) > 2)
+		begin
+			RAISERROR (40002,-1,-1, 'Usuario Bloqueado!')
+			select 0
+			return;
+		end
+		if (exists (select id_usuario FROM WOLOLOX.usuarios where nombre_usuario = @UserName))
+		begin 
+			RAISERROR (40003,-1,-1, 'Password incorrecta')
+			update usuarios(intentos_login) set intentos_login=(intentos_login+1);
+			return;
+		end 
+	END
+	ELSE 
+	BEGIN
+	set @usrId = (SELECT id_usuario FROM WOLOLOX.usuarios WHERE nombre_usuario = @UserName
+	AND contraseña = @password )
+	
+	SELECT @usrId
+	END
 GO
 
 --consulta de ID
@@ -855,9 +890,16 @@ WHERE facturas.fecha BETWEEN @anio+'/10/1' AND @anio+'/12/31'
 GROUP BY usuarios.nombre_usuario
 ORDER BY monto_facturado DESC
 
+=======
+GO
+   
+
 --ABM de Rol
 
+IF OBJECT_ID('WOLOLOX.insertarRol') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.insertarRol;
 GO
+
 CREATE PROCEDURE wololox.insertarRol(@nombreRol nvarchar(50))
 AS
 
@@ -866,11 +908,19 @@ values (@nombreRol,1)
 
 GO
 
+IF OBJECT_ID('WOLOLOX.insertarFuncXRol') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.insertarFuncXRol;
+GO
+
 CREATE PROCEDURE wololox.insertarFuncXRol(@idFunc numeric(2,0), @idRol numeric(2,0))
 AS
 insert into WOLOLOX.funcionalidades_roles
 values (@idFunc,@idRol)
 
+GO
+
+IF OBJECT_ID('WOLOLOX.inhabilitarRol') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.inhabilitarRol;
 GO
 
 CREATE PROCEDURE wololox.inhabilitarRol(@idRol numeric(2,0))
@@ -881,12 +931,20 @@ where id=@idRol
 
 GO
 
+IF OBJECT_ID('WOLOLOX.habilitarRol') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.habilitarRol;
+GO
+
 CREATE PROCEDURE wololox.habilitarRol(@idRol numeric(2,0))
 AS
 update WOLOLOX.roles
 set estado=1
 where id=@idRol
 
+GO
+
+IF OBJECT_ID('WOLOLOX.funcionalidadesDelRol') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.funcionalidadesDelRol;
 GO
 
 CREATE PROCEDURE wololox.funcionalidadesDelRol(@idRol numeric(2,0))
@@ -898,6 +956,10 @@ AND f.id=fr.id_rol
 
 GO
 
+IF OBJECT_ID('WOLOLOX.funcionalidadesSinRol') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.funcionalidadesSinRol;
+GO
+
 CREATE PROCEDURE wololox.funcionalidadesSinRol(@idRol numeric(2,0))
 AS
 SELECT f.id, f.nombre
@@ -907,11 +969,19 @@ AND f.id=fr.id_rol
 
 GO
 
+IF OBJECT_ID('WOLOLOX.borrarTodasFunciones') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.borrarTodasFunciones;
+GO
+
 CREATE PROCEDURE wololox.borrarTodasFunciones(@idRol numeric(2,0))
 AS
 DELETE FROM WOLOLOX.funcionalidades_roles
 WHERE id_rol=@idRol
 
+GO
+
+IF OBJECT_ID('WOLOLOX.cantidadRoles') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.cantidadRoles;
 GO
 
 CREATE PROCEDURE WOLOLOX.cantidadRoles(@UserName nvarchar(50))
@@ -925,11 +995,162 @@ and usuarios.id_usuario=roles_usuarios.id_usuario
 
 GO
 
+IF OBJECT_ID('WOLOLOX.obtenerRol') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.obtenerRol;
+GO
+
 CREATE PROCEDURE WOLOLOX.obtenerRol(@UserName nvarchar(50))
 AS
 select nombre
-from WOLOLOX.roles, WOLOLOX.roles_usuarios
-where roles_usuarios.id_usuario=@UserName
+from WOLOLOX.roles, WOLOLOX.roles_usuarios, WOLOLOX.usuarios
+where roles_usuarios.id_usuario=usuarios.id_usuario
 and roles.id=roles_usuarios.id_rol
+and usuarios.nombre_usuario=@UserName
 
+GO
+
+--ABM de usuarios
+
+IF OBJECT_ID('WOLOLOX.CrearCliente') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.CrearCliente;
+GO
+CREATE PROCEDURE WOLOLOX.CrearCliente(@username nvarchar(50), @pass nvarchar(25), @nombre nvarchar(255), @apellido nvarchar(255), @mail nvarchar(50), @tel nvarchar(50), @domicilio nvarchar(100),@numDom numeric(19,0), @piso numeric(18,0), @depto nvarchar(50),@localidad nvarchar(100),@ciudad nvarchar(100),@codPostal nvarchar(50), @dni numeric(18,0), @fechaNac datetime)
+AS
+     
+    INSERT INTO WOLOLOX.clientes(apellido,nombre, dni,fecha_nacimiento,id_rol)
+	VALUES	(@apellido,@nombre,@dni,@fechaNac,(SELECT id FROM WOLOLOX.roles where nombre='CLIENTE'))
+	INSERT INTO WOLOLOX.direcciones(calle, numero, piso, departamento, localidad, cod_postal, ciudad)
+	VALUES (@domicilio,@numDom,@piso,@depto,@localidad,@codPostal,@ciudad)
+	declare @fkDireccion numeric(18,0) = scope_identity();
+	INSERT INTO WOLOLOX.usuarios(nombre_usuario,contraseña,mail,fecha_creacion,intentos_login,telefono,id_direccion)
+	VALUES (@username,HASHBYTES('SHA2_256',@pass),@mail,GETDATE(),0,@tel,@fkDireccion)
+GO
+
+IF OBJECT_ID('WOLOLOX.CrearCliente') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.CrearEmpresa;
+GO
+CREATE PROCEDURE WOLOLOX.CrearEmpresa(@username nvarchar(50), @pass nvarchar(25), @razSoc nvarchar(255), @mail nvarchar(50), @tel nvarchar(50), @domicilio nvarchar(100),@numDom numeric(19,0), @piso numeric(18,0), @depto nvarchar(50),@localidad nvarchar(100),@ciudad nvarchar(100),@codPostal nvarchar(50), @cuit nvarchar(50),@rubro nvarchar(20), @nomContac nvarchar(100))
+AS
+     
+    INSERT INTO WOLOLOX.empresas(razon_social,nombre_contacto,cuit,reputacion,cod_rubro)
+	VALUES	(@razSoc,@nomContac,@cuit,0, (SELECT codigo FROM WOLOLOX.rubros where descripcion_corta=@rubro))
+	INSERT INTO WOLOLOX.direcciones(calle, numero, piso, departamento, localidad, cod_postal, ciudad)
+	VALUES (@domicilio,@numDom,@piso,@depto,@localidad,@codPostal,@ciudad)
+	declare @fkDireccion numeric(18,0) = scope_identity();
+	INSERT INTO WOLOLOX.usuarios(nombre_usuario,contraseña,mail,fecha_creacion,intentos_login,telefono,id_direccion)
+	VALUES (@username,HASHBYTES('SHA2_256',@pass),@mail,GETDATE(),0,@tel,@fkDireccion)
+GO
+
+IF OBJECT_ID('WOLOLOX.ObtenerClientesHabilitados') IS NOT NULL
+    DROP FUNCTION WOLOLOX.ObtenerClientesHabilitados;
+GO
+CREATE FUNCTION WOLOLOX.ObtenerClientesHabilitados()
+RETURNS TABLE
+AS
+RETURN(
+    SELECT c.id_usuario, c.nombre, c.apellido, c.dni
+	FROM WOLOLOX.clientes c, WOLOLOX.usuarios u
+	WHERE c.id_usuario=u.id_usuario AND u.habilitado=1);
+GO
+
+IF OBJECT_ID('WOLOLOX.ObtenerEmpresasHabilitadas') IS NOT NULL
+    DROP FUNCTION WOLOLOX.ObtenerEmpresasHabilitadas;
+GO
+CREATE FUNCTION WOLOLOX.ObtenerEmpresasHabilitadas()
+RETURNS TABLE
+AS
+RETURN(
+    SELECT e.id_usuario, e.razon_social, e.cuit, e.nombre_contacto, e.reputacion
+	FROM WOLOLOX.empresas e, WOLOLOX.usuarios u
+	WHERE e.id_usuario=u.id_usuario AND u.habilitado=1);
+GO
+
+IF OBJECT_ID('WOLOLOX.BuscarUsuario') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.BuscarUsuario;
+GO
+CREATE PROCEDURE WOLOLOX.BuscarUsuario(@id numeric)
+AS
+     
+    SELECT mail, telefono
+	FROM WOLOLOX.usuarios
+	WHERE @id=id_usuario
+GO
+
+IF OBJECT_ID('WOLOLOX.BuscarDireccion') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.BuscarDireccion;
+GO
+CREATE PROCEDURE WOLOLOX.BuscarDireccion(@id numeric)
+AS
+     
+    SELECT calle, numero, piso, departamento, localidad, cod_postal, ciudad
+	FROM WOLOLOX.direcciones d, WOLOLOX.usuarios u
+	WHERE @id=u.id_usuario AND d.id=u.id_direccion
+GO
+
+IF OBJECT_ID('WOLOLOX.BuscarCliente') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.BuscarCliente;
+GO
+CREATE PROCEDURE WOLOLOX.BuscarCliente(@nombre nvarchar(255), @apellido nvarchar(255), @mail nvarchar(50), @dni numeric(18,0))
+AS
+     
+    SELECT clientes.*
+	FROM WOLOLOX.clientes, WOLOLOX.usuarios
+	WHERE (@nombre IS NULL OR nombre LIKE @nombre)
+	AND (@apellido IS NULL OR apellido LIKE @apellido)
+	AND (@mail IS NULL OR (@mail LIKE usuarios.mail AND usuarios.id_usuario=clientes.id_usuario))
+	AND (@dni IS NULL OR dni=@dni)
+GO
+
+IF OBJECT_ID('WOLOLOX.ActualizarCliente') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.ActualizarCliente;
+GO
+CREATE PROCEDURE WOLOLOX.ActualizarCliente(@id numeric(18,0), @nombre nvarchar(255), @apellido nvarchar(255), @mail nvarchar(50), @tel nvarchar(50), @domicilio nvarchar(100),@numDom numeric(19,0), @piso numeric(18,0), @depto nvarchar(50),@localidad nvarchar(100),@ciudad nvarchar(100),@codPostal nvarchar(50), @dni numeric(18,0), @fechaNac datetime)
+AS
+     
+    UPDATE WOLOLOX.clientes
+	SET	apellido=@apellido,nombre=@nombre, dni=@dni,fecha_nacimiento=@fechaNac
+	WHERE id_usuario = @id
+	UPDATE WOLOLOX.direcciones
+	SET calle=@domicilio, numero=@numDom, piso=@piso, departamento=@depto, localidad=@localidad, cod_postal=@codPostal, ciudad=@ciudad
+	FROM WOLOLOX.usuarios u
+	WHERE id = u.id_direccion
+	AND u.id_usuario = @id
+	UPDATE WOLOLOX.usuarios
+	SET mail=@mail,telefono=@tel
+	WHERE id_usuario=@id
+GO
+
+IF OBJECT_ID('WOLOLOX.BuscarEmpresa') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.BuscarEmpresa;
+GO
+CREATE PROCEDURE WOLOLOX.BuscarEmpresa(@razSoc nvarchar(255), @cuit nvarchar(50), @nomCon nvarchar(100),@rubro nvarchar(20), @repMin numeric(3,2), @repMax numeric(3,2))
+AS
+     
+    SELECT e.id_usuario, e.razon_social, r.descripcion_corta, e.cuit, e.nombre_contacto, e.reputacion
+	FROM WOLOLOX.empresas e, WOLOLOX.rubros r
+	WHERE (@razSoc IS NULL OR razon_social LIKE @razSoc)
+	AND (@cuit IS NULL OR cuit LIKE @cuit)
+	AND (@nomCon IS NULL OR nombre_contacto LIKE @nomCon)
+	AND (@repMin IS NULL OR @repMin<reputacion)
+	AND (@repMax IS NULL OR @repMax>reputacion)
+	AND (@rubro IS NULL OR (@rubro LIKE r.descripcion_corta AND e.cod_rubro=r.codigo))
+GO
+
+IF OBJECT_ID('WOLOLOX.ActualizarEmpresa') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.ActualizarEmpresa;
+GO
+CREATE PROCEDURE WOLOLOX.ActualizarEmpresa(@id numeric(18,0), @razSoc nvarchar(255), @rubro numeric(18,0), @mail nvarchar(50), @tel nvarchar(50), @domicilio nvarchar(100),@numDom numeric(19,0), @piso numeric(18,0), @depto nvarchar(50),@localidad nvarchar(100),@ciudad nvarchar(100),@codPostal nvarchar(50), @cuit nvarchar(50), @nomCon nvarchar(100))
+AS
+     
+    UPDATE WOLOLOX.empresas
+	SET	razon_social=@razSoc,nombre_contacto=@nomCon, cuit=@cuit,cod_rubro=@rubro
+	WHERE id_usuario = @id
+	UPDATE WOLOLOX.direcciones
+	SET calle=@domicilio, numero=@numDom, piso=@piso, departamento=@depto, localidad=@localidad, cod_postal=@codPostal, ciudad=@ciudad
+	FROM WOLOLOX.usuarios u
+	WHERE id = u.id_direccion
+	AND u.id_usuario = @id
+	UPDATE WOLOLOX.usuarios
+	SET mail=@mail,telefono=@tel
+	WHERE id_usuario=@id
 GO

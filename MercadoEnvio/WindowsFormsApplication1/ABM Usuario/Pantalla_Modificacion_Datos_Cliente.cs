@@ -12,19 +12,35 @@ namespace WindowsFormsApplication1.ABM_Usuario
 {
     public partial class Pantalla_Modificacion_Datos_Cliente : Form
     {
-        public Pantalla_Modificacion_Datos_Cliente()
+        private GD1C2016DataSetTableAdapters.clientesTableAdapter cliAdapter;
+        private GD1C2016DataSetTableAdapters.usuariosTableAdapter userAdapter;
+        private GD1C2016DataSetTableAdapters.direccionesTableAdapter dirAdapter;
+        String id;
+
+        public Pantalla_Modificacion_Datos_Cliente(DataGridViewRow clienteSeleccionado)
         {
             InitializeComponent();
-
             //Formato fecha
 
-            textBox12.Format = DateTimePickerFormat.Custom;
-            textBox12.CustomFormat = "dd/MM/yyyy";
+            textFechaNac.Format = DateTimePickerFormat.Custom;
+            textFechaNac.CustomFormat = "dd/MM/yyyy";
 
-            textBox13.Format = DateTimePickerFormat.Custom;
-            textBox13.CustomFormat = "dd/MM/yyyy";
-
-
+            this.id = clienteSeleccionado.Cells[0].Value.ToString();
+            textNom.Text = clienteSeleccionado.Cells[1].Value.ToString();
+            textApe.Text = clienteSeleccionado.Cells[2].Value.ToString();
+            textDni.Text = clienteSeleccionado.Cells[3].Value.ToString();
+            textFechaNac.Text = clienteSeleccionado.Cells[4].Value.ToString();
+            GD1C2016DataSet.usuariosDataTable usersData = userAdapter.BuscarUsuario(id);
+            textMail.Text = usersData.Columns[0].ToString();
+            textTel.Text = usersData.Columns[1].ToString();
+            GD1C2016DataSet.direccionesDataTable direccionData = dirAdapter.BuscarDireccion(id);
+            textDom.Text = direccionData.Columns[0].ToString();
+            textNumDom.Text = direccionData.Columns[1].ToString();
+            textPiso.Text = direccionData.Columns[2].ToString();
+            textDepto.Text = direccionData.Columns[3].ToString();
+            textLoc.Text = direccionData.Columns[4].ToString();
+            textCodPos.Text = direccionData.Columns[5].ToString();
+            textCiudad.Text = direccionData.Columns[6].ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,34 +52,32 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.ResetText();
-            textBox2.ResetText();
-            textBox3.ResetText();
-            textBox4.ResetText();
-            textBox5.ResetText();
-            textBox6.ResetText();
-            textBox7.ResetText();
-            textBox8.ResetText();
-            textBox9.ResetText();
-            textBox10.ResetText();
-            textBox11.ResetText();
-            comboBox1.ResetText();
-
+            textNom.ResetText();
+            textTel.ResetText();
+            textDom.ResetText();
+            textApe.ResetText();
+            textDni.ResetText();
+            textNumDom.ResetText();
+            textMail.ResetText();
+            textPiso.ResetText();
+            textDepto.ResetText();
+            textLoc.ResetText();
+            textCodPos.ResetText();
 
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == ""
-               && textBox5.Text == "" && textBox6.Text == "" && textBox7.Text == "" && textBox8.Text == ""
-               && textBox9.Text == "" && textBox10.Text == "" && textBox11.Text == "" && comboBox1.Text == "")
+            if (textNom.Text == "" && textTel.Text == "" && textDom.Text == "" && textApe.Text == ""
+               && textDni.Text == "" && textNumDom.Text == "" && textMail.Text == "" && textPiso.Text == ""
+               && textDepto.Text == "" && textLoc.Text == "" && textCodPos.Text == "")
     
             {
-
                 MessageBox.Show("Complete algún campo a modificar");
-
             }
+
+            cliAdapter.actualizarCliente(id, textNom.Text, textApe.Text, textMail.Text, textTel.Text, textDom.Text, textNumDom.Text, textPiso.Text, textDepto.Text, textLoc.Text, textCiudad.Text, textCodPos.Text, textDni.Text, textFechaNac.Text);
 
         }
 

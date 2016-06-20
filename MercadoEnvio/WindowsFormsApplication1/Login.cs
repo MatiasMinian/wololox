@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.Data.SqlClient;
 
 namespace WindowsFormsApplication1
 {
@@ -53,10 +54,23 @@ namespace WindowsFormsApplication1
             {
 
                 //Hashear contraseña
-                SHA256 CriptoPass = SHA256Managed.Create();
-                byte[] valorHash;
-                valorHash = CriptoPass.ComputeHash(obtenerNumBytes(textoPass.Text));
+                try
+                {
+                    SHA256 CriptoPass = SHA256Managed.Create();
+                    byte[] valorHash;
+                    valorHash = CriptoPass.ComputeHash(obtenerNumBytes(textoPass.Text));
+                    if (Convert.ToBoolean(adapterUsuarios.login(textoUser.Text, valorHash)))
+                    {
+                        Menu_Cliente menu = new Menu_Cliente();
+                        //Menu_Administradores menu = new Menu_Administradores();
+                        menu.matchearUsuario(textoUser.Text);
+                        this.Hide();
+                        menu.ShowDialog();
+                        this.Close();
+                        this.Dispose();
+                    }
 
+<<<<<<< HEAD
                /*switch ((int)(adapterUsuarios.login(textoUser.Text, textoPass.Text))){
                     case 0: MessageBox.Show("Usuario/Contraseña incorrectos!");
                         break;
@@ -66,14 +80,25 @@ namespace WindowsFormsApplication1
                         break;
                 }*/
                
+=======
+                }
+>>>>>>> e61b8cbadbfc8014a29a596c2d747a85b4b41d67
 
-               Menu_Cliente menu = new Menu_Cliente();
-               //Menu_Administradores menu = new Menu_Administradores();
-                menu.matchearUsuario(textoUser.Text);
-                this.Hide();
-                menu.ShowDialog();
-                this.Close();
-                this.Dispose();
+                catch (SqlException ex)
+                {
+                    switch (ex.Number)
+                    {
+                        case 40003:
+                            MessageBox.Show("Password incorrecta", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            return;
+                        case 40002:
+                            MessageBox.Show("Usuario Bloqueado", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            return;
+                        case 40001:
+                            MessageBox.Show("El Usuario no existe", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            return;
+                    }
+                }
 
             }
 
@@ -88,7 +113,8 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                switch ((String)adapterUsuarios.obtenerRol(User)){
+                switch ((String)adapterUsuarios.obtenerRol(User))
+                {
                     case "Empresa": Menu_Empresa menu = new Menu_Empresa();
                         break;
                     case "Cliente": Menu_Cliente menu2 = new Menu_Cliente();
@@ -96,7 +122,7 @@ namespace WindowsFormsApplication1
                     //Ver que hacer con nuevos roles, ver cambiar este malicioso switch
                 }
             }
-            
+
         }
 
         static byte[] obtenerNumBytes(string input)

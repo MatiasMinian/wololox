@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
 {
     public partial class Pantalla_Busqueda_Empresa_A_Modificar : Form
     {
+        private GD1C2016DataSetTableAdapters.empresasTableAdapter empAdapter = new GD1C2016DataSetTableAdapters.empresasTableAdapter();
         public Pantalla_Busqueda_Empresa_A_Modificar()
         {
             InitializeComponent();
@@ -24,29 +25,37 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.ResetText();
-            textBox2.ResetText();
-            textBox3.ResetText();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-   
-                Pantalla_Modificacion_Datos_Empresa pantallaModificacionEmpresa = new Pantalla_Modificacion_Datos_Empresa();
-                pantallaModificacionEmpresa.ShowDialog();
-
- 
+            textRazSoc.ResetText();
+            textCUIT.ResetText();
+            textNom.ResetText();
+            textRepMax.ResetText();
+            textRepMin.ResetText();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "")
+            if (textRazSoc.Text == "" && textCUIT.Text == "" && textNom.Text == "" && textRepMin.Text=="" && textRepMax.Text=="")
             {
-
                 MessageBox.Show("Complete algún campo de búsqueda");
+            }
+            dataEmpresas.DataSource = BuscarEmpresa(textRazSoc.Text, textCUIT.Text, textNom.Text, textRubro.Text, textRepMin.Text, textRepMax);
+
+        }
+
+        private void Pantalla_Busqueda_Empresa_A_Modificar_Load(object sender, EventArgs e)
+        {
+            dataEmpresas.DataSource = empAdapter.ObtenerEmpresasHabilitadas();
+        }
+
+        private void dataEmpresas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                Pantalla_Modificacion_Datos_Empresa pantallaMod = new Pantalla_Modificacion_Datos_Empresa(dataEmpresas.Rows[e.RowIndex]);
 
             }
-
         }
     }
 }
