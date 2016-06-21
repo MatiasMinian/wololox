@@ -84,11 +84,8 @@ ciudad nvarchar(100)
 create table WOLOLOX.usuarios(
 id_usuario numeric(18,0) IDENTITY PRIMARY KEY,
 nombre_usuario nvarchar(25) UNIQUE,
-contraseña nvarchar(25),
 intentos_login numeric(1,0) DEFAULT 0,
 contraseña varbinary(8000),
-intentos_login numeric(1,0),
->>>>>>> e61b8cbadbfc8014a29a596c2d747a85b4b41d67
 mail nvarchar(50),
 telefono nvarchar(50),
 id_direccion numeric(18,0) REFERENCES WOLOLOX.direcciones,
@@ -1152,5 +1149,15 @@ AS
 	AND u.id_usuario = @id
 	UPDATE WOLOLOX.usuarios
 	SET mail=@mail,telefono=@tel
+	WHERE id_usuario=@id
+GO
+
+IF OBJECT_ID('WOLOLOX.DeshabilitarUsuario') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.DeshabilitarUsuario;
+GO
+CREATE PROCEDURE WOLOLOX.DeshabilitarUsuario(@id numeric(18,0))
+AS
+	UPDATE WOLOLOX.usuarios
+	SET habilitado=0
 	WHERE id_usuario=@id
 GO
