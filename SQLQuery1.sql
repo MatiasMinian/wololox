@@ -84,10 +84,12 @@ ciudad nvarchar(100)
 create table WOLOLOX.usuarios(
 id_usuario numeric(18,0) IDENTITY PRIMARY KEY,
 nombre_usuario nvarchar(25) UNIQUE,
-contraseña nvarchar(25),
 intentos_login numeric(1,0) DEFAULT 0,
 contraseña varbinary(8000),
+<<<<<<< HEAD
 intentos_login numeric(1,0),
+=======
+>>>>>>> 1ed7605698b2153ee6023da626d3ce0fdc2a934d
 mail nvarchar(50),
 telefono nvarchar(50),
 id_direccion numeric(18,0) REFERENCES WOLOLOX.direcciones,
@@ -1367,4 +1369,14 @@ INNER JOIN WOLOLOX.funcionalidades_roles ON funcionalidades_roles.id_funcionalid
 INNER JOIN WOLOLOX.roles ON roles.id = funcionalidades_roles.id_rol
 WHERE roles.nombre LIKE @rol
 
+GO
+
+IF OBJECT_ID('WOLOLOX.DeshabilitarUsuario') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.DeshabilitarUsuario;
+GO
+CREATE PROCEDURE WOLOLOX.DeshabilitarUsuario(@id numeric(18,0))
+AS
+	UPDATE WOLOLOX.usuarios
+	SET habilitado=0
+	WHERE id_usuario=@id
 GO

@@ -53,7 +53,6 @@ namespace WindowsFormsApplication1.ABM_Usuario
                 e.RowIndex >= 0)
             {
                 Pantalla_Modificacion_Datos_Cliente pantallaMod = new Pantalla_Modificacion_Datos_Cliente(dataClientes.Rows[e.RowIndex]);
-                
             }
         }
 
