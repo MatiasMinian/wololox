@@ -86,10 +86,6 @@ id_usuario numeric(18,0) IDENTITY PRIMARY KEY,
 nombre_usuario nvarchar(25) UNIQUE,
 intentos_login numeric(1,0) DEFAULT 0,
 contraseña varbinary(8000),
-<<<<<<< HEAD
-intentos_login numeric(1,0),
-=======
->>>>>>> 1ed7605698b2153ee6023da626d3ce0fdc2a934d
 mail nvarchar(50),
 telefono nvarchar(50),
 id_direccion numeric(18,0) REFERENCES WOLOLOX.direcciones,
@@ -1242,22 +1238,20 @@ AS
 GO
 
 IF OBJECT_ID('WOLOLOX.ObtenerClientesHabilitados') IS NOT NULL
-    DROP FUNCTION WOLOLOX.ObtenerClientesHabilitados;
+    DROP PROCEDURE WOLOLOX.ObtenerClientesHabilitados;
 GO
-CREATE FUNCTION WOLOLOX.ObtenerClientesHabilitados()
-RETURNS TABLE
+CREATE PROCEDURE WOLOLOX.ObtenerClientesHabilitados
 AS
 RETURN(
     SELECT c.id_usuario, c.nombre, c.apellido, c.dni
 	FROM WOLOLOX.clientes c, WOLOLOX.usuarios u
-	WHERE c.id_usuario=u.id_usuario AND u.habilitado=1);
+	WHERE c.id_usuario=u.id_usuario AND u.=1);
 GO
 
 IF OBJECT_ID('WOLOLOX.ObtenerEmpresasHabilitadas') IS NOT NULL
-    DROP FUNCTION WOLOLOX.ObtenerEmpresasHabilitadas;
+    DROP PROCEDURE WOLOLOX.ObtenerEmpresasHabilitadas;
 GO
-CREATE FUNCTION WOLOLOX.ObtenerEmpresasHabilitadas()
-RETURNS TABLE
+CREATE PROCEDURE WOLOLOX.ObtenerEmpresasHabilitadas
 AS
 RETURN(
     SELECT e.id_usuario, e.razon_social, e.cuit, e.nombre_contacto, e.reputacion
