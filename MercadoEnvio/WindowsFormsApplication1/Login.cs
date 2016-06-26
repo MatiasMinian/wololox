@@ -29,7 +29,7 @@ namespace WindowsFormsApplication1
 
         private void botonIngreso_Click(object sender, EventArgs e)
         {
-
+            
             if (string.IsNullOrWhiteSpace(textoUser.Text) && string.IsNullOrWhiteSpace(textoPass.Text))
             {
 
@@ -53,13 +53,21 @@ namespace WindowsFormsApplication1
             else
             {
 
+               Menu_Cliente menu = new Menu_Cliente();
+               //Menu_Administradores menu = new Menu_Administradores();
+                menu.matchearUsuario(textoUser.Text);
+                this.Hide();
+                menu.ShowDialog();
+                this.Close();
+                this.Dispose();
+                /*
                 //Hashear contraseña
                 try
                 {
                     SHA256 CriptoPass = SHA256Managed.Create();
                     byte[] valorHash;
                     valorHash = CriptoPass.ComputeHash(obtenerNumBytes(textoPass.Text));
-                    if (Convert.ToBoolean(adapterUsuarios.login(textoUser.Text, valorHash)))
+                    if (Convert.ToBoolean(adapterUsuarios.login(textoUser.Text, Convert.ToString(valorHash))))
                     {
                         Menu_Cliente menu = new Menu_Cliente();
                         //Menu_Administradores menu = new Menu_Administradores();
@@ -70,19 +78,19 @@ namespace WindowsFormsApplication1
                         this.Dispose();
                     }
 
-<<<<<<< HEAD
-               /*switch ((int)(adapterUsuarios.login(textoUser.Text, textoPass.Text))){
+
+               switch ((int)(adapterUsuarios.login(textoUser.Text, textoPass.Text))){
                     case 0: MessageBox.Show("Usuario/Contraseña incorrectos!");
                         break;
                     case 1: loguearse(textoUser.Text);
                         break;
                     case 2: MessageBox.Show("Usuario bloqueado!");
                         break;
-                }*/
-               
-=======
                 }
->>>>>>> e61b8cbadbfc8014a29a596c2d747a85b4b41d67
+               
+
+             }
+
 
                 catch (SqlException ex)
                 {
@@ -103,7 +111,10 @@ namespace WindowsFormsApplication1
             }
 
         }
-
+                  
+*/
+            }
+            }
         private void loguearse(string User)
         {
             if ((int)adapterUsuarios.cantidadRoles(User) > 1)

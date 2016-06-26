@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -300,6 +304,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GD1C2016DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Subasta_Borrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Subasta_Borrador.Designer.cs">
+      <DependentUpon>Pantalla_Subasta_Borrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Compra_Borrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Compra_Borrador.Designer.cs">
+      <DependentUpon>Pantalla_Compra_Borrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Generar Publicación\Pantalla_Seleccion_Rubros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -551,6 +567,12 @@
     <EmbeddedResource Include="Facturas\Pantalla_Mostrar_Factura.resx">
       <DependentUpon>Pantalla_Mostrar_Factura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\Pantalla_Subasta_Borrador.resx">
+      <DependentUpon>Pantalla_Subasta_Borrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\Pantalla_Compra_Borrador.resx">
+      <DependentUpon>Pantalla_Compra_Borrador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicación\Pantalla_Seleccion_Rubros.resx">
       <DependentUpon>Pantalla_Seleccion_Rubros.cs</DependentUpon>
     </EmbeddedResource>
@@ -625,6 +647,7 @@
     <None Include="GD1C2016DataSet.xss">
       <DependentUpon>GD1C2016DataSet.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

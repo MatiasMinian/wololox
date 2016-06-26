@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.rolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,8 +56,11 @@
             this.modificarVisibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarVisibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarFacturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +70,7 @@
             this.rolesToolStripMenuItem,
             this.usuariosToolStripMenuItem,
             this.visibilidadesToolStripMenuItem,
+            this.facturasToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -277,6 +282,21 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // facturasToolStripMenuItem
+            // 
+            this.facturasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consultarFacturasToolStripMenuItem});
+            this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
+            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.facturasToolStripMenuItem.Text = "Facturas";
+            // 
+            // consultarFacturasToolStripMenuItem
+            // 
+            this.consultarFacturasToolStripMenuItem.Name = "consultarFacturasToolStripMenuItem";
+            this.consultarFacturasToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.consultarFacturasToolStripMenuItem.Text = "Consultar facturas";
+            this.consultarFacturasToolStripMenuItem.Click += new System.EventHandler(this.consultarFacturasToolStripMenuItem_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -296,6 +316,11 @@
             this.label2.Size = new System.Drawing.Size(86, 31);
             this.label2.TabIndex = 13;
             this.label2.Text = "label2";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Menu_Administradores
             // 
@@ -348,5 +373,8 @@
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem empresaToolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem facturasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarFacturasToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

@@ -77,6 +77,7 @@ namespace WindowsFormsApplication1
         {
 
             Pantalla_Modificacion_Principal_Cliente pantallaModificacion = new Pantalla_Modificacion_Principal_Cliente();
+            pantallaModificacion.guardarDatos(user);
             pantallaModificacion.ShowDialog();
         }
 
@@ -93,13 +94,6 @@ namespace WindowsFormsApplication1
             Pantalla_Generar_Publicación_Principal pantallaGeneracionPubliPrincipal = new Pantalla_Generar_Publicación_Principal();
             pantallaGeneracionPubliPrincipal.guardarDatos(user);
             pantallaGeneracionPubliPrincipal.ShowDialog();
-        }
-
-        private void botonFacturas_Click(object sender, EventArgs e)
-        {
-            Pantalla_Consultar_Facturas pantallaFacturas = new Pantalla_Consultar_Facturas();
-            pantallaFacturas.guardaDatos(user);
-            pantallaFacturas.ShowDialog();
         }
 
         private void botonEstadisticas_Click(object sender, EventArgs e)

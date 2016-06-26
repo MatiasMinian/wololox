@@ -30,9 +30,12 @@ namespace WindowsFormsApplication1.Generar_Publicación
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "dd/MM/yyyy";
 
-            MonthCalendar calendario = new MonthCalendar();
+            var value = System.Configuration.ConfigurationManager.AppSettings["DateKey"];
 
-            dateTimePicker2.MinDate = calendario.TodayDate;
+            var appDate = DateTime.Parse(value);
+
+            dateTimePicker1.Value = appDate;
+            dateTimePicker2.MinDate = dateTimePicker1.Value;
 
 
         }
@@ -49,7 +52,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
 
             if (textBox1.Text == "" || textBox2.Text == "" || textBox4.Text == ""
                || comboBox1.Text == "" || textBox5.Text == "" || numericUpDown1.Value == 0
-               || !(int.TryParse(textBox2.Text, out number)) || !(radioButton1.Checked) && !(radioButton2.Checked))
+               || !(int.TryParse(textBox2.Text, out number)))
             {
 
                 MessageBox.Show("Hay campos vacíos o inválidos");
@@ -66,21 +69,6 @@ namespace WindowsFormsApplication1.Generar_Publicación
                 Decimal valorInicial = Convert.ToDecimal(textBox2.Text);
                 String visibilidad = textBox5.Text;
                 String estado = comboBox1.Text;
-                Decimal preguntas;
-
-                if (radioButton1.Checked)
-                {
-
-                    preguntas = 1;
-
-                }
-                else
-                {
-
-                    preguntas = 0;
-
-                }
-
 
                 visiAdapter = new GD1C2016DataSetTableAdapters.visibilidadesTableAdapter();
                 rubroAdapter = new GD1C2016DataSetTableAdapters.rubrosTableAdapter();
@@ -91,7 +79,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
                 decimal id_visibilidad = Convert.ToDecimal(visiAdapter.consultaIDvisibilidad(visibilidad));               
                 decimal id_estado = Convert.ToDecimal(estadoAdapter.consultaIDestado(estado));
 
-                publiAdapter.Insert(idUser, id_estado, id_visibilidad, descripcion, stock, valorInicial, tipo);
+              publiAdapter.Insert(idUser, id_estado, id_visibilidad, descripcion, stock, valorInicial, tipo,fechaInicio,fechaVencimiento);
 
                 for (int i = 0; i < rubros.Count; i++)
                 {
@@ -147,13 +135,13 @@ namespace WindowsFormsApplication1.Generar_Publicación
 
             foreach (DataRow row in estadosData.Rows)
             {
-                if (row[3].Equals("Finalizada") || row[3].Equals("Pausada"))
+                if (row[1].Equals("Finalizada") || row[1].Equals("Pausada"))
                 {
 
                 }
                 else
                 {
-                    comboBox1.Items.Add(row[3]);
+                    comboBox1.Items.Add(row[1]);
 
                 }
             }

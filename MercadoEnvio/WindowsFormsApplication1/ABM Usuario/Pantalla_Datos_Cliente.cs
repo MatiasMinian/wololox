@@ -10,8 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
-    public partial class Pantalla_Datos_Cliente : Form
-    {
+    public partial class Pantalla_Datos_Cliente : Form{
+
+        private Decimal id;
+
+ 
         private GD1C2016DataSetTableAdapters.clientesTableAdapter cliAdapter;
         public Pantalla_Datos_Cliente()
         {
@@ -63,7 +66,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
             }
 
             cliAdapter = new GD1C2016DataSetTableAdapters.clientesTableAdapter();
-            cliAdapter.actualizarCliente(textUser.Text, textPass.Text, textNom.Text, textApe.Text, textMail.Text, textTel.Text, texDom.Text, textNumDom.Text, textPiso.Text, textDepto.Text, textLoc.Text, textCiudad.Text, textPost.Text, textDNI.Text, textFechaNac.Text);
+            cliAdapter.actualizarCliente(id, textNom.Text, textApe.Text, textMail.Text, textTel.Text, texDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textPost.Text, Convert.ToDecimal(textDNI.Text), Convert.ToDateTime(textFechaNac.Text));
             
         }
 

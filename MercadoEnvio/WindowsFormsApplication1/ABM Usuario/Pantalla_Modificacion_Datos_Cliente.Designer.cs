@@ -32,6 +32,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textCiudad = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.textFechaNac = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.textCodPos = new System.Windows.Forms.TextBox();
@@ -56,14 +58,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textCiudad = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(552, 161);
+            this.button1.Location = new System.Drawing.Point(601, 161);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -73,7 +73,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(552, 117);
+            this.button2.Location = new System.Drawing.Point(601, 117);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -83,7 +83,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(552, 73);
+            this.button3.Location = new System.Drawing.Point(601, 73);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
@@ -124,17 +124,33 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(6, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(676, 198);
+            this.groupBox1.Size = new System.Drawing.Size(685, 198);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos adicionales cliente";
+            // 
+            // textCiudad
+            // 
+            this.textCiudad.Location = new System.Drawing.Point(416, 119);
+            this.textCiudad.Name = "textCiudad";
+            this.textCiudad.Size = new System.Drawing.Size(74, 20);
+            this.textCiudad.TabIndex = 29;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(339, 122);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Ciudad:";
             // 
             // textFechaNac
             // 
             this.textFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.textFechaNac.Location = new System.Drawing.Point(579, 30);
             this.textFechaNac.Name = "textFechaNac";
-            this.textFechaNac.Size = new System.Drawing.Size(82, 20);
+            this.textFechaNac.Size = new System.Drawing.Size(97, 20);
             this.textFechaNac.TabIndex = 27;
             // 
             // label13
@@ -322,31 +338,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
-            // textCiudad
-            // 
-            this.textCiudad.Location = new System.Drawing.Point(416, 119);
-            this.textCiudad.Name = "textCiudad";
-            this.textCiudad.Size = new System.Drawing.Size(74, 20);
-            this.textCiudad.TabIndex = 29;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(339, 122);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Ciudad:";
-            // 
             // Pantalla_Modificacion_Datos_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 208);
+            this.ClientSize = new System.Drawing.Size(703, 208);
             this.Controls.Add(this.groupBox1);
             this.Name = "Pantalla_Modificacion_Datos_Cliente";
             this.ShowIcon = false;
-            this.Text = "Modificar cliente"
+            this.Text = "Modificar cliente";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

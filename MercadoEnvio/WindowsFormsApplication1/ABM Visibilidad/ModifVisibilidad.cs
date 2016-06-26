@@ -53,7 +53,16 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
 
                 MessageBox.Show("Quedan campos por completar");
 
-            }else if(costoMaximo == "" && costoMinimo == ""){
+
+            }    
+            else if (descripcion == "" && (costoMaximo == "" || costoMinimo == "") || 
+                (descripcion != "" && costoMaximo == "" && costoMinimo != "") || 
+                (descripcion != "" && costoMaximo != "" && costoMinimo == "")){
+
+                MessageBox.Show("Quedan campos por completar");
+
+            }
+             else if(costoMaximo == "" && costoMinimo == ""){
 
 
                 visibilidadesData = visiAdapter.busquedaPorDescripcion(descripcion);
@@ -63,10 +72,9 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
                 {
                     dataGridView1.Rows.Add(row.Field<Decimal>("codigo"),                                           
                                            row.Field<String>("descripcion"),
-                                           row.Field<Decimal>("porc_envio"),
+                                           row.Field<Decimal>("costo_envio"),
                                            row.Field<Decimal>("porc_producto"),
-                                           row.Field<Decimal>("porc_publicacion"),
-                                           row.Field<Decimal>("costo"),
+                                           row.Field<Decimal>("costo_publicacion"),
                                            row.Field<Boolean>("habilitada"));
                 }
 
@@ -81,10 +89,9 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
                 {
                     dataGridView1.Rows.Add(row.Field<Decimal>("codigo"),
                                            row.Field<String>("descripcion"),
-                                           row.Field<Decimal>("porc_envio"),
+                                           row.Field<Decimal>("costo_envio"),
                                            row.Field<Decimal>("porc_producto"),
-                                           row.Field<Decimal>("porc_publicacion"),
-                                           row.Field<Decimal>("costo"),
+                                           row.Field<Decimal>("costo_publicacion"),
                                            row.Field<Boolean>("habilitada"));
                 }
 
@@ -98,10 +105,9 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
                 {
                     dataGridView1.Rows.Add(row.Field<Decimal>("codigo"),
                                            row.Field<String>("descripcion"),
-                                           row.Field<Decimal>("porc_envio"),
+                                           row.Field<Decimal>("costo_envio"),
                                            row.Field<Decimal>("porc_producto"),
-                                           row.Field<Decimal>("porc_publicacion"),
-                                           row.Field<Decimal>("costo"),
+                                           row.Field<Decimal>("costo_publicacion"),
                                            row.Field<Boolean>("habilitada"));
                 }
 
@@ -124,8 +130,7 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
                                     dataGridView1.CurrentRow.Cells[1].Value,
                                     dataGridView1.CurrentRow.Cells[2].Value,
                                     dataGridView1.CurrentRow.Cells[3].Value,
-                                    dataGridView1.CurrentRow.Cells[4].Value,
-                                    dataGridView1.CurrentRow.Cells[5].Value);
+                                    dataGridView1.CurrentRow.Cells[4].Value);
 
                 pantallaEditarDatos.ShowDialog();
 

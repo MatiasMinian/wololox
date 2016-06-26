@@ -38,15 +38,14 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEnvio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnHabilitada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSelección = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -143,7 +142,6 @@
             this.colDesc,
             this.colEnvio,
             this.colProd,
-            this.colTipo,
             this.colCosto,
             this.ColumnHabilitada,
             this.colSelección});
@@ -151,9 +149,19 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(554, 225);
+            this.dataGridView1.Size = new System.Drawing.Size(593, 225);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 305);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Atras";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // ColumnCodigo
             // 
@@ -170,31 +178,23 @@
             // 
             // colEnvio
             // 
-            this.colEnvio.HeaderText = "Com. por envío";
+            this.colEnvio.HeaderText = "Costo_envio";
             this.colEnvio.Name = "colEnvio";
             this.colEnvio.ReadOnly = true;
-            this.colEnvio.Width = 50;
+            this.colEnvio.Width = 80;
             // 
             // colProd
             // 
             this.colProd.HeaderText = "Com. por producto vendido";
             this.colProd.Name = "colProd";
             this.colProd.ReadOnly = true;
-            this.colProd.Width = 50;
-            // 
-            // colTipo
-            // 
-            this.colTipo.HeaderText = "Com. por tipo de publicación";
-            this.colTipo.Name = "colTipo";
-            this.colTipo.ReadOnly = true;
-            this.colTipo.Width = 50;
+            this.colProd.Width = 60;
             // 
             // colCosto
             // 
-            this.colCosto.HeaderText = "Costo";
+            this.colCosto.HeaderText = "Costo_publicacion";
             this.colCosto.Name = "colCosto";
             this.colCosto.ReadOnly = true;
-            this.colCosto.Width = 50;
             // 
             // ColumnHabilitada
             // 
@@ -211,21 +211,11 @@
             this.colSelección.Text = "Modificar";
             this.colSelección.ToolTipText = "Modificar";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 305);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Atras";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // ModifVisibilidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 333);
+            this.ClientSize = new System.Drawing.Size(617, 333);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button3);
@@ -258,7 +248,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEnvio;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCosto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHabilitada;
         private System.Windows.Forms.DataGridViewButtonColumn colSelección;

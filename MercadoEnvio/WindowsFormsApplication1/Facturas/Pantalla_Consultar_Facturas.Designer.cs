@@ -43,16 +43,19 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.ColumnaNroFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -193,6 +196,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnaNroFact,
@@ -202,8 +206,37 @@
             this.ColumnaTotal});
             this.dataGridView1.Location = new System.Drawing.Point(12, 150);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(612, 153);
+            this.dataGridView1.Size = new System.Drawing.Size(612, 155);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // ColumnaNroFact
+            // 
+            this.ColumnaNroFact.HeaderText = "Nro_fact";
+            this.ColumnaNroFact.Name = "ColumnaNroFact";
+            this.ColumnaNroFact.Width = 50;
+            // 
+            // ColumnaDescripcion
+            // 
+            this.ColumnaDescripcion.HeaderText = "Descripcion";
+            this.ColumnaDescripcion.Name = "ColumnaDescripcion";
+            this.ColumnaDescripcion.Width = 200;
+            // 
+            // ColumnFecha
+            // 
+            this.ColumnFecha.HeaderText = "Fecha";
+            this.ColumnFecha.Name = "ColumnFecha";
+            this.ColumnFecha.Width = 137;
+            // 
+            // ColumnaCantidad
+            // 
+            this.ColumnaCantidad.HeaderText = "Cantidad";
+            this.ColumnaCantidad.Name = "ColumnaCantidad";
+            this.ColumnaCantidad.Width = 82;
+            // 
+            // ColumnaTotal
+            // 
+            this.ColumnaTotal.HeaderText = "Total";
+            this.ColumnaTotal.Name = "ColumnaTotal";
             // 
             // button1
             // 
@@ -217,7 +250,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 309);
+            this.button2.Location = new System.Drawing.Point(12, 317);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -237,56 +270,61 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(263, 309);
+            this.button7.Enabled = false;
+            this.button7.Location = new System.Drawing.Point(264, 317);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(87, 23);
             this.button7.TabIndex = 6;
             this.button7.Text = "Anterior página";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(530, 309);
+            this.button8.Enabled = false;
+            this.button8.Location = new System.Drawing.Point(530, 317);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(94, 23);
             this.button8.TabIndex = 7;
             this.button8.Text = "Siguiente página";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // ColumnaNroFact
+            // label7
             // 
-            this.ColumnaNroFact.HeaderText = "Nro_fact";
-            this.ColumnaNroFact.Name = "ColumnaNroFact";
-            this.ColumnaNroFact.Width = 50;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(411, 322);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(13, 13);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "1";
             // 
-            // ColumnaDescripcion
+            // label8
             // 
-            this.ColumnaDescripcion.HeaderText = "Descripcion";
-            this.ColumnaDescripcion.Name = "ColumnaDescripcion";
-            this.ColumnaDescripcion.Width = 255;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(430, 322);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(12, 13);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "/";
             // 
-            // ColumnFecha
+            // label9
             // 
-            this.ColumnFecha.HeaderText = "Fecha";
-            this.ColumnFecha.Name = "ColumnFecha";
-            this.ColumnFecha.Width = 82;
-            // 
-            // ColumnaCantidad
-            // 
-            this.ColumnaCantidad.HeaderText = "Cantidad";
-            this.ColumnaCantidad.Name = "ColumnaCantidad";
-            this.ColumnaCantidad.Width = 82;
-            // 
-            // ColumnaTotal
-            // 
-            this.ColumnaTotal.HeaderText = "Total";
-            this.ColumnaTotal.Name = "ColumnaTotal";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(448, 322);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(56, 13);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "maxPages";
             // 
             // Pantalla_Consultar_Facturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 335);
+            this.ClientSize = new System.Drawing.Size(633, 350);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button3);
@@ -300,6 +338,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -330,5 +369,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaTotal;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

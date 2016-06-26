@@ -38,12 +38,12 @@ namespace WindowsFormsApplication1.ABM_Usuario
             {
                 MessageBox.Show("Complete algún campo de búsqueda");
             }
-            dataClientes.DataSource=BuscarCliente(textNombre.Text, textApellido.Text, textEmail.Text, textDNI.Text);
+            dataClientes.DataSource=cliAdapter.BuscarCliente(textNombre.Text, textApellido.Text, textEmail.Text, Convert.ToDecimal(textDNI.Text));
         }
 
         private void Pantalla_Busqueda_Cliente_A_Modificar_Load(object sender, EventArgs e)
         {
-           dataClientes.DataSource = cliAdapter.ObtenerClientesHabilitados();
+          // dataClientes.DataSource = cliAdapter.ObtenerClientesHabilitados();
         }
 
         private void dataClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)

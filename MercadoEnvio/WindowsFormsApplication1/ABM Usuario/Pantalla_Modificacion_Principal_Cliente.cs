@@ -11,11 +11,27 @@ using WindowsFormsApplication1.Generar_Publicación;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
+
     public partial class Pantalla_Modificacion_Principal_Cliente : Form
     {
+
+        private Decimal id;
+
         public Pantalla_Modificacion_Principal_Cliente()
         {
             InitializeComponent();
+        }
+
+        internal void guardarDatos(String user){
+
+            GD1C2016DataSetTableAdapters.usuariosTableAdapter userAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
+            GD1C2016DataSet.usuariosDataTable userData = new GD1C2016DataSet.usuariosDataTable();
+
+            userData = userAdapter.consultaID(user);
+
+            id = Convert.ToDecimal(userData[0][0]);
+
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -26,8 +42,8 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Pantalla_Modificacion_Datos_Cliente pantallaModiDatosCliente = new Pantalla_Modificacion_Datos_Cliente();
-            pantallaModiDatosCliente.ShowDialog();
+           // Pantalla_Modificacion_Datos_Cliente pantallaModiDatosCliente = new Pantalla_Modificacion_Datos_Cliente();
+           // pantallaModiDatosCliente.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -40,6 +56,8 @@ namespace WindowsFormsApplication1.ABM_Usuario
         {
 
             Pantalla_Modificacion_Publicaciones pantallaModificacionPubli = new Pantalla_Modificacion_Publicaciones();
+            pantallaModificacionPubli.guardarDatos(id);
+            pantallaModificacionPubli.generarListado();
             pantallaModificacionPubli.ShowDialog();
 
         }

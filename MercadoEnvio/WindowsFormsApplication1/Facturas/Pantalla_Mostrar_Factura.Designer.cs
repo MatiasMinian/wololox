@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.NroFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDcompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDpublicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
@@ -46,10 +45,26 @@
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(12, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(655, 263);
+            this.groupBox1.Size = new System.Drawing.Size(556, 263);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Facturación";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NroFactura,
+            this.IDcompra,
+            this.IDpublicacion,
+            this.FechaFactura,
+            this.TotalFactura});
+            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(544, 236);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button1
             // 
@@ -60,22 +75,6 @@
             this.button1.Text = "Cerrar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NroFactura,
-            this.IDcompra,
-            this.IDpublicacion,
-            this.TipoFactura,
-            this.FechaFactura,
-            this.TotalFactura});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(643, 236);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // NroFactura
             // 
@@ -92,11 +91,6 @@
             this.IDpublicacion.HeaderText = "ID_publicacion";
             this.IDpublicacion.Name = "IDpublicacion";
             // 
-            // TipoFactura
-            // 
-            this.TipoFactura.HeaderText = "Tipo_Factura";
-            this.TipoFactura.Name = "TipoFactura";
-            // 
             // FechaFactura
             // 
             this.FechaFactura.HeaderText = "Fecha_Factura";
@@ -111,7 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 303);
+            this.ClientSize = new System.Drawing.Size(580, 303);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Pantalla_Mostrar_Factura";
@@ -130,7 +124,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NroFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDcompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDpublicacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalFactura;
     }

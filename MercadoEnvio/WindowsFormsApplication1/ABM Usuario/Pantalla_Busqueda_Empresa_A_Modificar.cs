@@ -38,13 +38,13 @@ namespace WindowsFormsApplication1.ABM_Usuario
             {
                 MessageBox.Show("Complete algún campo de búsqueda");
             }
-            dataEmpresas.DataSource = BuscarEmpresa(textRazSoc.Text, textCUIT.Text, textNom.Text, textRubro.Text, textRepMin.Text, textRepMax);
+            dataEmpresas.DataSource = empAdapter.BuscarEmpresa(textRazSoc.Text, textCUIT.Text, textNom.Text, textRubro.Text, Convert.ToDecimal(textRepMin.Text), Convert.ToDecimal(textRepMax));
 
         }
 
         private void Pantalla_Busqueda_Empresa_A_Modificar_Load(object sender, EventArgs e)
         {
-            dataEmpresas.DataSource = empAdapter.ObtenerEmpresasHabilitadas();
+           // dataEmpresas.DataSource = empAdapter.ObtenerEmpresasHabilitadas();
         }
 
         private void dataEmpresas_CellContentClick(object sender, DataGridViewCellEventArgs e)

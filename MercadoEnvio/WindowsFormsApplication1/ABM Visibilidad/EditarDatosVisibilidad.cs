@@ -39,16 +39,13 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
         private void button2_Click(object sender, EventArgs e)
         {
             {   String descripcion = textBox1.Text;
-                decimal costo;
-                decimal valorPorTipo;
+                decimal costoPubli;
                 decimal valorPorProducto;
                 decimal valorPorEnvio;
 
                 if (!string.IsNullOrWhiteSpace(textBox1.Text))
                 {
-                    if (decimal.TryParse(textBox2.Text, out costo) && !string.IsNullOrWhiteSpace(textBox2.Text))
-                    {
-                        if (decimal.TryParse(textBox3.Text, out valorPorTipo))
+                    if (decimal.TryParse(textBox3.Text, out costoPubli))
                         {
                             if (decimal.TryParse(textBox4.Text, out valorPorProducto))
                             {
@@ -57,7 +54,7 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
                                     //Enviar a BD
 
                                     visiAdapter = new GD1C2016DataSetTableAdapters.visibilidadesTableAdapter();
-                                    visiAdapter.modificarVisibilidad(id, descripcion, valorPorEnvio, valorPorProducto, valorPorTipo, costo);
+                                    visiAdapter.ModificarVisibilidad(id, descripcion, valorPorEnvio, valorPorProducto, costoPubli);
                              
                                     MessageBox.Show("Visibilidad modificada correctamente");
                                 }
@@ -76,11 +73,7 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
                             MessageBox.Show("Ingrese una comisión por tipo de publicación numérica");
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Ingrese un costo numérico");
-                    }
-                }
+                                 
                 else
                 {
                     MessageBox.Show("Ingrese una descripción");
@@ -118,12 +111,11 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
             }
         }
 
-        internal void cargarDatos(object codigo,object descripcionActual, object costoEnvioActual, object costoProdActual, object costoTipoPActual,object costoActual)
+        internal void cargarDatos(object codigo,object descripcionActual, object costoEnvioActual, object costoProdActual, object costoPubli)
         {
             id = Convert.ToDecimal(codigo);
             textBox1.Text = Convert.ToString(descripcionActual);
-            textBox2.Text = Convert.ToString(costoActual);
-            textBox3.Text = Convert.ToString(costoTipoPActual);
+            textBox3.Text = Convert.ToString(costoPubli);
             textBox4.Text = Convert.ToString(costoProdActual);
             textBox5.Text = Convert.ToString(costoEnvioActual);
         }

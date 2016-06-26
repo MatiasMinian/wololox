@@ -24,10 +24,10 @@ namespace WindowsFormsApplication1.ABM_Usuario
             comboRubro.SelectedText = empresaSeleccionada.Cells[2].Value.ToString();
             textCUIT.Text = empresaSeleccionada.Cells[3].Value.ToString();
             textNomCon.Text = empresaSeleccionada.Cells[4].Value.ToString();
-            GD1C2016DataSet.usuariosDataTable usersData = userAdapter.BuscarUsuario(id);
+            GD1C2016DataSet.usuariosDataTable usersData = userAdapter.BuscarUsuario(Convert.ToDecimal(id));
             textMail.Text = usersData.Columns[0].ToString();
             textTel.Text = usersData.Columns[1].ToString();
-            GD1C2016DataSet.direccionesDataTable direccionData = dirAdapter.BuscarDireccion(id);
+            GD1C2016DataSet.direccionesDataTable direccionData = dirAdapter.BuscarDireccion(Convert.ToDecimal(id));
             textDom.Text = direccionData.Columns[0].ToString();
             textNumDom.Text = direccionData.Columns[1].ToString();
             textPiso.Text = direccionData.Columns[2].ToString();
@@ -69,7 +69,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
             {
                 MessageBox.Show("Complete algún campo a modificar");
             }
-            empAdapter.actualizarEmpresa(id, textRacSoc.Text, comboRubro.SelectedValue, textMail.Text, textTel.Text, textDom.Text, textNumDom.Text, textPiso.Text, textDepto.Text, textLocal.Text, textCiudad.Text, textCodPos.Text, textCUIT.Text, textNomCon.Text);
+            empAdapter.actualizarEmpresa(Convert.ToDecimal(id), textRacSoc.Text, Convert.ToDecimal(comboRubro.SelectedValue), textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text),Convert.ToDecimal(textPiso.Text), textDepto.Text, textLocal.Text, textCiudad.Text,textCodPos.Text, textCUIT.Text, textNomCon.Text);
         }
 
         private void Pantalla_Modificacion_Datos_Empresa_Load(object sender, EventArgs e)

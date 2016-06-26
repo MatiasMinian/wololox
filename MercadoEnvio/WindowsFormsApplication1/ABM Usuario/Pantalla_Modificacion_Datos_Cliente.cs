@@ -30,10 +30,10 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textApe.Text = clienteSeleccionado.Cells[2].Value.ToString();
             textDni.Text = clienteSeleccionado.Cells[3].Value.ToString();
             textFechaNac.Text = clienteSeleccionado.Cells[4].Value.ToString();
-            GD1C2016DataSet.usuariosDataTable usersData = userAdapter.BuscarUsuario(id);
+            GD1C2016DataSet.usuariosDataTable usersData = userAdapter.BuscarUsuario(Convert.ToDecimal(id));
             textMail.Text = usersData.Columns[0].ToString();
             textTel.Text = usersData.Columns[1].ToString();
-            GD1C2016DataSet.direccionesDataTable direccionData = dirAdapter.BuscarDireccion(id);
+            GD1C2016DataSet.direccionesDataTable direccionData = dirAdapter.BuscarDireccion(Convert.ToDecimal(id));
             textDom.Text = direccionData.Columns[0].ToString();
             textNumDom.Text = direccionData.Columns[1].ToString();
             textPiso.Text = direccionData.Columns[2].ToString();
@@ -77,7 +77,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
                 MessageBox.Show("Complete algún campo a modificar");
             }
 
-            cliAdapter.actualizarCliente(id, textNom.Text, textApe.Text, textMail.Text, textTel.Text, textDom.Text, textNumDom.Text, textPiso.Text, textDepto.Text, textLoc.Text, textCiudad.Text, textCodPos.Text, textDni.Text, textFechaNac.Text);
+            cliAdapter.actualizarCliente(Convert.ToDecimal(id), textNom.Text, textApe.Text, textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textCodPos.Text, Convert.ToDecimal(textDni.Text), Convert.ToDateTime(textFechaNac.Text));
 
         }
 

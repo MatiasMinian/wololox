@@ -40,10 +40,9 @@ namespace WindowsFormsApplication1.Generar_Publicación
                 else
                 {
                     dataGridView1.Rows.Add(row.Field<String>("descripcion"),
-                                           row.Field<Decimal>("porc_envio"),
+                                           row.Field<Decimal>("costo_envio"),
                                            row.Field<Decimal>("porc_producto"),
-                                           row.Field<Decimal>("porc_publicacion"),
-                                           row.Field<Decimal>("costo"));
+                                           row.Field<Decimal>("costo_publicacion"));
                 }
 
             }
@@ -66,7 +65,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
         {
 
             visiText.Text = Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value);
-            costoText.Text = Convert.ToString(dataGridView1.CurrentRow.Cells[4].Value);
+            costoText.Text = Convert.ToString(dataGridView1.CurrentRow.Cells[3].Value);
 
             this.Close();
         }
