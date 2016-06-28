@@ -60,7 +60,7 @@ namespace WindowsFormsApplication1
                 menu.ShowDialog();
                 this.Close();
                 this.Dispose();
-                /*
+                
                 //Hashear contraseña
                 try
                 {
@@ -112,9 +112,6 @@ namespace WindowsFormsApplication1
 
         }
                   
-*/
-            }
-            }
         private void loguearse(string User)
         {
             if ((int)adapterUsuarios.cantidadRoles(User) > 1)

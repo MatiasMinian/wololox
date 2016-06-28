@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
 {
     public partial class Pantalla_Busqueda_Empresa_A_Habilitar : Form
     {
+        private GD1C2016DataSetTableAdapters.empresasTableAdapter empAdapter = new GD1C2016DataSetTableAdapters.empresasTableAdapter();
         public Pantalla_Busqueda_Empresa_A_Habilitar()
         {
             InitializeComponent();
@@ -24,9 +25,11 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.ResetText();
-            textBox2.ResetText();
-            textBox3.ResetText();
+            textRazSoc.ResetText();
+            textNom.ResetText();
+            textCUIT.ResetText();
+            textRepMax.ResetText();
+            textRepMin.ResetText();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -36,13 +39,30 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "")
+            if (textRazSoc.Text == "" && textNom.Text == "" && textCUIT.Text == "" && textRepMax.Text == "" && textRepMin.Text == "")
             {
-
                 MessageBox.Show("Complete algún campo de búsqueda");
-
             }
+            dataEmpresas.DataSource = BuscarEmpresa(textRazSoc.Text, textCUIT.Text, textNom.Text, textRubro.Text, textRepMin.Text, textRepMax);
    
+        }
+
+        private void Pantalla_Busqueda_Empresa_A_Habilitar_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'gD1C2016DataSet.empresas' table. You can move, or remove it, as needed.
+            dataEmpresas.DataSource = empAdapter.ObtenerEmpresasBloqueadas();
+
+        }
+
+        private void dataEmpresas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                empAdapter.HabilitarUsuario(dataEmpresas.Rows[e.RowIndex].Cells[0]);
+            }
+            dataEmpresas.DataSource = empAdapter.ObtenerEmpresasBloqueadas();
         }
     }
 }

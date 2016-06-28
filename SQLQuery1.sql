@@ -1259,6 +1259,28 @@ RETURN(
 	WHERE e.id_usuario=u.id_usuario AND u.habilitado=1);
 GO
 
+IF OBJECT_ID('WOLOLOX.ObtenerClientesBloqueados') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.ObtenerClientesBloqueados;
+GO
+CREATE PROCEDURE WOLOLOX.ObtenerClientesBloqueados
+AS
+RETURN(
+    SELECT c.id_usuario, c.nombre, c.apellido, c.dni
+	FROM WOLOLOX.clientes c, WOLOLOX.usuarios u
+	WHERE c.id_usuario=u.id_usuario AND u.=0);
+GO
+
+IF OBJECT_ID('WOLOLOX.ObtenerEmpresasBloqueadas') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.ObtenerEmpresasBloqueadas;
+GO
+CREATE PROCEDURE WOLOLOX.ObtenerEmpresasBloqueadas
+AS
+RETURN(
+    SELECT e.id_usuario, e.razon_social, e.cuit, e.nombre_contacto, e.reputacion
+	FROM WOLOLOX.empresas e, WOLOLOX.usuarios u
+	WHERE e.id_usuario=u.id_usuario AND u.habilitado=0);
+GO
+
 IF OBJECT_ID('WOLOLOX.BuscarUsuario') IS NOT NULL
     DROP PROCEDURE WOLOLOX.BuscarUsuario;
 GO
@@ -1372,5 +1394,15 @@ CREATE PROCEDURE WOLOLOX.DeshabilitarUsuario(@id numeric(18,0))
 AS
 	UPDATE WOLOLOX.usuarios
 	SET habilitado=0
+	WHERE id_usuario=@id
+GO
+
+IF OBJECT_ID('WOLOLOX.HabilitarUsuario') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.HabilitarUsuario;
+GO
+CREATE PROCEDURE WOLOLOX.HabilitarUsuario(@id numeric(18,0))
+AS
+	UPDATE WOLOLOX.usuarios
+	SET habilitado=1
 	WHERE id_usuario=@id
 GO

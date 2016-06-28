@@ -43,7 +43,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void Pantalla_Busqueda_Cliente_A_Modificar_Load(object sender, EventArgs e)
         {
-          // dataClientes.DataSource = cliAdapter.ObtenerClientesHabilitados();
+           dataClientes.DataSource = cliAdapter.ObtenerClientesHabilitados();
         }
 
         private void dataClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
