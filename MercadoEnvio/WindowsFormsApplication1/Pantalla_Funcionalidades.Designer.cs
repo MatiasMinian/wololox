@@ -34,20 +34,20 @@
             this.botonCalificar = new System.Windows.Forms.Button();
             this.botonEstadisticas = new System.Windows.Forms.Button();
             this.botonSalir = new System.Windows.Forms.Button();
-            this.labelBienvenida = new System.Windows.Forms.Label();
-            this.labelUsuario = new System.Windows.Forms.Label();
             this.botonDatos = new System.Windows.Forms.Button();
             this.botonVisi = new System.Windows.Forms.Button();
             this.botonRoles = new System.Windows.Forms.Button();
             this.botonUsuarios = new System.Windows.Forms.Button();
             this.botonMPubli = new System.Windows.Forms.Button();
             this.botonFacturas = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // botonPublic
             // 
             this.botonPublic.Enabled = false;
-            this.botonPublic.Location = new System.Drawing.Point(198, 188);
+            this.botonPublic.Location = new System.Drawing.Point(133, 188);
             this.botonPublic.Name = "botonPublic";
             this.botonPublic.Size = new System.Drawing.Size(122, 23);
             this.botonPublic.TabIndex = 3;
@@ -58,7 +58,7 @@
             // botonCompra
             // 
             this.botonCompra.Enabled = false;
-            this.botonCompra.Location = new System.Drawing.Point(198, 227);
+            this.botonCompra.Location = new System.Drawing.Point(133, 226);
             this.botonCompra.Name = "botonCompra";
             this.botonCompra.Size = new System.Drawing.Size(122, 23);
             this.botonCompra.TabIndex = 4;
@@ -69,7 +69,7 @@
             // botonHistorial
             // 
             this.botonHistorial.Enabled = false;
-            this.botonHistorial.Location = new System.Drawing.Point(198, 265);
+            this.botonHistorial.Location = new System.Drawing.Point(133, 265);
             this.botonHistorial.Name = "botonHistorial";
             this.botonHistorial.Size = new System.Drawing.Size(122, 23);
             this.botonHistorial.TabIndex = 5;
@@ -80,7 +80,7 @@
             // botonCalificar
             // 
             this.botonCalificar.Enabled = false;
-            this.botonCalificar.Location = new System.Drawing.Point(198, 303);
+            this.botonCalificar.Location = new System.Drawing.Point(133, 303);
             this.botonCalificar.Name = "botonCalificar";
             this.botonCalificar.Size = new System.Drawing.Size(122, 23);
             this.botonCalificar.TabIndex = 6;
@@ -91,7 +91,7 @@
             // botonEstadisticas
             // 
             this.botonEstadisticas.Enabled = false;
-            this.botonEstadisticas.Location = new System.Drawing.Point(198, 343);
+            this.botonEstadisticas.Location = new System.Drawing.Point(133, 344);
             this.botonEstadisticas.Name = "botonEstadisticas";
             this.botonEstadisticas.Size = new System.Drawing.Size(122, 23);
             this.botonEstadisticas.TabIndex = 8;
@@ -101,7 +101,7 @@
             // 
             // botonSalir
             // 
-            this.botonSalir.Location = new System.Drawing.Point(198, 502);
+            this.botonSalir.Location = new System.Drawing.Point(133, 507);
             this.botonSalir.Name = "botonSalir";
             this.botonSalir.Size = new System.Drawing.Size(122, 23);
             this.botonSalir.TabIndex = 9;
@@ -109,30 +109,10 @@
             this.botonSalir.UseVisualStyleBackColor = true;
             this.botonSalir.Click += new System.EventHandler(this.botonSalir_Click);
             // 
-            // labelBienvenida
-            // 
-            this.labelBienvenida.AutoSize = true;
-            this.labelBienvenida.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBienvenida.Location = new System.Drawing.Point(12, 9);
-            this.labelBienvenida.Name = "labelBienvenida";
-            this.labelBienvenida.Size = new System.Drawing.Size(308, 39);
-            this.labelBienvenida.TabIndex = 10;
-            this.labelBienvenida.Text = "Bienvenido usuario";
-            // 
-            // labelUsuario
-            // 
-            this.labelUsuario.AutoSize = true;
-            this.labelUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsuario.Location = new System.Drawing.Point(311, 9);
-            this.labelUsuario.Name = "labelUsuario";
-            this.labelUsuario.Size = new System.Drawing.Size(118, 39);
-            this.labelUsuario.TabIndex = 11;
-            this.labelUsuario.Text = "label1!";
-            // 
             // botonDatos
             // 
             this.botonDatos.Enabled = false;
-            this.botonDatos.Location = new System.Drawing.Point(198, 421);
+            this.botonDatos.Location = new System.Drawing.Point(133, 422);
             this.botonDatos.Name = "botonDatos";
             this.botonDatos.Size = new System.Drawing.Size(122, 23);
             this.botonDatos.TabIndex = 12;
@@ -143,7 +123,7 @@
             // botonVisi
             // 
             this.botonVisi.Enabled = false;
-            this.botonVisi.Location = new System.Drawing.Point(198, 73);
+            this.botonVisi.Location = new System.Drawing.Point(133, 73);
             this.botonVisi.Name = "botonVisi";
             this.botonVisi.Size = new System.Drawing.Size(122, 23);
             this.botonVisi.TabIndex = 13;
@@ -154,7 +134,7 @@
             // botonRoles
             // 
             this.botonRoles.Enabled = false;
-            this.botonRoles.Location = new System.Drawing.Point(198, 111);
+            this.botonRoles.Location = new System.Drawing.Point(133, 111);
             this.botonRoles.Name = "botonRoles";
             this.botonRoles.Size = new System.Drawing.Size(122, 23);
             this.botonRoles.TabIndex = 14;
@@ -165,7 +145,7 @@
             // botonUsuarios
             // 
             this.botonUsuarios.Enabled = false;
-            this.botonUsuarios.Location = new System.Drawing.Point(198, 150);
+            this.botonUsuarios.Location = new System.Drawing.Point(133, 149);
             this.botonUsuarios.Name = "botonUsuarios";
             this.botonUsuarios.Size = new System.Drawing.Size(122, 23);
             this.botonUsuarios.TabIndex = 15;
@@ -175,7 +155,7 @@
             // botonMPubli
             // 
             this.botonMPubli.Enabled = false;
-            this.botonMPubli.Location = new System.Drawing.Point(198, 462);
+            this.botonMPubli.Location = new System.Drawing.Point(133, 462);
             this.botonMPubli.Name = "botonMPubli";
             this.botonMPubli.Size = new System.Drawing.Size(122, 23);
             this.botonMPubli.TabIndex = 16;
@@ -186,26 +166,46 @@
             // botonFacturas
             // 
             this.botonFacturas.Enabled = false;
-            this.botonFacturas.Location = new System.Drawing.Point(198, 382);
+            this.botonFacturas.Location = new System.Drawing.Point(133, 383);
             this.botonFacturas.Name = "botonFacturas";
             this.botonFacturas.Size = new System.Drawing.Size(122, 23);
             this.botonFacturas.TabIndex = 17;
             this.botonFacturas.Text = "Consultar facturas";
             this.botonFacturas.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(87, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(119, 25);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Bienvenido";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(200, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 25);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "label2";
+            // 
             // Pantalla_Funcionalidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 542);
+            this.ClientSize = new System.Drawing.Size(390, 542);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.botonFacturas);
             this.Controls.Add(this.botonMPubli);
             this.Controls.Add(this.botonUsuarios);
             this.Controls.Add(this.botonRoles);
             this.Controls.Add(this.botonVisi);
             this.Controls.Add(this.botonDatos);
-            this.Controls.Add(this.labelUsuario);
-            this.Controls.Add(this.labelBienvenida);
             this.Controls.Add(this.botonSalir);
             this.Controls.Add(this.botonEstadisticas);
             this.Controls.Add(this.botonCalificar);
@@ -229,13 +229,13 @@
         private System.Windows.Forms.Button botonCalificar;
         private System.Windows.Forms.Button botonEstadisticas;
         private System.Windows.Forms.Button botonSalir;
-        private System.Windows.Forms.Label labelBienvenida;
-        private System.Windows.Forms.Label labelUsuario;
         private System.Windows.Forms.Button botonDatos;
         private System.Windows.Forms.Button botonVisi;
         private System.Windows.Forms.Button botonRoles;
         private System.Windows.Forms.Button botonUsuarios;
         private System.Windows.Forms.Button botonMPubli;
         private System.Windows.Forms.Button botonFacturas;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -155,7 +155,8 @@ private void loguearse(string User)
 {
     if ((int)adapterUsuarios.cantidadRoles(User) > 1)
     {
-        SeleccionRol pantallaSeleccion = new SeleccionRol();
+        SelecccionRol seleccionRol = new SeleccionRol();
+        seleccionRol.ShowDialog();
         //A revisar dsp
     }
     else

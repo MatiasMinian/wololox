@@ -79,6 +79,12 @@
     <Compile Include="ABM Rol\Pantalla_Rol_Principal.Designer.cs">
       <DependentUpon>Pantalla_Rol_Principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Rol\SeleccionRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Rol\SeleccionRol.Designer.cs">
+      <DependentUpon>SeleccionRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Rubro\ABM_Rubro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,12 +346,6 @@
     <Compile Include="Generar Publicación\Pantalla_Seleccion_Visibilidades.Designer.cs">
       <DependentUpon>Pantalla_Seleccion_Visibilidades.cs</DependentUpon>
     </Compile>
-    <Compile Include="SeleccionRol.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SeleccionRol.Designer.cs">
-      <DependentUpon>SeleccionRol.cs</DependentUpon>
-    </Compile>
     <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Compra_Inmediata.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -436,18 +436,6 @@
     <Compile Include="Listado Estadistico\Pantalla_Listado_Estadistico_Principal.Designer.cs">
       <DependentUpon>Pantalla_Listado_Estadistico_Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu_admin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menu_admin.Designer.cs">
-      <DependentUpon>Menu_admin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Menu_Empresa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menu_Empresa.Designer.cs">
-      <DependentUpon>Menu_Empresa.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ABM Rol\Crear_Rol.resx">
@@ -464,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\Pantalla_Rol_Principal.resx">
       <DependentUpon>Pantalla_Rol_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\SeleccionRol.resx">
+      <DependentUpon>SeleccionRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rubro\ABM_Rubro.resx">
       <DependentUpon>ABM_Rubro.cs</DependentUpon>
@@ -597,9 +588,6 @@
     <EmbeddedResource Include="Generar Publicación\Pantalla_Seleccion_Visibilidades.resx">
       <DependentUpon>Pantalla_Seleccion_Visibilidades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SeleccionRol.resx">
-      <DependentUpon>SeleccionRol.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicación\Pantalla_Generar_Publicación_Compra_Inmediata.resx">
       <DependentUpon>Pantalla_Generar_Publicación_Compra_Inmediata.cs</DependentUpon>
     </EmbeddedResource>
@@ -638,12 +626,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Menu_admin.resx">
-      <DependentUpon>Menu_admin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Menu_Empresa.resx">
-      <DependentUpon>Menu_Empresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

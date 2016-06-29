@@ -48,37 +48,37 @@ namespace WindowsFormsApplication1
                 switch (Convert.ToString(row.Field<String>("nombre")))
                 {
 
-                    case "visibilidad": botonVisi.Enabled = true;
+                    case "ABM visibilidades": botonVisi.Enabled = true;
                                         break;
 
-                    case "roles": botonRoles.Enabled = true;
+                    case "ABM roles": botonRoles.Enabled = true;
                                         break;
 
-                    case "usuarios": botonUsuarios.Enabled = true;
+                    case "ABM usuarios": botonUsuarios.Enabled = true;
                                         break;
 
-                    case "generar publicacion": botonPublic.Enabled = true;
+                    case "Generar publicacion": botonPublic.Enabled = true;
                                         break;
 
-                    case "comprar/ofertar": botonCompra.Enabled = true;
+                    case "Comprar/ofertar": botonCompra.Enabled = true;
                                         break;
 
-                    case "historial": botonHistorial.Enabled = true;
+                    case "Historial cliente": botonHistorial.Enabled = true;
                                         break;
 
-                    case "calificar": botonCalificar.Enabled = true;
+                    case "Calificar vendedor": botonCalificar.Enabled = true;
                                         break;
 
-                    case "estadisticas": botonEstadisticas.Enabled = true;
+                    case "Listado estadistico": botonEstadisticas.Enabled = true;
                                         break;
 
-                    case "facturas": botonFacturas.Enabled = true;
+                    case "Consulta facturas": botonFacturas.Enabled = true;
                                         break;
 
-                    case "modificar datos": botonDatos.Enabled = true;
+                    case "Modificacion usuario": botonDatos.Enabled = true;
                                         break;
 
-                    case "modificar publicacion": botonMPubli.Enabled = true;
+                    case "Modificacion publicacion": botonMPubli.Enabled = true;
                                         break;
 
                 }
@@ -89,7 +89,7 @@ namespace WindowsFormsApplication1
         public void matchearUsuario(String usuario){
 
             user = usuario;
-           labelUsuario.Text = usuario+"!!";
+           label2.Text = usuario+"!!";
 
         }
 
