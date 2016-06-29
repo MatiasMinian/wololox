@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1.ComprarOfertar
 
         private int pageNumber = 1;
         private int elementoInicial;
-        private double cantRows =0;
+        private double cantRows;
         private Decimal idUser;
         private double maxPages;
         private GD1C2016DataSetTableAdapters.publicacionesTableAdapter publiAdapter;
@@ -25,7 +25,6 @@ namespace WindowsFormsApplication1.ComprarOfertar
         private Decimal codigo_publicacion;
         private Decimal stock;
         private Decimal precio;
-        private int rubrosLeidos = 0;
 
 
         public FormComprayOferta()
@@ -56,10 +55,11 @@ namespace WindowsFormsApplication1.ComprarOfertar
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textRubros.Text = "";
-            textDescripcion.Text = "";
+            textRubros.ResetText();
+            textDescripcion.ResetText();
             pageNumber = 1;
             label3.Text = Convert.ToString(pageNumber);
+            label5.Text = Convert.ToString(pageNumber);
             tablaPubl.Rows.Clear();
             button5.Enabled = false;
             button4.Enabled = false;
@@ -113,6 +113,12 @@ namespace WindowsFormsApplication1.ComprarOfertar
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            pageNumber = 1;
+            elementoInicial = 0;
+
+
+
             if (tablaPubl.Rows.Count > 0)
             {
 
@@ -121,10 +127,6 @@ namespace WindowsFormsApplication1.ComprarOfertar
             }
             else
             {
-
-                pageNumber = 1;
-                elementoInicial = 0;
-
 
                 button5.Enabled = true;
 
@@ -152,7 +154,19 @@ namespace WindowsFormsApplication1.ComprarOfertar
 
                     maxPages = Math.Ceiling(cantRows / 5);
 
-                    label5.Text = Convert.ToString(maxPages);
+                    if (maxPages == 0)
+                    {
+
+                        label5.Text = Convert.ToString(1);
+
+                        button5.Enabled = false;
+                    }
+                    else
+                    {
+
+                        label5.Text = Convert.ToString(maxPages);
+
+                    }
 
                     foreach (DataRow row in publiData.Rows)
                     {
@@ -176,62 +190,148 @@ namespace WindowsFormsApplication1.ComprarOfertar
                     for (int i = 0; i < rubros.Count; i++)
                     {
 
-                        cantRows = cantRows + (int)publiAdapter.cantidadPublicacionesPorRubros(rubros[i], idUser);
+                        cantRows = Convert.ToDouble(publiAdapter.cantidadPublicacionesPorRubros(rubros[i], idUser));
                     }
 
                     maxPages = Math.Ceiling(cantRows / 5);
 
-                    label5.Text = Convert.ToString(maxPages);
-
-
-                    publiData = publiAdapter.buscarPublicacionesPorRubros(rubros[rubrosLeidos], idUser, elementoInicial);
-
-                    foreach (DataRow row in publiData.Rows)
+                    if (maxPages == 0)
                     {
-                        tablaPubl.Rows.Add(row.Field<Decimal>("codigo"),
-                                           row.Field<String>("descripcion"),
-                                           row.Field<Decimal>("precio"),
-                                           row.Field<Decimal>("stock"),
-                                           row.Field<String>("tipo"),
-                                           row.Field<String>("descripcion1"),
-                                           row.Field<String>("nombre_usuario"));
+
+                        label5.Text = Convert.ToString(1);
+
+                        button5.Enabled = false;
+                    }
+                    else
+                    {
+
+                        label5.Text = Convert.ToString(maxPages);
+
+                    }
+                    for (int i = 0; i < rubros.Count; i++)
+                    {
+                        publiData = publiAdapter.buscarPublicacionesPorRubros(rubros[i], idUser);
+
+                    }
+                   
+                    if (publiData.Rows.Count <= 5)
+                    {
+
+                        int totales = publiData.Rows.Count;
+
+                        for (int i = elementoInicial; i < totales; i++)
+                        {
+
+                            tablaPubl.Rows.Add(publiData[i].Field<Decimal>("codigo"),
+                                               publiData[i].Field<String>("descripcion"),
+                                               publiData[i].Field<Decimal>("precio"),
+                                               publiData[i].Field<Decimal>("stock"),
+                                               publiData[i].Field<String>("tipo"),
+                                               publiData[i].Field<String>("descripcion1"),
+                                               publiData[i].Field<String>("nombre_usuario"));
+
+                        }
+
+                        button5.Enabled = false;
+
+                    }
+                    else
+                    {
+
+
+                        for (int i = elementoInicial; i <= elementoInicial + (5 - 1); i++)
+                        {
+
+                            tablaPubl.Rows.Add(publiData[i].Field<Decimal>("codigo"),
+                                               publiData[i].Field<String>("descripcion"),
+                                               publiData[i].Field<Decimal>("precio"),
+                                               publiData[i].Field<Decimal>("stock"),
+                                               publiData[i].Field<String>("tipo"),
+                                               publiData[i].Field<String>("descripcion1"),
+                                               publiData[i].Field<String>("nombre_usuario"));
+
+                        }
 
                     }
 
-                    rubrosLeidos++;
-
                 }
+
                 else
                 {
 
 
                     elementoInicial = (pageNumber - 1) * 5;
 
-                    publiData = publiAdapter.buscarPublicacionesPorRubrosYdescripcion(rubros[rubrosLeidos], textDescripcion.Text, idUser, elementoInicial);
+                    for (int i = 0; i < rubros.Count; i++)
+                    {
 
-                    cantRows = (int)publiAdapter.cantidadPublicacionesPorRubrosYdescripcion(rubros[rubrosLeidos], textDescripcion.Text, idUser);
+                        cantRows = Convert.ToDouble(publiAdapter.cantidadPublicacionesPorRubrosYdescripcion(rubros[i],textDescripcion.Text, idUser));
+                    }
 
                     maxPages = Math.Ceiling(cantRows / 5);
 
-                    label5.Text = Convert.ToString(maxPages);
-
-                    foreach (DataRow row in publiData.Rows)
+                    if (maxPages == 0)
                     {
-                        tablaPubl.Rows.Add(row.Field<Decimal>("codigo"),
-                                           row.Field<String>("descripcion"),
-                                           row.Field<Decimal>("precio"),
-                                           row.Field<Decimal>("stock"),
-                                           row.Field<String>("tipo"),
-                                           row.Field<String>("descripcion1"),
-                                           row.Field<String>("nombre_usuario"));
+
+                        label5.Text = Convert.ToString(1);
+
+                        button5.Enabled = false;
+                    }
+                    else
+                    {
+
+                        label5.Text = Convert.ToString(maxPages);
+
+                    }
+                    for (int i = 0; i < rubros.Count; i++)
+                    {
+                        publiData = publiAdapter.buscarPublicacionesPorRubrosYdescripcion(rubros[i],textDescripcion.Text, idUser);
+
+                    }
+                    if (publiData.Rows.Count <= 5)
+                    {
+
+                        int totales = publiData.Rows.Count;
+
+                        for (int i = elementoInicial; i < totales; i++)
+                        {
+
+                            tablaPubl.Rows.Add(publiData[i].Field<Decimal>("codigo"),
+                                               publiData[i].Field<String>("descripcion"),
+                                               publiData[i].Field<Decimal>("precio"),
+                                               publiData[i].Field<Decimal>("stock"),
+                                               publiData[i].Field<String>("tipo"),
+                                               publiData[i].Field<String>("descripcion1"),
+                                               publiData[i].Field<String>("nombre_usuario"));
+
+                        }
+
+                        button5.Enabled = false;
+
+                    }
+                    else
+                    {
+
+
+                        for (int i = elementoInicial; i <= elementoInicial + (5 - 1); i++)
+                        {
+
+                            tablaPubl.Rows.Add(publiData[i].Field<Decimal>("codigo"),
+                                               publiData[i].Field<String>("descripcion"),
+                                               publiData[i].Field<Decimal>("precio"),
+                                               publiData[i].Field<Decimal>("stock"),
+                                               publiData[i].Field<String>("tipo"),
+                                               publiData[i].Field<String>("descripcion1"),
+                                               publiData[i].Field<String>("nombre_usuario"));
+
+                        }
 
                     }
 
-
                 }
 
-            }
 
+            }
         }
         private void button5_Click(object sender, EventArgs e)
         {
@@ -267,14 +367,82 @@ namespace WindowsFormsApplication1.ComprarOfertar
                 else if (textDescripcion.Text == "")
                 {
 
-                    publiData = publiAdapter.buscarPublicacionesPorRubros(textRubros.Text, idUser, elementoInicial);
+                    if (publiData.Rows.Count - (pageNumber - 1) * 5 <= 5)
+                    {
+
+                        int totales = publiData.Rows.Count;
+
+                        for (int i = elementoInicial; i < totales; i++)
+                        {
+
+                            tablaPubl.Rows.Add(publiData[i].Field<Decimal>("codigo"),
+                                               publiData[i].Field<String>("descripcion"),
+                                               publiData[i].Field<Decimal>("precio"),
+                                               publiData[i].Field<Decimal>("stock"),
+                                               publiData[i].Field<String>("tipo"),
+                                               publiData[i].Field<String>("descripcion1"),
+                                               publiData[i].Field<String>("nombre_usuario"));
+
+                        }
+                    }
+                    else
+                    {
 
 
+                        for (int i = elementoInicial; i <= elementoInicial + (5 - 1); i++)
+                        {
+
+                            tablaPubl.Rows.Add(publiData[i].Field<Decimal>("codigo"),
+                                               publiData[i].Field<String>("descripcion"),
+                                               publiData[i].Field<Decimal>("precio"),
+                                               publiData[i].Field<Decimal>("stock"),
+                                               publiData[i].Field<String>("tipo"),
+                                               publiData[i].Field<String>("descripcion1"),
+                                               publiData[i].Field<String>("nombre_usuario"));
+
+                        }
+
+                    }
                 }
                 else
                 {
 
-                    publiData = publiAdapter.buscarPublicacionesPorRubrosYdescripcion(textRubros.Text, textDescripcion.Text, idUser, elementoInicial);
+                    if (publiData.Rows.Count - (pageNumber - 1) * 5 <= 5)
+                    {
+
+                        int totales = publiData.Rows.Count;
+
+                        for (int i = elementoInicial; i < totales; i++)
+                        {
+
+                            tablaPubl.Rows.Add(publiData[i].Field<Decimal>("codigo"),
+                                               publiData[i].Field<String>("descripcion"),
+                                               publiData[i].Field<Decimal>("precio"),
+                                               publiData[i].Field<Decimal>("stock"),
+                                               publiData[i].Field<String>("tipo"),
+                                               publiData[i].Field<String>("descripcion1"),
+                                               publiData[i].Field<String>("nombre_usuario"));
+
+                        }
+                    }
+                    else
+                    {
+
+
+                        for (int i = elementoInicial; i <= elementoInicial + (5 - 1); i++)
+                        {
+
+                            tablaPubl.Rows.Add(publiData[i].Field<Decimal>("codigo"),
+                                               publiData[i].Field<String>("descripcion"),
+                                               publiData[i].Field<Decimal>("precio"),
+                                               publiData[i].Field<Decimal>("stock"),
+                                               publiData[i].Field<String>("tipo"),
+                                               publiData[i].Field<String>("descripcion1"),
+                                               publiData[i].Field<String>("nombre_usuario"));
+
+                        }
+
+                    }
 
 
                 }
@@ -306,18 +474,58 @@ namespace WindowsFormsApplication1.ComprarOfertar
 
             elementoInicial = (pageNumber - 1) * 5;
 
-            publiData = publiAdapter.buscarPublicacionesPorDescripcion(textDescripcion.Text, idUser, elementoInicial);
 
-
-            foreach (DataRow row in publiData.Rows)
+            if (textRubros.Text == "")
             {
-                tablaPubl.Rows.Add(row.Field<Decimal>("codigo"),
-                                   row.Field<String>("descripcion"),
-                                   row.Field<Decimal>("precio"),
-                                   row.Field<Decimal>("stock"),
-                                   row.Field<String>("tipo"),
-                                   row.Field<String>("descripcion1"),
-                                   row.Field<String>("nombre_usuario"));
+
+                publiData = publiAdapter.buscarPublicacionesPorDescripcion(textDescripcion.Text, idUser, elementoInicial);
+
+                foreach (DataRow row in publiData.Rows)
+                {
+                    tablaPubl.Rows.Add(row.Field<Decimal>("codigo"),
+                                  row.Field<String>("descripcion"),
+                                  row.Field<Decimal>("precio"),
+                                  row.Field<Decimal>("stock"),
+                                  row.Field<String>("tipo"),
+                                  row.Field<String>("descripcion1"),
+                                  row.Field<String>("nombre_usuario"));
+
+                }
+            }
+            else if (textDescripcion.Text == "")
+            {
+
+                for (int i = elementoInicial; i <= elementoInicial + (5 - 1); i++)
+                {
+
+                    tablaPubl.Rows.Add(publiData[i].Field<Decimal>("codigo"),
+                                       publiData[i].Field<String>("descripcion"),
+                                       publiData[i].Field<Decimal>("precio"),
+                                       publiData[i].Field<Decimal>("stock"),
+                                       publiData[i].Field<String>("tipo"),
+                                       publiData[i].Field<String>("descripcion1"),
+                                       publiData[i].Field<String>("nombre_usuario"));
+
+                }
+
+
+            }
+            else
+            {
+
+                for (int i = elementoInicial; i <= elementoInicial + (5 - 1); i++)
+                {
+
+                    tablaPubl.Rows.Add(publiData[i].Field<Decimal>("codigo"),
+                                       publiData[i].Field<String>("descripcion"),
+                                       publiData[i].Field<Decimal>("precio"),
+                                       publiData[i].Field<Decimal>("stock"),
+                                       publiData[i].Field<String>("tipo"),
+                                       publiData[i].Field<String>("descripcion1"),
+                                       publiData[i].Field<String>("nombre_usuario"));
+
+                }
+
 
             }
 

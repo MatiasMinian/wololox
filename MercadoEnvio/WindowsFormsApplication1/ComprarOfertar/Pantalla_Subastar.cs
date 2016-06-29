@@ -57,10 +57,12 @@ namespace WindowsFormsApplication1.ComprarOfertar
             }
             else
             {
-                MonthCalendar calendario = new MonthCalendar();
-                DateTime fechaActual = calendario.TodayDate;
+
+                var value = System.Configuration.ConfigurationManager.AppSettings["DateKey"];
+                var appDate = DateTime.Parse(value);
+
                 ofertaAdapter = new GD1C2016DataSetTableAdapters.ofertasTableAdapter();
-                ofertaAdapter.Insert(id_User,codigoPublicacion,fechaActual,Convert.ToDecimal(textBox2.Text));
+                ofertaAdapter.Insert(id_User,codigoPublicacion,appDate,Convert.ToDecimal(textBox2.Text));
                 MessageBox.Show("Oferta realizada correctamente");
                 this.Close();
                 pantallaCompra.Close();

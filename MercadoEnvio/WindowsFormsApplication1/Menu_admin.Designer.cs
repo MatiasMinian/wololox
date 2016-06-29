@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class Menu_Administradores
+    partial class Menu_admin
     {
         /// <summary>
         /// Required designer variable.

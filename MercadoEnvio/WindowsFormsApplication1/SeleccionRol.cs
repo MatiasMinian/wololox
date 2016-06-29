@@ -12,16 +12,26 @@ namespace WindowsFormsApplication1
 {
     public partial class SeleccionRol : Form
     {
+
         public SeleccionRol()
         {
             InitializeComponent();
         }
-        GD1C2016DataSetTableAdapters.usuariosTableAdapter adapterUsuarios = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //A modificar
+            Pantalla_Funcionalidades pantallaFuncio = new Pantalla_Funcionalidades(comboBox1.Text);
+            pantallaFuncio.ShowDialog();
+
+
+
+
         }
+
+
+
+
+
         
     }
 }

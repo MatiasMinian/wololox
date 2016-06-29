@@ -43,7 +43,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
             {
                 MessageBox.Show("Complete algún campo de búsqueda");
             }
-            dataEmpresas.DataSource = BuscarEmpresa(textRazSoc.Text, textCUIT.Text, textNom.Text, textRubro.Text, textRepMin.Text, textRepMax);
+            dataEmpresas.DataSource = empAdapter.BuscarEmpresa(textRazSoc.Text, textCUIT.Text, textNom.Text, textRubro.Text, Convert.ToDecimal(textRepMin),Convert.ToDecimal(textRepMax));
 
         }
 
@@ -59,7 +59,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                empAdapter.DeshabilitarUsuario(dataEmpresas.Rows[e.RowIndex].Cells[0]);
+                empAdapter.DeshabilitarUsuario(Convert.ToDecimal(dataEmpresas.Rows[e.RowIndex].Cells[0]));
             }
             dataEmpresas.DataSource = empAdapter.ObtenerEmpresasHabilitadas();
         }

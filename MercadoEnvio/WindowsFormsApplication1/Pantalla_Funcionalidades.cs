@@ -15,14 +15,18 @@ using WindowsFormsApplication1.ComprarOfertar;
 using WindowsFormsApplication1.Generar_Publicación;
 using WindowsFormsApplication1.Facturas;
 using WindowsFormsApplication1.Listado_Estadistico;
+using WindowsFormsApplication1.ABM_Visibilidad;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Menu_Cliente : Form
+    public partial class Pantalla_Funcionalidades : Form
     {
-        private String user;
 
-        public Menu_Cliente()
+       private GD1C2016DataSetTableAdapters.funcionalidadesTableAdapter funciAdapter;
+       private GD1C2016DataSet.funcionalidadesDataTable funciData;
+       private String user;
+
+        public Pantalla_Funcionalidades(String rol)
         {
             InitializeComponent();
             foreach (Control control in this.Controls)
@@ -32,6 +36,53 @@ namespace WindowsFormsApplication1
                     control.Anchor = AnchorStyles.None;
                     control.Left = (control.Parent.Width + 150 - control.Width) / 2;
                 }
+            }
+
+            funciAdapter = new GD1C2016DataSetTableAdapters.funcionalidadesTableAdapter();
+            funciData = new GD1C2016DataSet.funcionalidadesDataTable();
+
+            funciData = funciAdapter.traerFuncionalidades(rol);
+
+            foreach(DataRow row in funciData.Rows){
+
+                switch (Convert.ToString(row.Field<String>("nombre")))
+                {
+
+                    case "visibilidad": botonVisi.Enabled = true;
+                                        break;
+
+                    case "roles": botonRoles.Enabled = true;
+                                        break;
+
+                    case "usuarios": botonUsuarios.Enabled = true;
+                                        break;
+
+                    case "generar publicacion": botonPublic.Enabled = true;
+                                        break;
+
+                    case "comprar/ofertar": botonCompra.Enabled = true;
+                                        break;
+
+                    case "historial": botonHistorial.Enabled = true;
+                                        break;
+
+                    case "calificar": botonCalificar.Enabled = true;
+                                        break;
+
+                    case "estadisticas": botonEstadisticas.Enabled = true;
+                                        break;
+
+                    case "facturas": botonFacturas.Enabled = true;
+                                        break;
+
+                    case "modificar datos": botonDatos.Enabled = true;
+                                        break;
+
+                    case "modificar publicacion": botonMPubli.Enabled = true;
+                                        break;
+
+                }
+
             }
         }
 
@@ -101,5 +152,30 @@ namespace WindowsFormsApplication1
             Pantalla_Listado_Estadistico_Principal pantallaListadoE = new Pantalla_Listado_Estadistico_Principal();
             pantallaListadoE.ShowDialog();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void botonMPubli_Click(object sender, EventArgs e)
+        {
+            Pantalla_Modificacion_Publicaciones pantallaMPubli = new Pantalla_Modificacion_Publicaciones();
+            pantallaMPubli.ShowDialog();
+        }
+
+        private void botonVisi_Click(object sender, EventArgs e)
+        {
+            Pantalla_Visibilidad_Principal pantallaVisi = new Pantalla_Visibilidad_Principal();
+            pantallaVisi.ShowDialog();
+        }
+
+        private void botonRoles_Click(object sender, EventArgs e)
+        {
+            Pantalla_Rol_Principal pantallaRol = new Pantalla_Rol_Principal();
+            pantallaRol.ShowDialog();
+
+        }
+
     }
 }

@@ -40,8 +40,9 @@ namespace WindowsFormsApplication1.Facturas
 
             var appDate = DateTime.Parse(value);
 
+            dateTimePicker1.Value = appDate;
             dateTimePicker2.Value = appDate;
-            dateTimePicker1.MaxDate = appDate;
+
 
             
         }
@@ -61,6 +62,8 @@ namespace WindowsFormsApplication1.Facturas
             button7.Enabled = false;
             button8.Enabled = false;
             dataGridView1.Rows.Clear();
+            label9.Text = Convert.ToString(1);
+            checkBox1.Checked = false;
 
         }
 
@@ -97,10 +100,6 @@ namespace WindowsFormsApplication1.Facturas
                 pageNumber = 1;
                 elementoInicial = 0;
 
-
-                button8.Enabled = true;
-
-
                 if (!checkBox1.Checked && (textBox2.Text == "" ||
                     textBox1.Text == "") && textBox4.Text == "" && textBox3.Text == "")
                 {
@@ -123,7 +122,6 @@ namespace WindowsFormsApplication1.Facturas
 
                         if (checkBox1.Checked)
                         {
-
                             fecha1 = dateTimePicker1.Value;
                             fecha2 = dateTimePicker2.Value;
                         }
@@ -162,9 +160,16 @@ namespace WindowsFormsApplication1.Facturas
 
                         maxPages = Math.Ceiling(cantRows / 6);
 
-                        label9.Text = Convert.ToString(maxPages);
+                        if (maxPages != 0)
+                        {
+                            if (maxPages > 1)
+                            {
+                                button8.Enabled = true;
 
-                        factuData = factuAdapter.consultaDeFacturas(idConsulta, fecha1, fecha2, importe1, importe2, detalle, elementoInicial);
+                            }
+                            label9.Text = Convert.ToString(maxPages);
+
+                            factuData = factuAdapter.consultaDeFacturas(idConsulta, fecha1, fecha2, importe1, importe2, detalle, elementoInicial);
 
                             foreach (DataRow row in factuData.Rows)
                             {
@@ -176,6 +181,21 @@ namespace WindowsFormsApplication1.Facturas
                                                        row.Field<Decimal>("total"));
                             }
 
+
+                        }
+                        else
+                        {
+
+                            fecha1 = null;
+                            fecha2 = null;
+                            importe1 = null;
+                            importe2 = null;
+                            detalle = null;
+                            idConsulta = null;
+
+
+
+                        }
                     }
                 }
 
@@ -187,11 +207,23 @@ namespace WindowsFormsApplication1.Facturas
             if (!checkBox1.Checked)
             {
                 dateTimePicker1.Enabled = false;
+                dateTimePicker2.Enabled = false;
             }
             else
             {
 
                 dateTimePicker1.Enabled = true;
+                dateTimePicker2.Enabled = true;
+
+
+                var value = System.Configuration.ConfigurationManager.AppSettings["DateKey"];
+
+                var appDate = DateTime.Parse(value);
+
+                dateTimePicker2.MaxDate = appDate;
+                dateTimePicker1.MaxDate = appDate;
+
+
 
 
             }

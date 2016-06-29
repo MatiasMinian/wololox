@@ -535,6 +535,24 @@ AS
   ORDER BY id_calificacion DESC
    
 --Comprar/Ofertar
+GO
+
+
+IF OBJECT_ID('WOLOLOX.IDultimaCompraUsuario') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.IDultimaCompraUsuario;
+GO
+
+CREATE PROCEDURE WOLOLOX.IDultimaCompraUsuario(@idUser numeric(18,0))
+AS
+DECLARE @id int;
+SET @id = (SELECT TOP 1 id_compra FROM WOLOLOX.compras
+INNER JOIN WOLOLOX.usuarios ON usuarios.id_usuario = compras.id_usuario
+WHERE usuarios.id_usuario = @idUser
+ORDER BY id_compra DESC)
+
+SELECT @id
+
+
 
 GO
 
@@ -609,7 +627,7 @@ IF OBJECT_ID('WOLOLOX.buscarPublicacionesPorRubros') IS NOT NULL
    DROP PROCEDURE WOLOLOX.buscarPublicacionesPorRubros;
 GO
 
-CREATE PROCEDURE WOLOLOX.buscarPublicacionesPorRubros(@rubro nvarchar(20),@id numeric(18,0),@rowInicial int)
+CREATE PROCEDURE WOLOLOX.buscarPublicacionesPorRubros(@rubro nvarchar(20),@id numeric(18,0))
 AS
   SELECT publicaciones.codigo,publicaciones.descripcion,precio,stock,tipo,visibilidades.descripcion,nombre_usuario
 FROM WOLOLOX.publicaciones
@@ -625,7 +643,6 @@ INNER JOIN WOLOLOX.rubros
 ON rubros.codigo = publicaciones_rubros.cod_rubro
 
 WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa' AND @id <> publicaciones.id_usuario
-ORDER BY visibilidades.costo_publicacion DESC OFFSET @rowInicial ROWS FETCH NEXT 5 ROWS ONLY
 
 GO
 
@@ -658,7 +675,7 @@ IF OBJECT_ID('WOLOLOX.buscarPublicacionesPorRubrosYdescripcion') IS NOT NULL
    DROP PROCEDURE WOLOLOX.buscarPublicacionesPorRubrosYdescripcion;
 GO
 
-CREATE PROCEDURE WOLOLOX.buscarPublicacionesPorRubrosYdescripcion(@rubro nvarchar(20),@descripcion nvarchar(255),@id numeric(18,0),@rowInicial int)
+CREATE PROCEDURE WOLOLOX.buscarPublicacionesPorRubrosYdescripcion(@rubro nvarchar(20),@descripcion nvarchar(255),@id numeric(18,0))
 AS
   SELECT publicaciones.codigo,publicaciones.descripcion,precio,stock,tipo,visibilidades.descripcion,nombre_usuario
 FROM WOLOLOX.publicaciones
@@ -673,7 +690,6 @@ ON publicaciones.codigo = publicaciones_rubros.cod_publicacion
 INNER JOIN WOLOLOX.rubros
 ON rubros.codigo = publicaciones_rubros.cod_rubro
 WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa' AND publicaciones.descripcion LIKE '%'+@descripcion+'%' AND @id <> publicaciones.id_usuario
-ORDER BY visibilidades.costo_publicacion DESC OFFSET @rowInicial ROWS FETCH NEXT 5 ROWS ONLY
 
 GO
 
@@ -1242,10 +1258,9 @@ IF OBJECT_ID('WOLOLOX.ObtenerClientesHabilitados') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.ObtenerClientesHabilitados
 AS
-RETURN(
     SELECT c.id_usuario, c.nombre, c.apellido, c.dni
 	FROM WOLOLOX.clientes c, WOLOLOX.usuarios u
-	WHERE c.id_usuario=u.id_usuario AND u.=1);
+	WHERE c.id_usuario=u.id_usuario AND u.habilitado=1
 GO
 
 IF OBJECT_ID('WOLOLOX.ObtenerEmpresasHabilitadas') IS NOT NULL
@@ -1253,10 +1268,9 @@ IF OBJECT_ID('WOLOLOX.ObtenerEmpresasHabilitadas') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.ObtenerEmpresasHabilitadas
 AS
-RETURN(
     SELECT e.id_usuario, e.razon_social, e.cuit, e.nombre_contacto, e.reputacion
 	FROM WOLOLOX.empresas e, WOLOLOX.usuarios u
-	WHERE e.id_usuario=u.id_usuario AND u.habilitado=1);
+	WHERE e.id_usuario=u.id_usuario AND u.habilitado=1
 GO
 
 IF OBJECT_ID('WOLOLOX.BuscarUsuario') IS NOT NULL

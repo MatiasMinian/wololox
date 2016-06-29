@@ -14,9 +14,9 @@ using WindowsFormsApplication1.Facturas;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Menu_Administradores : Form
+    public partial class Menu_admin : Form
     {
-        public Menu_Administradores()
+        public Menu_admin()
         {
             InitializeComponent();
 

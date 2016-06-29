@@ -46,14 +46,20 @@ namespace WindowsFormsApplication1.ComprarOfertar
             var value = System.Configuration.ConfigurationManager.AppSettings["DateKey"];
             var appDate = DateTime.Parse(value);
             compraAdapter = new GD1C2016DataSetTableAdapters.comprasTableAdapter();
-            int idCompra = compraAdapter.Insert(numericUpDown1.Value, appDate, codigo_publicacion, idUser);
+
+            int id_compra = (int)compraAdapter.IDultimaCompraUsuario(idUser);
+
+            compraAdapter.Insert(numericUpDown1.Value, appDate, codigo_publicacion, idUser);
+
+
+
 
             MessageBox.Show("Compra realizada correctamente");
             this.Close();
             pantallaCompra.Close();
            
     
-            Pantalla_Mostrar_Factura pantallaFactura = new Pantalla_Mostrar_Factura(idCompra,codigo_publicacion,appDate);
+            Pantalla_Mostrar_Factura pantallaFactura = new Pantalla_Mostrar_Factura(id_compra,codigo_publicacion,appDate);
             pantallaFactura.ShowDialog();
 
 

@@ -73,11 +73,11 @@
     <Compile Include="ABM Rol\Pantalla_Habilitacion_Rol.Designer.cs">
       <DependentUpon>Pantalla_Habilitacion_Rol.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Rol\Pantalla_Selección_De_Rol_Login.cs">
+    <Compile Include="ABM Rol\Pantalla_Rol_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Rol\Pantalla_Selección_De_Rol_Login.Designer.cs">
-      <DependentUpon>Pantalla_Selección_De_Rol_Login.cs</DependentUpon>
+    <Compile Include="ABM Rol\Pantalla_Rol_Principal.Designer.cs">
+      <DependentUpon>Pantalla_Rol_Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Rubro\ABM_Rubro.cs">
       <SubType>Form</SubType>
@@ -235,11 +235,23 @@
     <Compile Include="ABM Visibilidad\EliminarVisibilidad.Designer.cs">
       <DependentUpon>EliminarVisibilidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Visibilidad\ModificacionVisibilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Visibilidad\ModificacionVisibilidad.Designer.cs">
+      <DependentUpon>ModificacionVisibilidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Visibilidad\ModifVisibilidad.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ABM Visibilidad\ModifVisibilidad.Designer.cs">
       <DependentUpon>ModifVisibilidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Visibilidad\Pantalla_Visibilidad_Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Visibilidad\Pantalla_Visibilidad_Principal.Designer.cs">
+      <DependentUpon>Pantalla_Visibilidad_Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Calificar\Pantalla_Calificacion_Principal.cs">
       <SubType>Form</SubType>
@@ -406,11 +418,11 @@
     <Compile Include="Listado Estadistico\Pantalla_Vendedores_Mayor_Monto_Facturado.Designer.cs">
       <DependentUpon>Pantalla_Vendedores_Mayor_Monto_Facturado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu_Cliente.cs">
+    <Compile Include="Pantalla_Funcionalidades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu_Cliente.Designer.cs">
-      <DependentUpon>Menu_Cliente.cs</DependentUpon>
+    <Compile Include="Pantalla_Funcionalidades.Designer.cs">
+      <DependentUpon>Pantalla_Funcionalidades.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -424,11 +436,11 @@
     <Compile Include="Listado Estadistico\Pantalla_Listado_Estadistico_Principal.Designer.cs">
       <DependentUpon>Pantalla_Listado_Estadistico_Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu_Administradores.cs">
+    <Compile Include="Menu_admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu_Administradores.Designer.cs">
-      <DependentUpon>Menu_Administradores.cs</DependentUpon>
+    <Compile Include="Menu_admin.Designer.cs">
+      <DependentUpon>Menu_admin.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu_Empresa.cs">
       <SubType>Form</SubType>
@@ -450,8 +462,8 @@
     <EmbeddedResource Include="ABM Rol\Pantalla_Habilitacion_Rol.resx">
       <DependentUpon>Pantalla_Habilitacion_Rol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Rol\Pantalla_Selección_De_Rol_Login.resx">
-      <DependentUpon>Pantalla_Selección_De_Rol_Login.cs</DependentUpon>
+    <EmbeddedResource Include="ABM Rol\Pantalla_Rol_Principal.resx">
+      <DependentUpon>Pantalla_Rol_Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rubro\ABM_Rubro.resx">
       <DependentUpon>ABM_Rubro.cs</DependentUpon>
@@ -531,8 +543,14 @@
     <EmbeddedResource Include="ABM Visibilidad\EliminarVisibilidad.resx">
       <DependentUpon>EliminarVisibilidad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM Visibilidad\ModificacionVisibilidad.resx">
+      <DependentUpon>ModificacionVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM Visibilidad\ModifVisibilidad.resx">
       <DependentUpon>ModifVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Visibilidad\Pantalla_Visibilidad_Principal.resx">
+      <DependentUpon>Pantalla_Visibilidad_Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Calificar\Pantalla_Calificacion_Principal.resx">
       <DependentUpon>Pantalla_Calificacion_Principal.cs</DependentUpon>
@@ -615,14 +633,14 @@
     <EmbeddedResource Include="Listado Estadistico\Pantalla_Vendedores_Mayor_Monto_Facturado.resx">
       <DependentUpon>Pantalla_Vendedores_Mayor_Monto_Facturado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu_Cliente.resx">
-      <DependentUpon>Menu_Cliente.cs</DependentUpon>
+    <EmbeddedResource Include="Pantalla_Funcionalidades.resx">
+      <DependentUpon>Pantalla_Funcionalidades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu_Administradores.resx">
-      <DependentUpon>Menu_Administradores.cs</DependentUpon>
+    <EmbeddedResource Include="Menu_admin.resx">
+      <DependentUpon>Menu_admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu_Empresa.resx">
       <DependentUpon>Menu_Empresa.cs</DependentUpon>

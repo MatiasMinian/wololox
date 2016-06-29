@@ -39,7 +39,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
             {
                 MessageBox.Show("Complete algún campo de búsqueda");
             }
-            dataClientes.DataSource = BuscarCliente(textNombre.Text, textApe.Text, textEmail.Text, textDNI.Text);
+            dataClientes.DataSource = cliAdapter.BuscarCliente(textNombre.Text, textApe.Text, textEmail.Text, Convert.ToDecimal(textDNI.Text));
         }
 
         private void Pantalla_Busqueda_Cliente_A_Eliminar_Load(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                cliAdapter.DeshabilitarUsuario(dataClientes.Rows[e.RowIndex].Cells[0]);
+                cliAdapter.DeshabilitarUsuario(Convert.ToDecimal(dataClientes.Rows[e.RowIndex].Cells[0]));
             }
             dataClientes.DataSource = cliAdapter.ObtenerClientesHabilitados();
         }
