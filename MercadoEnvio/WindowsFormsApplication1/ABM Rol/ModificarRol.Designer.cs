@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             this.Grupo_Modificar_Rol = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboRol = new System.Windows.Forms.ComboBox();
+            this.textNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Modificar_Rol_Texto_Rol = new System.Windows.Forms.Label();
@@ -41,16 +38,19 @@
             this.Boton_Cancelar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboFunc = new System.Windows.Forms.ComboBox();
+            this.listFunc = new System.Windows.Forms.ListBox();
             this.Grupo_Modificar_Rol.SuspendLayout();
             this.SuspendLayout();
             // 
             // Grupo_Modificar_Rol
             // 
-            this.Grupo_Modificar_Rol.Controls.Add(this.comboBox2);
+            this.Grupo_Modificar_Rol.Controls.Add(this.comboFunc);
             this.Grupo_Modificar_Rol.Controls.Add(this.label3);
-            this.Grupo_Modificar_Rol.Controls.Add(this.comboBox1);
-            this.Grupo_Modificar_Rol.Controls.Add(this.listBox1);
-            this.Grupo_Modificar_Rol.Controls.Add(this.textBox1);
+            this.Grupo_Modificar_Rol.Controls.Add(this.comboRol);
+            this.Grupo_Modificar_Rol.Controls.Add(this.listFunc);
+            this.Grupo_Modificar_Rol.Controls.Add(this.textNombre);
             this.Grupo_Modificar_Rol.Controls.Add(this.label2);
             this.Grupo_Modificar_Rol.Controls.Add(this.label1);
             this.Grupo_Modificar_Rol.Controls.Add(this.Modificar_Rol_Texto_Rol);
@@ -61,45 +61,21 @@
             this.Grupo_Modificar_Rol.TabStop = false;
             this.Grupo_Modificar_Rol.Text = "Datos del rol";
             // 
-            // comboBox2
+            // comboRol
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(175, 106);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 21);
-            this.comboBox2.TabIndex = 8;
+            this.comboRol.FormattingEnabled = true;
+            this.comboRol.Location = new System.Drawing.Point(175, 19);
+            this.comboRol.Name = "comboRol";
+            this.comboRol.Size = new System.Drawing.Size(100, 21);
+            this.comboRol.TabIndex = 6;
+            this.comboRol.SelectedIndexChanged += new System.EventHandler(this.comboRol_SelectedIndexChanged);
             // 
-            // label3
+            // textNombre
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(-1, 109);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(172, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Lista de funcionalidades a agregar:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(175, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 6;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(175, 150);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(165, 82);
-            this.listBox1.TabIndex = 5;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(175, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.textNombre.Location = new System.Drawing.Point(175, 64);
+            this.textNombre.Name = "textNombre";
+            this.textNombre.Size = new System.Drawing.Size(100, 20);
+            this.textNombre.TabIndex = 4;
             // 
             // label2
             // 
@@ -168,6 +144,31 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(34, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(135, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Funcionalidades a agregar:";
+            // 
+            // comboFunc
+            // 
+            this.comboFunc.FormattingEnabled = true;
+            this.comboFunc.Location = new System.Drawing.Point(175, 106);
+            this.comboFunc.Name = "comboFunc";
+            this.comboFunc.Size = new System.Drawing.Size(100, 21);
+            this.comboFunc.TabIndex = 8;
+            // 
+            // listFunc
+            // 
+            this.listFunc.FormattingEnabled = true;
+            this.listFunc.Location = new System.Drawing.Point(175, 150);
+            this.listFunc.Name = "listFunc";
+            this.listFunc.Size = new System.Drawing.Size(165, 82);
+            this.listFunc.TabIndex = 5;
+            // 
             // PantallaModificarRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,13 +195,13 @@
         private System.Windows.Forms.Button Boton_Modificar;
         private System.Windows.Forms.Button Boton_Cancelar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textNombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboRol;
+        private System.Windows.Forms.ComboBox comboFunc;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ListBox listFunc;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label3;
     }
 }

@@ -12,6 +12,9 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
 {
     public partial class EliminarVisibilidad : Form
     {
+        private GD1C2016DataSetTableAdapters.visibilidadesTableAdapter visiAdapter;
+        private GD1C2016DataSet.visibilidadesDataTable visibilidadesData;
+
         public EliminarVisibilidad()
         {
             InitializeComponent();
@@ -19,11 +22,81 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
 
         private void button3_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Add("Gratis", 0, 10, 20, 10);
-            dataGridView1.Rows.Add("Platinum", 20, 30, 40, 30);
-            dataGridView1.Rows.Add("Gold", 30, 40, 50, 40);
-            dataGridView1.Rows.Add("Diamond", 40, 50, 60, 50);
-        }
+            
+            string descripcion = textBox1.Text;
+            visiAdapter = new GD1C2016DataSetTableAdapters.visibilidadesTableAdapter();
+
+            string costoMinimo = textBox3.Text;
+            string costoMaximo = textBox2.Text; ;
+
+
+            if (descripcion == "" && costoMaximo == "" && costoMinimo == "")
+            {
+
+                MessageBox.Show("Quedan campos por completar");
+
+
+
+            }else if (descripcion == "" && (costoMaximo == "" || costoMinimo == "") || 
+                (descripcion != "" && costoMaximo == "" && costoMinimo != "") || 
+                (descripcion != "" && costoMaximo != "" && costoMinimo == "")){
+
+                MessageBox.Show("Quedan campos por completar");
+
+            }
+            
+            else if(costoMaximo == "" && costoMinimo == ""){
+
+
+                visibilidadesData = visiAdapter.busquedaPorDescripcion(descripcion);
+                
+
+                foreach (DataRow row in visibilidadesData.Rows)
+                {
+                    dataGridView1.Rows.Add(row.Field<Decimal>("codigo"),                                           
+                                           row.Field<String>("descripcion"),
+                                           row.Field<Decimal>("costo_envio"),
+                                           row.Field<Decimal>("porc_producto"),
+                                           row.Field<Decimal>("costo_publicacion"),
+                                           row.Field<Boolean>("habilitada"));
+                }
+
+
+            }
+            else if (descripcion == "")
+            {
+
+                visibilidadesData = visiAdapter.busquedaPorCostos(Convert.ToDecimal(costoMinimo),Convert.ToDecimal(costoMaximo));
+
+                foreach (DataRow row in visibilidadesData.Rows)
+                {
+                    dataGridView1.Rows.Add(row.Field<Decimal>("codigo"),
+                                            row.Field<String>("descripcion"),
+                                            row.Field<Decimal>("costo_envio"),
+                                            row.Field<Decimal>("porc_producto"),
+                                            row.Field<Decimal>("costo_publicacion"),
+                                            row.Field<Boolean>("habilitada"));
+                }
+
+            }
+            else
+            {
+
+                visibilidadesData = visiAdapter.busquedaPorDescripcionYcostos(descripcion,Convert.ToDecimal(costoMinimo), Convert.ToDecimal(costoMaximo));
+
+                foreach (DataRow row in visibilidadesData.Rows)
+                {
+                    dataGridView1.Rows.Add(row.Field<Decimal>("codigo"),
+                                           row.Field<String>("descripcion"),
+                                           row.Field<Decimal>("costo_envio"),
+                                           row.Field<Decimal>("porc_producto"),
+                                           row.Field<Decimal>("costo_publicacion"),
+                                           row.Field<Boolean>("habilitada"));
+                }
+
+            }
+
+}
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -39,17 +112,26 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
             };
 
             funcion(Controls);
+            dataGridView1.Rows.Clear();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var senderGrid = (DataGridView)sender;
 
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0)
-            {
+
+                visiAdapter.EliminarVisibilidad(Convert.ToDecimal(dataGridView1.CurrentRow.Cells[0].Value));
+
                 MessageBox.Show("Visibilidad eliminada correctamente");
-            }
+
+                this.Close();
+
+
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

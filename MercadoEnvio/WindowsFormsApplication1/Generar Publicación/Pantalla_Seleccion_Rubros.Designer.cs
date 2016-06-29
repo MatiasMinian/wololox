@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsApplication1.Historial_Cliente
+﻿namespace WindowsFormsApplication1.Generar_Publicación
 {
-    partial class Pantalla_Historial_Cantidad_Segun_Estrellas
+    partial class Pantalla_Seleccion_Rubros
     {
         /// <summary>
         /// Required designer variable.
@@ -28,67 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColumnaCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnaCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ColumnaRubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(648, 212);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Historial de compras según estrellas";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnaCompra,
-            this.ColumnaCantidad});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(636, 187);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // ColumnaCompra
-            // 
-            this.ColumnaCompra.HeaderText = "Compra";
-            this.ColumnaCompra.Name = "ColumnaCompra";
-            this.ColumnaCompra.Width = 200;
-            // 
-            // ColumnaCantidad
-            // 
-            this.ColumnaCantidad.HeaderText = "Cantidad";
-            this.ColumnaCantidad.Name = "ColumnaCantidad";
-            this.ColumnaCantidad.Width = 200;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 230);
+            this.button1.Location = new System.Drawing.Point(12, 226);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 0;
             this.button1.Text = "Atras";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Pantalla_Historial_Cantidad_Segun_Estrellas
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(143, 226);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Seleccionar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Location = new System.Drawing.Point(12, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(206, 220);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Listado de rubros";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnaRubro});
+            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(193, 195);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // ColumnaRubro
+            // 
+            this.ColumnaRubro.HeaderText = "Rubro";
+            this.ColumnaRubro.Name = "ColumnaRubro";
+            this.ColumnaRubro.Width = 150;
+            // 
+            // Pantalla_Seleccion_Rubros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 261);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(232, 256);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Pantalla_Historial_Cantidad_Segun_Estrellas";
-            this.Text = "Compras según estrellas";
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Name = "Pantalla_Seleccion_Rubros";
+            this.Text = "Selección de rubros";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -97,10 +102,10 @@
 
         #endregion
 
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaRubro;
     }
 }

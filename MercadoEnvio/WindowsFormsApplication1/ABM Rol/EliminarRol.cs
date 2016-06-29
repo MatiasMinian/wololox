@@ -12,12 +12,14 @@ namespace WindowsFormsApplication1.ABM_Rol
 {
     public partial class PantallaEliminarRol : Form
     {
+        GD1C2016DataSetTableAdapters.rolesTableAdapter rolAdapter = new GD1C2016DataSetTableAdapters.rolesTableAdapter();
         public PantallaEliminarRol()
         {
             InitializeComponent();
-            comboRoles.Items.Add("Administrador");
-            comboRoles.Items.Add("Cliente");
-            comboRoles.Items.Add("Empresa");
+            GD1C2016DataSet.rolesDataTable dataRol = rolAdapter.GetData();
+            comboRoles.DataSource = dataRol;
+            comboRoles.DisplayMember = "nombre";
+            comboRoles.ValueMember = "id";
 
         }
 
@@ -32,9 +34,12 @@ namespace WindowsFormsApplication1.ABM_Rol
         {
             if (comboRoles.Text == "")
             {
-
                 MessageBox.Show("Ingresa rol a eliminar");
-
+            }
+            else
+            {
+                rolAdapter.inhabilitarRol((decimal)comboRoles.SelectedValue);
+                this.Close();
             }
         }
     }

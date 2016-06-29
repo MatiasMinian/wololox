@@ -30,22 +30,16 @@
         {
             this.button7 = new System.Windows.Forms.Button();
             this.tablaRubros = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ColDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.ColDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRubros)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(516, 307);
+            this.button7.Location = new System.Drawing.Point(520, 307);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(92, 23);
             this.button7.TabIndex = 11;
@@ -61,62 +55,21 @@
             this.tablaRubros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaRubros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColDesc});
-            this.tablaRubros.Location = new System.Drawing.Point(12, 106);
+            this.tablaRubros.Location = new System.Drawing.Point(12, 12);
             this.tablaRubros.Name = "tablaRubros";
             this.tablaRubros.ReadOnly = true;
             this.tablaRubros.RowHeadersWidth = 20;
             this.tablaRubros.RowTemplate.ReadOnly = true;
             this.tablaRubros.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaRubros.Size = new System.Drawing.Size(600, 195);
+            this.tablaRubros.Size = new System.Drawing.Size(600, 289);
             this.tablaRubros.TabIndex = 7;
             // 
-            // groupBox1
+            // ColDesc
             // 
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(600, 88);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filtros de búsqueda";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(129, 45);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Limpiar filtro";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 45);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(129, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Ingrese parte del rubro:";
+            this.ColDesc.HeaderText = "Rubro";
+            this.ColDesc.Name = "ColDesc";
+            this.ColDesc.ReadOnly = true;
+            this.ColDesc.Width = 577;
             // 
             // button5
             // 
@@ -146,30 +99,20 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // ColDesc
-            // 
-            this.ColDesc.HeaderText = "Rubro";
-            this.ColDesc.Name = "ColDesc";
-            this.ColDesc.ReadOnly = true;
-            this.ColDesc.Width = 577;
-            // 
             // FormSelecRubro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 344);
+            this.ClientSize = new System.Drawing.Size(624, 344);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.tablaRubros);
-            this.Controls.Add(this.groupBox1);
             this.Name = "FormSelecRubro";
             this.ShowIcon = false;
             this.Text = "Seleccionar rubro";
             ((System.ComponentModel.ISupportInitialize)(this.tablaRubros)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -178,11 +121,6 @@
 
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridView tablaRubros;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button6;

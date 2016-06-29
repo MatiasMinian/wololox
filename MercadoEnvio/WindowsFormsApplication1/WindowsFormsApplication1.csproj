@@ -32,7 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -248,11 +253,35 @@
     <Compile Include="Calificar\Pantalla_Calificar_Publicacion.Designer.cs">
       <DependentUpon>Pantalla_Calificar_Publicacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Calificar\Pantalla_Compras_Segun_Estrellas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calificar\Pantalla_Compras_Segun_Estrellas.Designer.cs">
+      <DependentUpon>Pantalla_Compras_Segun_Estrellas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Calificar\Pantalla_Últimas_5_Compras_Calificadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calificar\Pantalla_Últimas_5_Compras_Calificadas.Designer.cs">
+      <DependentUpon>Pantalla_Últimas_5_Compras_Calificadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComprarOfertar\Pantalla_Subastar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComprarOfertar\Pantalla_Subastar.Designer.cs">
+      <DependentUpon>Pantalla_Subastar.cs</DependentUpon>
+    </Compile>
     <Compile Include="ComprarOfertar\FormSelecRubro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ComprarOfertar\FormSelecRubro.Designer.cs">
       <DependentUpon>FormSelecRubro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComprarOfertar\Pantalla_Comprar_Inmediata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComprarOfertar\Pantalla_Comprar_Inmediata.Designer.cs">
+      <DependentUpon>Pantalla_Comprar_Inmediata.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturas\Pantalla_Busqueda_Contenido_Factura.cs">
       <SubType>Form</SubType>
@@ -260,10 +289,50 @@
     <Compile Include="Facturas\Pantalla_Busqueda_Contenido_Factura.Designer.cs">
       <DependentUpon>Pantalla_Busqueda_Contenido_Factura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturas\Pantalla_Mostrar_Factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturas\Pantalla_Mostrar_Factura.Designer.cs">
+      <DependentUpon>Pantalla_Mostrar_Factura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GD1C2016DataSet.cs">
+      <DependentUpon>GD1C2016DataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GD1C2016DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GD1C2016DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Subasta_Borrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Subasta_Borrador.Designer.cs">
+      <DependentUpon>Pantalla_Subasta_Borrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Compra_Borrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Compra_Borrador.Designer.cs">
+      <DependentUpon>Pantalla_Compra_Borrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Seleccion_Rubros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Seleccion_Rubros.Designer.cs">
+      <DependentUpon>Pantalla_Seleccion_Rubros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Seleccion_Visibilidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicación\Pantalla_Seleccion_Visibilidades.Designer.cs">
+      <DependentUpon>Pantalla_Seleccion_Visibilidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionRol.Designer.cs">
+      <DependentUpon>SeleccionRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Generar Publicación\Pantalla_Generar_Publicación_Compra_Inmediata.cs">
       <SubType>Form</SubType>
@@ -294,12 +363,6 @@
     </Compile>
     <Compile Include="Generar Publicación\Pantalla_Modificación_Estado_Publicación.Designer.cs">
       <DependentUpon>Pantalla_Modificación_Estado_Publicación.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.Designer.cs">
-      <DependentUpon>Pantalla_Historial_Cantidad_Segun_Estrellas.cs</DependentUpon>
     </Compile>
     <Compile Include="Historial Cliente\Pantalla_Historial_Principal.cs">
       <SubType>Form</SubType>
@@ -477,17 +540,47 @@
     <EmbeddedResource Include="Calificar\Pantalla_Calificar_Publicacion.resx">
       <DependentUpon>Pantalla_Calificar_Publicacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Calificar\Pantalla_Compras_Segun_Estrellas.resx">
+      <DependentUpon>Pantalla_Compras_Segun_Estrellas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calificar\Pantalla_Últimas_5_Compras_Calificadas.resx">
+      <DependentUpon>Pantalla_Últimas_5_Compras_Calificadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComprarOfertar\Pantalla_Subastar.resx">
+      <DependentUpon>Pantalla_Subastar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ComprarOfertar\FormSelecRubro.resx">
       <DependentUpon>FormSelecRubro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ComprarOfertar\FormComprayOferta.resx">
       <DependentUpon>FormComprayOferta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ComprarOfertar\Pantalla_Comprar_Inmediata.resx">
+      <DependentUpon>Pantalla_Comprar_Inmediata.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturas\Pantalla_Busqueda_Contenido_Factura.resx">
       <DependentUpon>Pantalla_Busqueda_Contenido_Factura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturas\Pantalla_Consultar_Facturas.resx">
       <DependentUpon>Pantalla_Consultar_Facturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturas\Pantalla_Mostrar_Factura.resx">
+      <DependentUpon>Pantalla_Mostrar_Factura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\Pantalla_Subasta_Borrador.resx">
+      <DependentUpon>Pantalla_Subasta_Borrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\Pantalla_Compra_Borrador.resx">
+      <DependentUpon>Pantalla_Compra_Borrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\Pantalla_Seleccion_Rubros.resx">
+      <DependentUpon>Pantalla_Seleccion_Rubros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicación\Pantalla_Seleccion_Visibilidades.resx">
+      <DependentUpon>Pantalla_Seleccion_Visibilidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionRol.resx">
+      <DependentUpon>SeleccionRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicación\Pantalla_Generar_Publicación_Compra_Inmediata.resx">
       <DependentUpon>Pantalla_Generar_Publicación_Compra_Inmediata.cs</DependentUpon>
@@ -503,9 +596,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicación\Pantalla_Modificación_Estado_Publicación.resx">
       <DependentUpon>Pantalla_Modificación_Estado_Publicación.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Historial Cliente\Pantalla_Historial_Cantidad_Segun_Estrellas.resx">
-      <DependentUpon>Pantalla_Historial_Cantidad_Segun_Estrellas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Historial Cliente\Pantalla_Historial_Principal.resx">
       <DependentUpon>Pantalla_Historial_Principal.cs</DependentUpon>
@@ -557,6 +647,7 @@
     <None Include="GD1C2016DataSet.xss">
       <DependentUpon>GD1C2016DataSet.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

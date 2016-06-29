@@ -20,6 +20,7 @@ namespace WindowsFormsApplication1
 {
     public partial class Menu_Cliente : Form
     {
+        private String user;
 
         public Menu_Cliente()
         {
@@ -35,11 +36,11 @@ namespace WindowsFormsApplication1
         }
 
         public void matchearUsuario(String usuario){
-        
+
+            user = usuario;
            labelUsuario.Text = usuario+"!!";
 
         }
-
 
         private void botonSalir_Click(object sender, EventArgs e)
         {
@@ -50,8 +51,10 @@ namespace WindowsFormsApplication1
         private void botonCalificar_Click(object sender, EventArgs e)
         {
             Pantalla_Calificacion_Principal pCali = new Pantalla_Calificacion_Principal();
+            pCali.generarListado(user); 
             pCali.ShowDialog();
-  
+             
+
         }
 
         private void botonUser_Click(object sender, EventArgs e)
@@ -64,6 +67,8 @@ namespace WindowsFormsApplication1
         private void botonHistorial_Click(object sender, EventArgs e)
         {
             Pantalla_Historial_Principal pantallaHistorial = new Pantalla_Historial_Principal();
+
+            pantallaHistorial.generarListado(user);
             pantallaHistorial.ShowDialog();
      
         }
@@ -72,6 +77,7 @@ namespace WindowsFormsApplication1
         {
 
             Pantalla_Modificacion_Principal_Cliente pantallaModificacion = new Pantalla_Modificacion_Principal_Cliente();
+            pantallaModificacion.guardarDatos(user);
             pantallaModificacion.ShowDialog();
         }
 
@@ -79,19 +85,15 @@ namespace WindowsFormsApplication1
         {
             
             FormComprayOferta pantallaCompra = new FormComprayOferta();
+            pantallaCompra.guardaDatos(user);
             pantallaCompra.ShowDialog();
         }
 
         private void botonPublic_Click(object sender, EventArgs e)
         {
             Pantalla_Generar_Publicación_Principal pantallaGeneracionPubliPrincipal = new Pantalla_Generar_Publicación_Principal();
+            pantallaGeneracionPubliPrincipal.guardarDatos(user);
             pantallaGeneracionPubliPrincipal.ShowDialog();
-        }
-
-        private void botonFacturas_Click(object sender, EventArgs e)
-        {
-            Pantalla_Consultar_Facturas pantallaFacturas = new Pantalla_Consultar_Facturas();
-            pantallaFacturas.ShowDialog();
         }
 
         private void botonEstadisticas_Click(object sender, EventArgs e)

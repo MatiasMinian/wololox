@@ -8,19 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication1.Historial_Cliente
+namespace WindowsFormsApplication1
 {
-    public partial class Pantalla_Historial_Cantidad_Segun_Estrellas : Form
+    public partial class SeleccionRol : Form
     {
-        public Pantalla_Historial_Cantidad_Segun_Estrellas()
+        public SeleccionRol()
         {
             InitializeComponent();
         }
+        GD1C2016DataSetTableAdapters.usuariosTableAdapter adapterUsuarios = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
-
+            //A modificar
         }
+        
     }
 }

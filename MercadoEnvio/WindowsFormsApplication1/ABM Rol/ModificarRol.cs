@@ -12,9 +12,16 @@ namespace WindowsFormsApplication1.ABM_Rol
 {
     public partial class PantallaModificarRol : Form
     {
+        GD1C2016DataSetTableAdapters.rolesTableAdapter rolAdapter = new GD1C2016DataSetTableAdapters.rolesTableAdapter();
+        GD1C2016DataSetTableAdapters.funcionalidadesTableAdapter funcAdapter = new GD1C2016DataSetTableAdapters.funcionalidadesTableAdapter();
+        GD1C2016DataSetTableAdapters.funcionalidades_rolesTableAdapter funcXRolAdapter = new GD1C2016DataSetTableAdapters.funcionalidades_rolesTableAdapter();
         public PantallaModificarRol()
         {
             InitializeComponent();
+            GD1C2016DataSet.rolesDataTable rolData = rolAdapter.GetData();
+            comboRol.DataSource = rolData;
+            comboRol.DisplayMember = "nombre";
+            comboRol.DisplayMember = "id";
         }
 
         private void Boton_Cancelar_Click(object sender, EventArgs e)
@@ -26,77 +33,59 @@ namespace WindowsFormsApplication1.ABM_Rol
 
         private void Boton_Modificar_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "" && textBox1.Text == "" && listBox1.SelectedItems.Count == 0)
+            if (comboRol.Text == "" && textNombre.Text == "" && listFunc.SelectedItems.Count == 0)
             {
-
                 MessageBox.Show("Ingresa rol ,nombre y selecciona funcionalidades a modificar");
-
             }
-            else if (comboBox1.Text == "" && textBox1.Text == "")
+            else if (comboRol.Text == "" && textNombre.Text == "")
             {
-
                 MessageBox.Show("Ingresa rol y nombre a modificar");
-
             }
-            else if (comboBox1.Text == "" && listBox1.SelectedItems.Count == 0)
+            else if (comboRol.Text == "" && listFunc.SelectedItems.Count == 0)
             {
-
                 MessageBox.Show("Ingresa rol y selecciona funcionalidades a modificar");
-
             }
-            else if (textBox1.Text == "" && listBox1.SelectedItems.Count == 0)
+            else if (textNombre.Text == "" && listFunc.SelectedItems.Count == 0)
             {
-
                 MessageBox.Show("Ingresa nombre y selecciona funcionalidades a modificar");
-
             }
-            else if (textBox1.Text == "")
+            else if (textNombre.Text == "")
             {
-
                 MessageBox.Show("Ingresa nombre a modificar");
-
-            }else if (comboBox1.Text == ""){
-
+            }else if (comboRol.Text == ""){
                 MessageBox.Show("Ingresa rol a modificar");
-
-            }else{
-
+            }else if (listFunc.SelectedItems.Count==0){
                 MessageBox.Show("Selecciona funcionalidades a modificar");
-            }
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (comboBox2.Text == "")
-            {
-                MessageBox.Show("Selecciona funcionalidad a agregar");
-
             }
             else
             {
-
-                listBox1.Items.Add(comboBox2.SelectedItem);
-
+                rolAdapter.borrarTodasFunciones((decimal) comboRol.SelectedValue);
+                foreach (object func in listFunc.Items)
+                {
+                    DataRowView funcionalidad = (DataRowView)func;
+                    funcXRolAdapter.insertarFuncXRol((decimal)funcionalidad["id"], (decimal)comboRol.SelectedValue);
+                }
+                this.Close();
             }
+           
+
+        }
+
+        private void comboRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textNombre.Text = comboRol.SelectedText;
+            comboFunc.DataSource = funcAdapter.FillByRolSinFunc(funcAdapter.GetData(), (decimal) comboRol.SelectedValue);
+            listFunc.DataSource = funcAdapter.FillByRolConFunc(funcAdapter.GetData(), (decimal)comboRol.SelectedValue);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            listFunc.Items.Remove(comboFunc);
+        }
 
-            if (listBox1.SelectedItems.Count == 0)
-            {
-
-                MessageBox.Show("Selecciona funcionalidad a quitar");
-
-            }
-            else
-            {
-
-                listBox1.Items.Remove(listBox1.SelectedItem);
-
-            }
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listFunc.Items.Add(comboFunc);
         }
 
  

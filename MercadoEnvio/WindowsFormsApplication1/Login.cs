@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.Data.SqlClient;
 
 namespace WindowsFormsApplication1
 {
     public partial class FormularioLogin : Form
     {
+        GD1C2016DataSetTableAdapters.usuariosTableAdapter adapterUsuarios = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
+
         public FormularioLogin()
         {
             InitializeComponent();
@@ -26,7 +29,7 @@ namespace WindowsFormsApplication1
 
         private void botonIngreso_Click(object sender, EventArgs e)
         {
-
+            
             if (string.IsNullOrWhiteSpace(textoUser.Text) && string.IsNullOrWhiteSpace(textoPass.Text))
             {
 
@@ -50,21 +53,82 @@ namespace WindowsFormsApplication1
             else
             {
 
-                //Hashear contraseña
-                SHA256 CriptoPass = SHA256Managed.Create();
-                byte[] valorHash;
-                valorHash = CriptoPass.ComputeHash(obtenerNumBytes(textoPass.Text));
-
-                //Seleccionar por ahora para probar
-               //Menu_Cliente menu = new Menu_Cliente();
-                //Menu_Empresa menu = new Menu_Empresa();
-               Menu_Administradores menu = new Menu_Administradores();
+               Menu_Cliente menu = new Menu_Cliente();
+               //Menu_Administradores menu = new Menu_Administradores();
                 menu.matchearUsuario(textoUser.Text);
                 this.Hide();
                 menu.ShowDialog();
                 this.Close();
                 this.Dispose();
+                
+                //Hashear contraseña
+                try
+                {
+                    SHA256 CriptoPass = SHA256Managed.Create();
+                    byte[] valorHash;
+                    valorHash = CriptoPass.ComputeHash(obtenerNumBytes(textoPass.Text));
+                    if (Convert.ToBoolean(adapterUsuarios.login(textoUser.Text, Convert.ToString(valorHash))))
+                    {
+                        Menu_Cliente menu = new Menu_Cliente();
+                        //Menu_Administradores menu = new Menu_Administradores();
+                        menu.matchearUsuario(textoUser.Text);
+                        this.Hide();
+                        menu.ShowDialog();
+                        this.Close();
+                        this.Dispose();
+                    }
 
+
+               switch ((int)(adapterUsuarios.login(textoUser.Text, textoPass.Text))){
+                    case 0: MessageBox.Show("Usuario/Contraseña incorrectos!");
+                        break;
+                    case 1: loguearse(textoUser.Text);
+                        break;
+                    case 2: MessageBox.Show("Usuario bloqueado!");
+                        break;
+                }
+               
+
+             }
+
+
+                catch (SqlException ex)
+                {
+                    switch (ex.Number)
+                    {
+                        case 40003:
+                            MessageBox.Show("Password incorrecta", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            return;
+                        case 40002:
+                            MessageBox.Show("Usuario Bloqueado", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            return;
+                        case 40001:
+                            MessageBox.Show("El Usuario no existe", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            return;
+                    }
+                }
+
+            }
+
+        }
+                  
+        private void loguearse(string User)
+        {
+            if ((int)adapterUsuarios.cantidadRoles(User) > 1)
+            {
+                SeleccionRol pantallaSeleccion = new SeleccionRol();
+                //A revisar dsp
+            }
+            else
+            {
+                switch ((String)adapterUsuarios.obtenerRol(User))
+                {
+                    case "Empresa": Menu_Empresa menu = new Menu_Empresa();
+                        break;
+                    case "Cliente": Menu_Cliente menu2 = new Menu_Cliente();
+                        break;
+                    //Ver que hacer con nuevos roles, ver cambiar este malicioso switch
+                }
             }
 
         }

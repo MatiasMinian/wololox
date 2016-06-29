@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
 {
     public partial class Pantalla_Busqueda_Cliente_A_Habilitar : Form
     {
+        private GD1C2016DataSetTableAdapters.clientesTableAdapter cliAdapter = new GD1C2016DataSetTableAdapters.clientesTableAdapter();
         public Pantalla_Busqueda_Cliente_A_Habilitar()
         {
             InitializeComponent();
@@ -40,11 +41,28 @@ namespace WindowsFormsApplication1.ABM_Usuario
         {
             if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == "")
             {
-
                 MessageBox.Show("Complete algún campo de búsqueda");
-
             }
+            dataClientes.DataSource = cliAdapter.BuscarCliente(textNombre.Text, textApellido.Text, textEmail.Text, Convert.ToDecimal(textDNI.Text));
 
+        }
+
+        private void Pantalla_Busqueda_Cliente_A_Habilitar_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'gD1C2016DataSet.clientes' table. You can move, or remove it, as needed.
+            dataClientes.DataSource = cliAdapter.ObtenerClientesBloqueados();
+
+        }
+
+        private void dataClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                cliAdapter.HabilitarUsuario(dataClientes.Rows[e.RowIndex].Cells[0]);
+            }
+            dataClientes.DataSource = cliAdapter.ObtenerClientesBloqueados();
         }
 
     }

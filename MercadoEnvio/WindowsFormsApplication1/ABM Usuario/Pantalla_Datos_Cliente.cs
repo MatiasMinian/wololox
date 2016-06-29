@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
-    public partial class Pantalla_Datos_Cliente : Form
-    {
+    public partial class Pantalla_Datos_Cliente : Form{
+
+        private Decimal id;
+
+ 
+        private GD1C2016DataSetTableAdapters.clientesTableAdapter cliAdapter;
         public Pantalla_Datos_Cliente()
         {
             InitializeComponent();
 
             //Formato fecha
 
-            textBox12.Format = DateTimePickerFormat.Custom;
-            textBox12.CustomFormat = "dd/MM/yyyy";
-
-            textBox13.Format = DateTimePickerFormat.Custom;
-            textBox13.CustomFormat = "dd/MM/yyyy";
-
+            textFechaNac.Format = DateTimePickerFormat.Custom;
+            textFechaNac.CustomFormat = "dd/MM/yyyy";
 
         }
 
@@ -36,20 +36,19 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.ResetText();
-            textBox2.ResetText();
-            textBox3.ResetText();
-            textBox4.ResetText();
-            textBox5.ResetText();
-            textBox6.ResetText();
-            textBox7.ResetText();
-            textBox8.ResetText();
-            textBox9.ResetText();
-            textBox10.ResetText();
-            textBox11.ResetText();
-            textBox14.ResetText();
-            textBox15.ResetText();
-            comboBox1.ResetText();
+            textNom.ResetText();
+            textTel.ResetText();
+            texDom.ResetText();
+            textApe.ResetText();
+            textDNI.ResetText();
+            textNumDom.ResetText();
+            textMail.ResetText();
+            textPiso.ResetText();
+            textDepto.ResetText();
+            textLoc.ResetText();
+            textPost.ResetText();
+            textUser.ResetText();
+            textPass.ResetText();
 
 
 
@@ -57,17 +56,20 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == ""
-               || textBox5.Text == "" || textBox6.Text == "" || textBox7.Text == "" || textBox8.Text == ""
-               || textBox9.Text == "" || textBox10.Text == "" || textBox11.Text == "" || textBox14.Text=="" || textBox15.Text=="" || comboBox1.Text == "")
+            if (textNom.Text == "" || textTel.Text == "" || texDom.Text == "" || textApe.Text == ""
+               || textDNI.Text == "" || textNumDom.Text == "" || textMail.Text == "" || textPiso.Text == ""
+               || textDepto.Text == "" || textLoc.Text == "" || textPost.Text == "" || textUser.Text == "" || textPass.Text == "")
             {
 
                 MessageBox.Show("Complete campos vacíos");
 
             }
 
+            cliAdapter = new GD1C2016DataSetTableAdapters.clientesTableAdapter();
+            cliAdapter.actualizarCliente(id, textNom.Text, textApe.Text, textMail.Text, textTel.Text, texDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textPost.Text, Convert.ToDecimal(textDNI.Text), Convert.ToDateTime(textFechaNac.Text));
+            
         }
- 
+
     }
 
 }

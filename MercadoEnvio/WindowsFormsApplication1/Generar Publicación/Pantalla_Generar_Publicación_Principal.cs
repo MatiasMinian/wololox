@@ -12,6 +12,9 @@ namespace WindowsFormsApplication1.Generar_Publicación
 {
     public partial class Pantalla_Generar_Publicación_Principal : Form
     {
+
+        private Decimal idUser;
+
         public Pantalla_Generar_Publicación_Principal()
         {
             InitializeComponent();
@@ -36,6 +39,8 @@ namespace WindowsFormsApplication1.Generar_Publicación
             {
 
                 Pantalla_Generar_Publicación_Compra_Inmediata pantallaCompraInmediata = new Pantalla_Generar_Publicación_Compra_Inmediata();
+                pantallaCompraInmediata.guardarDatos(idUser);
+                pantallaCompraInmediata.generarListados();
                 pantallaCompraInmediata.ShowDialog();
 
             }
@@ -43,9 +48,21 @@ namespace WindowsFormsApplication1.Generar_Publicación
             {
 
                 Pantalla_Generar_Publicación_Subasta pantallaSubasta = new Pantalla_Generar_Publicación_Subasta();
+                pantallaSubasta.guardarDatos(idUser);
+                pantallaSubasta.generarListados();
                 pantallaSubasta.ShowDialog();
+                
 
             }
+
+        }
+
+        internal void guardarDatos(string user)
+        {
+            GD1C2016DataSetTableAdapters.usuariosTableAdapter userAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
+            GD1C2016DataSet.usuariosDataTable userData = new GD1C2016DataSet.usuariosDataTable();
+            userData = userAdapter.consultaID(user);
+            idUser = Convert.ToDecimal(userData[0][0]);
 
         }
     }

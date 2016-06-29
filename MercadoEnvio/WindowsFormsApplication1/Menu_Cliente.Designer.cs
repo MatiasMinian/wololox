@@ -32,7 +32,6 @@
             this.botonCompra = new System.Windows.Forms.Button();
             this.botonHistorial = new System.Windows.Forms.Button();
             this.botonCalificar = new System.Windows.Forms.Button();
-            this.botonFacturas = new System.Windows.Forms.Button();
             this.botonEstadisticas = new System.Windows.Forms.Button();
             this.botonSalir = new System.Windows.Forms.Button();
             this.labelBienvenida = new System.Windows.Forms.Label();
@@ -80,19 +79,9 @@
             this.botonCalificar.UseVisualStyleBackColor = true;
             this.botonCalificar.Click += new System.EventHandler(this.botonCalificar_Click);
             // 
-            // botonFacturas
-            // 
-            this.botonFacturas.Location = new System.Drawing.Point(241, 138);
-            this.botonFacturas.Name = "botonFacturas";
-            this.botonFacturas.Size = new System.Drawing.Size(122, 23);
-            this.botonFacturas.TabIndex = 7;
-            this.botonFacturas.Text = "Consultar Facturas";
-            this.botonFacturas.UseVisualStyleBackColor = true;
-            this.botonFacturas.Click += new System.EventHandler(this.botonFacturas_Click);
-            // 
             // botonEstadisticas
             // 
-            this.botonEstadisticas.Location = new System.Drawing.Point(241, 167);
+            this.botonEstadisticas.Location = new System.Drawing.Point(241, 138);
             this.botonEstadisticas.Name = "botonEstadisticas";
             this.botonEstadisticas.Size = new System.Drawing.Size(122, 23);
             this.botonEstadisticas.TabIndex = 8;
@@ -102,7 +91,7 @@
             // 
             // botonSalir
             // 
-            this.botonSalir.Location = new System.Drawing.Point(241, 225);
+            this.botonSalir.Location = new System.Drawing.Point(241, 196);
             this.botonSalir.Name = "botonSalir";
             this.botonSalir.Size = new System.Drawing.Size(122, 23);
             this.botonSalir.TabIndex = 9;
@@ -130,7 +119,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(241, 196);
+            this.button1.Location = new System.Drawing.Point(241, 167);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 23);
             this.button1.TabIndex = 12;
@@ -148,7 +137,6 @@
             this.Controls.Add(this.labelBienvenida);
             this.Controls.Add(this.botonSalir);
             this.Controls.Add(this.botonEstadisticas);
-            this.Controls.Add(this.botonFacturas);
             this.Controls.Add(this.botonCalificar);
             this.Controls.Add(this.botonHistorial);
             this.Controls.Add(this.botonCompra);
@@ -168,7 +156,6 @@
         private System.Windows.Forms.Button botonCompra;
         private System.Windows.Forms.Button botonHistorial;
         private System.Windows.Forms.Button botonCalificar;
-        private System.Windows.Forms.Button botonFacturas;
         private System.Windows.Forms.Button botonEstadisticas;
         private System.Windows.Forms.Button botonSalir;
         private System.Windows.Forms.Label labelBienvenida;

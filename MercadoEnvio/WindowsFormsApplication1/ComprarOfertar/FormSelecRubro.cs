@@ -12,6 +12,9 @@ namespace WindowsFormsApplication1.ComprarOfertar
 {
     public partial class FormSelecRubro : Form
     {
+        private GD1C2016DataSetTableAdapters.rubrosTableAdapter rubroAdapter;
+        private GD1C2016DataSet.rubrosDataTable rubroData;
+
         private List<string> rubros;
         private FormComprayOferta formComprayOferta;
 
@@ -19,8 +22,23 @@ namespace WindowsFormsApplication1.ComprarOfertar
         public FormSelecRubro(List<string> rubros, FormComprayOferta formComprayOferta)
         {
             InitializeComponent();
+
             this.rubros = rubros;
             this.formComprayOferta = formComprayOferta;
+
+            rubroAdapter = new GD1C2016DataSetTableAdapters.rubrosTableAdapter();
+            rubroData = rubroAdapter.GetData();
+
+            foreach (DataRow row in rubroData.Rows)
+            {
+
+                tablaRubros.Rows.Add(row.Field<String>("descripcion_corta"));
+
+
+            }
+
+
+
             
         }
 
@@ -48,11 +66,7 @@ namespace WindowsFormsApplication1.ComprarOfertar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tablaRubros.Rows.Add("Jardinería");
-            tablaRubros.Rows.Add("Computación");
-            tablaRubros.Rows.Add("Hogar");
-            tablaRubros.Rows.Add("Ropa");
-            tablaRubros.Rows.Add("Celulares");
+            
         }
     }
 }

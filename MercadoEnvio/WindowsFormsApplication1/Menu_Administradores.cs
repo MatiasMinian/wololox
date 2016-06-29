@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WindowsFormsApplication1.ABM_Rol;
 using WindowsFormsApplication1.ABM_Usuario;
 using WindowsFormsApplication1.ABM_Visibilidad;
+using WindowsFormsApplication1.Facturas;
 
 namespace WindowsFormsApplication1
 {
@@ -78,8 +79,8 @@ namespace WindowsFormsApplication1
 
         private void datosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Pantalla_Modificacion_Datos_Cliente pantallaModifDatosCliente = new Pantalla_Modificacion_Datos_Cliente();
-            pantallaModifDatosCliente.ShowDialog();
+           // Pantalla_Modificacion_Datos_Cliente pantallaModifDatosCliente = new Pantalla_Modificacion_Datos_Cliente();
+            //pantallaModifDatosCliente.ShowDialog();
         }
 
         private void contraseñaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -168,6 +169,12 @@ namespace WindowsFormsApplication1
         {
             EliminarVisibilidad pantallaEliminacion = new EliminarVisibilidad();
             pantallaEliminacion.ShowDialog();
+        }
+
+        private void consultarFacturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pantalla_Consultar_Facturas pantallaFactu = new Pantalla_Consultar_Facturas();
+            pantallaFactu.ShowDialog();
         }
 
   
