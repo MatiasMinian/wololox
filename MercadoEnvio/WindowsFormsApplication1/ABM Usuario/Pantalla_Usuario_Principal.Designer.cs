@@ -120,6 +120,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Pantalla_Usuario_Principal";
             this.Padding = new System.Windows.Forms.Padding(5);
+            this.ShowIcon = false;
             this.Text = "Menu usuarios";
             this.ResumeLayout(false);
             this.PerformLayout();

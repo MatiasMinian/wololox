@@ -177,5 +177,11 @@ namespace WindowsFormsApplication1
 
         }
 
+        private void botonUsuarios_Click(object sender, EventArgs e)
+        {
+            Pantalla_Usuario_Principal pantallaUsuario = new Pantalla_Usuario_Principal();
+            pantallaUsuario.ShowDialog();
+        }
+
     }
 }

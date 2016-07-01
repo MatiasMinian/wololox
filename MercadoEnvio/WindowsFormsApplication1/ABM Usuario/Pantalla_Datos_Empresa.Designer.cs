@@ -33,10 +33,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textPass = new System.Windows.Forms.TextBox();
-            this.textUser = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.comboRubro = new System.Windows.Forms.ComboBox();
+            this.rubrosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD1C2016DataSet = new WindowsFormsApplication1.GD1C2016DataSet();
             this.textTel = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textNomCon = new System.Windows.Forms.TextBox();
@@ -62,13 +61,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboRubro = new System.Windows.Forms.ComboBox();
-            this.gD1C2016DataSet = new WindowsFormsApplication1.GD1C2016DataSet();
-            this.rubrosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rubrosTableAdapter = new WindowsFormsApplication1.GD1C2016DataSetTableAdapters.rubrosTableAdapter();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubrosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -104,10 +100,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.comboRubro);
-            this.groupBox1.Controls.Add(this.textPass);
-            this.groupBox1.Controls.Add(this.textUser);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.textTel);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.textNomCon);
@@ -140,37 +132,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos adicionales empresa";
             // 
-            // textPass
+            // comboRubro
             // 
-            this.textPass.Location = new System.Drawing.Point(234, 33);
-            this.textPass.Name = "textPass";
-            this.textPass.Size = new System.Drawing.Size(74, 20);
-            this.textPass.TabIndex = 31;
+            this.comboRubro.DataSource = this.rubrosBindingSource;
+            this.comboRubro.DisplayMember = "descripcion_corta";
+            this.comboRubro.FormattingEnabled = true;
+            this.comboRubro.Location = new System.Drawing.Point(549, 33);
+            this.comboRubro.Name = "comboRubro";
+            this.comboRubro.Size = new System.Drawing.Size(98, 21);
+            this.comboRubro.TabIndex = 32;
             // 
-            // textUser
+            // rubrosBindingSource
             // 
-            this.textUser.Location = new System.Drawing.Point(80, 33);
-            this.textUser.Name = "textUser";
-            this.textUser.Size = new System.Drawing.Size(74, 20);
-            this.textUser.TabIndex = 30;
+            this.rubrosBindingSource.DataMember = "rubros";
+            this.rubrosBindingSource.DataSource = this.gD1C2016DataSet;
             // 
-            // label15
+            // gD1C2016DataSet
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(166, 36);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(64, 13);
-            this.label15.TabIndex = 29;
-            this.label15.Text = "Contraseña:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 36);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(58, 13);
-            this.label14.TabIndex = 28;
-            this.label14.Text = "Username:";
+            this.gD1C2016DataSet.DataSetName = "GD1C2016DataSet";
+            this.gD1C2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // textTel
             // 
@@ -182,7 +162,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(507, 36);
+            this.label13.Location = new System.Drawing.Point(507, 37);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(39, 13);
             this.label13.TabIndex = 25;
@@ -190,7 +170,7 @@
             // 
             // textNomCon
             // 
-            this.textNomCon.Location = new System.Drawing.Point(427, 163);
+            this.textNomCon.Location = new System.Drawing.Point(119, 160);
             this.textNomCon.Name = "textNomCon";
             this.textNomCon.Size = new System.Drawing.Size(74, 20);
             this.textNomCon.TabIndex = 24;
@@ -212,7 +192,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(166, 166);
+            this.label12.Location = new System.Drawing.Point(166, 34);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(35, 13);
             this.label12.TabIndex = 21;
@@ -261,7 +241,7 @@
             // 
             // textCuit
             // 
-            this.textCuit.Location = new System.Drawing.Point(234, 163);
+            this.textCuit.Location = new System.Drawing.Point(234, 33);
             this.textCuit.Name = "textCuit";
             this.textCuit.Size = new System.Drawing.Size(74, 20);
             this.textCuit.TabIndex = 15;
@@ -283,7 +263,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(314, 166);
+            this.label8.Location = new System.Drawing.Point(6, 163);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(107, 13);
             this.label8.TabIndex = 12;
@@ -318,7 +298,7 @@
             // 
             // textMail
             // 
-            this.textMail.Location = new System.Drawing.Point(80, 163);
+            this.textMail.Location = new System.Drawing.Point(427, 34);
             this.textMail.Name = "textMail";
             this.textMail.Size = new System.Drawing.Size(74, 20);
             this.textMail.TabIndex = 7;
@@ -332,7 +312,7 @@
             // 
             // textNombre
             // 
-            this.textNombre.Location = new System.Drawing.Point(427, 33);
+            this.textNombre.Location = new System.Drawing.Point(80, 34);
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(74, 20);
             this.textNombre.TabIndex = 4;
@@ -358,7 +338,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 166);
+            this.label2.Location = new System.Drawing.Point(314, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 1;
@@ -367,31 +347,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(314, 36);
+            this.label1.Location = new System.Drawing.Point(6, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Razón social:";
-            // 
-            // comboRubro
-            // 
-            this.comboRubro.DataSource = this.rubrosBindingSource;
-            this.comboRubro.DisplayMember = "descripcion_corta";
-            this.comboRubro.FormattingEnabled = true;
-            this.comboRubro.Location = new System.Drawing.Point(549, 33);
-            this.comboRubro.Name = "comboRubro";
-            this.comboRubro.Size = new System.Drawing.Size(98, 21);
-            this.comboRubro.TabIndex = 32;
-            // 
-            // gD1C2016DataSet
-            // 
-            this.gD1C2016DataSet.DataSetName = "GD1C2016DataSet";
-            this.gD1C2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rubrosBindingSource
-            // 
-            this.rubrosBindingSource.DataMember = "rubros";
-            this.rubrosBindingSource.DataSource = this.gD1C2016DataSet;
             // 
             // rubrosTableAdapter
             // 
@@ -412,8 +372,8 @@
             this.Load += new System.EventHandler(this.Pantalla_Datos_Empresa_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubrosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -449,10 +409,6 @@
         private System.Windows.Forms.TextBox textDepto;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textTel;
-        private System.Windows.Forms.TextBox textPass;
-        private System.Windows.Forms.TextBox textUser;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboRubro;
         private GD1C2016DataSet gD1C2016DataSet;
         private System.Windows.Forms.BindingSource rubrosBindingSource;

@@ -1441,6 +1441,20 @@ GO
 
 --ABM de usuarios
 
+IF OBJECT_ID('WOLOLOX.CrearUsuarioRolGenerico') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.CrearUsuarioRolGenerico;
+GO
+CREATE PROCEDURE WOLOLOX.CrearUsuarioRolGenerico(@username nvarchar(50), @pass nvarchar(25), @mail nvarchar(50), @tel nvarchar(50), @domicilio nvarchar(100),@numDom numeric(19,0), @piso numeric(18,0), @depto nvarchar(50),@localidad nvarchar(100),@ciudad nvarchar(100),@codPostal nvarchar(50))
+AS
+	
+	INSERT INTO WOLOLOX.usuarios(nombre_usuario,contraseña,mail,fecha_creacion,intentos_login,telefono)
+	VALUES (@username,HASHBYTES('SHA2_256',@pass),@mail,GETDATE(),0,@tel)
+	declare @fkUsuario numeric(18,0) = scope_identity();   
+	INSERT INTO WOLOLOX.direcciones(calle, numero, piso, departamento, localidad, cod_postal, ciudad, id_usuario)
+	VALUES (@domicilio,@numDom,@piso,@depto,@localidad,@codPostal,@ciudad,@fkUsuario)
+	
+GO
+
 IF OBJECT_ID('WOLOLOX.CrearCliente') IS NOT NULL
     DROP PROCEDURE WOLOLOX.CrearCliente;
 GO
@@ -1491,7 +1505,7 @@ AS
 	WHERE e.id_usuario=u.id_usuario AND u.habilitado=1
 GO
 
-USE GD1C2016
+
 
 IF OBJECT_ID('WOLOLOX.ObtenerClientesBloqueados') IS NOT NULL
     DROP PROCEDURE WOLOLOX.ObtenerClientesBloqueados;
@@ -1504,16 +1518,18 @@ AS
 	AND u.habilitado=0;
 GO
 
+USE GD1C2016
+
 IF OBJECT_ID('WOLOLOX.ObtenerEmpresasBloqueadas') IS NOT NULL
     DROP PROCEDURE WOLOLOX.ObtenerEmpresasBloqueadas;
 GO
 CREATE PROCEDURE WOLOLOX.ObtenerEmpresasBloqueadas
 AS
-RETURN(
     SELECT e.id_usuario, e.razon_social, e.cuit, e.nombre_contacto, e.reputacion
 	FROM WOLOLOX.empresas e, WOLOLOX.usuarios u
-	WHERE e.id_usuario=u.id_usuario AND u.habilitado=0);
+	WHERE e.id_usuario=u.id_usuario AND u.habilitado=0;
 GO
+
 
 IF OBJECT_ID('WOLOLOX.BuscarUsuario') IS NOT NULL
     DROP PROCEDURE WOLOLOX.BuscarUsuario;
@@ -1631,7 +1647,6 @@ AS
 	WHERE id_usuario=@id
 GO
 
-USE GD1C2016
 
 IF OBJECT_ID('WOLOLOX.HabilitarUsuario') IS NOT NULL
     DROP PROCEDURE WOLOLOX.HabilitarUsuario;

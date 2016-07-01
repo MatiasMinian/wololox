@@ -10,31 +10,17 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
-    public partial class Pantalla_Datos_Cliente : Form{
-
+    public partial class Pantalla_Datos_Rol_Generico : Form
+    {
         private String idUsuario;
         private String contraseña;
+        private String idRol;
 
- 
-        private GD1C2016DataSetTableAdapters.clientesTableAdapter cliAdapter;
-        public Pantalla_Datos_Cliente(String id, String pass)
+        public Pantalla_Datos_Rol_Generico(String id, String pass, String idRol)
         {
             InitializeComponent();
-
-            //Formato fecha
             this.idUsuario = id;
             this.contraseña = pass;
-
-            textFechaNac.Format = DateTimePickerFormat.Custom;
-            textFechaNac.CustomFormat = "dd/MM/yyyy";
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            this.Close();
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -51,8 +37,6 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textLoc.ResetText();
             textPost.ResetText();
 
-
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -65,12 +49,9 @@ namespace WindowsFormsApplication1.ABM_Usuario
                 MessageBox.Show("Complete campos vacíos");
 
             }
-
-            cliAdapter = new GD1C2016DataSetTableAdapters.clientesTableAdapter();
-            cliAdapter.CrearCliente(idUsuario,contraseña, textNom.Text, textApe.Text, textMail.Text, textTel.Text, texDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textPost.Text, Convert.ToDecimal(textDNI.Text), Convert.ToDateTime(textFechaNac.Text));
+            GD1C2016DataSetTableAdapters.usuariosTableAdapter usrAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
+            usrAdapter.CrearUsuarioRolGenerico(idUsuario, contraseña, textMail.Text, textTel.Text, texDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textPost.Text);
             MessageBox.Show("Usuario creado");
         }
-
     }
-
 }

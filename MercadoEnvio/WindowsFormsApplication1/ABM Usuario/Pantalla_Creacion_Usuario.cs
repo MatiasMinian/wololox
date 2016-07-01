@@ -81,15 +81,20 @@ namespace WindowsFormsApplication1.ABM_Usuario
             }
             else if (comboBox1.Text == "Cliente")
             {
-                Pantalla_Datos_Cliente pantallaDatosCliente = new Pantalla_Datos_Cliente();
+                Pantalla_Datos_Cliente pantallaDatosCliente = new Pantalla_Datos_Cliente(textBox1.Text,textBox2.Text);
                 pantallaDatosCliente.ShowDialog();
+
+            }
+            else if (comboBox1.Text == "Empresa")
+            {
+                Pantalla_Datos_Empresa pantallaDatosEmpresa = new Pantalla_Datos_Empresa(textBox1.Text,textBox2.Text);
+                pantallaDatosEmpresa.ShowDialog();
 
             }
             else
             {
-                Pantalla_Datos_Empresa pantallaDatosEmpresa = new Pantalla_Datos_Empresa();
-                pantallaDatosEmpresa.ShowDialog();
-
+                Pantalla_Datos_Rol_Generico pantallaDatos = new Pantalla_Datos_Rol_Generico(textBox1.Text, textBox2.Text, comboBox1.SelectedValue);
+                pantallaDatos.ShowDialog();
             }
 
         }

@@ -151,6 +151,7 @@
             this.botonUsuarios.TabIndex = 15;
             this.botonUsuarios.Text = "ABM usuarios";
             this.botonUsuarios.UseVisualStyleBackColor = true;
+            this.botonUsuarios.Click += new System.EventHandler(this.botonUsuarios_Click);
             // 
             // botonMPubli
             // 
