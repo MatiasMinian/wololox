@@ -210,6 +210,7 @@ intentos_login numeric(1,0),
 mail nvarchar(255),
 telefono nvarchar(50),
 fecha_creacion datetime,
+habilitado bit,
 primary key (id_usuario),
 unique (nombre_usuario)
 );
@@ -1490,15 +1491,17 @@ AS
 	WHERE e.id_usuario=u.id_usuario AND u.habilitado=1
 GO
 
+USE GD1C2016
+
 IF OBJECT_ID('WOLOLOX.ObtenerClientesBloqueados') IS NOT NULL
     DROP PROCEDURE WOLOLOX.ObtenerClientesBloqueados;
 GO
 CREATE PROCEDURE WOLOLOX.ObtenerClientesBloqueados
 AS
-RETURN(
-    SELECT c.id_usuario, c.nombre, c.apellido, c.dni
+    SELECT c.*
 	FROM WOLOLOX.clientes c, WOLOLOX.usuarios u
-	WHERE c.id_usuario=u.id_usuario AND u.=0);
+	WHERE c.id_usuario=u.id_usuario
+	AND u.habilitado=0;
 GO
 
 IF OBJECT_ID('WOLOLOX.ObtenerEmpresasBloqueadas') IS NOT NULL
@@ -1627,6 +1630,8 @@ AS
 	SET habilitado=0
 	WHERE id_usuario=@id
 GO
+
+USE GD1C2016
 
 IF OBJECT_ID('WOLOLOX.HabilitarUsuario') IS NOT NULL
     DROP PROCEDURE WOLOLOX.HabilitarUsuario;

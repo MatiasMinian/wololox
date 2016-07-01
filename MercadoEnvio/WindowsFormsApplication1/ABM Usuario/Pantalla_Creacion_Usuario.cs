@@ -48,36 +48,44 @@ namespace WindowsFormsApplication1.ABM_Usuario
             {
                 MessageBox.Show("Ingresa usuario,contraseña y rol");
 
-            }else if (textBox1.Text == "" && textBox2.Text == "")
+            }
+            else if (textBox1.Text == "" && textBox2.Text == "")
             {
                 MessageBox.Show("Ingresa usuario y contraseña");
 
-            }else if (textBox1.Text == "" && comboBox1.Text == "")
+            }
+            else if (textBox1.Text == "" && comboBox1.Text == "")
             {
                 MessageBox.Show("Ingresa usuario y rol");
 
-            }else if (textBox2.Text == "" && comboBox1.Text == "")
+            }
+            else if (textBox2.Text == "" && comboBox1.Text == "")
             {
                 MessageBox.Show("Ingresa contraseña y rol");
 
-            }else if (textBox1.Text == "")
+            }
+            else if (textBox1.Text == "")
             {
                 MessageBox.Show("Ingresa usuario");
 
-            }else if (textBox2.Text == "")
+            }
+            else if (textBox2.Text == "")
             {
                 MessageBox.Show("Ingresa contraseña");
 
-            }else if (comboBox1.Text == "")
+            }
+            else if (comboBox1.Text == "")
             {
                 MessageBox.Show("Selecciona rol");
 
-            }else if (comboBox1.Text == "Cliente")
+            }
+            else if (comboBox1.Text == "Cliente")
             {
                 Pantalla_Datos_Cliente pantallaDatosCliente = new Pantalla_Datos_Cliente();
                 pantallaDatosCliente.ShowDialog();
 
-            }else
+            }
+            else
             {
                 Pantalla_Datos_Empresa pantallaDatosEmpresa = new Pantalla_Datos_Empresa();
                 pantallaDatosEmpresa.ShowDialog();
