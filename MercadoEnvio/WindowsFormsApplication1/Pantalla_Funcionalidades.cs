@@ -38,6 +38,8 @@ namespace WindowsFormsApplication1
                 }
             }
 
+            user = "tesira_Palma@gmail.com";
+
             funciAdapter = new GD1C2016DataSetTableAdapters.funcionalidadesTableAdapter();
             funciData = new GD1C2016DataSet.funcionalidadesDataTable();
 
@@ -60,7 +62,7 @@ namespace WindowsFormsApplication1
                     case "Generar publicacion": botonPublic.Enabled = true;
                                         break;
 
-                    case "Comprar/ofertar": botonCompra.Enabled = true;
+                    case "Comprar-ofertar": botonCompra.Enabled = true;
                                         break;
 
                     case "Historial cliente": botonHistorial.Enabled = true;

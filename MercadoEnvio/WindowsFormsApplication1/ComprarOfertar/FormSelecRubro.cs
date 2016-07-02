@@ -32,7 +32,7 @@ namespace WindowsFormsApplication1.ComprarOfertar
             foreach (DataRow row in rubroData.Rows)
             {
 
-                tablaRubros.Rows.Add(row.Field<String>("descripcion_corta"));
+                tablaRubros.Rows.Add(row.Field<String>("descripcion_larga"));
 
 
             }

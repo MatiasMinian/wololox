@@ -31,8 +31,8 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void botonModif_Click(object sender, EventArgs e)
         {
-            Pantalla_Modif_Eleccion_Rol pantallaModificacion = new Pantalla_Modif_Eleccion_Rol();
-            pantallaModificacion.ShowDialog();
+            //Pantalla_Modif_Eleccion_Rol pantallaModificacion = new Pantalla_Modif_Eleccion_Rol();
+            //pantallaModificacion.ShowDialog();
         }
 
     

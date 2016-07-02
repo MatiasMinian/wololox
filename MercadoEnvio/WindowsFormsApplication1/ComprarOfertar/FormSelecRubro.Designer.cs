@@ -31,8 +31,6 @@
             this.button7 = new System.Windows.Forms.Button();
             this.tablaRubros = new System.Windows.Forms.DataGridView();
             this.ColDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablaRubros)).BeginInit();
             this.SuspendLayout();
@@ -71,24 +69,6 @@
             this.ColDesc.ReadOnly = true;
             this.ColDesc.Width = 577;
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(315, 307);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(96, 23);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "Página siguiente";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(217, 307);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(92, 23);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Página anterior";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(12, 307);
@@ -106,8 +86,6 @@
             this.ClientSize = new System.Drawing.Size(624, 344);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.tablaRubros);
             this.Name = "FormSelecRubro";
             this.ShowIcon = false;
@@ -121,8 +99,6 @@
 
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridView tablaRubros;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDesc;
     }
