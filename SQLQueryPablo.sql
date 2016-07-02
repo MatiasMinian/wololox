@@ -175,11 +175,10 @@ if object_id('WOLOLOX.visibilidades') is not null
 create table WOLOLOX.visibilidades(
 codigo numeric(18,0) identity(1,1),
 descripcion nvarchar(255),
-porc_envio numeric(18,0),
+costo_envio numeric(18,0),
 porc_producto numeric(18,0),
-porc_publicacion numeric(18,0),
+costo_publicacion numeric(18,0),
 habilitada bit default 1,
-costo numeric(18,0),
 primary key (codigo)
 );
 
@@ -210,6 +209,7 @@ intentos_login numeric(1,0),
 mail nvarchar(255),
 telefono nvarchar(50),
 fecha_creacion datetime,
+habilitado bit DEFAULT 1,
 primary key (id_usuario),
 unique (nombre_usuario)
 );
@@ -386,7 +386,7 @@ select r.id, f.id from roles r , funcionalidades f
 where r.nombre LIKE 'administrador' AND f.nombre IN (select * from @funcionalidades_administrador)
 
 set IDENTITY_INSERT WOLOLOX.visibilidades ON
-insert into WOLOLOX.visibilidades(codigo,descripcion,porc_publicacion,costo)
+insert into WOLOLOX.visibilidades(codigo,descripcion,porc_producto,costo_publicacion)
 select DISTINCT Publicacion_Visibilidad_Cod,Publicacion_Visibilidad_Desc,Publicacion_Visibilidad_Porcentaje,Publicacion_Visibilidad_Precio from gd_esquema.Maestra
 set IDENTITY_INSERT WOLOLOX.visibilidades OFF
 
@@ -625,10 +625,10 @@ GO
 
 CREATE PROCEDURE WOLOLOX.publicacionesParaModificacion(@id numeric(18,0))
 AS
-SELECT publicaciones.codigo,descripcion_estado,visibilidades.descripcion,publicaciones.descripcion,stock,precio,tipo,fecha_inicio,fecha_vencimiento FROM WOLOLOX.publicaciones
+SELECT publicaciones.codigo,estados.nombre,visibilidades.descripcion,publicaciones.descripcion,stock,precio,tipo,fecha_inicio,fecha_vencimiento FROM WOLOLOX.publicaciones
 INNER JOIN WOLOLOX.visibilidades ON publicaciones.cod_visibilidad = visibilidades.codigo
 INNER JOIN WOLOLOX.estados ON publicaciones.id_estado = estados.id_estado
-WHERE publicaciones.id_usuario = 1 AND descripcion_estado<>'Finalizada'
+WHERE publicaciones.id_usuario = 1 AND estados.nombre<>'Finalizada'
 
 GO
 
@@ -788,7 +788,7 @@ INNER JOIN WOLOLOX.visibilidades
 ON publicaciones.cod_visibilidad = visibilidades.codigo
 INNER JOIN WOLOLOX.estados
 ON publicaciones.id_estado = estados.id_estado
-WHERE publicaciones.descripcion LIKE '%'+@descripcion+'%' AND estados.descripcion_estado = 'Activa' AND @id <> publicaciones.id_usuario)
+WHERE publicaciones.descripcion LIKE '%'+@descripcion+'%' AND estados.nombre = 'Activa' AND @id <> publicaciones.id_usuario)
 
 SELECT @cantidad
 
@@ -809,7 +809,7 @@ INNER JOIN WOLOLOX.visibilidades
 ON publicaciones.cod_visibilidad = visibilidades.codigo
 INNER JOIN WOLOLOX.estados
 ON publicaciones.id_estado = estados.id_estado
-WHERE publicaciones.descripcion LIKE '%'+@descripcion+'%' AND estados.descripcion_estado = 'Activa' AND @id <> publicaciones.id_usuario
+WHERE publicaciones.descripcion LIKE '%'+@descripcion+'%' AND estados.nombre = 'Activa' AND @id <> publicaciones.id_usuario
 ORDER BY visibilidades.costo_publicacion DESC OFFSET @rowInicial ROWS FETCH NEXT 5 ROWS ONLY
 
 GO
@@ -834,7 +834,7 @@ ON publicaciones.codigo = publicaciones_rubros.cod_publicacion
 INNER JOIN WOLOLOX.rubros
 ON rubros.codigo = publicaciones_rubros.cod_rubro
 
-WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa' AND @id <> publicaciones.id_usuario)
+WHERE rubros.descripcion_corta = @rubro AND estados.nombre = 'Activa' AND @id <> publicaciones.id_usuario)
 
 SELECT @cantidad
 
@@ -859,7 +859,7 @@ ON publicaciones.codigo = publicaciones_rubros.cod_publicacion
 INNER JOIN WOLOLOX.rubros
 ON rubros.codigo = publicaciones_rubros.cod_rubro
 
-WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa' AND @id <> publicaciones.id_usuario
+WHERE rubros.descripcion_corta = @rubro AND estados.nombre = 'Activa' AND @id <> publicaciones.id_usuario
 
 GO
 
@@ -882,7 +882,7 @@ INNER JOIN WOLOLOX.publicaciones_rubros
 ON publicaciones.codigo = publicaciones_rubros.cod_publicacion
 INNER JOIN WOLOLOX.rubros
 ON rubros.codigo = publicaciones_rubros.cod_rubro
-WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa' AND publicaciones.descripcion LIKE '%'+@descripcion+'%' AND @id <> publicaciones.id_usuario)
+WHERE rubros.descripcion_corta = @rubro AND estados.nombre = 'Activa' AND publicaciones.descripcion LIKE '%'+@descripcion+'%' AND @id <> publicaciones.id_usuario)
 
 SELECT @cantidad
 
@@ -906,7 +906,7 @@ INNER JOIN WOLOLOX.publicaciones_rubros
 ON publicaciones.codigo = publicaciones_rubros.cod_publicacion
 INNER JOIN WOLOLOX.rubros
 ON rubros.codigo = publicaciones_rubros.cod_rubro
-WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa' AND publicaciones.descripcion LIKE '%'+@descripcion+'%' AND @id <> publicaciones.id_usuario
+WHERE rubros.descripcion_corta = @rubro AND estados.nombre = 'Activa' AND publicaciones.descripcion LIKE '%'+@descripcion+'%' AND @id <> publicaciones.id_usuario
 
 GO
 
@@ -947,7 +947,7 @@ DECLARE @cantidadCompras int
 
 set @cantidadCompras = (SELECT COUNT(*) FROM WOLOLOX.publicaciones
 										INNER JOIN WOLOLOX.estados ON estados.id_estado = publicaciones.id_estado
-									    WHERE publicaciones.id_usuario = @idUser AND estados.descripcion_estado<>'Borrador')
+									    WHERE publicaciones.id_usuario = @idUser AND estados.nombre<>'Borrador')
 
 SELECT @cantidadCompras
 GO
@@ -991,7 +991,7 @@ GO
   CREATE PROCEDURE WOLOLOX.consultaIDestado(@estado nvarchar(255))
 AS
 DECLARE @idestado int
-SET @idestado =(SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.descripcion_estado = @estado)
+SET @idestado =(SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.nombre = @estado)
 
 SELECT @idestado
 
@@ -1002,7 +1002,7 @@ GO
   CREATE PROCEDURE WOLOLOX.consultaIDestado(@estado nvarchar(255))
 AS
 DECLARE @idestado int
-SET @idestado =(SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.descripcion_estado = @estado)
+SET @idestado =(SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.nombre = @estado)
 
 SELECT @idestado
 
@@ -1637,3 +1637,163 @@ AS
 	SET habilitado=1
 	WHERE id_usuario=@id
 GO
+
+--Chequear publicaciones vencidas
+
+IF OBJECT_ID('WOLOLOX.ActualizarPublicacionesVencidas') IS NOT NULL
+	DROP PROCEDURE WOLOLOX.ActualizarPublicacionesVencidas;
+GO
+CREATE PROCEDURE WOLOLOX.ActualizarPublicacionesVencidas(@fechaDeHoy  DATETIME)
+AS
+	BEGIN TRANSACTION
+
+	UPDATE WOLOLOX.publicaciones
+	set publicaciones.id_estado = (SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.nombre LIKE 'finalizada')
+	WHERE @fechaDeHoy > publicaciones.fecha_vencimiento
+	
+	COMMIT
+GO
+
+
+-- Eliminar usuario, elimina su dirección, sus datos, sus rol-usuario, sus ofertas, sus publicaciones y sus compras
+
+IF OBJECT_ID('WOLOLOX.EliminarUsuario') IS NOT NULL
+	DROP TRIGGER WOLOLOX.EliminarUsuario
+GO
+CREATE TRIGGER WOLOLOX.EliminarUsuario
+	ON WOLOLOX.usuarios
+	INSTEAD OF DELETE
+AS
+	BEGIN TRANSACTION
+	
+	-- Eliminar su dirección
+
+	DELETE FROM WOLOLOX.direcciones
+	WHERE direcciones.id_usuario IN(SELECT id_usuario FROM deleted)
+
+	-- Eliminar sus datos
+
+	DELETE FROM WOLOLOX.clientes
+	WHERE clientes.id_usuario IN(SELECT id_usuario FROM deleted)
+
+	DELETE FROM WOLOLOX.empresas
+	WHERE empresas.id_usuario IN(SELECT id_usuario FROM deleted)
+
+	-- Eliminar sus rol-usuario
+
+	DELETE FROM WOLOLOX.roles_usuarios
+	WHERE roles_usuarios.id_usuario IN(SELECT id_usuario FROM deleted)
+
+	-- Eliminar usuarios
+
+	DELETE FROM WOLOLOX.usuarios
+	WHERE usuarios.id_usuario IN(SELECT id_usuario FROM deleted)
+
+	COMMIT
+GO
+
+
+-- Hacer una compra, resta la cantidad comprada de la publicación y genera una factura
+
+IF OBJECT_ID('WOLOLOX.InsertarCompra') IS NOT NULL
+	DROP TRIGGER WOLOLOX.InsertarCompra;
+GO
+CREATE TRIGGER WOLOLOX.InsertarCompra
+    ON WOLOLOX.compras
+    INSTEAD OF INSERT
+AS
+	BEGIN TRANSACTION
+	
+	-- Actualizo la cantidad de stock
+	
+	UPDATE WOLOLOX.publicaciones SET stock = stock - inserted.cantidad 
+	FROM WOLOLOX.publicaciones, inserted 
+	WHERE publicaciones.codigo = inserted.cod_publicacion
+	
+	-- Genero una factura
+	
+	INSERT INTO WOLOLOX.facturas (id_compra, id_publicacion, fecha, total)
+	SELECT inserted.id_compra, inserted.cod_publicacion, GETDATE(), inserted.cantidad * publicaciones.precio 
+	FROM inserted, WOLOLOX.publicaciones
+	WHERE inserted.cod_publicacion = publicaciones.codigo
+	
+	-- Inserto las compras
+	
+	INSERT INTO WOLOLOX.compras (cantidad, fecha, cod_publicacion, id_usuario)
+	SELECT cantidad, fecha, cod_publicacion, id_usuario FROM inserted
+	
+	COMMIT
+GO
+
+
+-- Actualizar publicación, pasa el estado a finalizada si stock = 0
+
+IF OBJECT_ID('WOLOLOX.ActualizarPubli') IS NOT NULL
+	DROP TRIGGER WOLOLOX.ActualizarPubli;
+GO
+CREATE TRIGGER WOLOLOX.ActualizarPubli
+	ON WOLOLOX.publicaciones
+	FOR UPDATE
+AS
+	BEGIN TRANSACTION
+
+	-- Actualizo el estado
+
+	UPDATE WOLOLOX.publicaciones
+	set publicaciones.id_estado = (SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.nombre LIKE 'finalizada')
+	FROM inserted WHERE inserted.codigo = publicaciones.codigo AND inserted.stock = 0
+
+	COMMIT
+GO
+
+
+-- Hacer una oferta, actualiza el valor de la publicación
+
+IF OBJECT_ID('WOLOLOX.InsertarOferta') IS NOT NULL
+	DROP TRIGGER WOLOLOX.InsertarOferta;
+GO
+CREATE TRIGGER WOLOLOX.InsertarOferta
+	ON WOLOLOX.ofertas
+	INSTEAD OF INSERT
+AS
+	BEGIN TRANSACTION
+
+	-- Actualizo el valor de la subasta
+
+	UPDATE WOLOLOX.publicaciones
+	SET precio = inserted.monto FROM inserted, publicaciones
+	WHERE publicaciones.codigo = inserted.cod_publicacion
+	
+	-- Inserto la oferta
+
+	INSERT INTO WOLOLOX.ofertas (codigo, id_usuario, cod_publicacion, fecha, monto)
+	SELECT codigo, id_usuario, cod_publicacion, fecha, monto FROM inserted
+
+	COMMIT
+GO
+
+
+-- Actualizar estado, genera una factura si estado pasa a ser 'finalizada'
+
+IF OBJECT_ID('WOLOLOX.ActualizarEstado') IS NOT NULL
+	DROP TRIGGER WOLOLOX.ActualizarEstado;
+GO
+CREATE TRIGGER WOLOLOX.ActualizarEstado
+	ON WOLOLOX.estados
+	FOR UPDATE
+AS
+	BEGIN TRANSACTION
+
+	-- Genero factura si estado pasa a 'finalizada'
+
+	INSERT INTO WOLOLOX.facturas (id_publicacion, fecha, total)
+	SELECT publicaciones.codigo, GETDATE(), visibilidades.costo_envio + visibilidades.costo_publicacion + (visibilidades.porc_producto * publicaciones.precio * 
+		(SELECT SUM(compras.cantidad)
+		FROM WOLOLOX.compras, WOLOLOX.publicaciones, inserted 
+		WHERE compras.cod_publicacion = publicaciones.codigo AND publicaciones.id_estado = inserted.id_estado))    
+	FROM inserted, WOLOLOX.publicaciones, WOLOLOX.visibilidades
+	WHERE inserted.id_estado = publicaciones.id_estado AND publicaciones.cod_visibilidad = visibilidades.codigo
+
+	COMMIT
+GO
+
