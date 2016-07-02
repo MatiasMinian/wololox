@@ -25,10 +25,10 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.ResetText();
-            textBox2.ResetText();
-            textBox3.ResetText();
-            textBox4.ResetText();
+            textNombre.ResetText();
+            textApellido.ResetText();
+            textDNI.ResetText();
+            textEmail.ResetText();
 
         }
 
@@ -39,7 +39,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == "")
+            if (textNombre.Text == "" && textApellido.Text == "" && textDNI.Text == "" && textEmail.Text == "")
             {
                 MessageBox.Show("Complete algún campo de búsqueda");
             }
@@ -60,7 +60,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                cliAdapter.HabilitarUsuario(dataClientes.Rows[e.RowIndex].Cells[0]);
+                cliAdapter.HabilitarUsuario(Convert.ToDecimal(dataClientes.Rows[e.RowIndex].Cells[0]));
             }
             dataClientes.DataSource = cliAdapter.ObtenerClientesBloqueados();
         }

@@ -13,10 +13,14 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
     public partial class Pantalla_Datos_Empresa : Form
     {
+        private String idUsuario;
+        private String contraseña;
         private GD1C2016DataSetTableAdapters.empresasTableAdapter empAdapter;
-        public Pantalla_Datos_Empresa()
+        public Pantalla_Datos_Empresa(String id, String pass)
         {
             InitializeComponent();
+            this.idUsuario = id;
+            this.contraseña = pass;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,7 +56,8 @@ namespace WindowsFormsApplication1.ABM_Usuario
                 MessageBox.Show("Complete campos vacíos");
             }
             empAdapter = new GD1C2016DataSetTableAdapters.empresasTableAdapter();
-            empAdapter.crearEmpresa(textUser.Text, textPass.Text, textNombre.Text, textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLocal.Text, textCiudad.Text, textCodPos.Text, textCuit.Text, comboRubro.SelectedText,textNomCon.Text);
+            empAdapter.crearEmpresa(idUsuario, contraseña, textNombre.Text, textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLocal.Text, textCiudad.Text, textCodPos.Text, textCuit.Text, comboRubro.SelectedText,textNomCon.Text);
+            MessageBox.Show("Usuario creado");
         }
 
         private void Pantalla_Datos_Empresa_Load(object sender, EventArgs e)

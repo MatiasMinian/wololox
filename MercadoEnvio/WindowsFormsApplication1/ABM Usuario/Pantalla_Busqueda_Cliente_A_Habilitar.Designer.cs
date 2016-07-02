@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textEmail = new System.Windows.Forms.TextBox();
+            this.textDNI = new System.Windows.Forms.TextBox();
+            this.textApellido = new System.Windows.Forms.TextBox();
+            this.textNombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,10 +58,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textEmail);
+            this.groupBox1.Controls.Add(this.textDNI);
+            this.groupBox1.Controls.Add(this.textApellido);
+            this.groupBox1.Controls.Add(this.textNombre);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -73,33 +73,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
             // 
-            // textBox4
+            // textEmail
             // 
-            this.textBox4.Location = new System.Drawing.Point(297, 63);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 9;
+            this.textEmail.Location = new System.Drawing.Point(297, 63);
+            this.textEmail.Name = "textEmail";
+            this.textEmail.Size = new System.Drawing.Size(100, 20);
+            this.textEmail.TabIndex = 9;
             // 
-            // textBox3
+            // textDNI
             // 
-            this.textBox3.Location = new System.Drawing.Point(297, 22);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 8;
+            this.textDNI.Location = new System.Drawing.Point(297, 22);
+            this.textDNI.Name = "textDNI";
+            this.textDNI.Size = new System.Drawing.Size(100, 20);
+            this.textDNI.TabIndex = 8;
             // 
-            // textBox2
+            // textApellido
             // 
-            this.textBox2.Location = new System.Drawing.Point(56, 63);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 7;
+            this.textApellido.Location = new System.Drawing.Point(56, 63);
+            this.textApellido.Name = "textApellido";
+            this.textApellido.Size = new System.Drawing.Size(100, 20);
+            this.textApellido.TabIndex = 7;
             // 
-            // textBox1
+            // textNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(56, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 6;
+            this.textNombre.Location = new System.Drawing.Point(56, 22);
+            this.textNombre.Name = "textNombre";
+            this.textNombre.Size = new System.Drawing.Size(100, 20);
+            this.textNombre.TabIndex = 6;
             // 
             // label4
             // 
@@ -265,10 +265,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textEmail;
+        private System.Windows.Forms.TextBox textDNI;
+        private System.Windows.Forms.TextBox textApellido;
+        private System.Windows.Forms.TextBox textNombre;
         private GD1C2016DataSet gD1C2016DataSet;
         private System.Windows.Forms.BindingSource clientesBindingSource;
         private GD1C2016DataSetTableAdapters.clientesTableAdapter clientesTableAdapter;

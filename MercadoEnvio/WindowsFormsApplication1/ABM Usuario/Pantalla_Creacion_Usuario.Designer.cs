@@ -147,6 +147,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Pantalla_Creacion_Usuario";
+            this.ShowIcon = false;
             this.Text = "Creación usuario";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

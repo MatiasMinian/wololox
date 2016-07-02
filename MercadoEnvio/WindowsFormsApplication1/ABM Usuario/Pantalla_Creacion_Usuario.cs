@@ -15,16 +15,11 @@ namespace WindowsFormsApplication1.ABM_Usuario
         public Pantalla_Creacion_Usuario()
         {
             InitializeComponent();
-            comboBox1.Items.Add("Cliente");
-            comboBox1.Items.Add("Empresa");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             Text = comboBox1.Text;
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -32,8 +27,6 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textBox1.ResetText();
             textBox2.ResetText();
             comboBox1.ResetText();
-
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -48,40 +41,53 @@ namespace WindowsFormsApplication1.ABM_Usuario
             {
                 MessageBox.Show("Ingresa usuario,contraseña y rol");
 
-            }else if (textBox1.Text == "" && textBox2.Text == "")
+            }
+            else if (textBox1.Text == "" && textBox2.Text == "")
             {
                 MessageBox.Show("Ingresa usuario y contraseña");
 
-            }else if (textBox1.Text == "" && comboBox1.Text == "")
+            }
+            else if (textBox1.Text == "" && comboBox1.Text == "")
             {
                 MessageBox.Show("Ingresa usuario y rol");
 
-            }else if (textBox2.Text == "" && comboBox1.Text == "")
+            }
+            else if (textBox2.Text == "" && comboBox1.Text == "")
             {
                 MessageBox.Show("Ingresa contraseña y rol");
 
-            }else if (textBox1.Text == "")
+            }
+            else if (textBox1.Text == "")
             {
                 MessageBox.Show("Ingresa usuario");
 
-            }else if (textBox2.Text == "")
+            }
+            else if (textBox2.Text == "")
             {
                 MessageBox.Show("Ingresa contraseña");
 
-            }else if (comboBox1.Text == "")
+            }
+            else if (comboBox1.Text == "")
             {
                 MessageBox.Show("Selecciona rol");
 
-            }else if (comboBox1.Text == "Cliente")
+            }
+            else if (comboBox1.Text == "Cliente")
             {
-                Pantalla_Datos_Cliente pantallaDatosCliente = new Pantalla_Datos_Cliente();
+                Pantalla_Datos_Cliente pantallaDatosCliente = new Pantalla_Datos_Cliente(textBox1.Text,textBox2.Text);
                 pantallaDatosCliente.ShowDialog();
 
-            }else
+            }
+            else if (comboBox1.Text == "Empresa")
             {
-                Pantalla_Datos_Empresa pantallaDatosEmpresa = new Pantalla_Datos_Empresa();
+                Pantalla_Datos_Empresa pantallaDatosEmpresa = new Pantalla_Datos_Empresa(textBox1.Text,textBox2.Text);
                 pantallaDatosEmpresa.ShowDialog();
 
+            }
+            else
+            {
+                Pantalla_Datos_Rol_Generico pantallaDatos = new Pantalla_Datos_Rol_Generico(textBox1.Text, textBox2.Text, Convert.ToString(comboBox1.SelectedValue));
+                pantallaDatos.ShowDialog();
             }
 
         }

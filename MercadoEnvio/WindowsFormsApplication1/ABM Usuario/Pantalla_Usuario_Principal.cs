@@ -29,21 +29,10 @@ namespace WindowsFormsApplication1.ABM_Usuario
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void botonModif_Click(object sender, EventArgs e)
         {
-
-            Pantalla_Modificacion_Principal_Admins pantallaModificacion = new Pantalla_Modificacion_Principal_Admins();
+            Pantalla_Modif_Eleccion_Rol pantallaModificacion = new Pantalla_Modif_Eleccion_Rol();
             pantallaModificacion.ShowDialog();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
         }
 
     
