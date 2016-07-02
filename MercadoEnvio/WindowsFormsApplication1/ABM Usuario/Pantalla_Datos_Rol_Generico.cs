@@ -28,8 +28,6 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textNom.ResetText();
             textTel.ResetText();
             texDom.ResetText();
-            textApe.ResetText();
-            textDNI.ResetText();
             textNumDom.ResetText();
             textMail.ResetText();
             textPiso.ResetText();
@@ -41,8 +39,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textNom.Text == "" || textTel.Text == "" || texDom.Text == "" || textApe.Text == ""
-               || textDNI.Text == "" || textNumDom.Text == "" || textMail.Text == "" || textPiso.Text == ""
+            if (textNom.Text == "" || textTel.Text == "" || texDom.Text == "" || textNumDom.Text == "" || textMail.Text == "" || textPiso.Text == ""
                || textDepto.Text == "" || textLoc.Text == "" || textPost.Text == "")
             {
 

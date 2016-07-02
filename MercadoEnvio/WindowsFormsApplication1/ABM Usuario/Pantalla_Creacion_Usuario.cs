@@ -15,16 +15,11 @@ namespace WindowsFormsApplication1.ABM_Usuario
         public Pantalla_Creacion_Usuario()
         {
             InitializeComponent();
-            comboBox1.Items.Add("Cliente");
-            comboBox1.Items.Add("Empresa");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             Text = comboBox1.Text;
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -32,8 +27,6 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textBox1.ResetText();
             textBox2.ResetText();
             comboBox1.ResetText();
-
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -93,7 +86,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
             }
             else
             {
-                Pantalla_Datos_Rol_Generico pantallaDatos = new Pantalla_Datos_Rol_Generico(textBox1.Text, textBox2.Text, comboBox1.SelectedValue);
+                Pantalla_Datos_Rol_Generico pantallaDatos = new Pantalla_Datos_Rol_Generico(textBox1.Text, textBox2.Text, Convert.ToString(comboBox1.SelectedValue));
                 pantallaDatos.ShowDialog();
             }
 

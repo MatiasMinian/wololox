@@ -30,11 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.botonCreacion = new System.Windows.Forms.Button();
+            this.botonModif = new System.Windows.Forms.Button();
+            this.botonElim = new System.Windows.Forms.Button();
+            this.botonHabilitar = new System.Windows.Forms.Button();
+            this.botonPass = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -58,65 +58,64 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // botonCreacion
             // 
-            this.button2.Location = new System.Drawing.Point(121, 55);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 30);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Crear usuario";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.botonCreacion.Location = new System.Drawing.Point(121, 55);
+            this.botonCreacion.Name = "botonCreacion";
+            this.botonCreacion.Size = new System.Drawing.Size(109, 30);
+            this.botonCreacion.TabIndex = 2;
+            this.botonCreacion.Text = "Crear usuario";
+            this.botonCreacion.UseVisualStyleBackColor = true;
+            this.botonCreacion.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // botonModif
             // 
-            this.button1.Location = new System.Drawing.Point(121, 109);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 30);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Modificar datos";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.botonModif.Location = new System.Drawing.Point(121, 109);
+            this.botonModif.Name = "botonModif";
+            this.botonModif.Size = new System.Drawing.Size(109, 30);
+            this.botonModif.TabIndex = 4;
+            this.botonModif.Text = "Modificar datos";
+            this.botonModif.UseVisualStyleBackColor = true;
+            this.botonModif.Click += new System.EventHandler(this.botonModif_Click);
             // 
-            // button4
+            // botonElim
             // 
-            this.button4.Location = new System.Drawing.Point(121, 164);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(109, 30);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Eliminar usuario";
-            this.button4.UseVisualStyleBackColor = true;
+            this.botonElim.Location = new System.Drawing.Point(121, 164);
+            this.botonElim.Name = "botonElim";
+            this.botonElim.Size = new System.Drawing.Size(109, 30);
+            this.botonElim.TabIndex = 5;
+            this.botonElim.Text = "Eliminar usuario";
+            this.botonElim.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // botonHabilitar
             // 
-            this.button5.Location = new System.Drawing.Point(121, 217);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(109, 30);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "Habilitar usuario";
-            this.button5.UseVisualStyleBackColor = true;
+            this.botonHabilitar.Location = new System.Drawing.Point(121, 217);
+            this.botonHabilitar.Name = "botonHabilitar";
+            this.botonHabilitar.Size = new System.Drawing.Size(109, 30);
+            this.botonHabilitar.TabIndex = 6;
+            this.botonHabilitar.Text = "Habilitar usuario";
+            this.botonHabilitar.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // botonPass
             // 
-            this.button6.Location = new System.Drawing.Point(121, 271);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(109, 30);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "Cambiar password";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.botonPass.Location = new System.Drawing.Point(121, 271);
+            this.botonPass.Name = "botonPass";
+            this.botonPass.Size = new System.Drawing.Size(109, 30);
+            this.botonPass.TabIndex = 7;
+            this.botonPass.Text = "Cambiar password";
+            this.botonPass.UseVisualStyleBackColor = true;
             // 
             // Pantalla_Usuario_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(339, 362);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.botonPass);
+            this.Controls.Add(this.botonHabilitar);
+            this.Controls.Add(this.botonElim);
+            this.Controls.Add(this.botonModif);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.botonCreacion);
             this.Controls.Add(this.label1);
             this.Name = "Pantalla_Usuario_Principal";
             this.Padding = new System.Windows.Forms.Padding(5);
@@ -131,10 +130,10 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button botonCreacion;
+        private System.Windows.Forms.Button botonModif;
+        private System.Windows.Forms.Button botonElim;
+        private System.Windows.Forms.Button botonHabilitar;
+        private System.Windows.Forms.Button botonPass;
     }
 }
