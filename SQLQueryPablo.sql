@@ -209,11 +209,7 @@ intentos_login numeric(1,0),
 mail nvarchar(255),
 telefono nvarchar(50),
 fecha_creacion datetime,
-<<<<<<< HEAD
 habilitado bit DEFAULT 1,
-=======
-habilitado bit,
->>>>>>> 508963b043f041659c12b2379e8d3391d0fab4b7
 primary key (id_usuario),
 unique (nombre_usuario)
 );
