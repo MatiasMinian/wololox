@@ -418,15 +418,15 @@ select DISTINCT Publicacion_Rubro_Descripcion from gd_esquema.Maestra
 where Publicacion_Rubro_Descripcion is not null
 
 set IDENTITY_INSERT WOLOLOX.publicaciones ON		
-insert into WOLOLOX.publicaciones(id_usuario,codigo,descripcion,fecha_inicio,fecha_vencimiento,precio,stock,tipo,cod_visibilidad)
-select DISTINCT u.id_usuario,Publicacion_Cod,Publicacion_Descripcion,Publicacion_Fecha,Publicacion_Fecha_Venc,Publicacion_Precio,Publicacion_Stock,Publicacion_Tipo,Publicacion_Visibilidad_Cod from gd_esquema.Maestra, usuarios u
-where Publicacion_Cod is not null AND u.mail like Publ_Empresa_Mail
+insert into WOLOLOX.publicaciones(id_usuario,codigo,id_estado,descripcion,fecha_inicio,fecha_vencimiento,precio,stock,tipo,cod_visibilidad)
+select DISTINCT u.id_usuario,Publicacion_Cod,estados.id_estado ,Publicacion_Descripcion,Publicacion_Fecha,Publicacion_Fecha_Venc,Publicacion_Precio,Publicacion_Stock,Publicacion_Tipo,Publicacion_Visibilidad_Cod from gd_esquema.Maestra, usuarios u ,estados
+where Publicacion_Cod is not null AND u.mail like Publ_Empresa_Mail AND Publicacion_Estado = estados.nombre
 set IDENTITY_INSERT WOLOLOX.publicaciones OFF
 
 set IDENTITY_INSERT WOLOLOX.publicaciones ON		
-insert into WOLOLOX.publicaciones(id_usuario,codigo,descripcion,fecha_inicio,fecha_vencimiento,precio,stock,tipo,cod_visibilidad)
-select DISTINCT u.id_usuario, Publicacion_Cod, Publicacion_Descripcion,Publicacion_Fecha,Publicacion_Fecha_Venc, Publicacion_Precio, Publicacion_Stock, Publicacion_Tipo, Publicacion_Visibilidad_Cod from gd_esquema.Maestra, usuarios u
-where Publicacion_Cod is not null AND u.mail like Publ_Cli_Mail
+insert into WOLOLOX.publicaciones(id_usuario,codigo,id_estado,descripcion,fecha_inicio,fecha_vencimiento,precio,stock,tipo,cod_visibilidad)
+select DISTINCT u.id_usuario, Publicacion_Cod,estados.id_estado, Publicacion_Descripcion,Publicacion_Fecha,Publicacion_Fecha_Venc, Publicacion_Precio, Publicacion_Stock, Publicacion_Tipo, Publicacion_Visibilidad_Cod from gd_esquema.Maestra, usuarios u,estados
+where Publicacion_Cod is not null AND u.mail like Publ_Cli_Mail AND Publicacion_Estado = estados.nombre
 set IDENTITY_INSERT WOLOLOX.publicaciones OFF
 
 insert into WOLOLOX.publicaciones_rubros(cod_publicacion,cod_rubro)
@@ -468,8 +468,8 @@ insert into WOLOLOX.roles_usuarios(id_usuario,id_rol)
 select u.id_usuario,(select id from roles where nombre LIKE 'cliente') from usuarios u, clientes c
 where u.id_usuario = c.id_usuario 
 
-insert into WOLOLOX.empresas(id_usuario,cod_rubro,razon_social,cuit)
-select DISTINCT u.id_usuario, (select cod_rubro from publicaciones p where u.id_usuario = p.id_usuario group by p.cod_rubro having count(p.cod_rubro) = (select max(i.total) from (select count(p2.cod_rubro) as total from publicaciones p2 group by p2.cod_rubro) i)), m.Publ_Empresa_Razon_Social, m.Publ_Empresa_Cuit 
+insert into WOLOLOX.empresas(id_usuario,razon_social,cuit)
+select DISTINCT u.id_usuario, m.Publ_Empresa_Razon_Social, m.Publ_Empresa_Cuit 
 from usuarios u, gd_esquema.Maestra m
 where (m.Publ_Empresa_Mail is not null) AND u.mail like Publ_Empresa_Mail
 
