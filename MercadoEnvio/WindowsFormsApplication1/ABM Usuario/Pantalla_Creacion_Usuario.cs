@@ -86,9 +86,16 @@ namespace WindowsFormsApplication1.ABM_Usuario
             }
             else
             {
-             //   Pantalla_Datos_Rol_Generico pantallaDatos = new Pantalla_Datos_Rol_Generico(textBox1.Text, textBox2.Text, Convert.ToString(comboBox1.SelectedValue));
-             //   pantallaDatos.ShowDialog();
+               Pantalla_Datos_Rol_Generico pantallaDatos = new Pantalla_Datos_Rol_Generico(textBox1.Text, textBox2.Text, Convert.ToString(comboBox1.SelectedValue));
+                pantallaDatos.ShowDialog();
             }
+
+        }
+
+        private void Pantalla_Creacion_Usuario_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'gD1C2016DataSet.roles' table. You can move, or remove it, as needed.
+            this.rolesTableAdapter.Fill(this.gD1C2016DataSet.roles);
 
         }
 

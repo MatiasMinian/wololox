@@ -203,7 +203,8 @@ if object_id('WOLOLOX.usuarios') is not null
 create table WOLOLOX.usuarios(
 id_usuario numeric(18,0) identity(1,1),
 nombre_usuario nvarchar(255),
-contraseña nvarchar(255),
+--contraseña nvarchar(255),
+contraseña varbinary(8000),
 intentos_login numeric(1,0),
 mail nvarchar(255),
 telefono nvarchar(50),
@@ -555,17 +556,17 @@ IF OBJECT_ID('WOLOLOX.login') IS NOT NULL
     DROP PROCEDURE WOLOLOX.login;
 GO
 
-CREATE PROCEDURE WOLOLOX.login(@UserName nvarchar(50), @Password varbinary(8000))
+CREATE PROCEDURE WOLOLOX.login(@UserName nvarchar(255), @Password nvarchar(255))
 AS
 DECLARE @estado int
 declare @cantUsuarios numeric
 declare @usrId numeric
 
-set @cantUsuarios = (select isNull((select nombre_usuario FROM WOLOLOX.usuarios 
-	WHERE 1=1 AND nombre_usuario = @UserName
-	AND contraseña = @Password
+set @cantUsuarios = (select COUNT(*) FROM WOLOLOX.usuarios 
+	WHERE nombre_usuario = @UserName
+	AND contraseña = HASHBYTES('SHA2_256', @Password)
 	group by nombre_usuario
-	having count(intentos_login)<3),0))
+	having count(intentos_login)<3)
 
 IF @cantUsuarios = 0
 	BEGIN
@@ -574,31 +575,32 @@ IF @cantUsuarios = 0
 		if (not exists (select id_usuario FROM WOLOLOX.usuarios where id_usuario = @usrId))
 		begin 
 			RAISERROR (40001,-1,-1, 'El Usuario no existe!')
-			select 0
 			return;
 		end
 		
 		if((select intentos_login from WOLOLOX.usuarios  where id_usuario = @usrId) > 2)
 		begin
 			RAISERROR (40002,-1,-1, 'Usuario Bloqueado!')
-			select 0
+			UPDATE usuarios
+			SET habilitado=0
+			WHERE id_usuario=@usrId
 			return;
 		end
-		if (exists (select id_usuario FROM WOLOLOX.usuarios where nombre_usuario = @UserName))
+		if (exists (select id_usuario FROM WOLOLOX.usuarios WHERE nombre_usuario = @UserName AND contraseña<>@Password))
 		begin 
 			RAISERROR (40003,-1,-1, 'Password incorrecta')
 			UPDATE usuarios
-			SET intentos_login=(intentos_login+1);
+			SET intentos_login=(intentos_login+1)
+			WHERE id_usuario=@usrId
 			return;
 		end 
-	END
+END
 	ELSE 
-	BEGIN
+BEGIN
 	set @usrId = (SELECT id_usuario FROM WOLOLOX.usuarios WHERE nombre_usuario = @UserName
-	AND contraseña = @password )
-	
+	AND contraseña = HASHBYTES('SHA2_256', @Password) )
 	SELECT @usrId
-	END
+END
 GO
 
 --consulta de ID
@@ -1457,15 +1459,14 @@ GO
 CREATE PROCEDURE WOLOLOX.CrearCliente(@username nvarchar(50), @pass nvarchar(25), @nombre nvarchar(255), @apellido nvarchar(255), @mail nvarchar(50), @tel nvarchar(50), @domicilio nvarchar(100),@numDom numeric(19,0), @piso numeric(18,0), @depto nvarchar(50),@localidad nvarchar(100),@ciudad nvarchar(100),@codPostal nvarchar(50), @dni numeric(18,0), @fechaNac datetime)
 AS
      
-    INSERT INTO WOLOLOX.clientes(apellido,nombre, dni,fecha_nacimiento)
-	VALUES	(@apellido,@nombre,@dni,@fechaNac)
 	INSERT INTO WOLOLOX.usuarios(nombre_usuario,contraseña,mail,fecha_creacion,intentos_login,telefono)
 	VALUES (@username,HASHBYTES('SHA2_256',@pass),@mail,GETDATE(),0,@tel)
 	declare @fkUsuario numeric(18,0) = scope_identity();
+	INSERT INTO WOLOLOX.clientes(apellido,nombre, dni,fecha_nacimiento,id_usuario)
+	VALUES	(@apellido,@nombre,@dni,@fechaNac,@fkUsuario)
 	INSERT INTO WOLOLOX.direcciones(calle, numero, piso, departamento, localidad, cod_postal, ciudad,id_usuario)
 	VALUES (@domicilio,@numDom,@piso,@depto,@localidad,@codPostal,@ciudad,@fkUsuario)
 	
-
 GO
 
 IF OBJECT_ID('WOLOLOX.CrearEmpresa') IS NOT NULL
@@ -1474,11 +1475,12 @@ GO
 CREATE PROCEDURE WOLOLOX.CrearEmpresa(@username nvarchar(50), @pass nvarchar(25), @razSoc nvarchar(255), @mail nvarchar(50), @tel nvarchar(50), @domicilio nvarchar(100),@numDom numeric(19,0), @piso numeric(18,0), @depto nvarchar(50),@localidad nvarchar(100),@ciudad nvarchar(100),@codPostal nvarchar(50), @cuit nvarchar(50),@rubro nvarchar(20), @nomContac nvarchar(100))
 AS
      
-    INSERT INTO WOLOLOX.empresas(razon_social,nombre_contacto,cuit,reputacion,cod_rubro)
-	VALUES	(@razSoc,@nomContac,@cuit,0, (SELECT codigo FROM WOLOLOX.rubros where descripcion_corta=@rubro))
+    
 	INSERT INTO WOLOLOX.usuarios(nombre_usuario,contraseña,mail,fecha_creacion,intentos_login,telefono)
 	VALUES (@username,HASHBYTES('SHA2_256',@pass),@mail,GETDATE(),0,@tel)
 	declare @fkUsuario numeric(18,0) = scope_identity();
+	INSERT INTO WOLOLOX.empresas(id_usuario,razon_social,nombre_contacto,cuit,reputacion,cod_rubro)
+	VALUES	(@fkUsuario, @razSoc,@nomContac,@cuit,0, (SELECT codigo FROM WOLOLOX.rubros where descripcion_corta=@rubro))
 	INSERT INTO WOLOLOX.direcciones(calle, numero, piso, departamento, localidad, cod_postal, ciudad,id_usuario)
 	VALUES (@domicilio,@numDom,@piso,@depto,@localidad,@codPostal,@ciudad,@fkUsuario)
 	
