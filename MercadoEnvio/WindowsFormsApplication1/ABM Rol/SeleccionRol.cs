@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1
 {
     public partial class SeleccionRol : Form
     {
+        private String user;
 
         public SeleccionRol()
         {
@@ -21,17 +22,15 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             Pantalla_Funcionalidades pantallaFuncio = new Pantalla_Funcionalidades(comboBox1.Text);
+            pantallaFuncio.matchearUsuario(user);
             pantallaFuncio.ShowDialog();
-
-
 
 
         }
 
-
-
-
-
-        
+        internal void matchearUsuario(string User)
+        {
+            user = User;
+        }
     }
 }

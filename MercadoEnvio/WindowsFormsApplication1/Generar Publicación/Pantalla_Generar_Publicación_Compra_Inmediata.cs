@@ -61,7 +61,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
             else
             {
                 Decimal costo = Convert.ToDecimal(textBox3.Text);
-                String tipo = "Inmediata";
+                String tipo = "Compra Inmediata";
                 String descripcion = textBox1.Text;
                 Decimal stock = numericUpDown1.Value;
                 DateTime fechaInicio = dateTimePicker1.Value;

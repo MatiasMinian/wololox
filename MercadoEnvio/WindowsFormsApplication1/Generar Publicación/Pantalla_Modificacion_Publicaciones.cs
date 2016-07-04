@@ -60,7 +60,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
             {
 
                 dataGridView1.Rows.Add(row.Field<Decimal>("codigo"),
-                                       row.Field<String>("descripcion_estado"),
+                                       row.Field<String>("nombre"),
                                        row.Field<String>("descripcion"),
                                        row.Field<String>("descripcion1"),
                                        row.Field<Decimal>("stock"),
@@ -82,7 +82,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
             if (dataGridView1.CurrentRow.Cells[1].Value.Equals("Borrador"))
             {
 
-                if(dataGridView1.CurrentRow.Cells[6].Value.Equals("Inmediata")){
+                if(dataGridView1.CurrentRow.Cells[6].Value.Equals("Compra Inmediata")){
                 Pantalla_Compra_Borrador pantallaCompraBorrador = new Pantalla_Compra_Borrador();
                 pantallaCompraBorrador.guardarDatos(this,
                                                     Convert.ToDecimal(dataGridView1.CurrentRow.Cells[0].Value),

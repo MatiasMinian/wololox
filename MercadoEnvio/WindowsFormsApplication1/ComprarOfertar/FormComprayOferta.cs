@@ -73,7 +73,7 @@ namespace WindowsFormsApplication1.ComprarOfertar
                 MessageBox.Show("No hay publicaciones disponibles según tu búsqueda");
 
             }
-            else if ((Convert.ToString(tablaPubl.CurrentRow.Cells[4].Value)).Equals("Inmediata"))
+            else if ((Convert.ToString(tablaPubl.CurrentRow.Cells[4].Value)).Equals("Compra Inmediata"))
             {
 
                 codigo_publicacion = Convert.ToDecimal(tablaPubl.CurrentRow.Cells[0].Value);

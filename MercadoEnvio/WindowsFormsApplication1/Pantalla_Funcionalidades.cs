@@ -162,12 +162,22 @@ namespace WindowsFormsApplication1
 
         private void botonMPubli_Click(object sender, EventArgs e)
         {
+
+            Decimal id;
+            GD1C2016DataSetTableAdapters.usuariosTableAdapter usuAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
+            GD1C2016DataSet.usuariosDataTable usuData = new GD1C2016DataSet.usuariosDataTable();
+            usuData = usuAdapter.consultaID(user);
+            id = Convert.ToDecimal(usuData[0][0]);
+
             Pantalla_Modificacion_Publicaciones pantallaMPubli = new Pantalla_Modificacion_Publicaciones();
+            pantallaMPubli.guardarDatos(id);
+            pantallaMPubli.generarListado();
             pantallaMPubli.ShowDialog();
         }
 
         private void botonVisi_Click(object sender, EventArgs e)
         {
+          
             Pantalla_Visibilidad_Principal pantallaVisi = new Pantalla_Visibilidad_Principal();
             pantallaVisi.ShowDialog();
         }
@@ -183,6 +193,12 @@ namespace WindowsFormsApplication1
         {
             Pantalla_Usuario_Principal pantallaUsuario = new Pantalla_Usuario_Principal();
             pantallaUsuario.ShowDialog();
+        }
+
+        private void botonFacturas_Click(object sender, EventArgs e)
+        {
+            Pantalla_Consultar_Facturas pantallaFactu = new Pantalla_Consultar_Facturas();
+            pantallaFactu.ShowDialog();
         }
 
     }
