@@ -58,8 +58,8 @@ namespace WindowsFormsApplication1
                 {
                     SHA256 CriptoPass = SHA256Managed.Create();
                     byte[] valorHash;
-                    valorHash = CriptoPass.ComputeHash(obtenerNumBytes(textoPass.Text));
-                    if (Convert.ToBoolean(adapterUsuarios.login(textoUser.Text, Convert.ToString(valorHash))))
+                    valorHash = CriptoPass.ComputeHash(Encoding.UTF8.GetBytes(textoPass.Text));
+                    if (Convert.ToBoolean(adapterUsuarios.login(textoUser.Text, textoPass.Text)))
                     {
                         if ((int)adapterUsuarios.cantidadRoles(textoUser.Text) > 1)
                         {
@@ -69,7 +69,6 @@ namespace WindowsFormsApplication1
                         }
                         else
                         {
-
                             Pantalla_Funcionalidades pantallaFunci = new Pantalla_Funcionalidades((String)adapterUsuarios.obtenerRol(textoUser.Text));
                             pantallaFunci.matchearUsuario(textoUser.Text);
                             pantallaFunci.ShowDialog();
@@ -89,17 +88,19 @@ namespace WindowsFormsApplication1
                         case 40001:
                             MessageBox.Show("El Usuario no existe", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                             return;
+                        default: MessageBox.Show("Error desconocido"+ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            return;
                     }
                 }
             }
         }
 
-        static byte[] obtenerNumBytes(string input)
+        /*static byte[] obtenerNumBytes(string input)
         {
             byte[] bytes = new byte[input.Length * sizeof(char)];
             System.Buffer.BlockCopy(input.ToCharArray(), 0, bytes, 0, bytes.Length);
             return bytes;
-        }
+        }*/
 
     }
 

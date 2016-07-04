@@ -118,7 +118,6 @@
             this.botonDatos.TabIndex = 12;
             this.botonDatos.Text = "Modificacion datos";
             this.botonDatos.UseVisualStyleBackColor = true;
-            this.botonDatos.Click += new System.EventHandler(this.button1_Click);
             // 
             // botonVisi
             // 

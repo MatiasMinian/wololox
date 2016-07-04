@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -38,7 +39,12 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.gD1C2016DataSet = new WindowsFormsApplication1.GD1C2016DataSet();
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rolesTableAdapter = new WindowsFormsApplication1.GD1C2016DataSetTableAdapters.rolesTableAdapter();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -58,12 +64,15 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DataSource = this.rolesBindingSource;
+            this.comboBox1.DisplayMember = "nombre";
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(165, 166);
             this.comboBox1.MaxDropDownItems = 2;
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 21);
             this.comboBox1.TabIndex = 5;
+            this.comboBox1.ValueMember = "id";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textBox2
@@ -137,6 +146,20 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // gD1C2016DataSet
+            // 
+            this.gD1C2016DataSet.DataSetName = "GD1C2016DataSet";
+            this.gD1C2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rolesBindingSource
+            // 
+            this.rolesBindingSource.DataMember = "roles";
+            this.rolesBindingSource.DataSource = this.gD1C2016DataSet;
+            // 
+            // rolesTableAdapter
+            // 
+            this.rolesTableAdapter.ClearBeforeFill = true;
+            // 
             // Pantalla_Creacion_Usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,8 +172,11 @@
             this.Name = "Pantalla_Creacion_Usuario";
             this.ShowIcon = false;
             this.Text = "Creación usuario";
+            this.Load += new System.EventHandler(this.Pantalla_Creacion_Usuario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -167,5 +193,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ComboBox comboBox1;
+        private GD1C2016DataSet gD1C2016DataSet;
+        private System.Windows.Forms.BindingSource rolesBindingSource;
+        private GD1C2016DataSetTableAdapters.rolesTableAdapter rolesTableAdapter;
     }
 }

@@ -10,22 +10,13 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
-    public partial class Pantalla_Busqueda_RolGenerico_A_Modificar : Form
+    public partial class Pantalla_Busqueda_RolGenerico_A_Eliminar : Form
     {
-
         private GD1C2016DataSetTableAdapters.usuariosTableAdapter userAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
-        public Pantalla_Busqueda_RolGenerico_A_Modificar()
+        public Pantalla_Busqueda_RolGenerico_A_Eliminar()
         {
             InitializeComponent();
         }
-
-        private void Pantalla_Busqueda_RolGenerico_A_Modificar_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'gD1C2016DataSet.usuarios' table. You can move, or remove it, as needed.
-            this.usuariosTableAdapter.Fill(this.gD1C2016DataSet.usuarios);
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -37,7 +28,11 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textFechaCrea.ResetText();
             textTel.ResetText();
             textEmail.ResetText();
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -46,22 +41,32 @@ namespace WindowsFormsApplication1.ABM_Usuario
             {
                 MessageBox.Show("Complete algún campo de búsqueda");
             }
-            dataClientes.DataSource = userAdapter.BuscarUsuarioHabilitado(textNombre.Text, textTel.Text, textEmail.Text, Convert.ToDateTime(textFechaCrea.Text));
+            dataUsuarios.DataSource = userAdapter.BuscarUsuarioHabilitado(textNombre.Text, textTel.Text, textEmail.Text, Convert.ToDateTime(textFechaCrea.Text));
+
         }
 
-        private void Pantalla_Busqueda_Cliente_A_Modificar_Load(object sender, EventArgs e)
+        private void Pantalla_Busqueda_Empresa_A_Eliminar_Load(object sender, EventArgs e)
         {
-            dataClientes.DataSource = userAdapter.ObtenerUsuariosHabilitados();
+            dataUsuarios.DataSource = userAdapter.ObtenerUsuariosHabilitados();
+
         }
 
-        private void dataClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataEmpresas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                Pantalla_Modificacion_Datos_RolGenerico pantallaMod = new Pantalla_Modificacion_Datos_RolGenerico(dataClientes.Rows[e.RowIndex]);
+                userAdapter.DeshabilitarUsuario(Convert.ToDecimal(dataUsuarios.Rows[e.RowIndex].Cells[0]));
             }
+            dataUsuarios.DataSource = userAdapter.ObtenerUsuariosHabilitados();
+        }
+
+        private void Pantalla_Busqueda_RolGenerico_A_Eliminar_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'gD1C2016DataSet.usuarios' table. You can move, or remove it, as needed.
+            this.usuariosTableAdapter.Fill(this.gD1C2016DataSet.usuarios);
+
         }
     }
 }

@@ -126,14 +126,6 @@ namespace WindowsFormsApplication1
      
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            Pantalla_Modificacion_Principal_Cliente pantallaModificacion = new Pantalla_Modificacion_Principal_Cliente();
-            pantallaModificacion.guardarDatos(user);
-            pantallaModificacion.ShowDialog();
-        }
-
         private void botonCompra_Click(object sender, EventArgs e)
         {
             
