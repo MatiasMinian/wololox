@@ -13,9 +13,11 @@ namespace WindowsFormsApplication1.ABM_Usuario
     public partial class Pantalla_Modif_Eleccion_Rol : Form
     {
         private GD1C2016DataSetTableAdapters.rolesTableAdapter rolAdapter = new GD1C2016DataSetTableAdapters.rolesTableAdapter();
-        public Pantalla_Modif_Eleccion_Rol()
+        int cod;
+        public Pantalla_Modif_Eleccion_Rol(int codigo)
         {
             InitializeComponent();
+            this.cod = codigo;
         }
 
         private void Pantalla_Modif_Eleccion_Rol_Load(object sender, EventArgs e)
@@ -37,23 +39,50 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void botonAceptar_Click(object sender, EventArgs e)
         {
-            if (comboRol.SelectedText == "Cliente")
+            switch (cod)
             {
-                Pantalla_Busqueda_Cliente_A_Modificar menu = new Pantalla_Busqueda_Cliente_A_Modificar();
-                menu.ShowDialog();
-                this.Close();
+                case 0:
+                    if (comboRol.SelectedText == "Cliente")
+                    {
+                        Pantalla_Busqueda_Cliente_A_Modificar menu = new Pantalla_Busqueda_Cliente_A_Modificar();
+                        menu.ShowDialog();
+                        this.Close();
+                    }
+                    else if (comboRol.SelectedText == "Empresa")
+                    {
+                        Pantalla_Busqueda_Empresa_A_Modificar menu = new Pantalla_Busqueda_Empresa_A_Modificar();
+                        menu.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        Pantalla_Busqueda_RolGenerico_A_Modificar menu = new Pantalla_Busqueda_RolGenerico_A_Modificar();
+                        menu.ShowDialog();
+                        this.Close();
+                    }
+                    break;
+                case 1:
+                    if (comboRol.SelectedText == "Cliente")
+                    {
+                        Pantalla_Busqueda_Cliente_A_Eliminar menu = new Pantalla_Busqueda_Cliente_A_Eliminar();
+                        menu.ShowDialog();
+                        this.Close();
+                    }
+                    else if (comboRol.SelectedText == "Empresa")
+                    {
+                        Pantalla_Busqueda_Empresa_A_Eliminar menu = new Pantalla_Busqueda_Empresa_A_Eliminar();
+                        menu.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        Pantalla_Busqueda_RolGenerico_A_Eliminar menu = new Pantalla_Busqueda_RolGenerico_A_Eliminar();
+                        menu.ShowDialog();
+                        this.Close();
+                    }
+                    break;
             }
-            else if (comboRol.SelectedText == "Empresa"){
-                Pantalla_Busqueda_Empresa_A_Modificar menu = new Pantalla_Busqueda_Empresa_A_Modificar();
-                menu.ShowDialog();
-                this.Close();
-            }
-            else
-            {
-                Pantalla_Busqueda_RolGenerico_A_Modificar menu = new Pantalla_Busqueda_RolGenerico_A_Modificar();
-                menu.ShowDialog();
-                this.Close();
-            }
+            
         }
     }
 }

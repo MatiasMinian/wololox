@@ -86,6 +86,7 @@
             this.botonElim.TabIndex = 5;
             this.botonElim.Text = "Eliminar usuario";
             this.botonElim.UseVisualStyleBackColor = true;
+            this.botonElim.Click += new System.EventHandler(this.botonElim_Click);
             // 
             // botonHabilitar
             // 
@@ -95,6 +96,7 @@
             this.botonHabilitar.TabIndex = 6;
             this.botonHabilitar.Text = "Habilitar usuario";
             this.botonHabilitar.UseVisualStyleBackColor = true;
+            this.botonHabilitar.Click += new System.EventHandler(this.botonHabilitar_Click);
             // 
             // botonPass
             // 
@@ -104,6 +106,7 @@
             this.botonPass.TabIndex = 7;
             this.botonPass.Text = "Cambiar password";
             this.botonPass.UseVisualStyleBackColor = true;
+            this.botonPass.Click += new System.EventHandler(this.botonPass_Click);
             // 
             // Pantalla_Usuario_Principal
             // 

@@ -31,7 +31,25 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void botonModif_Click(object sender, EventArgs e)
         {
-            Pantalla_Modif_Eleccion_Rol pantallaModificacion = new Pantalla_Modif_Eleccion_Rol();
+            Pantalla_Modif_Eleccion_Rol pantallaModificacion = new Pantalla_Modif_Eleccion_Rol(0);
+            pantallaModificacion.ShowDialog();
+        }
+
+        private void botonElim_Click(object sender, EventArgs e)
+        {
+            Pantalla_Modif_Eleccion_Rol pantallaModificacion = new Pantalla_Modif_Eleccion_Rol(1);
+            pantallaModificacion.ShowDialog();
+        }
+
+        private void botonHabilitar_Click(object sender, EventArgs e)
+        {
+            Pantalla_Modif_Eleccion_Rol pantallaModificacion = new Pantalla_Modif_Eleccion_Rol(2);
+            pantallaModificacion.ShowDialog();
+        }
+
+        private void botonPass_Click(object sender, EventArgs e)
+        {
+            Pantalla_Modif_Eleccion_Rol pantallaModificacion = new Pantalla_Modif_Eleccion_Rol(3);
             pantallaModificacion.ShowDialog();
         }
 

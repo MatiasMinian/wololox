@@ -490,11 +490,11 @@ GO
 IF OBJECT_ID('WOLOLOX.CrearVisibilidad') IS NOT NULL
     DROP PROCEDURE WOLOLOX.CrearVisibilidad;
 GO
-CREATE PROCEDURE WOLOLOX.CrearVisibilidad(@descripcion nvarchar(255),@costo_envio numeric(18,0),@porc_producto numeric(18,0),@costo_publicacion numeric(18,0))
+CREATE PROCEDURE WOLOLOX.CrearVisibilidad(@descripcion nvarchar(255),@porc_envio numeric(18,0),@porc_producto numeric(18,0),@porc_publicacion numeric(18,0))
 AS
      
-    INSERT INTO WOLOLOX.visibilidades(descripcion,costo_envio,porc_producto,costo_publicacion)
-	VALUES	(@descripcion,@costo_envio,@porc_producto,@costo_publicacion)
+    INSERT INTO WOLOLOX.visibilidades(descripcion,porc_envio,porc_producto,porc_publicacion)
+	VALUES	(@descripcion,@porc_envio,@porc_producto,@porc_publicacion)
 GO
 
 /* Deshabilita la visibilidad para que no pueda ser elegida en publicaciones */
@@ -514,11 +514,11 @@ GO
 IF OBJECT_ID('WOLOLOX.ModificarVisibilidad') IS NOT NULL
     DROP PROCEDURE WOLOLOX.ModificarVisibilidad;
 GO
-CREATE PROCEDURE WOLOLOX.ModificarVisibilidad(@codigo numeric(18,0),@descripcion nvarchar(255),@costo_envio numeric(18,0),@porc_producto numeric(18,0),@costo_publicacion numeric(18,0))
+CREATE PROCEDURE WOLOLOX.ModificarVisibilidad(@codigo numeric(18,0),@descripcion nvarchar(255),@porc_envio numeric(18,0),@porc_producto numeric(18,0),@porc_publicacion numeric(18,0))
 AS
 
     UPDATE WOLOLOX.visibilidades
-	SET   descripcion = @descripcion,costo_envio = @costo_envio, porc_producto = @porc_producto,costo_publicacion = @costo_publicacion
+	SET   descripcion = @descripcion,porc_envio = @porc_envio, porc_producto = @porc_producto,porc_publicacion = @porc_publicacion
 	WHERE @codigo = codigo
 GO
 
@@ -528,7 +528,7 @@ IF OBJECT_ID('WOLOLOX.BusquedaPorDescripcion') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.BusquedaPorDescripcion(@descripcionIngresada nvarchar(255))
 AS
-    SELECT codigo,descripcion,costo_envio,porc_producto,costo_publicacion,habilitada FROM WOLOLOX.visibilidades
+    SELECT codigo,descripcion,porc_envio,porc_producto,porc_publicacion,habilitada FROM WOLOLOX.visibilidades
 	WHERE descripcion LIKE '%'+@descripcionIngresada+'%' AND habilitada = 1
 GO
 
@@ -537,8 +537,8 @@ IF OBJECT_ID('WOLOLOX.BusquedaPorCostos') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.BusquedaPorCostos(@costoMinimo numeric(18,0),@costoMaximo numeric(18,0))
 AS
-    SELECT codigo,descripcion,costo_envio,porc_producto,costo_publicacion,habilitada FROM WOLOLOX.visibilidades
-	WHERE (costo_publicacion>=@costoMinimo AND costo_publicacion<=@costoMaximo) AND habilitada = 1
+    SELECT codigo,descripcion,porc_envio,porc_producto,porc_publicacion,habilitada FROM WOLOLOX.visibilidades
+	WHERE (porc_publicacion>=@costoMinimo AND porc_publicacion<=@costoMaximo) AND habilitada = 1
 GO
 
 
@@ -547,8 +547,8 @@ IF OBJECT_ID('WOLOLOX.BusquedaPorDescripcionYcostos') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.BusquedaPorDescripcionYcostos(@descripcionIngresada nvarchar(255),@costoMinimo numeric(18,0),@costoMaximo numeric(18,0))
 AS
-    SELECT codigo,descripcion,costo_envio,porc_producto,costo_publicacion,habilitada FROM WOLOLOX.visibilidades
-	WHERE descripcion LIKE '%'+@descripcionIngresada+'%' AND (costo_publicacion>=@costoMinimo AND costo_publicacion<=@costoMaximo) AND habilitada = 1
+    SELECT codigo,descripcion,porc_envio,porc_producto,porc_publicacion,habilitada FROM WOLOLOX.visibilidades
+	WHERE descripcion LIKE '%'+@descripcionIngresada+'%' AND (porc_publicacion>=@costoMinimo AND porc_publicacion<=@costoMaximo) AND habilitada = 1
 	
 GO
 
@@ -590,7 +590,8 @@ IF @cantUsuarios = 0
 		if (exists (select id_usuario FROM WOLOLOX.usuarios where nombre_usuario = @UserName))
 		begin 
 			RAISERROR (40003,-1,-1, 'Password incorrecta')
-			update usuarios(intentos_login) set intentos_login=(intentos_login+1);
+			UPDATE usuarios
+			SET intentos_login=(intentos_login+1);
 			return;
 		end 
 	END
@@ -626,10 +627,10 @@ GO
 
 CREATE PROCEDURE WOLOLOX.publicacionesParaModificacion(@id numeric(18,0))
 AS
-SELECT publicaciones.codigo,descripcion_estado,visibilidades.descripcion,publicaciones.descripcion,stock,precio,tipo,fecha_inicio,fecha_vencimiento FROM WOLOLOX.publicaciones
+SELECT publicaciones.codigo,nombre,visibilidades.descripcion,publicaciones.descripcion,stock,precio,tipo,fecha_inicio,fecha_vencimiento FROM WOLOLOX.publicaciones
 INNER JOIN WOLOLOX.visibilidades ON publicaciones.cod_visibilidad = visibilidades.codigo
 INNER JOIN WOLOLOX.estados ON publicaciones.id_estado = estados.id_estado
-WHERE publicaciones.id_usuario = 1 AND descripcion_estado<>'Finalizada'
+WHERE publicaciones.id_usuario = 1 AND nombre<>'Finalizada'
 
 GO
 
@@ -789,7 +790,7 @@ INNER JOIN WOLOLOX.visibilidades
 ON publicaciones.cod_visibilidad = visibilidades.codigo
 INNER JOIN WOLOLOX.estados
 ON publicaciones.id_estado = estados.id_estado
-WHERE publicaciones.descripcion LIKE '%'+@descripcion+'%' AND estados.descripcion_estado = 'Activa' AND @id <> publicaciones.id_usuario)
+WHERE publicaciones.descripcion LIKE '%'+@descripcion+'%' AND estados.nombre = 'Activa' AND @id <> publicaciones.id_usuario)
 
 SELECT @cantidad
 
@@ -810,8 +811,8 @@ INNER JOIN WOLOLOX.visibilidades
 ON publicaciones.cod_visibilidad = visibilidades.codigo
 INNER JOIN WOLOLOX.estados
 ON publicaciones.id_estado = estados.id_estado
-WHERE publicaciones.descripcion LIKE '%'+@descripcion+'%' AND estados.descripcion_estado = 'Activa' AND @id <> publicaciones.id_usuario
-ORDER BY visibilidades.costo_publicacion DESC OFFSET @rowInicial ROWS FETCH NEXT 5 ROWS ONLY
+WHERE publicaciones.descripcion LIKE '%'+@descripcion+'%' AND estados.nombre = 'Activa' AND @id <> publicaciones.id_usuario
+ORDER BY visibilidades.porc_publicacion DESC OFFSET @rowInicial ROWS FETCH NEXT 5 ROWS ONLY
 
 GO
 
@@ -835,7 +836,7 @@ ON publicaciones.codigo = publicaciones_rubros.cod_publicacion
 INNER JOIN WOLOLOX.rubros
 ON rubros.codigo = publicaciones_rubros.cod_rubro
 
-WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa' AND @id <> publicaciones.id_usuario)
+WHERE rubros.descripcion_corta = @rubro AND estados.nombre = 'Activa' AND @id <> publicaciones.id_usuario)
 
 SELECT @cantidad
 
@@ -860,7 +861,7 @@ ON publicaciones.codigo = publicaciones_rubros.cod_publicacion
 INNER JOIN WOLOLOX.rubros
 ON rubros.codigo = publicaciones_rubros.cod_rubro
 
-WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa' AND @id <> publicaciones.id_usuario
+WHERE rubros.descripcion_corta = @rubro AND estados.nombre = 'Activa' AND @id <> publicaciones.id_usuario
 
 GO
 
@@ -883,7 +884,7 @@ INNER JOIN WOLOLOX.publicaciones_rubros
 ON publicaciones.codigo = publicaciones_rubros.cod_publicacion
 INNER JOIN WOLOLOX.rubros
 ON rubros.codigo = publicaciones_rubros.cod_rubro
-WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa' AND publicaciones.descripcion LIKE '%'+@descripcion+'%' AND @id <> publicaciones.id_usuario)
+WHERE rubros.descripcion_corta = @rubro AND estados.nombre = 'Activa' AND publicaciones.descripcion LIKE '%'+@descripcion+'%' AND @id <> publicaciones.id_usuario)
 
 SELECT @cantidad
 
@@ -907,7 +908,7 @@ INNER JOIN WOLOLOX.publicaciones_rubros
 ON publicaciones.codigo = publicaciones_rubros.cod_publicacion
 INNER JOIN WOLOLOX.rubros
 ON rubros.codigo = publicaciones_rubros.cod_rubro
-WHERE rubros.descripcion_corta = @rubro AND estados.descripcion_estado = 'Activa' AND publicaciones.descripcion LIKE '%'+@descripcion+'%' AND @id <> publicaciones.id_usuario
+WHERE rubros.descripcion_corta = @rubro AND estados.nombre = 'Activa' AND publicaciones.descripcion LIKE '%'+@descripcion+'%' AND @id <> publicaciones.id_usuario
 
 GO
 
@@ -948,7 +949,7 @@ DECLARE @cantidadCompras int
 
 set @cantidadCompras = (SELECT COUNT(*) FROM WOLOLOX.publicaciones
 										INNER JOIN WOLOLOX.estados ON estados.id_estado = publicaciones.id_estado
-									    WHERE publicaciones.id_usuario = @idUser AND estados.descripcion_estado<>'Borrador')
+									    WHERE publicaciones.id_usuario = @idUser AND estados.nombre<>'Borrador')
 
 SELECT @cantidadCompras
 GO
@@ -992,7 +993,7 @@ GO
   CREATE PROCEDURE WOLOLOX.consultaIDestado(@estado nvarchar(255))
 AS
 DECLARE @idestado int
-SET @idestado =(SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.descripcion_estado = @estado)
+SET @idestado =(SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.nombre = @estado)
 
 SELECT @idestado
 
@@ -1003,7 +1004,7 @@ GO
   CREATE PROCEDURE WOLOLOX.consultaIDestado(@estado nvarchar(255))
 AS
 DECLARE @idestado int
-SET @idestado =(SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.descripcion_estado = @estado)
+SET @idestado =(SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.nombre = @estado)
 
 SELECT @idestado
 
@@ -1548,7 +1549,7 @@ AS
 GO
 
 IF OBJECT_ID('WOLOLOX.BuscarUsuario') IS NOT NULL
-    DROP PROCEDURE WOLOLOX.BuscarUsuarioHabilitado;
+    DROP PROCEDURE WOLOLOX.BuscarUsuario;
 GO
 CREATE PROCEDURE WOLOLOX.BuscarUsuario(@id numeric)
 AS
@@ -1614,6 +1615,8 @@ AS
 	SET mail=@mail,telefono=@tel
 	WHERE id_usuario=@id
 GO
+
+USE GD1C2016
 
 IF OBJECT_ID('WOLOLOX.ActualizarUsuario') IS NOT NULL
     DROP PROCEDURE WOLOLOX.ActualizarUsuario;
