@@ -59,7 +59,7 @@ namespace WindowsFormsApplication1
                     SHA256 CriptoPass = SHA256Managed.Create();
                     byte[] valorHash;
                     valorHash = CriptoPass.ComputeHash(obtenerNumBytes(textoPass.Text));
-                    if (Convert.ToBoolean(adapterUsuarios.login(textoUser.Text, Convert.ToString(valorHash))))
+                    if (Convert.ToBoolean(adapterUsuarios.login(textoUser.Text, valorHash)))
                     {
                         if ((int)adapterUsuarios.cantidadRoles(textoUser.Text) > 1)
                         {
@@ -86,6 +86,8 @@ namespace WindowsFormsApplication1
                             return;
                         case 40001:
                             MessageBox.Show("El Usuario no existe", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            return;
+                        default: MessageBox.Show("Error desconocido"+ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                             return;
                     }
                 }
