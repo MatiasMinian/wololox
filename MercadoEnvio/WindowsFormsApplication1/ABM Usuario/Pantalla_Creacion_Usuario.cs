@@ -86,8 +86,8 @@ namespace WindowsFormsApplication1.ABM_Usuario
             }
             else
             {
-                Pantalla_Datos_Rol_Generico pantallaDatos = new Pantalla_Datos_Rol_Generico(textBox1.Text, textBox2.Text, Convert.ToString(comboBox1.SelectedValue));
-                pantallaDatos.ShowDialog();
+             //   Pantalla_Datos_Rol_Generico pantallaDatos = new Pantalla_Datos_Rol_Generico(textBox1.Text, textBox2.Text, Convert.ToString(comboBox1.SelectedValue));
+             //   pantallaDatos.ShowDialog();
             }
 
         }

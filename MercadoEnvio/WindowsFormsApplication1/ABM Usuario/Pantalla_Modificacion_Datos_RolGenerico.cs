@@ -66,7 +66,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
                 MessageBox.Show("Complete algún campo a modificar");
             }
 
-            userAdapter.actualizarUsuario(Convert.ToDecimal(id), textNom.Text, textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textCodPos.Text);
+            userAdapter.ActualizarUsuario(Convert.ToDecimal(id), textNom.Text, textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textCodPos.Text);
 
         }
     }

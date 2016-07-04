@@ -41,7 +41,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
             {
                 MessageBox.Show("Complete algún campo de búsqueda");
             }
-            dataUsuarios.DataSource = userAdapter.BuscarUsuarioHabilitado(textNombre.Text, textTel.Text, textEmail.Text, textFechaCrea.Text);
+            dataUsuarios.DataSource = userAdapter.BuscarUsuarioHabilitado(textNombre.Text, textTel.Text, textEmail.Text, Convert.ToDateTime(textFechaCrea.Text));
 
         }
 
