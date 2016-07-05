@@ -89,7 +89,7 @@
             this.textCiudad.Location = new System.Drawing.Point(415, 119);
             this.textCiudad.Name = "textCiudad";
             this.textCiudad.Size = new System.Drawing.Size(74, 20);
-            this.textCiudad.TabIndex = 34;
+            this.textCiudad.TabIndex = 8;
             // 
             // label4
             // 
@@ -105,21 +105,21 @@
             this.textPost.Location = new System.Drawing.Point(111, 160);
             this.textPost.Name = "textPost";
             this.textPost.Size = new System.Drawing.Size(74, 20);
-            this.textPost.TabIndex = 24;
+            this.textPost.TabIndex = 9;
             // 
             // textLoc
             // 
             this.textLoc.Location = new System.Drawing.Point(258, 119);
             this.textLoc.Name = "textLoc";
             this.textLoc.Size = new System.Drawing.Size(74, 20);
-            this.textLoc.TabIndex = 23;
+            this.textLoc.TabIndex = 7;
             // 
             // textDepto
             // 
             this.textDepto.Location = new System.Drawing.Point(415, 79);
             this.textDepto.Name = "textDepto";
             this.textDepto.Size = new System.Drawing.Size(74, 20);
-            this.textDepto.TabIndex = 22;
+            this.textDepto.TabIndex = 5;
             // 
             // label12
             // 
@@ -144,7 +144,7 @@
             this.textPiso.Location = new System.Drawing.Point(259, 79);
             this.textPiso.Name = "textPiso";
             this.textPiso.Size = new System.Drawing.Size(74, 20);
-            this.textPiso.TabIndex = 19;
+            this.textPiso.TabIndex = 4;
             // 
             // label10
             // 
@@ -169,21 +169,21 @@
             this.textMail.Location = new System.Drawing.Point(259, 34);
             this.textMail.Name = "textMail";
             this.textMail.Size = new System.Drawing.Size(74, 20);
-            this.textMail.TabIndex = 16;
+            this.textMail.TabIndex = 1;
             // 
             // textNumDom
             // 
             this.textNumDom.Location = new System.Drawing.Point(111, 119);
             this.textNumDom.Name = "textNumDom";
             this.textNumDom.Size = new System.Drawing.Size(74, 20);
-            this.textNumDom.TabIndex = 15;
+            this.textNumDom.TabIndex = 6;
             // 
             // texDom
             // 
             this.texDom.Location = new System.Drawing.Point(414, 34);
             this.texDom.Name = "texDom";
             this.texDom.Size = new System.Drawing.Size(74, 20);
-            this.texDom.TabIndex = 13;
+            this.texDom.TabIndex = 2;
             // 
             // label8
             // 
@@ -226,14 +226,14 @@
             this.textTel.Location = new System.Drawing.Point(111, 78);
             this.textTel.Name = "textTel";
             this.textTel.Size = new System.Drawing.Size(74, 20);
-            this.textTel.TabIndex = 5;
+            this.textTel.TabIndex = 3;
             // 
             // textNom
             // 
             this.textNom.Location = new System.Drawing.Point(111, 34);
             this.textNom.Name = "textNom";
             this.textNom.Size = new System.Drawing.Size(74, 20);
-            this.textNom.TabIndex = 4;
+            this.textNom.TabIndex = 0;
             // 
             // label1
             // 
@@ -249,27 +249,30 @@
             this.button3.Location = new System.Drawing.Point(426, 216);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 37;
+            this.button3.TabIndex = 12;
             this.button3.Text = "Guardar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(234, 216);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 36;
+            this.button2.TabIndex = 11;
             this.button2.Text = "Limpiar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(15, 216);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 35;
+            this.button1.TabIndex = 10;
             this.button1.Text = "Atras";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Pantalla_Datos_Rol_Generico
             // 

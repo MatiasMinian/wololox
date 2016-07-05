@@ -20753,6 +20753,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@localidad", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ciudad", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codPostal", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idRol", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 2, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "WOLOLOX.DeshabilitarUsuario";
@@ -22208,7 +22209,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int CrearUsuarioRolGenerico(string username, string pass, string mail, string tel, string domicilio, global::System.Nullable<decimal> numDom, global::System.Nullable<decimal> piso, string depto, string localidad, string ciudad, string codPostal) {
+        public virtual int CrearUsuarioRolGenerico(string username, string pass, string mail, string tel, string domicilio, global::System.Nullable<decimal> numDom, global::System.Nullable<decimal> piso, string depto, string localidad, string ciudad, string codPostal, global::System.Nullable<decimal> idRol) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((username == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
@@ -22275,6 +22276,12 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
             }
             else {
                 command.Parameters[11].Value = ((string)(codPostal));
+            }
+            if ((idRol.HasValue == true)) {
+                command.Parameters[12].Value = ((decimal)(idRol.Value));
+            }
+            else {
+                command.Parameters[12].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

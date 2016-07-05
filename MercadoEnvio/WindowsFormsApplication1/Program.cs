@@ -28,7 +28,8 @@ namespace WindowsFormsApplication1
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Pantalla_Funcionalidades("Cliente"));
+            Application.Run(new FormularioLogin());
+            //Application.Run(new Pantalla_Funcionalidades("Cliente"));
         }
 
     }

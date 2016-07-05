@@ -42,13 +42,13 @@ namespace WindowsFormsApplication1.ABM_Usuario
             switch (cod)
             {
                 case 0:
-                    if (comboRol.SelectedText == "Cliente")
+                    if (comboRol.Text == "Cliente")
                     {
                         Pantalla_Busqueda_Cliente_A_Modificar menu = new Pantalla_Busqueda_Cliente_A_Modificar();
                         menu.ShowDialog();
                         this.Close();
                     }
-                    else if (comboRol.SelectedText == "Empresa")
+                    else if (comboRol.Text == "Empresa")
                     {
                         Pantalla_Busqueda_Empresa_A_Modificar menu = new Pantalla_Busqueda_Empresa_A_Modificar();
                         menu.ShowDialog();

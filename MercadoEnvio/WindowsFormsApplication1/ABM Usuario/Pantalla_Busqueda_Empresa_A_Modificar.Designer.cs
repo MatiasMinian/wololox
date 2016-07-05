@@ -30,6 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textRubro = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textRepMax = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textRepMin = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.textNom = new System.Windows.Forms.TextBox();
             this.textCUIT = new System.Windows.Forms.TextBox();
             this.textRazSoc = new System.Windows.Forms.TextBox();
@@ -37,29 +43,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataEmpresas = new System.Windows.Forms.DataGridView();
+            this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD1C2016DataSet = new WindowsFormsApplication1.GD1C2016DataSet();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.gD1C2016DataSet = new WindowsFormsApplication1.GD1C2016DataSet();
-            this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.empresasTableAdapter = new WindowsFormsApplication1.GD1C2016DataSetTableAdapters.empresasTableAdapter();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textRepMin = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textRepMax = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textRubro = new System.Windows.Forms.TextBox();
-            this.idusuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.razonsocialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cuitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombrecontactoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reputacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSelec = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataEmpresas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -82,6 +75,54 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
+            // 
+            // textRubro
+            // 
+            this.textRubro.Location = new System.Drawing.Point(231, 22);
+            this.textRubro.Name = "textRubro";
+            this.textRubro.Size = new System.Drawing.Size(80, 20);
+            this.textRubro.TabIndex = 14;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(186, 25);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Rubro:";
+            // 
+            // textRepMax
+            // 
+            this.textRepMax.Location = new System.Drawing.Point(428, 59);
+            this.textRepMax.Name = "textRepMax";
+            this.textRepMax.Size = new System.Drawing.Size(26, 20);
+            this.textRepMax.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(317, 62);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "y menor a:";
+            // 
+            // textRepMin
+            // 
+            this.textRepMin.Location = new System.Drawing.Point(428, 25);
+            this.textRepMin.Name = "textRepMin";
+            this.textRepMin.Size = new System.Drawing.Size(26, 20);
+            this.textRepMin.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(317, 25);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(105, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Reputación mayor a:";
             // 
             // textNom
             // 
@@ -133,22 +174,25 @@
             // 
             // dataEmpresas
             // 
-            this.dataEmpresas.AutoGenerateColumns = false;
+            this.dataEmpresas.AllowUserToAddRows = false;
+            this.dataEmpresas.AllowUserToDeleteRows = false;
             this.dataEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataEmpresas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idusuarioDataGridViewTextBoxColumn,
-            this.razonsocialDataGridViewTextBoxColumn,
-            this.colRubro,
-            this.cuitDataGridViewTextBoxColumn,
-            this.nombrecontactoDataGridViewTextBoxColumn,
-            this.reputacionDataGridViewTextBoxColumn,
-            this.colSelec});
-            this.dataEmpresas.DataSource = this.empresasBindingSource;
             this.dataEmpresas.Location = new System.Drawing.Point(12, 135);
             this.dataEmpresas.Name = "dataEmpresas";
+            this.dataEmpresas.ReadOnly = true;
             this.dataEmpresas.Size = new System.Drawing.Size(519, 150);
             this.dataEmpresas.TabIndex = 2;
             this.dataEmpresas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataEmpresas_CellContentClick);
+            // 
+            // empresasBindingSource
+            // 
+            this.empresasBindingSource.DataMember = "empresas";
+            this.empresasBindingSource.DataSource = this.gD1C2016DataSet;
+            // 
+            // gD1C2016DataSet
+            // 
+            this.gD1C2016DataSet.DataSetName = "GD1C2016DataSet";
+            this.gD1C2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button2
             // 
@@ -180,115 +224,9 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // gD1C2016DataSet
-            // 
-            this.gD1C2016DataSet.DataSetName = "GD1C2016DataSet";
-            this.gD1C2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // empresasBindingSource
-            // 
-            this.empresasBindingSource.DataMember = "empresas";
-            this.empresasBindingSource.DataSource = this.gD1C2016DataSet;
-            // 
             // empresasTableAdapter
             // 
             this.empresasTableAdapter.ClearBeforeFill = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(317, 25);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Reputación mayor a:";
-            // 
-            // textRepMin
-            // 
-            this.textRepMin.Location = new System.Drawing.Point(428, 25);
-            this.textRepMin.Name = "textRepMin";
-            this.textRepMin.Size = new System.Drawing.Size(26, 20);
-            this.textRepMin.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(317, 62);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "y menor a:";
-            // 
-            // textRepMax
-            // 
-            this.textRepMax.Location = new System.Drawing.Point(428, 59);
-            this.textRepMax.Name = "textRepMax";
-            this.textRepMax.Size = new System.Drawing.Size(26, 20);
-            this.textRepMax.TabIndex = 12;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(186, 25);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Rubro:";
-            // 
-            // textRubro
-            // 
-            this.textRubro.Location = new System.Drawing.Point(231, 22);
-            this.textRubro.Name = "textRubro";
-            this.textRubro.Size = new System.Drawing.Size(80, 20);
-            this.textRubro.TabIndex = 14;
-            // 
-            // idusuarioDataGridViewTextBoxColumn
-            // 
-            this.idusuarioDataGridViewTextBoxColumn.DataPropertyName = "id_usuario";
-            this.idusuarioDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.idusuarioDataGridViewTextBoxColumn.Name = "idusuarioDataGridViewTextBoxColumn";
-            this.idusuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idusuarioDataGridViewTextBoxColumn.Width = 40;
-            // 
-            // razonsocialDataGridViewTextBoxColumn
-            // 
-            this.razonsocialDataGridViewTextBoxColumn.DataPropertyName = "razon_social";
-            this.razonsocialDataGridViewTextBoxColumn.HeaderText = "Razón social";
-            this.razonsocialDataGridViewTextBoxColumn.Name = "razonsocialDataGridViewTextBoxColumn";
-            this.razonsocialDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // colRubro
-            // 
-            this.colRubro.HeaderText = "Rubro";
-            this.colRubro.Name = "colRubro";
-            this.colRubro.Width = 60;
-            // 
-            // cuitDataGridViewTextBoxColumn
-            // 
-            this.cuitDataGridViewTextBoxColumn.DataPropertyName = "cuit";
-            this.cuitDataGridViewTextBoxColumn.HeaderText = "CUIT";
-            this.cuitDataGridViewTextBoxColumn.Name = "cuitDataGridViewTextBoxColumn";
-            this.cuitDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // nombrecontactoDataGridViewTextBoxColumn
-            // 
-            this.nombrecontactoDataGridViewTextBoxColumn.DataPropertyName = "nombre_contacto";
-            this.nombrecontactoDataGridViewTextBoxColumn.HeaderText = "Nombre contacto";
-            this.nombrecontactoDataGridViewTextBoxColumn.Name = "nombrecontactoDataGridViewTextBoxColumn";
-            this.nombrecontactoDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // reputacionDataGridViewTextBoxColumn
-            // 
-            this.reputacionDataGridViewTextBoxColumn.DataPropertyName = "reputacion";
-            this.reputacionDataGridViewTextBoxColumn.HeaderText = "Reputación";
-            this.reputacionDataGridViewTextBoxColumn.Name = "reputacionDataGridViewTextBoxColumn";
-            this.reputacionDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // colSelec
-            // 
-            this.colSelec.HeaderText = "Seleccionar";
-            this.colSelec.Name = "colSelec";
-            this.colSelec.Width = 80;
             // 
             // Pantalla_Busqueda_Empresa_A_Modificar
             // 
@@ -307,8 +245,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataEmpresas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -335,12 +273,5 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textRubro;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idusuarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn razonsocialDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRubro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cuitDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombrecontactoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reputacionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn colSelec;
     }
 }
