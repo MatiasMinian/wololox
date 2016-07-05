@@ -1,4 +1,4 @@
-SE GD1C2016
+USE GD1C2016
 
 if object_id('WOLOLOX.clientes') is not null
   drop table WOLOLOX.clientes;
