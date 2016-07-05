@@ -32,6 +32,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textDNI.ResetText();
             textEmail.ResetText();
             infoClientes = cliAdapter.ObtenerClientesHabilitados();
+            dataClientes.Rows.Clear();
             foreach (DataRow row in infoClientes.Rows)
             {
                 dataClientes.Rows.Add(row.Field<Decimal>("id_usuario"), row.Field<String>("nombre"), row.Field<String>("apellido"), row.Field<String>("mail"), row.Field<Decimal>("dni"));
@@ -108,6 +109,8 @@ namespace WindowsFormsApplication1.ABM_Usuario
                 e.RowIndex >= 0)
             {
                 Pantalla_Modificacion_Datos_Cliente pantallaMod = new Pantalla_Modificacion_Datos_Cliente(dataClientes.Rows[e.RowIndex]);
+                pantallaMod.ShowDialog();
+                this.Close();
             }
         }
 

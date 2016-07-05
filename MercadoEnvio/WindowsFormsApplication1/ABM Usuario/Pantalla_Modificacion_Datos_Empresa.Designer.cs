@@ -33,6 +33,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboRubro = new System.Windows.Forms.ComboBox();
+            this.rubrosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD1C2016DataSet = new WindowsFormsApplication1.GD1C2016DataSet();
             this.textTel = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textNomCon = new System.Windows.Forms.TextBox();
@@ -58,13 +61,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboRubro = new System.Windows.Forms.ComboBox();
-            this.gD1C2016DataSet = new WindowsFormsApplication1.GD1C2016DataSet();
-            this.rubrosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rubrosTableAdapter = new WindowsFormsApplication1.GD1C2016DataSetTableAdapters.rubrosTableAdapter();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubrosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -131,6 +131,27 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos adicionales empresa";
+            // 
+            // comboRubro
+            // 
+            this.comboRubro.DataSource = this.rubrosBindingSource;
+            this.comboRubro.DisplayMember = "descripcion_larga";
+            this.comboRubro.FormattingEnabled = true;
+            this.comboRubro.Location = new System.Drawing.Point(561, 29);
+            this.comboRubro.Name = "comboRubro";
+            this.comboRubro.Size = new System.Drawing.Size(95, 21);
+            this.comboRubro.TabIndex = 28;
+            this.comboRubro.ValueMember = "codigo";
+            // 
+            // rubrosBindingSource
+            // 
+            this.rubrosBindingSource.DataMember = "rubros";
+            this.rubrosBindingSource.DataSource = this.gD1C2016DataSet;
+            // 
+            // gD1C2016DataSet
+            // 
+            this.gD1C2016DataSet.DataSetName = "GD1C2016DataSet";
+            this.gD1C2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // textTel
             // 
@@ -333,27 +354,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Razón social:";
             // 
-            // comboRubro
-            // 
-            this.comboRubro.DataSource = this.rubrosBindingSource;
-            this.comboRubro.DisplayMember = "descripcion_corta";
-            this.comboRubro.FormattingEnabled = true;
-            this.comboRubro.Location = new System.Drawing.Point(561, 29);
-            this.comboRubro.Name = "comboRubro";
-            this.comboRubro.Size = new System.Drawing.Size(95, 21);
-            this.comboRubro.TabIndex = 28;
-            this.comboRubro.ValueMember = "codigo";
-            // 
-            // gD1C2016DataSet
-            // 
-            this.gD1C2016DataSet.DataSetName = "GD1C2016DataSet";
-            this.gD1C2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rubrosBindingSource
-            // 
-            this.rubrosBindingSource.DataMember = "rubros";
-            this.rubrosBindingSource.DataSource = this.gD1C2016DataSet;
-            // 
             // rubrosTableAdapter
             // 
             this.rubrosTableAdapter.ClearBeforeFill = true;
@@ -370,11 +370,10 @@
             this.Name = "Pantalla_Modificacion_Datos_Empresa";
             this.ShowIcon = false;
             this.Text = "Modificación de datos de empresa";
-            this.Load += new System.EventHandler(this.Pantalla_Modificacion_Datos_Empresa_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubrosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -12,29 +12,25 @@ namespace WindowsFormsApplication1.ABM_Usuario
 {
     public partial class Pantalla_Modificacion_Datos_RolGenerico : Form
     {
-        private GD1C2016DataSetTableAdapters.usuariosTableAdapter userAdapter;
-        private GD1C2016DataSetTableAdapters.direccionesTableAdapter dirAdapter;
+        private GD1C2016DataSetTableAdapters.usuariosTableAdapter userAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
+        private GD1C2016DataSetTableAdapters.direccionesTableAdapter dirAdapter = new GD1C2016DataSetTableAdapters.direccionesTableAdapter();
         private string id;
-
-        public Pantalla_Modificacion_Datos_RolGenerico()
-        {
-            InitializeComponent();
-        }
 
         public Pantalla_Modificacion_Datos_RolGenerico(DataGridViewRow usuarioSeleccionado)
         {
+            InitializeComponent();
             this.id = usuarioSeleccionado.Cells[0].Value.ToString();
-            textNom.Text = usuarioSeleccionado.Cells[1].Value.ToString();
-            textMail.Text = usuarioSeleccionado.Cells[2].Value.ToString();
-            textTel.Text = usuarioSeleccionado.Cells[3].Value.ToString();
+            textNom.Text = Convert.ToString(usuarioSeleccionado.Cells[1].Value);
+            textMail.Text = Convert.ToString(usuarioSeleccionado.Cells[2].Value);
+            textTel.Text = Convert.ToString(usuarioSeleccionado.Cells[3].Value);
             GD1C2016DataSet.direccionesDataTable direccionData = dirAdapter.BuscarDireccion(Convert.ToDecimal(id));
-            textDom.Text = direccionData.Columns[0].ToString();
-            textNumDom.Text = direccionData.Columns[1].ToString();
-            textPiso.Text = direccionData.Columns[2].ToString();
-            textDepto.Text = direccionData.Columns[3].ToString();
-            textLoc.Text = direccionData.Columns[4].ToString();
-            textCodPos.Text = direccionData.Columns[5].ToString();
-            textCiudad.Text = direccionData.Columns[6].ToString();
+            textDom.Text = direccionData.Rows[0].Field<String>("calle");
+            textNumDom.Text = Convert.ToString(direccionData.Rows[0].Field<Decimal>("numero"));
+            textPiso.Text = Convert.ToString(direccionData.Rows[0].Field<Decimal>("piso"));
+            textDepto.Text = direccionData.Rows[0].Field<String>("departamento");
+            textLoc.Text = direccionData.Rows[0].Field<String>("localidad");
+            textCodPos.Text = direccionData.Rows[0].Field<String>("cod_postal");
+            textCiudad.Text = direccionData.Rows[0].Field<String>("ciudad");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -67,7 +63,9 @@ namespace WindowsFormsApplication1.ABM_Usuario
             }
 
             userAdapter.ActualizarUsuario(Convert.ToDecimal(id), textNom.Text, textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textCodPos.Text);
-
+            MessageBox.Show("Usuario modificado");
+            this.Close();
         }
+
     }
 }

@@ -31,6 +31,8 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textNom.ResetText();
             textRepMax.ResetText();
             textRepMin.ResetText();
+            infoEmpresas = empAdapter.ObtenerEmpresasHabilitadas();
+            dataEmpresas.Rows.Clear();
             foreach (DataRow row in infoEmpresas.Rows)
             {
                 dataEmpresas.Rows.Add(row.Field<Decimal>("id_usuario"), row.Field<String>("razon_social"), row.Field<String>("descripcion_larga"), row.Field<String>("cuit"), row.Field<String>("nombre_contacto"), row.Field<Decimal>("reputacion"));
@@ -121,7 +123,8 @@ namespace WindowsFormsApplication1.ABM_Usuario
                 e.RowIndex >= 0)
             {
                 Pantalla_Modificacion_Datos_Empresa pantallaMod = new Pantalla_Modificacion_Datos_Empresa(dataEmpresas.Rows[e.RowIndex]);
-
+                pantallaMod.ShowDialog();
+                this.Close();
             }
         }
 

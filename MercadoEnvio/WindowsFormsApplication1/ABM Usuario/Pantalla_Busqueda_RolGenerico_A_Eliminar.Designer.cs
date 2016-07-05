@@ -242,7 +242,6 @@
             this.Name = "Pantalla_Busqueda_RolGenerico_A_Eliminar";
             this.ShowIcon = false;
             this.Text = "Selección usuario a eliminar";
-            this.Load += new System.EventHandler(this.Pantalla_Busqueda_RolGenerico_A_Eliminar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).EndInit();

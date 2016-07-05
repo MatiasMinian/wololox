@@ -66,12 +66,14 @@ namespace WindowsFormsApplication1
                             SeleccionRol seleccionRol = new SeleccionRol();
                             seleccionRol.matchearUsuario(textoUser.Text);
                             seleccionRol.ShowDialog();
+                            this.Close();
                         }
                         else
                         {
                             Pantalla_Funcionalidades pantallaFunci = new Pantalla_Funcionalidades((String)adapterUsuarios.obtenerRol(textoUser.Text));
                             pantallaFunci.matchearUsuario(textoUser.Text);
                             pantallaFunci.ShowDialog();
+                            this.Close();
                         }
                     }
                 }

@@ -56,7 +56,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
                     }
                     else
                     {
-                        Pantalla_Busqueda_RolGenerico_A_Modificar menu = new Pantalla_Busqueda_RolGenerico_A_Modificar();
+                        Pantalla_Busqueda_RolGenerico_A_Modificar menu = new Pantalla_Busqueda_RolGenerico_A_Modificar((decimal) comboRol.SelectedValue);
                         menu.ShowDialog();
                         this.Close();
                     }
@@ -76,7 +76,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
                     }
                     else
                     {
-                        Pantalla_Busqueda_RolGenerico_A_Eliminar menu = new Pantalla_Busqueda_RolGenerico_A_Eliminar();
+                        Pantalla_Busqueda_RolGenerico_A_Eliminar menu = new Pantalla_Busqueda_RolGenerico_A_Eliminar((decimal)comboRol.SelectedValue);
                         menu.ShowDialog();
                         this.Close();
                     }
