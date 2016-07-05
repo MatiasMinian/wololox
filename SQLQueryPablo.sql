@@ -562,11 +562,11 @@ DECLARE @estado int
 declare @cantUsuarios numeric
 declare @usrId numeric
 
-set @cantUsuarios = (select COUNT(*) FROM WOLOLOX.usuarios 
+set @cantUsuarios = ISNULL((select COUNT(*) FROM WOLOLOX.usuarios 
 	WHERE nombre_usuario = @UserName
 	AND contraseña = HASHBYTES('SHA2_256', @Password)
 	group by nombre_usuario
-	having count(intentos_login)<3)
+	having count(intentos_login)<3),0)
 
 IF @cantUsuarios = 0
 	BEGIN
