@@ -62,13 +62,13 @@ namespace WindowsFormsApplication1.ABM_Usuario
                     }
                     break;
                 case 1:
-                    if (comboRol.SelectedText == "Cliente")
+                    if (comboRol.Text == "Cliente")
                     {
                         Pantalla_Busqueda_Cliente_A_Eliminar menu = new Pantalla_Busqueda_Cliente_A_Eliminar();
                         menu.ShowDialog();
                         this.Close();
                     }
-                    else if (comboRol.SelectedText == "Empresa")
+                    else if (comboRol.Text == "Empresa")
                     {
                         Pantalla_Busqueda_Empresa_A_Eliminar menu = new Pantalla_Busqueda_Empresa_A_Eliminar();
                         menu.ShowDialog();
@@ -78,6 +78,26 @@ namespace WindowsFormsApplication1.ABM_Usuario
                     {
                         Pantalla_Busqueda_RolGenerico_A_Eliminar menu = new Pantalla_Busqueda_RolGenerico_A_Eliminar((decimal)comboRol.SelectedValue);
                         menu.ShowDialog();
+                        this.Close();
+                    }
+                    break;
+                case 2:
+                    if (comboRol.Text == "Cliente")
+                    {
+                        Pantalla_Busqueda_Cliente_A_Habilitar menu = new Pantalla_Busqueda_Cliente_A_Habilitar();
+                        menu.ShowDialog();
+                        this.Close();
+                    }
+                    else if (comboRol.Text == "Empresa")
+                    {
+                        Pantalla_Busqueda_Empresa_A_Habilitar menu = new Pantalla_Busqueda_Empresa_A_Habilitar();
+                        menu.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        //Pantalla_Busqueda_RolGenerico_A_Habilitar menu = new Pantalla_Busqueda_RolGenerico_A_Habilitar((decimal)comboRol.SelectedValue);
+                        //menu.ShowDialog();
                         this.Close();
                     }
                     break;

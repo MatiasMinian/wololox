@@ -62,8 +62,6 @@ namespace WindowsFormsApplication1 {
         
         private ofertasDataTable tableofertas;
         
-        private global::System.Data.DataRelation relationFK__clientes__id_rol__2630A1B7;
-        
         private global::System.Data.DataRelation relationFK__clientes__id_usu__253C7D7E;
         
         private global::System.Data.DataRelation relationFK__empresas__cod_ru__2CDD9F46;
@@ -668,7 +666,6 @@ namespace WindowsFormsApplication1 {
                     this.tableofertas.InitVars();
                 }
             }
-            this.relationFK__clientes__id_rol__2630A1B7 = this.Relations["FK__clientes__id_rol__2630A1B7"];
             this.relationFK__clientes__id_usu__253C7D7E = this.Relations["FK__clientes__id_usu__253C7D7E"];
             this.relationFK__empresas__cod_ru__2CDD9F46 = this.Relations["FK__empresas__cod_ru__2CDD9F46"];
             this.relationFK__empresas__id_usu__2BE97B0D = this.Relations["FK__empresas__id_usu__2BE97B0D"];
@@ -737,10 +734,6 @@ namespace WindowsFormsApplication1 {
             base.Tables.Add(this.tablecompras);
             this.tableofertas = new ofertasDataTable();
             base.Tables.Add(this.tableofertas);
-            this.relationFK__clientes__id_rol__2630A1B7 = new global::System.Data.DataRelation("FK__clientes__id_rol__2630A1B7", new global::System.Data.DataColumn[] {
-                        this.tableroles.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableclientes.id_rolColumn}, false);
-            this.Relations.Add(this.relationFK__clientes__id_rol__2630A1B7);
             this.relationFK__clientes__id_usu__253C7D7E = new global::System.Data.DataRelation("FK__clientes__id_usu__253C7D7E", new global::System.Data.DataColumn[] {
                         this.tableusuarios.id_usuarioColumn}, new global::System.Data.DataColumn[] {
                         this.tableclientes.id_usuarioColumn}, false);
@@ -1372,8 +1365,6 @@ namespace WindowsFormsApplication1 {
             
             private global::System.Data.DataColumn columnapellido;
             
-            private global::System.Data.DataColumn columnid_rol;
-            
             private global::System.Data.DataColumn columnfecha_nacimiento;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1443,14 +1434,6 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn id_rolColumn {
-                get {
-                    return this.columnid_rol;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn fecha_nacimientoColumn {
                 get {
                     return this.columnfecha_nacimiento;
@@ -1494,18 +1477,14 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public clientesRow AddclientesRow(decimal dni, string nombre, string apellido, rolesRow parentrolesRowByFK__clientes__id_rol__2630A1B7, System.DateTime fecha_nacimiento) {
+            public clientesRow AddclientesRow(decimal dni, string nombre, string apellido, System.DateTime fecha_nacimiento) {
                 clientesRow rowclientesRow = ((clientesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         dni,
                         nombre,
                         apellido,
-                        null,
                         fecha_nacimiento};
-                if ((parentrolesRowByFK__clientes__id_rol__2630A1B7 != null)) {
-                    columnValuesArray[4] = parentrolesRowByFK__clientes__id_rol__2630A1B7[0];
-                }
                 rowclientesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowclientesRow);
                 return rowclientesRow;
@@ -1539,7 +1518,6 @@ namespace WindowsFormsApplication1 {
                 this.columndni = base.Columns["dni"];
                 this.columnnombre = base.Columns["nombre"];
                 this.columnapellido = base.Columns["apellido"];
-                this.columnid_rol = base.Columns["id_rol"];
                 this.columnfecha_nacimiento = base.Columns["fecha_nacimiento"];
             }
             
@@ -1554,8 +1532,6 @@ namespace WindowsFormsApplication1 {
                 base.Columns.Add(this.columnnombre);
                 this.columnapellido = new global::System.Data.DataColumn("apellido", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnapellido);
-                this.columnid_rol = new global::System.Data.DataColumn("id_rol", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_rol);
                 this.columnfecha_nacimiento = new global::System.Data.DataColumn("fecha_nacimiento", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfecha_nacimiento);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -8034,22 +8010,6 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal id_rol {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableclientes.id_rolColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'id_rol\' in table \'clientes\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableclientes.id_rolColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime fecha_nacimiento {
                 get {
                     try {
@@ -8061,17 +8021,6 @@ namespace WindowsFormsApplication1 {
                 }
                 set {
                     this[this.tableclientes.fecha_nacimientoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public rolesRow rolesRow {
-                get {
-                    return ((rolesRow)(this.GetParentRow(this.Table.ParentRelations["FK__clientes__id_rol__2630A1B7"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__clientes__id_rol__2630A1B7"]);
                 }
             }
             
@@ -8120,18 +8069,6 @@ namespace WindowsFormsApplication1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetapellidoNull() {
                 this[this.tableclientes.apellidoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isid_rolNull() {
-                return this.IsNull(this.tableclientes.id_rolColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setid_rolNull() {
-                this[this.tableclientes.id_rolColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10636,17 +10573,6 @@ namespace WindowsFormsApplication1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetestadoNull() {
                 this[this.tableroles.estadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public clientesRow[] GetclientesRows() {
-                if ((this.Table.ChildRelations["FK__clientes__id_rol__2630A1B7"] == null)) {
-                    return new clientesRow[0];
-                }
-                else {
-                    return ((clientesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__clientes__id_rol__2630A1B7"])));
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13580,12 +13506,11 @@ SELECT id_calificacion, cod_compra, estrellas, detalle FROM WOLOLOX.calificacion
             tableMapping.ColumnMappings.Add("dni", "dni");
             tableMapping.ColumnMappings.Add("nombre", "nombre");
             tableMapping.ColumnMappings.Add("apellido", "apellido");
-            tableMapping.ColumnMappings.Add("id_rol", "id_rol");
             tableMapping.ColumnMappings.Add("fecha_nacimiento", "fecha_nacimiento");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [WOLOLOX].[clientes] WHERE (([id_usuario] = @Original_id_usuario) AND ((@IsNull_dni = 1 AND [dni] IS NULL) OR ([dni] = @Original_dni)) AND ((@IsNull_nombre = 1 AND [nombre] IS NULL) OR ([nombre] = @Original_nombre)) AND ((@IsNull_apellido = 1 AND [apellido] IS NULL) OR ([apellido] = @Original_apellido)) AND ((@IsNull_id_rol = 1 AND [id_rol] IS NULL) OR ([id_rol] = @Original_id_rol)) AND ((@IsNull_fecha_nacimiento = 1 AND [fecha_nacimiento] IS NULL) OR ([fecha_nacimiento] = @Original_fecha_nacimiento)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [WOLOLOX].[clientes] WHERE (([id_usuario] = @Original_id_usuario) AND ((@IsNull_dni = 1 AND [dni] IS NULL) OR ([dni] = @Original_dni)) AND ((@IsNull_nombre = 1 AND [nombre] IS NULL) OR ([nombre] = @Original_nombre)) AND ((@IsNull_apellido = 1 AND [apellido] IS NULL) OR ([apellido] = @Original_apellido)) AND ((@IsNull_fecha_nacimiento = 1 AND [fecha_nacimiento] IS NULL) OR ([fecha_nacimiento] = @Original_fecha_nacimiento)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_usuario", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "id_usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dni", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dni", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -13594,29 +13519,27 @@ SELECT id_calificacion, cod_compra, estrellas, detalle FROM WOLOLOX.calificacion
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nombre", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_apellido", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "apellido", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_apellido", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "apellido", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_rol", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rol", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_rol", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 2, 0, "id_rol", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fecha_nacimiento", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_nacimiento", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fecha_nacimiento", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_nacimiento", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [WOLOLOX].[clientes] ([dni], [nombre], [apellido], [id_rol], [fecha_nacimiento]) VALUES (@dni, @nombre, @apellido, @id_rol, @fecha_nacimiento);
-SELECT id_usuario, dni, nombre, apellido, id_rol, fecha_nacimiento FROM WOLOLOX.clientes WHERE (id_usuario = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [WOLOLOX].[clientes] ([id_usuario], [dni], [nombre], [apellido], [fecha_nacimiento]) VALUES (@id_usuario, @dni, @nombre, @apellido, @fecha_nacimiento);
+SELECT id_usuario, dni, nombre, apellido, fecha_nacimiento FROM WOLOLOX.clientes WHERE (id_usuario = @id_usuario)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_usuario", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "id_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dni", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "dni", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@apellido", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "apellido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rol", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 2, 0, "id_rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_nacimiento", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_nacimiento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [WOLOLOX].[clientes] SET [dni] = @dni, [nombre] = @nombre, [apellido] = @apellido, [id_rol] = @id_rol, [fecha_nacimiento] = @fecha_nacimiento WHERE (([id_usuario] = @Original_id_usuario) AND ((@IsNull_dni = 1 AND [dni] IS NULL) OR ([dni] = @Original_dni)) AND ((@IsNull_nombre = 1 AND [nombre] IS NULL) OR ([nombre] = @Original_nombre)) AND ((@IsNull_apellido = 1 AND [apellido] IS NULL) OR ([apellido] = @Original_apellido)) AND ((@IsNull_id_rol = 1 AND [id_rol] IS NULL) OR ([id_rol] = @Original_id_rol)) AND ((@IsNull_fecha_nacimiento = 1 AND [fecha_nacimiento] IS NULL) OR ([fecha_nacimiento] = @Original_fecha_nacimiento)));
-SELECT id_usuario, dni, nombre, apellido, id_rol, fecha_nacimiento FROM WOLOLOX.clientes WHERE (id_usuario = @id_usuario)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [WOLOLOX].[clientes] SET [id_usuario] = @id_usuario, [dni] = @dni, [nombre] = @nombre, [apellido] = @apellido, [fecha_nacimiento] = @fecha_nacimiento WHERE (([id_usuario] = @Original_id_usuario) AND ((@IsNull_dni = 1 AND [dni] IS NULL) OR ([dni] = @Original_dni)) AND ((@IsNull_nombre = 1 AND [nombre] IS NULL) OR ([nombre] = @Original_nombre)) AND ((@IsNull_apellido = 1 AND [apellido] IS NULL) OR ([apellido] = @Original_apellido)) AND ((@IsNull_fecha_nacimiento = 1 AND [fecha_nacimiento] IS NULL) OR ([fecha_nacimiento] = @Original_fecha_nacimiento)));
+SELECT id_usuario, dni, nombre, apellido, fecha_nacimiento FROM WOLOLOX.clientes WHERE (id_usuario = @id_usuario)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_usuario", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "id_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dni", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "dni", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@apellido", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "apellido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rol", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 2, 0, "id_rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_nacimiento", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_nacimiento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_usuario", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "id_usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dni", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dni", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -13625,11 +13548,8 @@ SELECT id_usuario, dni, nombre, apellido, id_rol, fecha_nacimiento FROM WOLOLOX.
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nombre", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_apellido", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "apellido", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_apellido", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "apellido", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_rol", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rol", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_rol", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 2, 0, "id_rol", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fecha_nacimiento", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_nacimiento", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fecha_nacimiento", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_nacimiento", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_usuario", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "id_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13642,11 +13562,10 @@ SELECT id_usuario, dni, nombre, apellido, id_rol, fecha_nacimiento FROM WOLOLOX.
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[10];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_usuario, dni, nombre, apellido, id_rol, fecha_nacimiento FROM WOLOLOX.c" +
-                "lientes";
+            this._commandCollection[0].CommandText = "SELECT id_usuario, dni, nombre, apellido, fecha_nacimiento FROM WOLOLOX.clientes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -13714,10 +13633,28 @@ SELECT id_usuario, dni, nombre, apellido, id_rol, fecha_nacimiento FROM WOLOLOX.
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = "WOLOLOX.HabilitarUsuario";
+            this._commandCollection[7].CommandText = "WOLOLOX.BuscarClienteBloq";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@apellido", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mail", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dni", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[8].Connection = this.Connection;
+            this._commandCollection[8].CommandText = "WOLOLOX.BuscarClienteBloq";
+            this._commandCollection[8].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@apellido", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mail", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dni", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[9].Connection = this.Connection;
+            this._commandCollection[9].CommandText = "WOLOLOX.HabilitarUsuario";
+            this._commandCollection[9].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13867,6 +13804,150 @@ SELECT id_usuario, dni, nombre, apellido, id_rol, fecha_nacimiento FROM WOLOLOX.
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy3(GD1C2016DataSet.clientesDataTable dataTable, string nombre, string apellido, string mail, global::System.Nullable<decimal> dni) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            if ((nombre == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(nombre));
+            }
+            if ((apellido == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(apellido));
+            }
+            if ((mail == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(mail));
+            }
+            if ((dni.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((decimal)(dni.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD1C2016DataSet.clientesDataTable BuscarUsuarioBloq(string nombre, string apellido, string mail, global::System.Nullable<decimal> dni) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            if ((nombre == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(nombre));
+            }
+            if ((apellido == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(apellido));
+            }
+            if ((mail == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(mail));
+            }
+            if ((dni.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((decimal)(dni.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            GD1C2016DataSet.clientesDataTable dataTable = new GD1C2016DataSet.clientesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy4(GD1C2016DataSet.clientesDataTable dataTable, string nombre, string apellido, string mail, global::System.Nullable<decimal> dni) {
+            this.Adapter.SelectCommand = this.CommandCollection[8];
+            if ((nombre == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(nombre));
+            }
+            if ((apellido == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(apellido));
+            }
+            if ((mail == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(mail));
+            }
+            if ((dni.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((decimal)(dni.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD1C2016DataSet.clientesDataTable BuscarClienteBloq(string nombre, string apellido, string mail, global::System.Nullable<decimal> dni) {
+            this.Adapter.SelectCommand = this.CommandCollection[8];
+            if ((nombre == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(nombre));
+            }
+            if ((apellido == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(apellido));
+            }
+            if ((mail == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(mail));
+            }
+            if ((dni.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((decimal)(dni.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            GD1C2016DataSet.clientesDataTable dataTable = new GD1C2016DataSet.clientesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(GD1C2016DataSet.clientesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
@@ -13897,7 +13978,7 @@ SELECT id_usuario, dni, nombre, apellido, id_rol, fecha_nacimiento FROM WOLOLOX.
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(decimal Original_id_usuario, global::System.Nullable<decimal> Original_dni, string Original_nombre, string Original_apellido, global::System.Nullable<decimal> Original_id_rol, global::System.Nullable<global::System.DateTime> Original_fecha_nacimiento) {
+        public virtual int Delete(decimal Original_id_usuario, global::System.Nullable<decimal> Original_dni, string Original_nombre, string Original_apellido, global::System.Nullable<global::System.DateTime> Original_fecha_nacimiento) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(Original_id_usuario));
             if ((Original_dni.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -13923,21 +14004,13 @@ SELECT id_usuario, dni, nombre, apellido, id_rol, fecha_nacimiento FROM WOLOLOX.
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_apellido));
             }
-            if ((Original_id_rol.HasValue == true)) {
+            if ((Original_fecha_nacimiento.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_id_rol.Value));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_fecha_nacimiento.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((Original_fecha_nacimiento.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_fecha_nacimiento.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -13959,30 +14032,25 @@ SELECT id_usuario, dni, nombre, apellido, id_rol, fecha_nacimiento FROM WOLOLOX.
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<decimal> dni, string nombre, string apellido, global::System.Nullable<decimal> id_rol, global::System.Nullable<global::System.DateTime> fecha_nacimiento) {
+        public virtual int Insert(decimal id_usuario, global::System.Nullable<decimal> dni, string nombre, string apellido, global::System.Nullable<global::System.DateTime> fecha_nacimiento) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(id_usuario));
             if ((dni.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(dni.Value));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(dni.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((nombre == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(nombre));
-            }
-            if ((apellido == null)) {
+            if ((nombre == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(apellido));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(nombre));
             }
-            if ((id_rol.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(id_rol.Value));
+            if ((apellido == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(apellido));
             }
             if ((fecha_nacimiento.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(fecha_nacimiento.Value));
@@ -14010,30 +14078,25 @@ SELECT id_usuario, dni, nombre, apellido, id_rol, fecha_nacimiento FROM WOLOLOX.
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<decimal> dni, string nombre, string apellido, global::System.Nullable<decimal> id_rol, global::System.Nullable<global::System.DateTime> fecha_nacimiento, decimal Original_id_usuario, global::System.Nullable<decimal> Original_dni, string Original_nombre, string Original_apellido, global::System.Nullable<decimal> Original_id_rol, global::System.Nullable<global::System.DateTime> Original_fecha_nacimiento, decimal id_usuario) {
+        public virtual int Update(decimal id_usuario, global::System.Nullable<decimal> dni, string nombre, string apellido, global::System.Nullable<global::System.DateTime> fecha_nacimiento, decimal Original_id_usuario, global::System.Nullable<decimal> Original_dni, string Original_nombre, string Original_apellido, global::System.Nullable<global::System.DateTime> Original_fecha_nacimiento) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(id_usuario));
             if ((dni.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(dni.Value));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(dni.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((nombre == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(nombre));
-            }
-            if ((apellido == null)) {
+            if ((nombre == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(apellido));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(nombre));
             }
-            if ((id_rol.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(id_rol.Value));
+            if ((apellido == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(apellido));
             }
             if ((fecha_nacimiento.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(fecha_nacimiento.Value));
@@ -14066,23 +14129,14 @@ SELECT id_usuario, dni, nombre, apellido, id_rol, fecha_nacimiento FROM WOLOLOX.
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_apellido));
             }
-            if ((Original_id_rol.HasValue == true)) {
+            if ((Original_fecha_nacimiento.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_id_rol.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_fecha_nacimiento.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((Original_fecha_nacimiento.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(Original_fecha_nacimiento.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(id_usuario));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -14103,8 +14157,8 @@ SELECT id_usuario, dni, nombre, apellido, id_rol, fecha_nacimiento FROM WOLOLOX.
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<decimal> dni, string nombre, string apellido, global::System.Nullable<decimal> id_rol, global::System.Nullable<global::System.DateTime> fecha_nacimiento, decimal Original_id_usuario, global::System.Nullable<decimal> Original_dni, string Original_nombre, string Original_apellido, global::System.Nullable<decimal> Original_id_rol, global::System.Nullable<global::System.DateTime> Original_fecha_nacimiento) {
-            return this.Update(dni, nombre, apellido, id_rol, fecha_nacimiento, Original_id_usuario, Original_dni, Original_nombre, Original_apellido, Original_id_rol, Original_fecha_nacimiento, Original_id_usuario);
+        public virtual int Update(global::System.Nullable<decimal> dni, string nombre, string apellido, global::System.Nullable<global::System.DateTime> fecha_nacimiento, decimal Original_id_usuario, global::System.Nullable<decimal> Original_dni, string Original_nombre, string Original_apellido, global::System.Nullable<global::System.DateTime> Original_fecha_nacimiento) {
+            return this.Update(Original_id_usuario, dni, nombre, apellido, fecha_nacimiento, Original_id_usuario, Original_dni, Original_nombre, Original_apellido, Original_fecha_nacimiento);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14357,7 +14411,7 @@ SELECT id_usuario, dni, nombre, apellido, id_rol, fecha_nacimiento FROM WOLOLOX.
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int HabilitarUsuario(global::System.Nullable<decimal> id) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[9];
             if ((id.HasValue == true)) {
                 command.Parameters[1].Value = ((decimal)(id.Value));
             }
@@ -15160,7 +15214,7 @@ SELECT id_usuario, razon_social, cuit, nombre_contacto, cod_rubro, reputacion FR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[9];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id_usuario, razon_social, cuit, nombre_contacto, cod_rubro, reputacion FRO" +
@@ -15234,10 +15288,21 @@ SELECT id_usuario, razon_social, cuit, nombre_contacto, cod_rubro, reputacion FR
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = "WOLOLOX.HabilitarUsuario";
+            this._commandCollection[7].CommandText = "WOLOLOX.BuscarEmpresaBloq";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@razSoc", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cuit", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nomCon", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rubro", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@repMin", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 3, 2, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@repMax", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 3, 2, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[8].Connection = this.Connection;
+            this._commandCollection[8].CommandText = "WOLOLOX.HabilitarUsuario";
+            this._commandCollection[8].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15823,6 +15888,102 @@ SELECT id_usuario, razon_social, cuit, nombre_contacto, cod_rubro, reputacion FR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy5(GD1C2016DataSet.empresasDataTable dataTable, string razSoc, string cuit, string nomCon, string rubro, global::System.Nullable<decimal> repMin, global::System.Nullable<decimal> repMax) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            if ((razSoc == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(razSoc));
+            }
+            if ((cuit == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(cuit));
+            }
+            if ((nomCon == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(nomCon));
+            }
+            if ((rubro == null)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(rubro));
+            }
+            if ((repMin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[5].Value = ((decimal)(repMin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((repMax.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[6].Value = ((decimal)(repMax.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD1C2016DataSet.empresasDataTable BuscarEmpresaBloq(string razSoc, string cuit, string nomCon, string rubro, global::System.Nullable<decimal> repMin, global::System.Nullable<decimal> repMax) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            if ((razSoc == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(razSoc));
+            }
+            if ((cuit == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(cuit));
+            }
+            if ((nomCon == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(nomCon));
+            }
+            if ((rubro == null)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(rubro));
+            }
+            if ((repMin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[5].Value = ((decimal)(repMin.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((repMax.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[6].Value = ((decimal)(repMax.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            GD1C2016DataSet.empresasDataTable dataTable = new GD1C2016DataSet.empresasDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(GD1C2016DataSet.empresasDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
@@ -16095,7 +16256,7 @@ SELECT id_usuario, razon_social, cuit, nombre_contacto, cod_rubro, reputacion FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int HabilitarUsuario(global::System.Nullable<decimal> id) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
             if ((id.HasValue == true)) {
                 command.Parameters[1].Value = ((decimal)(id.Value));
             }
