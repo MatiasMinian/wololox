@@ -474,7 +474,6 @@ select u.id_usuario,(select id from roles where nombre LIKE 'empresa') from usua
 where u.id_usuario = e.id_usuario
 GO
 
-<<<<<<< HEAD
 --Procedures y triggers
 
 
@@ -1438,7 +1437,7 @@ USE GD1C2016
 IF OBJECT_ID('WOLOLOX.CrearUsuarioRolGenerico') IS NOT NULL
     DROP PROCEDURE WOLOLOX.CrearUsuarioRolGenerico;
 GO
-CREATE PROCEDURE WOLOLOX.CrearUsuarioRolGenerico(@username nvarchar(50), @pass nvarchar(25), @mail nvarchar(50), @tel nvarchar(50), @domicilio nvarchar(100),@numDom numeric(19,0), @piso numeric(18,0), @depto nvarchar(50),@localidad nvarchar(100),@ciudad nvarchar(100),@codPostal nvarchar(50))
+CREATE PROCEDURE WOLOLOX.CrearUsuarioRolGenerico(@username nvarchar(50), @pass nvarchar(25), @mail nvarchar(50), @tel nvarchar(50), @domicilio nvarchar(100),@numDom numeric(19,0), @piso numeric(18,0), @depto nvarchar(50),@localidad nvarchar(100),@ciudad nvarchar(100),@codPostal nvarchar(50), @idRol numeric(2,0))
 AS
 	
 	INSERT INTO WOLOLOX.usuarios(nombre_usuario,contraseña,mail,fecha_creacion,intentos_login,telefono)
@@ -1446,6 +1445,8 @@ AS
 	declare @fkUsuario numeric(18,0) = scope_identity();   
 	INSERT INTO WOLOLOX.direcciones(calle, numero, piso, departamento, localidad, cod_postal, ciudad, id_usuario)
 	VALUES (@domicilio,@numDom,@piso,@depto,@localidad,@codPostal,@ciudad,@fkUsuario)
+	INSERT INTO WOLOLOX.roles_usuarios(id_rol, id_usuario)
+	VALUES (@idRol,@fkUsuario)
 	
 GO
 
@@ -1462,6 +1463,8 @@ AS
 	VALUES	(@apellido,@nombre,@dni,@fechaNac,@fkUsuario)
 	INSERT INTO WOLOLOX.direcciones(calle, numero, piso, departamento, localidad, cod_postal, ciudad,id_usuario)
 	VALUES (@domicilio,@numDom,@piso,@depto,@localidad,@codPostal,@ciudad,@fkUsuario)
+	INSERT INTO WOLOLOX.roles_usuarios(id_rol,id_usuario)
+	VALUES ((SELECT id FROM roles r WHERE r.nombre='Cliente'),@fkUsuario)
 	
 GO
 
@@ -1479,6 +1482,8 @@ AS
 	VALUES	(@fkUsuario, @razSoc,@nomContac,@cuit,0, (SELECT codigo FROM WOLOLOX.rubros where descripcion_corta=@rubro))
 	INSERT INTO WOLOLOX.direcciones(calle, numero, piso, departamento, localidad, cod_postal, ciudad,id_usuario)
 	VALUES (@domicilio,@numDom,@piso,@depto,@localidad,@codPostal,@ciudad,@fkUsuario)
+	INSERT INTO WOLOLOX.roles_usuarios(id_rol,id_usuario)
+	VALUES ((SELECT id FROM roles r WHERE r.nombre='Empresa'),@fkUsuario)
 	
 GO
 
@@ -1487,7 +1492,7 @@ IF OBJECT_ID('WOLOLOX.ObtenerClientesHabilitados') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.ObtenerClientesHabilitados
 AS
-    SELECT c.id_usuario, c.nombre, c.apellido, c.dni
+    SELECT c.id_usuario, c.nombre, c.apellido,u.mail, c.dni
 	FROM WOLOLOX.clientes c, WOLOLOX.usuarios u
 	WHERE c.id_usuario=u.id_usuario AND u.habilitado=1
 GO
@@ -1497,12 +1502,10 @@ IF OBJECT_ID('WOLOLOX.ObtenerEmpresasHabilitadas') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.ObtenerEmpresasHabilitadas
 AS
-    SELECT e.id_usuario, e.razon_social, e.cuit, e.nombre_contacto, e.reputacion
-	FROM WOLOLOX.empresas e, WOLOLOX.usuarios u
-	WHERE e.id_usuario=u.id_usuario AND u.habilitado=1
+    SELECT e.id_usuario, e.razon_social,r.descripcion_larga, e.cuit, e.nombre_contacto, e.reputacion
+	FROM WOLOLOX.empresas e, WOLOLOX.usuarios u, rubros r
+	WHERE e.id_usuario=u.id_usuario AND u.habilitado=1 AND r.codigo=e.cod_rubro
 GO
-
-
 
 IF OBJECT_ID('WOLOLOX.ObtenerClientesBloqueados') IS NOT NULL
     DROP PROCEDURE WOLOLOX.ObtenerClientesBloqueados;
@@ -1578,15 +1581,19 @@ GO
 IF OBJECT_ID('WOLOLOX.BuscarCliente') IS NOT NULL
     DROP PROCEDURE WOLOLOX.BuscarCliente;
 GO
-CREATE PROCEDURE WOLOLOX.BuscarCliente(@nombre nvarchar(255), @apellido nvarchar(255), @mail nvarchar(50), @dni numeric(18,0))
+CREATE PROCEDURE WOLOLOX.BuscarCliente(@nombre nvarchar(255), @apellido nvarchar(255), @mail nvarchar(255), @dni numeric(18,0))
 AS
-     
-    SELECT clientes.*
-	FROM WOLOLOX.clientes, WOLOLOX.usuarios
-	WHERE (@nombre IS NULL OR nombre LIKE @nombre)
-	AND (@apellido IS NULL OR apellido LIKE @apellido)
-	AND (@mail IS NULL OR (@mail LIKE usuarios.mail AND usuarios.id_usuario=clientes.id_usuario))
-	AND (@dni IS NULL OR dni=@dni)
+    declare @query nvarchar(256)
+	set @query = 'SELECT nombre,apellido,mail,dni FROM WOLOLOX.clientes c, WOLOLOX.usuarios u WHERE 1=1 AND c.id_usuario=u.id_usuario AND u.habilitado=1'
+
+	if(LEN(@nombre) > 0) SET @query += ' AND nombre LIKE '+QUOTENAME(@nombre,'''') +' ';
+	if(LEN(@apellido) > 0) SET @query += ' AND apellido LIKE '+QUOTENAME(@apellido,'''')+' ';
+	if(LEN(@mail) > 0) SET @query += ' AND mail LIKE '+QUOTENAME(@mail,'''')+' ';
+	if((@dni) > 0) SET @query += ' AND dni LIKE '+QUOTENAME(@dni,'''')+' ';
+		
+	print @query
+
+	execute sp_executesql @query
 GO
 
 IF OBJECT_ID('WOLOLOX.ActualizarCliente') IS NOT NULL
@@ -1629,15 +1636,20 @@ IF OBJECT_ID('WOLOLOX.BuscarEmpresa') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.BuscarEmpresa(@razSoc nvarchar(255), @cuit nvarchar(50), @nomCon nvarchar(100),@rubro nvarchar(20), @repMin numeric(3,2), @repMax numeric(3,2))
 AS
-     
-    SELECT e.id_usuario, e.razon_social, r.descripcion_corta, e.cuit, e.nombre_contacto, e.reputacion
-	FROM WOLOLOX.empresas e, WOLOLOX.rubros r
-	WHERE (@razSoc IS NULL OR razon_social LIKE @razSoc)
-	AND (@cuit IS NULL OR cuit LIKE @cuit)
-	AND (@nomCon IS NULL OR nombre_contacto LIKE @nomCon)
-	AND (@repMin IS NULL OR @repMin<reputacion)
-	AND (@repMax IS NULL OR @repMax>reputacion)
-	AND (@rubro IS NULL OR (@rubro LIKE r.descripcion_corta AND e.cod_rubro=r.codigo))
+    declare @query nvarchar(256)
+	set @query = 'SELECT razon_social,descripcion_larga,cuit,nombre_contacto,reputacion FROM WOLOLOX.empresas e, WOLOLOX.usuarios u, WOLOLOX.rubros r WHERE 1=1 AND e.id_usuario=u.id_usuario AND e.cod_rubro=r.codigo'
+
+	if(LEN(@razSoc) > 0) SET @query += ' AND razon_social LIKE '+QUOTENAME(@razSoc,'''') +' ';
+	if(LEN(@cuit) > 0) SET @query += ' AND cuit LIKE '+QUOTENAME(@cuit,'''')+' ';
+	if(LEN(@nomCon) > 0) SET @query += ' AND nombre_contacto LIKE '+QUOTENAME(@nomCon,'''')+' ';
+	if(LEN(@rubro) > 0) SET @query += ' AND descripcion_larga LIKE '+QUOTENAME(@rubro,'''')+' ';
+	if((@repMin) > 0) SET @query += ' AND reputacion> '+QUOTENAME(@repMin,'''')+' ';
+	if((@repMax) > 0) SET @query += ' AND reputacion> '+QUOTENAME(@repMax,'''')+' ';
+		
+	print @query
+
+	execute sp_executesql @query
+   
 GO
 
 IF OBJECT_ID('WOLOLOX.ActualizarEmpresa') IS NOT NULL
@@ -1853,6 +1865,3 @@ AS
 
 	COMMIT
 GO
-
-=======
->>>>>>> 9e7c4b3d99d54bf2ff986cdf8819959ce1da7610

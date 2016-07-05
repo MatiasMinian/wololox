@@ -72,7 +72,7 @@
             this.button1.Location = new System.Drawing.Point(12, 226);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 13;
             this.button1.Text = "Atras";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -82,7 +82,7 @@
             this.button2.Location = new System.Drawing.Point(298, 226);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
+            this.button2.TabIndex = 14;
             this.button2.Text = "Limpiar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -92,7 +92,7 @@
             this.button3.Location = new System.Drawing.Point(590, 226);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
+            this.button3.TabIndex = 15;
             this.button3.Text = "Guardar";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -135,12 +135,12 @@
             // comboRubro
             // 
             this.comboRubro.DataSource = this.rubrosBindingSource;
-            this.comboRubro.DisplayMember = "descripcion_corta";
+            this.comboRubro.DisplayMember = "descripcion_larga";
             this.comboRubro.FormattingEnabled = true;
             this.comboRubro.Location = new System.Drawing.Point(549, 33);
             this.comboRubro.Name = "comboRubro";
             this.comboRubro.Size = new System.Drawing.Size(98, 21);
-            this.comboRubro.TabIndex = 32;
+            this.comboRubro.TabIndex = 3;
             // 
             // rubrosBindingSource
             // 
@@ -157,7 +157,7 @@
             this.textTel.Location = new System.Drawing.Point(80, 118);
             this.textTel.Name = "textTel";
             this.textTel.Size = new System.Drawing.Size(74, 20);
-            this.textTel.TabIndex = 27;
+            this.textTel.TabIndex = 8;
             // 
             // label13
             // 
@@ -173,21 +173,21 @@
             this.textNomCon.Location = new System.Drawing.Point(119, 160);
             this.textNomCon.Name = "textNomCon";
             this.textNomCon.Size = new System.Drawing.Size(74, 20);
-            this.textNomCon.TabIndex = 24;
+            this.textNomCon.TabIndex = 12;
             // 
             // textCiudad
             // 
             this.textCiudad.Location = new System.Drawing.Point(549, 118);
             this.textCiudad.Name = "textCiudad";
             this.textCiudad.Size = new System.Drawing.Size(98, 20);
-            this.textCiudad.TabIndex = 23;
+            this.textCiudad.TabIndex = 11;
             // 
             // textDepto
             // 
             this.textDepto.Location = new System.Drawing.Point(549, 75);
             this.textDepto.Name = "textDepto";
             this.textDepto.Size = new System.Drawing.Size(98, 20);
-            this.textDepto.TabIndex = 22;
+            this.textDepto.TabIndex = 7;
             // 
             // label12
             // 
@@ -212,7 +212,7 @@
             this.textCodPos.Location = new System.Drawing.Point(427, 118);
             this.textCodPos.Name = "textCodPos";
             this.textCodPos.Size = new System.Drawing.Size(74, 20);
-            this.textCodPos.TabIndex = 19;
+            this.textCodPos.TabIndex = 10;
             // 
             // label10
             // 
@@ -237,28 +237,28 @@
             this.textDom.Location = new System.Drawing.Point(80, 75);
             this.textDom.Name = "textDom";
             this.textDom.Size = new System.Drawing.Size(74, 20);
-            this.textDom.TabIndex = 16;
+            this.textDom.TabIndex = 4;
             // 
             // textCuit
             // 
             this.textCuit.Location = new System.Drawing.Point(234, 33);
             this.textCuit.Name = "textCuit";
             this.textCuit.Size = new System.Drawing.Size(74, 20);
-            this.textCuit.TabIndex = 15;
+            this.textCuit.TabIndex = 1;
             // 
             // textPiso
             // 
             this.textPiso.Location = new System.Drawing.Point(427, 75);
             this.textPiso.Name = "textPiso";
             this.textPiso.Size = new System.Drawing.Size(74, 20);
-            this.textPiso.TabIndex = 14;
+            this.textPiso.TabIndex = 6;
             // 
             // textLocal
             // 
             this.textLocal.Location = new System.Drawing.Point(234, 118);
             this.textLocal.Name = "textLocal";
             this.textLocal.Size = new System.Drawing.Size(74, 20);
-            this.textLocal.TabIndex = 13;
+            this.textLocal.TabIndex = 9;
             // 
             // label8
             // 
@@ -301,7 +301,7 @@
             this.textMail.Location = new System.Drawing.Point(427, 34);
             this.textMail.Name = "textMail";
             this.textMail.Size = new System.Drawing.Size(74, 20);
-            this.textMail.TabIndex = 7;
+            this.textMail.TabIndex = 2;
             // 
             // textNumDom
             // 
@@ -315,7 +315,7 @@
             this.textNombre.Location = new System.Drawing.Point(80, 34);
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(74, 20);
-            this.textNombre.TabIndex = 4;
+            this.textNombre.TabIndex = 0;
             // 
             // label4
             // 

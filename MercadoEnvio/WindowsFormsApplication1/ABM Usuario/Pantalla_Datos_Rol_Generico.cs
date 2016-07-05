@@ -14,13 +14,14 @@ namespace WindowsFormsApplication1.ABM_Usuario
     {
         private String idUsuario;
         private String contraseña;
-        private String idRol;
+        private int idRol;
 
         public Pantalla_Datos_Rol_Generico(String id, String pass, String idRol)
         {
             InitializeComponent();
             this.idUsuario = id;
             this.contraseña = pass;
+            this.idRol = Convert.ToInt32(idRol);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -47,8 +48,14 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
             }
             GD1C2016DataSetTableAdapters.usuariosTableAdapter usrAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
-            usrAdapter.CrearUsuarioRolGenerico(idUsuario, contraseña, textMail.Text, textTel.Text, texDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textPost.Text);
+            usrAdapter.CrearUsuarioRolGenerico(idUsuario, contraseña, textMail.Text, textTel.Text, texDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textPost.Text,idRol);
             MessageBox.Show("Usuario creado");
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
