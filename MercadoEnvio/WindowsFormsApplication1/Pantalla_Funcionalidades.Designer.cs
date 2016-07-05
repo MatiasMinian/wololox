@@ -165,6 +165,7 @@
             // 
             // botonFacturas
             // 
+            this.botonFacturas.Enabled = false;
             this.botonFacturas.Location = new System.Drawing.Point(133, 305);
             this.botonFacturas.Name = "botonFacturas";
             this.botonFacturas.Size = new System.Drawing.Size(122, 23);

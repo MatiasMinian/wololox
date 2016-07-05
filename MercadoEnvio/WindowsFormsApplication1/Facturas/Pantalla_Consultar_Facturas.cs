@@ -155,7 +155,7 @@ namespace WindowsFormsApplication1.Facturas
                         detalle = textBox4.Text;
 
                         elementoInicial = (pageNumber - 1) * 6;
-
+                                     
                         cantRows = Convert.ToDouble(factuAdapter.cantidadDeFacturas(idConsulta, fecha1, fecha2, importe1, importe2, detalle));
 
                         maxPages = Math.Ceiling(cantRows / 6);
@@ -176,8 +176,8 @@ namespace WindowsFormsApplication1.Facturas
 
                                 dataGridView1.Rows.Add(row.Field<Decimal>("nro_fact"),
                                                        row.Field<String>("descripcion"),
+                                                       row.Field<Object>("id_compra"),
                                                        row.Field<DateTime>("fecha"),
-                                                       row.Field<Decimal>("cantidad"),
                                                        row.Field<Decimal>("total"));
                             }
 
@@ -257,10 +257,10 @@ namespace WindowsFormsApplication1.Facturas
             {
 
                 dataGridView1.Rows.Add(row.Field<Decimal>("nro_fact"),
-                                       row.Field<String>("descripcion"),
-                                       row.Field<DateTime>("fecha"),
-                                       row.Field<Decimal>("cantidad"),
-                                       row.Field<Decimal>("total"));
+                                                       row.Field<String>("descripcion"),
+                                                       row.Field<Object>("id_compra"),
+                                                       row.Field<DateTime>("fecha"),
+                                                       row.Field<Decimal>("total"));
             }
 
 
@@ -291,10 +291,10 @@ namespace WindowsFormsApplication1.Facturas
                 {
 
                     dataGridView1.Rows.Add(row.Field<Decimal>("nro_fact"),
-                                           row.Field<String>("descripcion"),
-                                           row.Field<DateTime>("fecha"),
-                                           row.Field<Decimal>("cantidad"),
-                                           row.Field<Decimal>("total"));
+                                                       row.Field<String>("descripcion"),
+                                                       row.Field<Object>("id_compra"),
+                                                       row.Field<DateTime>("fecha"),
+                                                       row.Field<Decimal>("total"));
                 }
             
         }

@@ -62,7 +62,7 @@ namespace WindowsFormsApplication1.ComprarOfertar
                 var appDate = DateTime.Parse(value);
 
                 ofertaAdapter = new GD1C2016DataSetTableAdapters.ofertasTableAdapter();
-                ofertaAdapter.Insert(id_User,codigoPublicacion,appDate,Convert.ToDecimal(textBox2.Text));
+                ofertaAdapter.insertOferta(id_User,codigoPublicacion,appDate,Convert.ToDecimal(textBox2.Text));
                 MessageBox.Show("Oferta realizada correctamente");
                 this.Close();
                 pantallaCompra.Close();

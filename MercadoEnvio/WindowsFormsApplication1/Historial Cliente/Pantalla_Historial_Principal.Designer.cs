@@ -30,6 +30,7 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.ColumnCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,7 +39,6 @@
             this.ColumnaFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaEstrellas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +48,7 @@
             this.groupBox1.Controls.Add(this.dataGridView2);
             this.groupBox1.Location = new System.Drawing.Point(12, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(731, 267);
+            this.groupBox1.Size = new System.Drawing.Size(788, 267);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Historial de compras y subastas";
@@ -68,8 +68,18 @@
             this.ColumnaVendedor});
             this.dataGridView2.Location = new System.Drawing.Point(6, 19);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(719, 242);
+            this.dataGridView2.Size = new System.Drawing.Size(776, 242);
             this.dataGridView2.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 275);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Atras";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ColumnCompra
             // 
@@ -112,25 +122,16 @@
             // 
             // ColumnaVendedor
             // 
+            this.ColumnaVendedor.FillWeight = 105F;
             this.ColumnaVendedor.HeaderText = "Vendedor";
             this.ColumnaVendedor.Name = "ColumnaVendedor";
-            this.ColumnaVendedor.Width = 110;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 275);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Atras";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ColumnaVendedor.Width = 151;
             // 
             // Pantalla_Historial_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 304);
+            this.ClientSize = new System.Drawing.Size(815, 304);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Pantalla_Historial_Principal";

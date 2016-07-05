@@ -33,7 +33,7 @@ namespace WindowsFormsApplication1.Listado_Estadistico
             {
 
 
-                comboBox2.Items.Add(row[1]);
+                comboBox2.Items.Add(row[2]);
 
 
             }

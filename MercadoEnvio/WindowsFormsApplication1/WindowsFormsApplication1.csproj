@@ -103,6 +103,24 @@
     <Compile Include="ABM Usuario\Pantalla_Busqueda_Cliente_A_Modificar_Password.Designer.cs">
       <DependentUpon>Pantalla_Busqueda_Cliente_A_Modificar_Password.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_RolGenerico_A_Eliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_RolGenerico_A_Eliminar.Designer.cs">
+      <DependentUpon>Pantalla_Busqueda_RolGenerico_A_Eliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_RolGenerico_A_Modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_RolGenerico_A_Modificar.Designer.cs">
+      <DependentUpon>Pantalla_Busqueda_RolGenerico_A_Modificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Datos_Rol_Generico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Datos_Rol_Generico.Designer.cs">
+      <DependentUpon>Pantalla_Datos_Rol_Generico.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Usuario\Pantalla_Elección_Usuario_A_Modificar_Password.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +193,12 @@
     <Compile Include="ABM Usuario\Pantalla_Busqueda_Empresa_A_Modificar.Designer.cs">
       <DependentUpon>Pantalla_Busqueda_Empresa_A_Modificar.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Modificacion_Datos_RolGenerico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Modificacion_Datos_RolGenerico.Designer.cs">
+      <DependentUpon>Pantalla_Modificacion_Datos_RolGenerico.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Usuario\Pantalla_Modificacion_Principal_Empresa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +240,12 @@
     </Compile>
     <Compile Include="ABM Usuario\Pantalla_Modificación_Password.Designer.cs">
       <DependentUpon>Pantalla_Modificación_Password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Modif_Eleccion_Rol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Modif_Eleccion_Rol.Designer.cs">
+      <DependentUpon>Pantalla_Modif_Eleccion_Rol.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Usuario\Pantalla_Usuario_Principal.cs">
       <SubType>Form</SubType>
@@ -465,6 +495,15 @@
     <EmbeddedResource Include="ABM Usuario\Pantalla_Busqueda_Cliente_A_Modificar_Password.resx">
       <DependentUpon>Pantalla_Busqueda_Cliente_A_Modificar_Password.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Busqueda_RolGenerico_A_Eliminar.resx">
+      <DependentUpon>Pantalla_Busqueda_RolGenerico_A_Eliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Busqueda_RolGenerico_A_Modificar.resx">
+      <DependentUpon>Pantalla_Busqueda_RolGenerico_A_Modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Datos_Rol_Generico.resx">
+      <DependentUpon>Pantalla_Datos_Rol_Generico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\Pantalla_Elección_Usuario_A_Modificar_Password.resx">
       <DependentUpon>Pantalla_Elección_Usuario_A_Modificar_Password.cs</DependentUpon>
     </EmbeddedResource>
@@ -501,6 +540,9 @@
     <EmbeddedResource Include="ABM Usuario\Pantalla_Busqueda_Cliente_A_Modificar.resx">
       <DependentUpon>Pantalla_Busqueda_Cliente_A_Modificar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Modificacion_Datos_RolGenerico.resx">
+      <DependentUpon>Pantalla_Modificacion_Datos_RolGenerico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\Pantalla_Modificacion_Principal_Empresa.resx">
       <DependentUpon>Pantalla_Modificacion_Principal_Empresa.cs</DependentUpon>
     </EmbeddedResource>
@@ -521,6 +563,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\Pantalla_Modificación_Password.resx">
       <DependentUpon>Pantalla_Modificación_Password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Modif_Eleccion_Rol.resx">
+      <DependentUpon>Pantalla_Modif_Eleccion_Rol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\Pantalla_Usuario_Principal.resx">
       <DependentUpon>Pantalla_Usuario_Principal.cs</DependentUpon>
