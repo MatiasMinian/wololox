@@ -1065,7 +1065,6 @@ AND publicaciones.fecha_inicio BETWEEN @anio+'/1/1' AND @anio+'/3/31'
 AND publicaciones.fecha_vencimiento BETWEEN @anio+'/1/1' AND @anio+'/3/31'
 AND publicaciones.codigo NOT IN (SELECT compras.cod_publicacion FROM WOLOLOX.compras
 WHERE compras.fecha BETWEEN @anio+'/1/1' AND @anio+'/3/31')
->>>>>>> 794ef844af6a393a6fe9ea24d98bf9e8dcf15064
 GROUP BY usuarios.nombre_usuario
 ORDER BY cant_no_vendidos DESC
 
@@ -1432,7 +1431,6 @@ SELECT facturas.nro_fact,facturas.fecha,facturas.total,item_factura.descripcion,
 				AND ((@importe1 is null AND @importe2 is null) OR facturas.total BETWEEN @importe1 AND @importe2)
 				AND ((@detalle is null) OR item_factura.descripcion LIKE '%'+@detalle+'%')
 				ORDER BY facturas.nro_fact OFFSET @rowInicial ROWS FETCH NEXT 6 ROWS ONLY
->>>>>>> 794ef844af6a393a6fe9ea24d98bf9e8dcf15064
 
 GO
 
@@ -1637,14 +1635,12 @@ AS
 GO
 
 
-
-=======
     SELECT e.id_usuario, e.razon_social,r.descripcion_larga, e.cuit, e.nombre_contacto, e.reputacion
 	FROM WOLOLOX.empresas e, WOLOLOX.usuarios u, rubros r
 	WHERE e.id_usuario=u.id_usuario AND u.habilitado=1 AND r.codigo=e.cod_rubro
 GO
 
->>>>>>> 794ef844af6a393a6fe9ea24d98bf9e8dcf15064
+
 IF OBJECT_ID('WOLOLOX.ObtenerClientesBloqueados') IS NOT NULL
     DROP PROCEDURE WOLOLOX.ObtenerClientesBloqueados;
 GO

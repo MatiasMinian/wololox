@@ -2492,7 +2492,6 @@ SELECT nro_fact, id_compra, id_publicacion, fecha, forma_pago, total FROM WOLOLO
             </xs:sequence>
           </xs:complexType>
         </xs:element>
->>>>>>> 794ef844af6a393a6fe9ea24d98bf9e8dcf15064
         <xs:element name="funcionalidades" msprop:Generator_TableClassName="funcionalidadesDataTable" msprop:Generator_TableVarName="tablefuncionalidades" msprop:Generator_TablePropName="funcionalidades" msprop:Generator_RowDeletingName="funcionalidadesRowDeleting" msprop:Generator_RowChangingName="funcionalidadesRowChanging" msprop:Generator_RowEvHandlerName="funcionalidadesRowChangeEventHandler" msprop:Generator_RowDeletedName="funcionalidadesRowDeleted" msprop:Generator_UserTableName="funcionalidades" msprop:Generator_RowChangedName="funcionalidadesRowChanged" msprop:Generator_RowEvArgName="funcionalidadesRowChangeEvent" msprop:Generator_RowClassName="funcionalidadesRow">
           <xs:complexType>
             <xs:sequence>
