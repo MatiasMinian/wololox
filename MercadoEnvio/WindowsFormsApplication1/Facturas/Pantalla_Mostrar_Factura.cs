@@ -15,7 +15,7 @@ namespace WindowsFormsApplication1.Facturas
         private GD1C2016DataSetTableAdapters.facturasTableAdapter factuAdapter;
         private GD1C2016DataSet.facturasDataTable factuData;
         private int nro_fact;
-        private int total;
+        private Decimal total;
 
         public Pantalla_Mostrar_Factura(int id_compra,Decimal cod_publi,DateTime fechaCompra)
         {
@@ -26,8 +26,8 @@ namespace WindowsFormsApplication1.Facturas
 
             factuData = factuAdapter.busquedaDeFacturas(id_compra);
 
-            nro_fact = (int)factuData[1][0];
-            total = (int)factuData[1][1];
+            nro_fact = Convert.ToInt32(factuData[0][0]);
+            total = Convert.ToDecimal(factuData[0][5]);
 
 
             dataGridView1.Rows.Add(nro_fact, id_compra, cod_publi, fechaCompra, total);

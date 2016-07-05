@@ -28,7 +28,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
 
             foreach (DataRow row in rubrosData.Rows)
             {
-                dataGridView1.Rows.Add(row.Field<String>("descripcion_corta"));
+                dataGridView1.Rows.Add(row.Field<String>("descripcion_larga"));
 
             }
 

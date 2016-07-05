@@ -71,7 +71,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
             else
             {
                 costo = Convert.ToDecimal(textBox3.Text);
-                tipo = "Inmediata";
+                tipo = "Compra Inmediata";
                 descripcion = textBox1.Text;
                 stock = numericUpDown1.Value;
                 fechaInicio = dateTimePicker1.Value;
@@ -199,7 +199,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
                 if (row[1].Equals(visibilidad))
                 {
 
-                    textBox3.Text = Convert.ToString(row[5]);
+                    textBox3.Text = Convert.ToString(row[4]);
 
                 }
 

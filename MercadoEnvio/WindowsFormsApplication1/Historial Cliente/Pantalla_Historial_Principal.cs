@@ -13,7 +13,6 @@ namespace WindowsFormsApplication1.Historial_Cliente
     public partial class Pantalla_Historial_Principal : Form
     {
 
-        private Decimal maxPages = 10;
         private Decimal idUser;
         private GD1C2016DataSetTableAdapters.comprasTableAdapter comprasAdapter;
         private GD1C2016DataSet.comprasDataTable comprasData;

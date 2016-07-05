@@ -24,7 +24,7 @@ namespace WindowsFormsApplication1
 
             var appDate = DateTime.Parse(value);
 
-            //publiAdapter.actualizarPublicacionesVencidas(appDate);
+            //publiAdapter.ActualizarPublicacionesVencidas(appDate);
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

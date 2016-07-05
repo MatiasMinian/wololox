@@ -125,6 +125,7 @@ nro_fact numeric(18,0) identity(1,1),
 id_compra numeric(18,0),
 id_publicacion numeric(18,0),
 fecha datetime,
+forma_pago nvarchar(255),
 total numeric(18,2),
 primary key (nro_fact)
 );
@@ -138,7 +139,6 @@ cantidad numeric(18,0),
 fecha datetime,
 cod_publicacion numeric(18,0),
 id_usuario numeric(18,0),
-forma_pago nvarchar(255),
 primary key(id_compra)
 );
 
@@ -339,7 +339,6 @@ insert into WOLOLOX.roles(nombre) values('Administrador')
 insert into WOLOLOX.roles(nombre) values('Cliente')
 insert into WOLOLOX.roles(nombre) values('Empresa')
 
-insert into WOLOLOX.funcionalidades(nombre) values('Login')
 insert into WOLOLOX.funcionalidades(nombre) values('ABM usuarios')
 insert into WOLOLOX.funcionalidades(nombre) values('ABM roles')
 insert into WOLOLOX.funcionalidades(nombre) values('Modificacion usuario')
@@ -371,7 +370,6 @@ insert into @funcionalidades_cliente values('Listado estadistico')
 insert into @funcionalidades_administrador values('ABM roles')
 insert into @funcionalidades_administrador values('ABM usuarios')
 insert into @funcionalidades_administrador values('ABM visibilidades')
-insert into @funcionalidades_cliente values('Consulta facturas')
 
 insert into funcionalidades_roles(id_rol,id_funcionalidad)
 select r.id, f.id from roles r , funcionalidades f
@@ -386,8 +384,8 @@ select r.id, f.id from roles r , funcionalidades f
 where r.nombre LIKE 'administrador' AND f.nombre IN (select * from @funcionalidades_administrador)
 
 set IDENTITY_INSERT WOLOLOX.visibilidades ON
-insert into WOLOLOX.visibilidades(codigo,descripcion,porc_producto,costo_publicacion)
-select DISTINCT Publicacion_Visibilidad_Cod,Publicacion_Visibilidad_Desc,Publicacion_Visibilidad_Porcentaje,Publicacion_Visibilidad_Precio from gd_esquema.Maestra
+insert into WOLOLOX.visibilidades(codigo,descripcion,porc_producto,costo_publicacion,costo_envio)
+select DISTINCT Publicacion_Visibilidad_Cod,Publicacion_Visibilidad_Desc,Publicacion_Visibilidad_Porcentaje,Publicacion_Visibilidad_Precio,0 from gd_esquema.Maestra
 set IDENTITY_INSERT WOLOLOX.visibilidades OFF
 
 declare @fecha_inicio datetime, @fecha_vencimiento datetime
@@ -433,31 +431,28 @@ set IDENTITY_INSERT WOLOLOX.publicaciones OFF
 insert into WOLOLOX.publicaciones_rubros(cod_publicacion,cod_rubro)
 select DISTINCT m.Publicacion_Cod, r.codigo from gd_esquema.Maestra m, rubros r where m.Publicacion_Rubro_Descripcion like r.descripcion_larga
 
-
-insert into WOLOLOX.compras(cantidad,fecha,cod_publicacion,forma_pago)
-select DISTINCT Compra_Cantidad,Compra_Fecha,Publicacion_Cod,Forma_Pago_Desc from gd_esquema.Maestra
-where Compra_Cantidad is not null
+insert into WOLOLOX.compras(id_usuario,cantidad,fecha,cod_publicacion)
+select DISTINCT u.id_usuario, m.Compra_Cantidad, m.Compra_Fecha, m.Publicacion_Cod from gd_esquema.Maestra m, usuarios u
+where Compra_Cantidad is not null AND u.mail = m.Cli_Mail
 
 set IDENTITY_INSERT WOLOLOX.facturas ON
-insert into WOLOLOX.facturas(nro_fact,fecha,total,id_publicacion)
-select DISTINCT Factura_Nro,Factura_Fecha,Factura_Total,Publicacion_Cod from gd_esquema.Maestra
+insert into WOLOLOX.facturas(nro_fact,fecha,total,id_publicacion, forma_pago)
+select DISTINCT Factura_Nro,Factura_Fecha,Factura_Total,Publicacion_Cod,Forma_Pago_Desc from gd_esquema.Maestra
 where Factura_Nro is not null
 set IDENTITY_INSERT WOLOLOX.facturas OFF
 
 set IDENTITY_INSERT WOLOLOX.calificaciones ON
 insert into WOLOLOX.calificaciones(cod_compra,id_calificacion,estrellas,detalle)
-select DISTINCT (select c.id_compra from compras c,usuarios u where c.id_usuario = u.id_usuario AND c.cod_publicacion = Publicacion_Cod), Calificacion_Codigo,Calificacion_Cant_Estrellas,Calificacion_Descripcion from gd_esquema.Maestra
+select DISTINCT (select c.id_compra from compras c, usuarios u where c.id_usuario = u.id_usuario AND u.mail = Cli_Mail AND c.cod_publicacion = Publicacion_Cod AND c.fecha = Compra_Fecha AND c.cantidad = Compra_Cantidad), Calificacion_Codigo,Calificacion_Cant_Estrellas,Calificacion_Descripcion from gd_esquema.Maestra
 where Calificacion_Codigo is not null
 set IDENTITY_INSERT WOLOLOX.calificaciones OFF
-
 
 insert into WOLOLOX.item_factura(cantidad,monto,nro_fact)
 select DISTINCT Item_Factura_Cantidad,Item_Factura_Monto,Factura_Nro from gd_esquema.Maestra
 where Factura_Nro is not null
 
-
 insert into WOLOLOX.ofertas(id_usuario,fecha,monto,cod_publicacion)
-select DISTINCT (select id_usuario from usuarios where mail like Publ_Cli_Mail), Oferta_Fecha,Oferta_Monto,Publicacion_Cod from gd_esquema.Maestra
+select DISTINCT (select id_usuario from usuarios where mail like Cli_Mail), Oferta_Fecha,Oferta_Monto,Publicacion_Cod from gd_esquema.Maestra
 where Oferta_Monto is not null
 
 insert into WOLOLOX.clientes (id_usuario,dni,apellido,nombre,fecha_nacimiento)
@@ -467,10 +462,10 @@ where (m.Cli_Mail is not null) AND u.mail like Cli_Mail
 
 insert into WOLOLOX.roles_usuarios(id_usuario,id_rol)
 select u.id_usuario,(select id from roles where nombre LIKE 'cliente') from usuarios u, clientes c
-where u.id_usuario = c.id_usuario 
+where u.id_usuario = c.id_usuario
 
-insert into WOLOLOX.empresas(id_usuario,razon_social,cuit)
-select DISTINCT u.id_usuario, m.Publ_Empresa_Razon_Social, m.Publ_Empresa_Cuit 
+insert into WOLOLOX.empresas(id_usuario,cod_rubro,razon_social,cuit,reputacion)
+select DISTINCT u.id_usuario , (select top 1  pr.cod_rubro from publicaciones p , publicaciones_rubros pr where u.id_usuario = p.id_usuario AND p.codigo = pr.cod_publicacion group by pr.cod_rubro having count(pr.cod_rubro) = (select max(i.total) from (select count(pr2.cod_rubro) as total from publicaciones p2,publicaciones_rubros pr2 where p2.codigo = pr2.cod_publicacion AND p2.id_usuario = u.id_usuario group by pr2.cod_rubro) i)), m.Publ_Empresa_Razon_Social, m.Publ_Empresa_Cuit, (select AVG(calif.estrellas) from calificaciones calif, compras comp where calif.cod_compra = comp.id_compra AND comp.cod_publicacion = m.Publicacion_Cod AND m.Cli_Mail like u.mail)
 from usuarios u, gd_esquema.Maestra m
 where (m.Publ_Empresa_Mail is not null) AND u.mail like Publ_Empresa_Mail
 
@@ -479,6 +474,7 @@ select u.id_usuario,(select id from roles where nombre LIKE 'empresa') from usua
 where u.id_usuario = e.id_usuario
 GO
 
+<<<<<<< HEAD
 --Procedures y triggers
 
 
@@ -1858,3 +1854,5 @@ AS
 	COMMIT
 GO
 
+=======
+>>>>>>> 9e7c4b3d99d54bf2ff986cdf8819959ce1da7610

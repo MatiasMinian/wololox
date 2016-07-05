@@ -32,7 +32,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
 
             foreach (DataRow row in visiData.Rows)
             {
-                if (row[1].Equals("Gratuita") && cantidadDePublicaciones >= 1)
+                if (row[1].Equals("Gratis") && cantidadDePublicaciones >= 1)
                 {
 
 
@@ -40,7 +40,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
                 else
                 {
                     dataGridView1.Rows.Add(row.Field<String>("descripcion"),
-                                           row.Field<Decimal>("costo_envio"),
+                                           row.Field<Object>("costo_envio"),
                                            row.Field<Decimal>("porc_producto"),
                                            row.Field<Decimal>("costo_publicacion"));
                 }

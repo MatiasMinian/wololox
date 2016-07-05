@@ -47,7 +47,7 @@
             // botonPublic
             // 
             this.botonPublic.Enabled = false;
-            this.botonPublic.Location = new System.Drawing.Point(133, 188);
+            this.botonPublic.Location = new System.Drawing.Point(133, 160);
             this.botonPublic.Name = "botonPublic";
             this.botonPublic.Size = new System.Drawing.Size(122, 23);
             this.botonPublic.TabIndex = 3;
@@ -58,7 +58,7 @@
             // botonCompra
             // 
             this.botonCompra.Enabled = false;
-            this.botonCompra.Location = new System.Drawing.Point(133, 226);
+            this.botonCompra.Location = new System.Drawing.Point(133, 189);
             this.botonCompra.Name = "botonCompra";
             this.botonCompra.Size = new System.Drawing.Size(122, 23);
             this.botonCompra.TabIndex = 4;
@@ -69,7 +69,7 @@
             // botonHistorial
             // 
             this.botonHistorial.Enabled = false;
-            this.botonHistorial.Location = new System.Drawing.Point(133, 265);
+            this.botonHistorial.Location = new System.Drawing.Point(133, 218);
             this.botonHistorial.Name = "botonHistorial";
             this.botonHistorial.Size = new System.Drawing.Size(122, 23);
             this.botonHistorial.TabIndex = 5;
@@ -80,7 +80,7 @@
             // botonCalificar
             // 
             this.botonCalificar.Enabled = false;
-            this.botonCalificar.Location = new System.Drawing.Point(133, 303);
+            this.botonCalificar.Location = new System.Drawing.Point(133, 247);
             this.botonCalificar.Name = "botonCalificar";
             this.botonCalificar.Size = new System.Drawing.Size(122, 23);
             this.botonCalificar.TabIndex = 6;
@@ -91,7 +91,7 @@
             // botonEstadisticas
             // 
             this.botonEstadisticas.Enabled = false;
-            this.botonEstadisticas.Location = new System.Drawing.Point(133, 344);
+            this.botonEstadisticas.Location = new System.Drawing.Point(133, 276);
             this.botonEstadisticas.Name = "botonEstadisticas";
             this.botonEstadisticas.Size = new System.Drawing.Size(122, 23);
             this.botonEstadisticas.TabIndex = 8;
@@ -101,7 +101,7 @@
             // 
             // botonSalir
             // 
-            this.botonSalir.Location = new System.Drawing.Point(133, 507);
+            this.botonSalir.Location = new System.Drawing.Point(133, 392);
             this.botonSalir.Name = "botonSalir";
             this.botonSalir.Size = new System.Drawing.Size(122, 23);
             this.botonSalir.TabIndex = 9;
@@ -112,7 +112,7 @@
             // botonDatos
             // 
             this.botonDatos.Enabled = false;
-            this.botonDatos.Location = new System.Drawing.Point(133, 422);
+            this.botonDatos.Location = new System.Drawing.Point(133, 334);
             this.botonDatos.Name = "botonDatos";
             this.botonDatos.Size = new System.Drawing.Size(122, 23);
             this.botonDatos.TabIndex = 12;
@@ -133,7 +133,7 @@
             // botonRoles
             // 
             this.botonRoles.Enabled = false;
-            this.botonRoles.Location = new System.Drawing.Point(133, 111);
+            this.botonRoles.Location = new System.Drawing.Point(133, 102);
             this.botonRoles.Name = "botonRoles";
             this.botonRoles.Size = new System.Drawing.Size(122, 23);
             this.botonRoles.TabIndex = 14;
@@ -144,7 +144,7 @@
             // botonUsuarios
             // 
             this.botonUsuarios.Enabled = false;
-            this.botonUsuarios.Location = new System.Drawing.Point(133, 149);
+            this.botonUsuarios.Location = new System.Drawing.Point(133, 131);
             this.botonUsuarios.Name = "botonUsuarios";
             this.botonUsuarios.Size = new System.Drawing.Size(122, 23);
             this.botonUsuarios.TabIndex = 15;
@@ -155,7 +155,7 @@
             // botonMPubli
             // 
             this.botonMPubli.Enabled = false;
-            this.botonMPubli.Location = new System.Drawing.Point(133, 462);
+            this.botonMPubli.Location = new System.Drawing.Point(133, 363);
             this.botonMPubli.Name = "botonMPubli";
             this.botonMPubli.Size = new System.Drawing.Size(122, 23);
             this.botonMPubli.TabIndex = 16;
@@ -165,19 +165,19 @@
             // 
             // botonFacturas
             // 
-            this.botonFacturas.Enabled = false;
-            this.botonFacturas.Location = new System.Drawing.Point(133, 383);
+            this.botonFacturas.Location = new System.Drawing.Point(133, 305);
             this.botonFacturas.Name = "botonFacturas";
             this.botonFacturas.Size = new System.Drawing.Size(122, 23);
             this.botonFacturas.TabIndex = 17;
             this.botonFacturas.Text = "Consultar facturas";
             this.botonFacturas.UseVisualStyleBackColor = true;
+            this.botonFacturas.Click += new System.EventHandler(this.botonFacturas_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(56, 12);
+            this.label1.Location = new System.Drawing.Point(3, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 31);
             this.label1.TabIndex = 18;
@@ -187,7 +187,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(198, 12);
+            this.label2.Location = new System.Drawing.Point(147, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 31);
             this.label2.TabIndex = 19;
@@ -197,7 +197,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 542);
+            this.ClientSize = new System.Drawing.Size(303, 424);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.botonFacturas);

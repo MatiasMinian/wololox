@@ -47,12 +47,9 @@ namespace WindowsFormsApplication1.ComprarOfertar
             var appDate = DateTime.Parse(value);
             compraAdapter = new GD1C2016DataSetTableAdapters.comprasTableAdapter();
 
+            compraAdapter.Insert(numericUpDown1.Value, appDate, codigo_publicacion, idUser,"Efectivo");
+
             int id_compra = (int)compraAdapter.IDultimaCompraUsuario(idUser);
-
-            compraAdapter.Insert(numericUpDown1.Value, appDate, codigo_publicacion, idUser);
-
-
-
 
             MessageBox.Show("Compra realizada correctamente");
             this.Close();

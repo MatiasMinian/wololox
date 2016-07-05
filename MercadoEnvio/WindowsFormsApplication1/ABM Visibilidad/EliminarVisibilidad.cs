@@ -55,7 +55,7 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
                 {
                     dataGridView1.Rows.Add(row.Field<Decimal>("codigo"),                                           
                                            row.Field<String>("descripcion"),
-                                           row.Field<Decimal>("costo_envio"),
+                                           row.Field<Object>("costo_envio"),
                                            row.Field<Decimal>("porc_producto"),
                                            row.Field<Decimal>("costo_publicacion"),
                                            row.Field<Boolean>("habilitada"));
@@ -72,7 +72,7 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
                 {
                     dataGridView1.Rows.Add(row.Field<Decimal>("codigo"),
                                             row.Field<String>("descripcion"),
-                                            row.Field<Decimal>("costo_envio"),
+                                            row.Field<Object>("costo_envio"),
                                             row.Field<Decimal>("porc_producto"),
                                             row.Field<Decimal>("costo_publicacion"),
                                             row.Field<Boolean>("habilitada"));
@@ -88,7 +88,7 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
                 {
                     dataGridView1.Rows.Add(row.Field<Decimal>("codigo"),
                                            row.Field<String>("descripcion"),
-                                           row.Field<Decimal>("costo_envio"),
+                                           row.Field<Object>("costo_envio"),
                                            row.Field<Decimal>("porc_producto"),
                                            row.Field<Decimal>("costo_publicacion"),
                                            row.Field<Boolean>("habilitada"));

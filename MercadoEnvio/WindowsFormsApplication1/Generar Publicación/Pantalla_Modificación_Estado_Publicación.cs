@@ -57,7 +57,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
 
             id_Publicacion = idPubli;
 
-            if (estadoPubli.Equals("Activa"))
+            if (estadoPubli.Equals("Publicada"))
             {
 
                 comboBox1.Items.Add("Pausada");
@@ -68,7 +68,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
             else
             {
 
-                comboBox1.Items.Add("Activa");
+                comboBox1.Items.Add("Publicada");
                 comboBox1.Items.Add("Finalizada");
 
 
