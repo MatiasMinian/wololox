@@ -977,7 +977,7 @@ GO
   CREATE PROCEDURE WOLOLOX.consultaIDrubro(@rubro nvarchar(20))
 AS
 DECLARE @idrubro int
-set @idrubro = (SELECT rubros.codigo FROM WOLOLOX.rubros WHERE rubros.descripcion_corta = @rubro)
+set @idrubro = (SELECT rubros.codigo FROM WOLOLOX.rubros WHERE rubros.descripcion_larga = @rubro)
 SELECT @idrubro
 
 GO
@@ -1757,17 +1757,17 @@ GO
 --Chequear publicaciones vencidas
 
 IF OBJECT_ID('WOLOLOX.ActualizarPublicacionesVencidas') IS NOT NULL
-	DROP PROCEDURE WOLOLOX.ActualizarPublicacionesVencidas;
+ DROP PROCEDURE WOLOLOX.ActualizarPublicacionesVencidas;
 GO
-CREATE PROCEDURE WOLOLOX.ActualizarPublicacionesVencidas(@fechaDeHoy  DATETIME)
+CREATE PROCEDURE WOLOLOX.ActualizarPublicacionesVencidas(@fechaDeHoy DateTime)
 AS
-	BEGIN TRANSACTION
+ BEGIN TRANSACTION
 
-	UPDATE WOLOLOX.publicaciones
-	set publicaciones.id_estado = (SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.nombre LIKE 'Finalizada')
-	WHERE @fechaDeHoy > publicaciones.fecha_vencimiento
-	
-	COMMIT
+ UPDATE WOLOLOX.publicaciones
+ set publicaciones.id_estado = (SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.nombre LIKE 'Finalizada')
+ WHERE @fechaDeHoy > publicaciones.fecha_vencimiento
+ 
+ COMMIT
 GO
 
 
@@ -1808,46 +1808,39 @@ AS
 	COMMIT
 GO
 
-
 -- Hacer una compra, resta la cantidad comprada de la publicación y genera una factura
 
 IF OBJECT_ID('WOLOLOX.InsertarCompra') IS NOT NULL
-	DROP TRIGGER WOLOLOX.InsertarCompra;
+ DROP TRIGGER WOLOLOX.InsertarCompra;
 GO
 CREATE TRIGGER WOLOLOX.InsertarCompra
     ON WOLOLOX.compras
-    INSTEAD OF INSERT
+    FOR INSERT
 AS
-	BEGIN TRANSACTION
-	
-	-- Actualizo la cantidad de stock
-	
-	UPDATE WOLOLOX.publicaciones SET stock = stock - inserted.cantidad 
-	FROM WOLOLOX.publicaciones, inserted 
-	WHERE publicaciones.codigo = inserted.cod_publicacion
-	
-	-- Genero una factura
-	
-	INSERT INTO WOLOLOX.facturas (id_compra, id_publicacion, fecha, total)
-	SELECT inserted.id_compra, inserted.cod_publicacion, GETDATE(), inserted.cantidad * publicaciones.precio 
-	FROM inserted, WOLOLOX.publicaciones
-	WHERE inserted.cod_publicacion = publicaciones.codigo
-	
-	-- Inserto las compras
-	
-	INSERT INTO WOLOLOX.compras (cantidad, fecha, cod_publicacion, id_usuario)
-	SELECT cantidad, fecha, cod_publicacion, id_usuario FROM inserted
+ BEGIN TRANSACTION
+ 
+ -- Actualizo la cantidad de stock
+ 
+ UPDATE WOLOLOX.publicaciones SET stock = stock - inserted.cantidad 
+ FROM inserted 
+ WHERE publicaciones.codigo = inserted.cod_publicacion
+ 
+ -- Genero una factura
+ 
+ INSERT INTO WOLOLOX.facturas (id_compra, id_publicacion, fecha, total)
+ SELECT inserted.id_compra, inserted.cod_publicacion, GETDATE(), inserted.cantidad * publicaciones.precio 
+ FROM inserted, WOLOLOX.publicaciones
+ WHERE inserted.cod_publicacion = publicaciones.codigo
 
-	-- GENERO item_factura
+ -- GENERO item_factura
 
  INSERT INTO WOLOLOX.item_factura (nro_fact, monto, descripcion, cantidad)
  SELECT SCOPE_IDENTITY(), publicaciones.precio, publicaciones.descripcion, inserted.cantidad
  FROM inserted, WOLOLOX.publicaciones
  WHERE publicaciones.codigo = inserted.cod_publicacion
-	
-	COMMIT
+ 
+ COMMIT
 GO
-
 
 -- Actualizar publicación, pasa el estado a finalizada si stock = 0 y genera factura
 
@@ -1899,26 +1892,21 @@ GO
 -- Hacer una oferta, actualiza el valor de la publicación
 
 IF OBJECT_ID('WOLOLOX.InsertarOferta') IS NOT NULL
-	DROP TRIGGER WOLOLOX.InsertarOferta;
+ DROP TRIGGER WOLOLOX.InsertarOferta;
 GO
 CREATE TRIGGER WOLOLOX.InsertarOferta
-	ON WOLOLOX.ofertas
-	INSTEAD OF INSERT
+ ON WOLOLOX.ofertas
+ FOR INSERT
 AS
-	BEGIN TRANSACTION
+ BEGIN TRANSACTION
 
-	-- Actualizo el valor de la subasta
+ -- Actualizo el valor de la subasta
 
-	UPDATE WOLOLOX.publicaciones
-	SET precio = inserted.monto FROM inserted, publicaciones
-	WHERE publicaciones.codigo = inserted.cod_publicacion
-	
-	-- Inserto la oferta
+ UPDATE WOLOLOX.publicaciones
+ SET precio = inserted.monto FROM inserted, publicaciones
+ WHERE publicaciones.codigo = inserted.cod_publicacion
 
-	INSERT INTO WOLOLOX.ofertas (codigo, id_usuario, cod_publicacion, fecha, monto)
-	SELECT codigo, id_usuario, cod_publicacion, fecha, monto FROM inserted
-
-	COMMIT
+ COMMIT
 GO
 
 -- Actualizar estado, genera una factura si estado pasa a ser 'finalizada'

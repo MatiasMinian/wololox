@@ -24,12 +24,12 @@ namespace WindowsFormsApplication1
 
             var appDate = DateTime.Parse(value);
 
-            //publiAdapter.ActualizarPublicacionesVencidas(appDate);
+            publiAdapter.ActualizarPublicacionesVencidas(appDate);
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FormularioLogin());
-            Application.Run(new Pantalla_Funcionalidades("Cliente"));
+            Application.Run(new Pantalla_Funcionalidades("Administrador"));
         }
 
     }
