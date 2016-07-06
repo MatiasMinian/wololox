@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApplication1.Listado_Estadistico;
 using WindowsFormsApplication1.ABM_Usuario;
+using WindowsFormsApplication1.ABM_Rol;
 
 namespace WindowsFormsApplication1
 {
@@ -25,12 +26,13 @@ namespace WindowsFormsApplication1
 
             var appDate = DateTime.Parse(value);
 
-            //publiAdapter.ActualizarPublicacionesVencidas(appDate);
+            publiAdapter.ActualizarPublicacionesVencidas(appDate);
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormularioLogin());
-            //Application.Run(new Pantalla_Modif_Eleccion_Rol(2));
+            //Application.Run(new Pantalla_Rol_Principal());
+            //Application.Run(new FormularioLogin());
+            Application.Run(new Pantalla_Listado_Estadistico_Principal());
         }
 
     }
