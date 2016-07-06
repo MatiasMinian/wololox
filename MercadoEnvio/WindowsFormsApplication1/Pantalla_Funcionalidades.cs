@@ -40,8 +40,6 @@ namespace WindowsFormsApplication1
                 }
             }
 
-            user = "heli_Paz@gmail.com";
-
             funciAdapter = new GD1C2016DataSetTableAdapters.funcionalidadesTableAdapter();
             funciData = new GD1C2016DataSet.funcionalidadesDataTable();
 

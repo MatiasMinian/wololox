@@ -109,6 +109,12 @@
     <Compile Include="ABM Usuario\Pantalla_Busqueda_RolGenerico_A_Eliminar.Designer.cs">
       <DependentUpon>Pantalla_Busqueda_RolGenerico_A_Eliminar.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_RolGenerico_A_Habilitar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Busqueda_RolGenerico_A_Habilitar.Designer.cs">
+      <DependentUpon>Pantalla_Busqueda_RolGenerico_A_Habilitar.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Usuario\Pantalla_Busqueda_RolGenerico_A_Modificar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,12 @@
     </Compile>
     <Compile Include="ABM Usuario\Pantalla_Busqueda_Empresa_A_Modificar.Designer.cs">
       <DependentUpon>Pantalla_Busqueda_Empresa_A_Modificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Modificacion_Datos_Propios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Usuario\Pantalla_Modificacion_Datos_Propios.Designer.cs">
+      <DependentUpon>Pantalla_Modificacion_Datos_Propios.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Usuario\Pantalla_Modificacion_Datos_RolGenerico.cs">
       <SubType>Form</SubType>
@@ -498,6 +510,9 @@
     <EmbeddedResource Include="ABM Usuario\Pantalla_Busqueda_RolGenerico_A_Eliminar.resx">
       <DependentUpon>Pantalla_Busqueda_RolGenerico_A_Eliminar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Busqueda_RolGenerico_A_Habilitar.resx">
+      <DependentUpon>Pantalla_Busqueda_RolGenerico_A_Habilitar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\Pantalla_Busqueda_RolGenerico_A_Modificar.resx">
       <DependentUpon>Pantalla_Busqueda_RolGenerico_A_Modificar.cs</DependentUpon>
     </EmbeddedResource>
@@ -539,6 +554,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\Pantalla_Busqueda_Cliente_A_Modificar.resx">
       <DependentUpon>Pantalla_Busqueda_Cliente_A_Modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Usuario\Pantalla_Modificacion_Datos_Propios.resx">
+      <DependentUpon>Pantalla_Modificacion_Datos_Propios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Usuario\Pantalla_Modificacion_Datos_RolGenerico.resx">
       <DependentUpon>Pantalla_Modificacion_Datos_RolGenerico.cs</DependentUpon>

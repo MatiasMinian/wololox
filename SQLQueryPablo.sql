@@ -1946,10 +1946,10 @@ GO
 
 -- Actualizar publicación, pasa el estado a finalizada y genera una factura si stock = 0
 
-IF OBJECT_ID('WOLOLOX.ActualizarPublicacion') IS NOT NULL
- DROP TRIGGER WOLOLOX.ActualizarPublicacion;
+IF OBJECT_ID('WOLOLOX.ActualizarPubli') IS NOT NULL
+ DROP TRIGGER WOLOLOX.ActualizarPubli;
 GO
-CREATE TRIGGER WOLOLOX.ActualizarPublicacion
+CREATE TRIGGER WOLOLOX.ActualizarPubli
  ON WOLOLOX.publicaciones
  FOR UPDATE
 AS

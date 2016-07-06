@@ -66,7 +66,7 @@ namespace WindowsFormsApplication1.Listado_Estadistico
                 {
 
                     dataGridView1.Rows.Add(row.Field<String>("nombre_usuario"),
-                                           row.Field<Decimal>("cant_facturas"));
+                                           row.Field<Int32>("cant_facturas"));
 
 
                 }
