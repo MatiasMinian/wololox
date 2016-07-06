@@ -1582,7 +1582,7 @@ IF OBJECT_ID('WOLOLOX.ObtenerUsuariosHabilitados') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.ObtenerUsuariosHabilitados(@idRol numeric(2,0))
 AS
-    SELECT nombre_usuario, mail, telefono, fecha_creacion
+    SELECT u.id_usuario, nombre_usuario, mail, telefono, fecha_creacion
 	FROM WOLOLOX.usuarios u, WOLOLOX.roles_usuarios r
 	WHERE u.habilitado=1 AND r.id_rol=@idRol AND r.id_usuario=u.id_usuario
 	--AND  NOT EXISTS (SELECT * FROM empresas e WHERE e.id_usuario=u.id_usuario)
@@ -1594,7 +1594,7 @@ IF OBJECT_ID('WOLOLOX.ObtenerUsuariosBloqueados') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.ObtenerUsuariosBloqueados(@idRol numeric(2,0))
 AS
-    SELECT nombre_usuario, mail, telefono, fecha_creacion
+    SELECT u.id_usuario, nombre_usuario, mail, telefono, fecha_creacion
 	FROM WOLOLOX.usuarios u, WOLOLOX.roles_usuarios r
 	WHERE u.habilitado=0 AND r.id_rol=@idRol AND r.id_usuario=u.id_usuario
 	--AND  NOT EXISTS (SELECT * FROM empresas e WHERE e.id_usuario=u.id_usuario)
@@ -1733,7 +1733,7 @@ IF OBJECT_ID('WOLOLOX.BuscarEmpresa') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.BuscarEmpresa(@razSoc nvarchar(255), @cuit nvarchar(50), @nomCon nvarchar(100),@rubro nvarchar(20), @repMin numeric(3,2), @repMax numeric(3,2))
 AS
-    declare @query nvarchar(256)
+    declare @query nvarchar(512)
 	set @query = 'SELECT e.id_usuario,razon_social,descripcion_larga,cuit,nombre_contacto,reputacion FROM WOLOLOX.empresas e, WOLOLOX.usuarios u, WOLOLOX.rubros r WHERE 1=1 AND e.id_usuario=u.id_usuario AND e.cod_rubro=r.codigo AND u.habilitado=1'
 
 	if(LEN(@razSoc) > 0) SET @query += ' AND razon_social LIKE '+QUOTENAME(@razSoc,'''') +' ';
@@ -1741,7 +1741,7 @@ AS
 	if(LEN(@nomCon) > 0) SET @query += ' AND nombre_contacto LIKE '+QUOTENAME(@nomCon,'''')+' ';
 	if(LEN(@rubro) > 0) SET @query += ' AND descripcion_larga LIKE '+QUOTENAME(@rubro,'''')+' ';
 	if((@repMin) > 0) SET @query += ' AND reputacion> '+QUOTENAME(@repMin,'''')+' ';
-	if((@repMax) > 0) SET @query += ' AND reputacion> '+QUOTENAME(@repMax,'''')+' ';
+	if((@repMax) > 0) SET @query += ' AND reputacion< '+QUOTENAME(@repMax,'''')+' ';
 		
 	print @query
 
@@ -1754,7 +1754,7 @@ IF OBJECT_ID('WOLOLOX.BuscarEmpresaBloq') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.BuscarEmpresaBloq(@razSoc nvarchar(255), @cuit nvarchar(50), @nomCon nvarchar(100),@rubro nvarchar(20), @repMin numeric(3,2), @repMax numeric(3,2))
 AS
-    declare @query nvarchar(256)
+    declare @query nvarchar(512)
 	set @query = 'SELECT e.id_usuario,razon_social,descripcion_larga,cuit,nombre_contacto,reputacion FROM WOLOLOX.empresas e, WOLOLOX.usuarios u, WOLOLOX.rubros r WHERE 1=1 AND e.id_usuario=u.id_usuario AND e.cod_rubro=r.codigo AND u.habilitado=0'
 
 	if(LEN(@razSoc) > 0) SET @query += ' AND razon_social LIKE '+QUOTENAME(@razSoc,'''') +' ';
@@ -1762,7 +1762,7 @@ AS
 	if(LEN(@nomCon) > 0) SET @query += ' AND nombre_contacto LIKE '+QUOTENAME(@nomCon,'''')+' ';
 	if(LEN(@rubro) > 0) SET @query += ' AND descripcion_larga LIKE '+QUOTENAME(@rubro,'''')+' ';
 	if((@repMin) > 0) SET @query += ' AND reputacion> '+QUOTENAME(@repMin,'''')+' ';
-	if((@repMax) > 0) SET @query += ' AND reputacion> '+QUOTENAME(@repMax,'''')+' ';
+	if((@repMax) > 0) SET @query += ' AND reputacion< '+QUOTENAME(@repMax,'''')+' ';
 		
 	print @query
 
@@ -1780,6 +1780,15 @@ AS
 	WHERE c.id_usuario=u.id_usuario AND u.id_usuario=@id
 GO
 
+IF OBJECT_ID('WOLOLOX.obtenerEmpresa') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.obtenerEmpresa;
+GO
+CREATE PROCEDURE WOLOLOX.obtenerEmpresa(@id numeric(18,0))
+AS
+    SELECT e.razon_social,r.descripcion_larga,e.cuit,e.nombre_contacto
+    FROM WOLOLOX.empresas e, WOLOLOX.usuarios u, WOLOLOX.rubros r
+	WHERE e.id_usuario=u.id_usuario AND u.id_usuario=@id AND e.cod_rubro=r.codigo
+GO
 
 IF OBJECT_ID('WOLOLOX.ActualizarEmpresa') IS NOT NULL
     DROP PROCEDURE WOLOLOX.ActualizarEmpresa;

@@ -51,6 +51,7 @@
             this.button3.TabIndex = 9;
             this.button3.Text = "Buscar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -60,6 +61,7 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "Limpiar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -69,6 +71,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "Atras";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataUsuarios
             // 
@@ -77,6 +80,7 @@
             this.dataUsuarios.Name = "dataUsuarios";
             this.dataUsuarios.Size = new System.Drawing.Size(403, 150);
             this.dataUsuarios.TabIndex = 11;
+            this.dataUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataClientes_CellContentClick);
             // 
             // groupBox1
             // 
@@ -154,6 +158,7 @@
             this.Name = "Pantalla_Busqueda_RolGenerico_A_Habilitar";
             this.ShowIcon = false;
             this.Text = "Búsqueda de usuarios";
+            this.Load += new System.EventHandler(this.Pantalla_Busqueda_RolGenerico_A_Habilitar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataUsuarios)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

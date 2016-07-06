@@ -30,13 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataEmpresas = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.gD1C2016DataSet = new WindowsFormsApplication1.GD1C2016DataSet();
-            this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.empresasTableAdapter = new WindowsFormsApplication1.GD1C2016DataSetTableAdapters.empresasTableAdapter();
             this.textRubro = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textRepMax = new System.Windows.Forms.TextBox();
@@ -49,17 +42,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.idusuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.razonsocialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codrubroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cuitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombrecontactoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reputacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSeleccion = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataEmpresas = new System.Windows.Forms.DataGridView();
+            this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD1C2016DataSet = new WindowsFormsApplication1.GD1C2016DataSet();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.empresasTableAdapter = new WindowsFormsApplication1.GD1C2016DataSetTableAdapters.empresasTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataEmpresas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -82,69 +75,6 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
-            // 
-            // dataEmpresas
-            // 
-            this.dataEmpresas.AutoGenerateColumns = false;
-            this.dataEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataEmpresas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idusuarioDataGridViewTextBoxColumn,
-            this.razonsocialDataGridViewTextBoxColumn,
-            this.codrubroDataGridViewTextBoxColumn,
-            this.cuitDataGridViewTextBoxColumn,
-            this.nombrecontactoDataGridViewTextBoxColumn,
-            this.reputacionDataGridViewTextBoxColumn,
-            this.colSeleccion});
-            this.dataEmpresas.DataSource = this.empresasBindingSource;
-            this.dataEmpresas.Location = new System.Drawing.Point(12, 135);
-            this.dataEmpresas.Name = "dataEmpresas";
-            this.dataEmpresas.Size = new System.Drawing.Size(503, 150);
-            this.dataEmpresas.TabIndex = 2;
-            this.dataEmpresas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataEmpresas_CellContentClick);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 103);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(440, 106);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Buscar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(242, 291);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Atras";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // gD1C2016DataSet
-            // 
-            this.gD1C2016DataSet.DataSetName = "GD1C2016DataSet";
-            this.gD1C2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // empresasBindingSource
-            // 
-            this.empresasBindingSource.DataMember = "empresas";
-            this.empresasBindingSource.DataSource = this.gD1C2016DataSet;
-            // 
-            // empresasTableAdapter
-            // 
-            this.empresasTableAdapter.ClearBeforeFill = true;
             // 
             // textRubro
             // 
@@ -242,54 +172,58 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Razón social:";
             // 
-            // idusuarioDataGridViewTextBoxColumn
+            // dataEmpresas
             // 
-            this.idusuarioDataGridViewTextBoxColumn.DataPropertyName = "id_usuario";
-            this.idusuarioDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.idusuarioDataGridViewTextBoxColumn.Name = "idusuarioDataGridViewTextBoxColumn";
-            this.idusuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idusuarioDataGridViewTextBoxColumn.Width = 40;
+            this.dataEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataEmpresas.Location = new System.Drawing.Point(12, 135);
+            this.dataEmpresas.Name = "dataEmpresas";
+            this.dataEmpresas.Size = new System.Drawing.Size(503, 150);
+            this.dataEmpresas.TabIndex = 2;
+            this.dataEmpresas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataEmpresas_CellContentClick);
             // 
-            // razonsocialDataGridViewTextBoxColumn
+            // empresasBindingSource
             // 
-            this.razonsocialDataGridViewTextBoxColumn.DataPropertyName = "razon_social";
-            this.razonsocialDataGridViewTextBoxColumn.HeaderText = "Razón social";
-            this.razonsocialDataGridViewTextBoxColumn.Name = "razonsocialDataGridViewTextBoxColumn";
-            this.razonsocialDataGridViewTextBoxColumn.Width = 80;
+            this.empresasBindingSource.DataMember = "empresas";
+            this.empresasBindingSource.DataSource = this.gD1C2016DataSet;
             // 
-            // codrubroDataGridViewTextBoxColumn
+            // gD1C2016DataSet
             // 
-            this.codrubroDataGridViewTextBoxColumn.DataPropertyName = "cod_rubro";
-            this.codrubroDataGridViewTextBoxColumn.HeaderText = "Rubro";
-            this.codrubroDataGridViewTextBoxColumn.Name = "codrubroDataGridViewTextBoxColumn";
-            this.codrubroDataGridViewTextBoxColumn.Width = 60;
+            this.gD1C2016DataSet.DataSetName = "GD1C2016DataSet";
+            this.gD1C2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // cuitDataGridViewTextBoxColumn
+            // button2
             // 
-            this.cuitDataGridViewTextBoxColumn.DataPropertyName = "cuit";
-            this.cuitDataGridViewTextBoxColumn.HeaderText = "CUIT";
-            this.cuitDataGridViewTextBoxColumn.Name = "cuitDataGridViewTextBoxColumn";
-            this.cuitDataGridViewTextBoxColumn.Width = 60;
+            this.button2.Location = new System.Drawing.Point(12, 103);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Limpiar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // nombrecontactoDataGridViewTextBoxColumn
+            // button3
             // 
-            this.nombrecontactoDataGridViewTextBoxColumn.DataPropertyName = "nombre_contacto";
-            this.nombrecontactoDataGridViewTextBoxColumn.HeaderText = "Nombre contacto";
-            this.nombrecontactoDataGridViewTextBoxColumn.Name = "nombrecontactoDataGridViewTextBoxColumn";
-            this.nombrecontactoDataGridViewTextBoxColumn.Width = 80;
+            this.button3.Location = new System.Drawing.Point(440, 106);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Buscar";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // reputacionDataGridViewTextBoxColumn
+            // button1
             // 
-            this.reputacionDataGridViewTextBoxColumn.DataPropertyName = "reputacion";
-            this.reputacionDataGridViewTextBoxColumn.HeaderText = "Reputación";
-            this.reputacionDataGridViewTextBoxColumn.Name = "reputacionDataGridViewTextBoxColumn";
-            this.reputacionDataGridViewTextBoxColumn.Width = 70;
+            this.button1.Location = new System.Drawing.Point(242, 291);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Atras";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // colSeleccion
+            // empresasTableAdapter
             // 
-            this.colSeleccion.HeaderText = "Seleccionar";
-            this.colSeleccion.Name = "colSeleccion";
-            this.colSeleccion.Width = 70;
+            this.empresasTableAdapter.ClearBeforeFill = true;
             // 
             // Pantalla_Busqueda_Empresa_A_Eliminar
             // 
@@ -308,8 +242,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataEmpresas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -336,12 +270,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idusuarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn razonsocialDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codrubroDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cuitDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombrecontactoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reputacionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn colSeleccion;
     }
 }

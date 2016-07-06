@@ -28,7 +28,6 @@ namespace WindowsFormsApplication1.ABM_Usuario
         private void button2_Click(object sender, EventArgs e)
         {
             textNombre.ResetText();
-            textFechaCrea.ResetText();
             textTel.ResetText();
             textEmail.ResetText();
 
@@ -42,7 +41,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textNombre.Text == "" && textTel.Text == "" && textFechaCrea.Text == "" && textEmail.Text == "")
+            if (textNombre.Text == "" && textTel.Text == "" && textEmail.Text == "")
             {
                 MessageBox.Show("Complete algún campo de búsqueda");
             }
@@ -96,9 +95,11 @@ namespace WindowsFormsApplication1.ABM_Usuario
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                userAdapter.DeshabilitarUsuario(Convert.ToDecimal(dataUsuarios.Rows[e.RowIndex].Cells[0]));
+                userAdapter.DeshabilitarUsuario(Convert.ToDecimal(dataUsuarios.Rows[e.RowIndex].Cells[0].Value));
+                MessageBox.Show("Usuario bloqueado");
             }
-            dataUsuarios.DataSource = userAdapter.ObtenerUsuariosHabilitados(idRol);
+            infoUsuarios = userAdapter.ObtenerUsuariosHabilitados(idRol);
+            actualizarTabla();
         }
 
         private void actualizarTabla()

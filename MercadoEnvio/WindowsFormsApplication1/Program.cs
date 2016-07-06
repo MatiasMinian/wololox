@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApplication1.Listado_Estadistico;
+using WindowsFormsApplication1.ABM_Usuario;
 
 namespace WindowsFormsApplication1
 {
@@ -29,7 +30,7 @@ namespace WindowsFormsApplication1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormularioLogin());
-            //Application.Run(new Pantalla_Funcionalidades("Administrador"));
+            //Application.Run(new Pantalla_Modif_Eleccion_Rol(2));
         }
 
     }

@@ -43,11 +43,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dataClientes = new System.Windows.Forms.DataGridView();
-            this.idusuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSelecc = new System.Windows.Forms.DataGridViewButtonColumn();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2016DataSet = new WindowsFormsApplication1.GD1C2016DataSet();
             this.clientesTableAdapter = new WindowsFormsApplication1.GD1C2016DataSetTableAdapters.clientesTableAdapter();
@@ -179,57 +174,12 @@
             // 
             // dataClientes
             // 
-            this.dataClientes.AutoGenerateColumns = false;
             this.dataClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idusuarioDataGridViewTextBoxColumn,
-            this.nombreDataGridViewTextBoxColumn,
-            this.apellidoDataGridViewTextBoxColumn,
-            this.dniDataGridViewTextBoxColumn,
-            this.colSelecc});
-            this.dataClientes.DataSource = this.clientesBindingSource;
             this.dataClientes.Location = new System.Drawing.Point(12, 132);
             this.dataClientes.Name = "dataClientes";
             this.dataClientes.Size = new System.Drawing.Size(383, 150);
             this.dataClientes.TabIndex = 1;
             this.dataClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataClientes_CellContentClick);
-            // 
-            // idusuarioDataGridViewTextBoxColumn
-            // 
-            this.idusuarioDataGridViewTextBoxColumn.DataPropertyName = "id_usuario";
-            this.idusuarioDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.idusuarioDataGridViewTextBoxColumn.Name = "idusuarioDataGridViewTextBoxColumn";
-            this.idusuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idusuarioDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // apellidoDataGridViewTextBoxColumn
-            // 
-            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "apellido";
-            this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
-            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
-            this.apellidoDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // dniDataGridViewTextBoxColumn
-            // 
-            this.dniDataGridViewTextBoxColumn.DataPropertyName = "dni";
-            this.dniDataGridViewTextBoxColumn.HeaderText = "DNI";
-            this.dniDataGridViewTextBoxColumn.Name = "dniDataGridViewTextBoxColumn";
-            this.dniDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // colSelecc
-            // 
-            this.colSelecc.HeaderText = "Seleccionar";
-            this.colSelecc.Name = "colSelecc";
-            this.colSelecc.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSelecc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colSelecc.Width = 70;
             // 
             // clientesBindingSource
             // 
@@ -288,10 +238,5 @@
         private GD1C2016DataSet gD1C2016DataSet;
         private System.Windows.Forms.BindingSource clientesBindingSource;
         private GD1C2016DataSetTableAdapters.clientesTableAdapter clientesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idusuarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dniDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn colSelecc;
     }
 }

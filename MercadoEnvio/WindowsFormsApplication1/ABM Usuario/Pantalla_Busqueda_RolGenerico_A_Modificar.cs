@@ -27,7 +27,6 @@ namespace WindowsFormsApplication1.ABM_Usuario
             configurarTabla();
             infoUsuarios = userAdapter.ObtenerUsuariosHabilitados(idRol);
             actualizarTabla();
-
         }
 
         private void button1_Click(object sender, EventArgs e)

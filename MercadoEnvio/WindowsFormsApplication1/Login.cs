@@ -63,14 +63,14 @@ namespace WindowsFormsApplication1
                     {
                         if ((int)adapterUsuarios.cantidadRoles(textoUser.Text) > 1)
                         {
-                            SeleccionRol seleccionRol = new SeleccionRol();
-                            seleccionRol.matchearUsuario(textoUser.Text);
+                            SeleccionRol seleccionRol = new SeleccionRol(textoUser.Text);
                             seleccionRol.ShowDialog();
                             this.Close();
                         }
                         else
                         {
-                            Pantalla_Funcionalidades pantallaFunci = new Pantalla_Funcionalidades((String)adapterUsuarios.obtenerRol(textoUser.Text));
+                            GD1C2016DataSet.usuariosDataTable infoRol = adapterUsuarios.ObtenerRol(textoUser.Text);
+                            Pantalla_Funcionalidades pantallaFunci = new Pantalla_Funcionalidades(infoRol.Rows[0].Field<String>("nombre"));
                             pantallaFunci.matchearUsuario(textoUser.Text);
                             pantallaFunci.ShowDialog();
                             this.Close();

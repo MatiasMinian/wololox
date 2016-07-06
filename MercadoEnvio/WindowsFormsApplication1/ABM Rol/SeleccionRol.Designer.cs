@@ -30,15 +30,15 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.comboRoles = new System.Windows.Forms.ComboBox();
+            this.botonIngreso = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.comboRoles);
             this.groupBox1.Location = new System.Drawing.Point(12, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(224, 158);
@@ -55,30 +55,31 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Roles disponibles:";
             // 
-            // comboBox1
+            // comboRoles
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(47, 79);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(130, 21);
-            this.comboBox1.TabIndex = 0;
+            this.comboRoles.FormattingEnabled = true;
+            this.comboRoles.Location = new System.Drawing.Point(47, 79);
+            this.comboRoles.Name = "comboRoles";
+            this.comboRoles.Size = new System.Drawing.Size(130, 21);
+            this.comboRoles.TabIndex = 0;
+            this.comboRoles.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // button1
+            // botonIngreso
             // 
-            this.button1.Location = new System.Drawing.Point(84, 168);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Ingresar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.botonIngreso.Location = new System.Drawing.Point(84, 168);
+            this.botonIngreso.Name = "botonIngreso";
+            this.botonIngreso.Size = new System.Drawing.Size(75, 23);
+            this.botonIngreso.TabIndex = 1;
+            this.botonIngreso.Text = "Ingresar";
+            this.botonIngreso.UseVisualStyleBackColor = true;
+            this.botonIngreso.Click += new System.EventHandler(this.button1_Click);
             // 
             // SeleccionRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(248, 199);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.botonIngreso);
             this.Controls.Add(this.groupBox1);
             this.Name = "SeleccionRol";
             this.ShowIcon = false;
@@ -93,7 +94,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboRoles;
+        private System.Windows.Forms.Button botonIngreso;
     }
 }

@@ -19962,99 +19962,99 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
             this._commandCollection[16].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rolID", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 2, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[17] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[17].Connection = this.Connection;
-            this._commandCollection[17].CommandText = "WOLOLOX.ObtenerUsuariosHabilitados";
+            this._commandCollection[17].CommandText = "WOLOLOX.vendedoresProductosNoVendidos2Trimestre";
             this._commandCollection[17].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[17].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[17].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idRol", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[17].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anio", global::System.Data.SqlDbType.NVarChar, 4, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[17].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@visi", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[18] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[18].Connection = this.Connection;
-            this._commandCollection[18].CommandText = "WOLOLOX.vendedoresProductosNoVendidos2Trimestre";
+            this._commandCollection[18].CommandText = "WOLOLOX.BuscarUsuarioBloq";
             this._commandCollection[18].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[18].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[18].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anio", global::System.Data.SqlDbType.NVarChar, 4, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[18].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@visi", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[18].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.NVarChar, 25, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[18].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tel", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[18].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mail", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[18].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rolID", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 2, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[19] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[19].Connection = this.Connection;
-            this._commandCollection[19].CommandText = "WOLOLOX.BuscarUsuarioBloq";
+            this._commandCollection[19].CommandText = "WOLOLOX.vendedoresProductosNoVendidos3Trimestre";
             this._commandCollection[19].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[19].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[19].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.NVarChar, 25, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[19].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tel", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[19].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mail", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[19].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rolID", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 2, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[19].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anio", global::System.Data.SqlDbType.NVarChar, 4, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[19].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@visi", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[20] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[20].Connection = this.Connection;
-            this._commandCollection[20].CommandText = "WOLOLOX.ObtenerUsuariosBloqueados";
+            this._commandCollection[20].CommandText = "WOLOLOX.vendedoresProductosNoVendidos4Trimestre";
             this._commandCollection[20].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[20].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[20].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idRol", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 2, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[20].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anio", global::System.Data.SqlDbType.NVarChar, 4, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[20].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@visi", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[21] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[21].Connection = this.Connection;
-            this._commandCollection[21].CommandText = "WOLOLOX.vendedoresProductosNoVendidos3Trimestre";
+            this._commandCollection[21].CommandText = "WOLOLOX.clienteMayorCantCompras1Trimestre";
             this._commandCollection[21].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[21].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[21].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anio", global::System.Data.SqlDbType.NVarChar, 4, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[21].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@visi", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[21].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rubro", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[22] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[22].Connection = this.Connection;
-            this._commandCollection[22].CommandText = "WOLOLOX.vendedoresProductosNoVendidos4Trimestre";
+            this._commandCollection[22].CommandText = "WOLOLOX.clienteMayorCantCompras2Trimestre";
             this._commandCollection[22].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[22].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[22].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anio", global::System.Data.SqlDbType.NVarChar, 4, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[22].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@visi", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[22].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rubro", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[23] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[23].Connection = this.Connection;
-            this._commandCollection[23].CommandText = "WOLOLOX.clienteMayorCantCompras1Trimestre";
+            this._commandCollection[23].CommandText = "WOLOLOX.clienteMayorCantCompras3Trimestre";
             this._commandCollection[23].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[23].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[23].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anio", global::System.Data.SqlDbType.NVarChar, 4, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[23].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rubro", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[24] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[24].Connection = this.Connection;
-            this._commandCollection[24].CommandText = "WOLOLOX.clienteMayorCantCompras2Trimestre";
+            this._commandCollection[24].CommandText = "WOLOLOX.clienteMayorCantCompras4Trimestre";
             this._commandCollection[24].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[24].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[24].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anio", global::System.Data.SqlDbType.NVarChar, 4, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[24].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rubro", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[25] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[25].Connection = this.Connection;
-            this._commandCollection[25].CommandText = "WOLOLOX.clienteMayorCantCompras3Trimestre";
+            this._commandCollection[25].CommandText = "WOLOLOX.vendedoresMayorCantFacturas1Trimestre";
             this._commandCollection[25].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[25].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[25].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anio", global::System.Data.SqlDbType.NVarChar, 4, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[25].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rubro", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[26] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[26].Connection = this.Connection;
-            this._commandCollection[26].CommandText = "WOLOLOX.clienteMayorCantCompras4Trimestre";
+            this._commandCollection[26].CommandText = "WOLOLOX.HabilitarUsuario";
             this._commandCollection[26].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[26].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[26].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anio", global::System.Data.SqlDbType.NVarChar, 4, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[26].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rubro", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[26].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[27] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[27].Connection = this.Connection;
-            this._commandCollection[27].CommandText = "WOLOLOX.vendedoresMayorCantFacturas1Trimestre";
+            this._commandCollection[27].CommandText = "WOLOLOX.login";
             this._commandCollection[27].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[27].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[27].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anio", global::System.Data.SqlDbType.NVarChar, 4, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[27].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[27].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[28] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[28].Connection = this.Connection;
-            this._commandCollection[28].CommandText = "WOLOLOX.HabilitarUsuario";
+            this._commandCollection[28].CommandText = "WOLOLOX.obtenerRol";
             this._commandCollection[28].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[28].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[28].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[28].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[29] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[29].Connection = this.Connection;
-            this._commandCollection[29].CommandText = "WOLOLOX.login";
+            this._commandCollection[29].CommandText = "WOLOLOX.ObtenerUsuariosBloqueados";
             this._commandCollection[29].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[29].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[29].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[29].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[29].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idRol", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 2, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[30] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[30].Connection = this.Connection;
-            this._commandCollection[30].CommandText = "WOLOLOX.obtenerRol";
+            this._commandCollection[30].CommandText = "WOLOLOX.ObtenerUsuariosHabilitados";
             this._commandCollection[30].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[30].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[30].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[30].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idRol", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 2, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20493,44 +20493,8 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy19(GD1C2016DataSet.usuariosDataTable dataTable, global::System.Nullable<decimal> idRol) {
-            this.Adapter.SelectCommand = this.CommandCollection[17];
-            if ((idRol.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(idRol.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual GD1C2016DataSet.usuariosDataTable ObtenerUsuariosHabilitados(global::System.Nullable<decimal> idRol) {
-            this.Adapter.SelectCommand = this.CommandCollection[17];
-            if ((idRol.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(idRol.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            GD1C2016DataSet.usuariosDataTable dataTable = new GD1C2016DataSet.usuariosDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy2(GD1C2016DataSet.usuariosDataTable dataTable, string anio, string visi) {
-            this.Adapter.SelectCommand = this.CommandCollection[18];
+            this.Adapter.SelectCommand = this.CommandCollection[17];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20555,7 +20519,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual GD1C2016DataSet.usuariosDataTable vendedorProductosNoVendidos2trimestre(string anio, string visi) {
-            this.Adapter.SelectCommand = this.CommandCollection[18];
+            this.Adapter.SelectCommand = this.CommandCollection[17];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20578,7 +20542,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy20(GD1C2016DataSet.usuariosDataTable dataTable, string nombre, string tel, string mail, global::System.Nullable<decimal> rolID) {
-            this.Adapter.SelectCommand = this.CommandCollection[19];
+            this.Adapter.SelectCommand = this.CommandCollection[18];
             if ((nombre == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20615,7 +20579,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual GD1C2016DataSet.usuariosDataTable BuscarUsuarioBloq(string nombre, string tel, string mail, global::System.Nullable<decimal> rolID) {
-            this.Adapter.SelectCommand = this.CommandCollection[19];
+            this.Adapter.SelectCommand = this.CommandCollection[18];
             if ((nombre == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20649,44 +20613,8 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy21(GD1C2016DataSet.usuariosDataTable dataTable, global::System.Nullable<decimal> idRol) {
-            this.Adapter.SelectCommand = this.CommandCollection[20];
-            if ((idRol.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(idRol.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual GD1C2016DataSet.usuariosDataTable ObtenerUsuariosBloqueados(global::System.Nullable<decimal> idRol) {
-            this.Adapter.SelectCommand = this.CommandCollection[20];
-            if ((idRol.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(idRol.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            GD1C2016DataSet.usuariosDataTable dataTable = new GD1C2016DataSet.usuariosDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy3(GD1C2016DataSet.usuariosDataTable dataTable, string anio, string visi) {
-            this.Adapter.SelectCommand = this.CommandCollection[21];
+            this.Adapter.SelectCommand = this.CommandCollection[19];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20711,7 +20639,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual GD1C2016DataSet.usuariosDataTable vendedorProductosNoVendidos3trimestre(string anio, string visi) {
-            this.Adapter.SelectCommand = this.CommandCollection[21];
+            this.Adapter.SelectCommand = this.CommandCollection[19];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20734,7 +20662,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy4(GD1C2016DataSet.usuariosDataTable dataTable, string anio, string visi) {
-            this.Adapter.SelectCommand = this.CommandCollection[22];
+            this.Adapter.SelectCommand = this.CommandCollection[20];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20759,7 +20687,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual GD1C2016DataSet.usuariosDataTable vendedorProductosNoVendidos4trimestre(string anio, string visi) {
-            this.Adapter.SelectCommand = this.CommandCollection[22];
+            this.Adapter.SelectCommand = this.CommandCollection[20];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20782,7 +20710,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy5(GD1C2016DataSet.usuariosDataTable dataTable, string anio, string rubro) {
-            this.Adapter.SelectCommand = this.CommandCollection[23];
+            this.Adapter.SelectCommand = this.CommandCollection[21];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20807,7 +20735,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual GD1C2016DataSet.usuariosDataTable clientesMayorCantCompras1trimestre(string anio, string rubro) {
-            this.Adapter.SelectCommand = this.CommandCollection[23];
+            this.Adapter.SelectCommand = this.CommandCollection[21];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20830,7 +20758,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy6(GD1C2016DataSet.usuariosDataTable dataTable, string anio, string rubro) {
-            this.Adapter.SelectCommand = this.CommandCollection[24];
+            this.Adapter.SelectCommand = this.CommandCollection[22];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20855,7 +20783,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual GD1C2016DataSet.usuariosDataTable clientesMayorCantCompras2trimestre(string anio, string rubro) {
-            this.Adapter.SelectCommand = this.CommandCollection[24];
+            this.Adapter.SelectCommand = this.CommandCollection[22];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20878,7 +20806,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy7(GD1C2016DataSet.usuariosDataTable dataTable, string anio, string rubro) {
-            this.Adapter.SelectCommand = this.CommandCollection[25];
+            this.Adapter.SelectCommand = this.CommandCollection[23];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20903,7 +20831,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual GD1C2016DataSet.usuariosDataTable clientesMayorCantCompras3trimestre(string anio, string rubro) {
-            this.Adapter.SelectCommand = this.CommandCollection[25];
+            this.Adapter.SelectCommand = this.CommandCollection[23];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20926,7 +20854,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy8(GD1C2016DataSet.usuariosDataTable dataTable, string anio, string rubro) {
-            this.Adapter.SelectCommand = this.CommandCollection[26];
+            this.Adapter.SelectCommand = this.CommandCollection[24];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20951,7 +20879,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual GD1C2016DataSet.usuariosDataTable clientesMayorCantCompras4trimestre(string anio, string rubro) {
-            this.Adapter.SelectCommand = this.CommandCollection[26];
+            this.Adapter.SelectCommand = this.CommandCollection[24];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20974,7 +20902,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy9(GD1C2016DataSet.usuariosDataTable dataTable, string anio) {
-            this.Adapter.SelectCommand = this.CommandCollection[27];
+            this.Adapter.SelectCommand = this.CommandCollection[25];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -20993,12 +20921,63 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual GD1C2016DataSet.usuariosDataTable vendedoresMayorCantFacturas1trimestre(string anio) {
-            this.Adapter.SelectCommand = this.CommandCollection[27];
+            this.Adapter.SelectCommand = this.CommandCollection[25];
             if ((anio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(anio));
+            }
+            GD1C2016DataSet.usuariosDataTable dataTable = new GD1C2016DataSet.usuariosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD1C2016DataSet.usuariosDataTable ObtenerRol(string UserName) {
+            this.Adapter.SelectCommand = this.CommandCollection[28];
+            if ((UserName == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(UserName));
+            }
+            GD1C2016DataSet.usuariosDataTable dataTable = new GD1C2016DataSet.usuariosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD1C2016DataSet.usuariosDataTable ObtenerUsuariosBloqueados(global::System.Nullable<decimal> idRol) {
+            this.Adapter.SelectCommand = this.CommandCollection[29];
+            if ((idRol.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(idRol.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            GD1C2016DataSet.usuariosDataTable dataTable = new GD1C2016DataSet.usuariosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD1C2016DataSet.usuariosDataTable ObtenerUsuariosHabilitados(global::System.Nullable<decimal> idRol) {
+            this.Adapter.SelectCommand = this.CommandCollection[30];
+            if ((idRol.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(idRol.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             GD1C2016DataSet.usuariosDataTable dataTable = new GD1C2016DataSet.usuariosDataTable();
             this.Adapter.Fill(dataTable);
@@ -21592,7 +21571,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int HabilitarUsuario(global::System.Nullable<decimal> id) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[28];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[26];
             if ((id.HasValue == true)) {
                 command.Parameters[1].Value = ((decimal)(id.Value));
             }
@@ -21620,7 +21599,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object login(string UserName, string Password) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[29];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[27];
             if ((UserName == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -21632,40 +21611,6 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
             }
             else {
                 command.Parameters[2].Value = ((string)(Password));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
-            }
-            else {
-                return ((object)(returnValue));
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object obtenerRol(string UserName) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[30];
-            if ((UserName == null)) {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[1].Value = ((string)(UserName));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

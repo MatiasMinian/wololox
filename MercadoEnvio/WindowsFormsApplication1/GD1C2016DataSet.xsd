@@ -1338,7 +1338,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.consultaID" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="consultaID" Modifier="Public" Name="consultaID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="consultaID">
+              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.consultaID" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="consultaID" Modifier="Public" Name="consultaID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="consultaID">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>WOLOLOX.consultaID</CommandText>
@@ -1349,7 +1349,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.CrearUsuarioRolGenerico" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="CrearUsuarioRolGenerico" Modifier="Public" Name="CrearUsuarioRolGenerico" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="CrearUsuarioRolGenerico">
+              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.CrearUsuarioRolGenerico" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="CrearUsuarioRolGenerico" Modifier="Public" Name="CrearUsuarioRolGenerico" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="CrearUsuarioRolGenerico">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>WOLOLOX.CrearUsuarioRolGenerico</CommandText>
@@ -1371,7 +1371,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.DeshabilitarUsuario" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="DeshabilitarUsuario" Modifier="Public" Name="DeshabilitarUsuario" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="DeshabilitarUsuario">
+              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.DeshabilitarUsuario" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="DeshabilitarUsuario" Modifier="Public" Name="DeshabilitarUsuario" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="DeshabilitarUsuario">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>WOLOLOX.DeshabilitarUsuario</CommandText>
@@ -1496,17 +1496,6 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.ObtenerUsuariosHabilitados" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy19" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="ObtenerUsuariosHabilitados" GeneratorSourceName="FillBy19" GetMethodModifier="Public" GetMethodName="ObtenerUsuariosHabilitados" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="ObtenerUsuariosHabilitados" UserSourceName="FillBy19">
-                <SelectCommand>
-                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
-                    <CommandText>WOLOLOX.ObtenerUsuariosHabilitados</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="@idRol" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
               <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.vendedoresProductosNoVendidos2Trimestre" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy2" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="vendedorProductosNoVendidos2trimestre" GeneratorSourceName="FillBy2" GetMethodModifier="Public" GetMethodName="vendedorProductosNoVendidos2trimestre" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="vendedorProductosNoVendidos2trimestre" UserSourceName="FillBy2">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
@@ -1529,17 +1518,6 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@tel" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@mail" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@rolID" Precision="2" ProviderType="Decimal" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.ObtenerUsuariosBloqueados" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy21" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="ObtenerUsuariosBloqueados" GeneratorSourceName="FillBy21" GetMethodModifier="Public" GetMethodName="ObtenerUsuariosBloqueados" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="ObtenerUsuariosBloqueados" UserSourceName="FillBy21">
-                <SelectCommand>
-                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
-                    <CommandText>WOLOLOX.ObtenerUsuariosBloqueados</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@idRol" Precision="2" ProviderType="Decimal" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -1627,7 +1605,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.HabilitarUsuario" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="HabilitarUsuario" Modifier="Public" Name="HabilitarUsuario" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="HabilitarUsuario">
+              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.HabilitarUsuario" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="HabilitarUsuario" Modifier="Public" Name="HabilitarUsuario" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="HabilitarUsuario">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>WOLOLOX.HabilitarUsuario</CommandText>
@@ -1638,7 +1616,7 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.login" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="login" Modifier="Public" Name="login" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="login">
+              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.login" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="login" Modifier="Public" Name="login" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="login">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>WOLOLOX.login</CommandText>
@@ -1650,13 +1628,35 @@ SELECT id_usuario, nombre_usuario, contraseña, intentos_login, mail, telefono, 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.obtenerRol" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="obtenerRol" Modifier="Public" Name="obtenerRol" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="obtenerRol">
+              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.obtenerRol" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="ObtenerRol" GetMethodModifier="Public" GetMethodName="ObtenerRol" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="ObtenerRol" UserSourceName="ObtenerRol">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>WOLOLOX.obtenerRol</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@UserName" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.ObtenerUsuariosBloqueados" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="ObtenerUsuariosBloqueados" GeneratorSourceName="FillBy21" GetMethodModifier="Public" GetMethodName="ObtenerUsuariosBloqueados" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="ObtenerUsuariosBloqueados" UserSourceName="ObtenerUsuariosBloqueados">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>WOLOLOX.ObtenerUsuariosBloqueados</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@idRol" Precision="2" ProviderType="Decimal" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GD1C2016ConnectionString (Settings)" DbObjectName="GD1C2016.WOLOLOX.ObtenerUsuariosHabilitados" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="ObtenerUsuariosHabilitados" GeneratorSourceName="FillBy19" GetMethodModifier="Public" GetMethodName="ObtenerUsuariosHabilitados" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="ObtenerUsuariosHabilitados" UserSourceName="ObtenerUsuariosHabilitados">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>WOLOLOX.ObtenerUsuariosHabilitados</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@idRol" Precision="2" ProviderType="Decimal" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>

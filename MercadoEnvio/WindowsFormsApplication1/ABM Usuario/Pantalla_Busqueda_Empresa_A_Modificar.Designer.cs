@@ -96,7 +96,7 @@
             // 
             this.textRepMax.Location = new System.Drawing.Point(428, 59);
             this.textRepMax.Name = "textRepMax";
-            this.textRepMax.Size = new System.Drawing.Size(26, 20);
+            this.textRepMax.Size = new System.Drawing.Size(85, 20);
             this.textRepMax.TabIndex = 12;
             // 
             // label5
@@ -112,7 +112,7 @@
             // 
             this.textRepMin.Location = new System.Drawing.Point(428, 25);
             this.textRepMin.Name = "textRepMin";
-            this.textRepMin.Size = new System.Drawing.Size(26, 20);
+            this.textRepMin.Size = new System.Drawing.Size(85, 20);
             this.textRepMin.TabIndex = 10;
             // 
             // label4
