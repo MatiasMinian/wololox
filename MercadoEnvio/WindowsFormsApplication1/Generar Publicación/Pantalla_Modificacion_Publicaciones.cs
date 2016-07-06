@@ -27,22 +27,35 @@ namespace WindowsFormsApplication1.Generar_Publicación
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.CurrentRow.Cells[1].Value.Equals("Borrador")){
 
-                MessageBox.Show("Finalice de completar los datos de la publicacion para poder modificar su estado");
+            if (dataGridView1.Rows.Count == 0)
+            {
 
-            }else{
-
-
-            Pantalla_Modificación_Estado_Publicación pantallaModifEstado = new Pantalla_Modificación_Estado_Publicación();
-            pantallaModifEstado.guardarDatos(this,Convert.ToDecimal(dataGridView1.CurrentRow.Cells[0].Value), Convert.ToString(dataGridView1.CurrentRow.Cells[1].Value));
-            pantallaModifEstado.ShowDialog();
-            
+                MessageBox.Show("No tienes publicaciones por modificar");
 
             }
+            else
+            {
+
+                if (dataGridView1.CurrentRow.Cells[1].Value.Equals("Borrador"))
+                {
+
+                    MessageBox.Show("Finalice de completar los datos de la publicacion para poder modificar su estado");
+
+                }
+                else
+                {
+
+
+                    Pantalla_Modificación_Estado_Publicación pantallaModifEstado = new Pantalla_Modificación_Estado_Publicación();
+                    pantallaModifEstado.guardarDatos(this, Convert.ToDecimal(dataGridView1.CurrentRow.Cells[0].Value), Convert.ToString(dataGridView1.CurrentRow.Cells[1].Value));
+                    pantallaModifEstado.ShowDialog();
+
+
+                }
+            }
+
         }
-
-
         internal void guardarDatos(decimal idUser)
         {
             this.id = idUser;
@@ -78,50 +91,62 @@ namespace WindowsFormsApplication1.Generar_Publicación
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            if (dataGridView1.CurrentRow.Cells[1].Value.Equals("Borrador"))
+            if (dataGridView1.Rows.Count == 0)
             {
 
-                if(dataGridView1.CurrentRow.Cells[6].Value.Equals("Compra Inmediata")){
-                Pantalla_Compra_Borrador pantallaCompraBorrador = new Pantalla_Compra_Borrador();
-                pantallaCompraBorrador.guardarDatos(this,
-                                                    Convert.ToDecimal(dataGridView1.CurrentRow.Cells[0].Value),
-                                                    Convert.ToString(dataGridView1.CurrentRow.Cells[1].Value),
-                                                    Convert.ToString(dataGridView1.CurrentRow.Cells[2].Value),
-                                                    Convert.ToString(dataGridView1.CurrentRow.Cells[3].Value),
-                                                    Convert.ToDecimal(dataGridView1.CurrentRow.Cells[4].Value),
-                                                    Convert.ToDecimal(dataGridView1.CurrentRow.Cells[5].Value),
-                                                    Convert.ToString(dataGridView1.CurrentRow.Cells[6].Value),
-                                                    Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value),
-                                                    Convert.ToDateTime(dataGridView1.CurrentRow.Cells[8].Value));
-                pantallaCompraBorrador.ShowDialog();
-                }else{
-
-                Pantalla_Subasta_Borrador pantallaSubastaBorrador = new Pantalla_Subasta_Borrador();
-                pantallaSubastaBorrador.guardarDatos(this,
-                                                    Convert.ToDecimal(dataGridView1.CurrentRow.Cells[0].Value),
-                                                    Convert.ToString(dataGridView1.CurrentRow.Cells[1].Value),
-                                                    Convert.ToString(dataGridView1.CurrentRow.Cells[2].Value),
-                                                    Convert.ToString(dataGridView1.CurrentRow.Cells[3].Value),
-                                                    Convert.ToDecimal(dataGridView1.CurrentRow.Cells[4].Value),
-                                                    Convert.ToDecimal(dataGridView1.CurrentRow.Cells[5].Value),
-                                                    Convert.ToString(dataGridView1.CurrentRow.Cells[6].Value),
-                                                    Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value),
-                                                    Convert.ToDateTime(dataGridView1.CurrentRow.Cells[8].Value));
-                pantallaSubastaBorrador.ShowDialog();
-                }
-
+                MessageBox.Show("No tienes publicaciones por continuar");
 
             }
             else
             {
 
+                if (dataGridView1.CurrentRow.Cells[1].Value.Equals("Borrador"))
+                {
 
-                MessageBox.Show("El estado de la publicación debe ser borrador");
+                    if (dataGridView1.CurrentRow.Cells[6].Value.Equals("Compra Inmediata"))
+                    {
+                        Pantalla_Compra_Borrador pantallaCompraBorrador = new Pantalla_Compra_Borrador();
+                        pantallaCompraBorrador.guardarDatos(this,
+                                                            Convert.ToDecimal(dataGridView1.CurrentRow.Cells[0].Value),
+                                                            Convert.ToString(dataGridView1.CurrentRow.Cells[1].Value),
+                                                            Convert.ToString(dataGridView1.CurrentRow.Cells[2].Value),
+                                                            Convert.ToString(dataGridView1.CurrentRow.Cells[3].Value),
+                                                            Convert.ToDecimal(dataGridView1.CurrentRow.Cells[4].Value),
+                                                            Convert.ToDecimal(dataGridView1.CurrentRow.Cells[5].Value),
+                                                            Convert.ToString(dataGridView1.CurrentRow.Cells[6].Value),
+                                                            Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value),
+                                                            Convert.ToDateTime(dataGridView1.CurrentRow.Cells[8].Value));
+                        pantallaCompraBorrador.ShowDialog();
+                    }
+                    else
+                    {
+
+                        Pantalla_Subasta_Borrador pantallaSubastaBorrador = new Pantalla_Subasta_Borrador();
+                        pantallaSubastaBorrador.guardarDatos(this,
+                                                            Convert.ToDecimal(dataGridView1.CurrentRow.Cells[0].Value),
+                                                            Convert.ToString(dataGridView1.CurrentRow.Cells[1].Value),
+                                                            Convert.ToString(dataGridView1.CurrentRow.Cells[2].Value),
+                                                            Convert.ToString(dataGridView1.CurrentRow.Cells[3].Value),
+                                                            Convert.ToDecimal(dataGridView1.CurrentRow.Cells[4].Value),
+                                                            Convert.ToDecimal(dataGridView1.CurrentRow.Cells[5].Value),
+                                                            Convert.ToString(dataGridView1.CurrentRow.Cells[6].Value),
+                                                            Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value),
+                                                            Convert.ToDateTime(dataGridView1.CurrentRow.Cells[8].Value));
+                        pantallaSubastaBorrador.ShowDialog();
+                    }
+
+
+                }
+                else
+                {
+
+
+                    MessageBox.Show("El estado de la publicación debe ser borrador");
+
+                }
+
 
             }
-
-
         }
     }
 }
