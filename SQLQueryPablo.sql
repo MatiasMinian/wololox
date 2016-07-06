@@ -1376,14 +1376,39 @@ values (@nombreRol,1)
 
 GO
 
+IF OBJECT_ID('WOLOLOX.cambiarNombreRol') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.cambiarNombreRol;
+GO
+
+CREATE PROCEDURE wololox.cambiarNombreRol(@idRol numeric(2,0), @nombreRol nvarchar(50))
+AS
+
+UPDATE WOLOLOX.roles
+SET nombre = @nombreRol
+WHERE id=@idRol
+
+GO
+
 IF OBJECT_ID('WOLOLOX.insertarFuncXRol') IS NOT NULL
    DROP PROCEDURE WOLOLOX.insertarFuncXRol;
 GO
 
-CREATE PROCEDURE wololox.insertarFuncXRol(@nombreFunc nvarchar(50), @idRol numeric(2,0))
+CREATE PROCEDURE wololox.insertarFuncXRol(@idFunc numeric(2,0), @idRol numeric(2,0))
 AS
-insert into WOLOLOX.funcionalidades_roles
+insert into WOLOLOX.funcionalidades_roles(id_funcionalidad,id_rol)
 values (@idFunc,@idRol)
+
+GO
+
+IF OBJECT_ID('WOLOLOX.removerFuncXRol') IS NOT NULL
+   DROP PROCEDURE WOLOLOX.removerFuncXRol;
+GO
+
+CREATE PROCEDURE wololox.removerFuncXRol(@idFunc numeric(2,0), @idRol numeric(2,0))
+AS
+DELETE FROM WOLOLOX.funcionalidades_roles
+WHERE funcionalidades_roles.id_funcionalidad=@idFunc
+AND funcionalidades_roles.id_rol=@idRol
 
 GO
 
@@ -1417,10 +1442,10 @@ GO
 
 CREATE PROCEDURE wololox.funcionalidadesDelRol(@idRol numeric(2,0))
 AS
-SELECT f.id, f.nombre
+SELECT DISTINCT f.id, f.nombre
 FROM funcionalidades_roles fr, funcionalidades f
 WHERE fr.id_rol= @idRol
-AND f.id=fr.id_rol
+AND fr.id_funcionalidad=f.id
 
 GO
 
@@ -1430,10 +1455,10 @@ GO
 
 CREATE PROCEDURE wololox.funcionalidadesSinRol(@idRol numeric(2,0))
 AS
-SELECT f.id, f.nombre
-FROM funcionalidades_roles fr, funcionalidades f
-WHERE fr.id_rol!= @idRol
-AND f.id=fr.id_rol
+SELECT DISTINCT id,nombre
+FROM WOLOLOX.funcionalidades f, WOLOLOX.funcionalidades_roles fr
+WHERE f.id=fr.id_funcionalidad AND id not in (SELECT DISTINCT funcionalidades.id FROM WOLOLOX.funcionalidades,WOLOLOX.funcionalidades_roles
+WHERE funcionalidades_roles.id_rol= 10 AND funcionalidades.id=funcionalidades_roles.id_funcionalidad)
 
 GO
 

@@ -39,7 +39,7 @@ namespace WindowsFormsApplication1.ABM_Rol
             else
             {
                 rolAdapter.inhabilitarRol((decimal)comboRoles.SelectedValue);
-                this.Close();
+                MessageBox.Show("Rol bloqueado");
             }
         }
     }

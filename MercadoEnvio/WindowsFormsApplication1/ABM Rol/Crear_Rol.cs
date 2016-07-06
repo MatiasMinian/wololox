@@ -55,10 +55,11 @@ namespace WindowsFormsApplication1.ABM_Rol
             {
                 rolAdapter.insertarRol(textNomRol.Text);
                 decimal idRol = rolAdapter.GetData().Last().id;
-                foreach (int i in listaFunc.SelectedIndices)
+                foreach (DataRowView item in listaFunc.SelectedItems)
                 {
-                   //funcXRolAdapter.insertarFuncXRol(listaFunc.Items[i].ToString(), idRol);
+                   funcXRolAdapter.insertarFuncXRol(Convert.ToDecimal(item.Row[listaFunc.ValueMember]), idRol);
                 }
+                MessageBox.Show("Rol creado");
                 this.Close();
             }
         }

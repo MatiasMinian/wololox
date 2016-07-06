@@ -28,12 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboRoles = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.gD1C2016DataSet = new WindowsFormsApplication1.GD1C2016DataSet();
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rolesTableAdapter = new WindowsFormsApplication1.GD1C2016DataSetTableAdapters.rolesTableAdapter();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -49,11 +55,14 @@
             // 
             // comboRoles
             // 
+            this.comboRoles.DataSource = this.rolesBindingSource;
+            this.comboRoles.DisplayMember = "nombre";
             this.comboRoles.FormattingEnabled = true;
             this.comboRoles.Location = new System.Drawing.Point(90, 61);
             this.comboRoles.Name = "comboRoles";
             this.comboRoles.Size = new System.Drawing.Size(121, 21);
             this.comboRoles.TabIndex = 1;
+            this.comboRoles.ValueMember = "id";
             // 
             // label1
             // 
@@ -84,6 +93,20 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // gD1C2016DataSet
+            // 
+            this.gD1C2016DataSet.DataSetName = "GD1C2016DataSet";
+            this.gD1C2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rolesBindingSource
+            // 
+            this.rolesBindingSource.DataMember = "roles";
+            this.rolesBindingSource.DataSource = this.gD1C2016DataSet;
+            // 
+            // rolesTableAdapter
+            // 
+            this.rolesTableAdapter.ClearBeforeFill = true;
+            // 
             // Pantalla_Habilitacion_Rol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -95,8 +118,11 @@
             this.Name = "Pantalla_Habilitacion_Rol";
             this.ShowIcon = false;
             this.Text = "Habilitar rol";
+            this.Load += new System.EventHandler(this.Pantalla_Habilitacion_Rol_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2016DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -108,5 +134,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private GD1C2016DataSet gD1C2016DataSet;
+        private System.Windows.Forms.BindingSource rolesBindingSource;
+        private GD1C2016DataSetTableAdapters.rolesTableAdapter rolesTableAdapter;
     }
 }
