@@ -70,7 +70,7 @@ namespace WindowsFormsApplication1.ABM_Visibilidad
                                 //Enviar a BD
 
                                 visiAdapter = new GD1C2016DataSetTableAdapters.visibilidadesTableAdapter();
-                                visiAdapter.CrearVisibilidad(descripcion,costo_envio, valorPorProducto, costo_publicacion);
+                                visiAdapter.CrearVisibilidad(descripcion, costo_envio, valorPorProducto, costo_publicacion);
                                
                                 MessageBox.Show("Visibilidad creada correctamente");
                             }

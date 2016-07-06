@@ -108,7 +108,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "Pantalla_Rol_Principal";
-            this.Text = "Pantalla_Rol_Principal";
+            this.ShowIcon = false;
+            this.Text = "ABM de Roles";
             this.ResumeLayout(false);
             this.PerformLayout();
 

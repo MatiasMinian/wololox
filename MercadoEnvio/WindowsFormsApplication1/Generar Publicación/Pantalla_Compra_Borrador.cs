@@ -90,14 +90,14 @@ namespace WindowsFormsApplication1.Generar_Publicación
 
                 publiAdapter = new GD1C2016DataSetTableAdapters.publicacionesTableAdapter();
 
-                publiAdapter.actualizarPublicacion(idPubli, id_estado, id_visibilidad, descripcion, stock, precio, fechaInicio, fechaVencimiento);
+                publiAdapter.ActualizarPublicacion(idPubli, id_estado, id_visibilidad, descripcion, stock, precio, fechaInicio, fechaVencimiento);
 
                 for (int i = 0; i < rubros.Count; i++)
                 {
 
                     decimal id_rubro = Convert.ToDecimal(rubroAdapter.consultaIDrubro(rubros[i]));
 
-                    publiRubrosAdapter.actualizarPubliRubros(idPubli, id_rubro);
+                    publiRubrosAdapter.ActualizarPubliRubros(idPubli, id_rubro);
 
          
                 }

@@ -74,8 +74,8 @@ namespace WindowsFormsApplication1.ABM_Rol
         private void comboRol_SelectedIndexChanged(object sender, EventArgs e)
         {
             textNombre.Text = comboRol.SelectedText;
-            comboFunc.DataSource = funcAdapter.FillByRolSinFunc(funcAdapter.GetData(), (decimal) comboRol.SelectedValue);
-            listFunc.DataSource = funcAdapter.FillByRolConFunc(funcAdapter.GetData(), (decimal)comboRol.SelectedValue);
+            //comboFunc.DataSource = funcAdapter.FillByRolSinFunc(funcAdapter.GetData(), (decimal) comboRol.SelectedValue);
+            //listFunc.DataSource = funcAdapter.FillByRolConFunc(funcAdapter.GetData(), (decimal)comboRol.SelectedValue);
         }
 
         private void button1_Click(object sender, EventArgs e)

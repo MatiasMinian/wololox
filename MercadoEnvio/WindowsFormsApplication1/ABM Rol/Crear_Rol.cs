@@ -55,9 +55,9 @@ namespace WindowsFormsApplication1.ABM_Rol
             {
                 rolAdapter.insertarRol(textNomRol.Text);
                 decimal idRol = rolAdapter.GetData().Last().id;
-                foreach (object func in listaFunc.SelectedItems)
+                foreach (int i in listaFunc.SelectedIndices)
                 {
-                    funcXRolAdapter.insertarFuncXRol((decimal)listaFunc.SelectedValue, idRol);
+                   //funcXRolAdapter.insertarFuncXRol(listaFunc.Items[i].ToString(), idRol);
                 }
                 this.Close();
             }

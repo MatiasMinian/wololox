@@ -101,7 +101,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
                 MessageBox.Show("Complete algún campo a modificar");
             }
 
-            cliAdapter.actualizarCliente(Convert.ToDecimal(id), textNom.Text, textApe.Text, textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textCodPos.Text, Convert.ToDecimal(textDni.Text), Convert.ToDateTime(textFechaNac.Text));
+            cliAdapter.ActualizarCliente(Convert.ToDecimal(id), textNom.Text, textApe.Text, textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textCodPos.Text, Convert.ToDecimal(textDni.Text), Convert.ToDateTime(textFechaNac.Text));
             MessageBox.Show("Usuario modificado");
             this.Close();
         }

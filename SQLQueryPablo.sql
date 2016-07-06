@@ -1380,7 +1380,7 @@ IF OBJECT_ID('WOLOLOX.insertarFuncXRol') IS NOT NULL
    DROP PROCEDURE WOLOLOX.insertarFuncXRol;
 GO
 
-CREATE PROCEDURE wololox.insertarFuncXRol(@idFunc numeric(2,0), @idRol numeric(2,0))
+CREATE PROCEDURE wololox.insertarFuncXRol(@nombreFunc nvarchar(50), @idRol numeric(2,0))
 AS
 insert into WOLOLOX.funcionalidades_roles
 values (@idFunc,@idRol)
@@ -1865,11 +1865,12 @@ AS
  BEGIN TRANSACTION
 
  UPDATE WOLOLOX.publicaciones
- set publicaciones.id_estado = (SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.nombre LIKE 'Finalizada')
+ set publicaciones.id_estado = (SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.nombre='Finalizada')
  WHERE @fechaDeHoy > publicaciones.fecha_vencimiento
- 
+
  COMMIT
-GO
+
+ GO
 
 
 -- Eliminar usuario, elimina su dirección, sus datos, sus rol-usuario, sus ofertas, sus publicaciones y sus compras
@@ -1943,12 +1944,12 @@ AS
  COMMIT
 GO
 
--- Actualizar publicación, pasa el estado a finalizada si stock = 0 y genera factura
+-- Actualizar publicación, pasa el estado a finalizada y genera una factura si stock = 0
 
-IF OBJECT_ID('WOLOLOX.ActualizarPubli') IS NOT NULL
- DROP TRIGGER WOLOLOX.ActualizarPubli;
+IF OBJECT_ID('WOLOLOX.ActualizarPublicacion') IS NOT NULL
+ DROP TRIGGER WOLOLOX.ActualizarPublicacion;
 GO
-CREATE TRIGGER WOLOLOX.ActualizarPubli
+CREATE TRIGGER WOLOLOX.ActualizarPublicacion
  ON WOLOLOX.publicaciones
  FOR UPDATE
 AS
@@ -1962,29 +1963,40 @@ AS
 
  -- Genero una factura si estado pasó a finalizada
 
- if ((SELECT inserted.stock FROM inserted) = 0)
+ DECLARE @publicacionCodigo NUMERIC(18,0)
+ DECLARE @publicacionCodVisibilidad NUMERIC(18,0)
+ DECLARE @publicacionPrecio NUMERIC(18,0)
+ DECLARE @publicacionDescripcion NVARCHAR(255)
+
+ DECLARE publicacion CURSOR FOR 
+ SELECT publicaciones.codigo, publicaciones.cod_visibilidad, publicaciones.precio, publicaciones.descripcion 
+ FROM WOLOLOX.publicaciones, WOLOLOX.estados
+ WHERE publicaciones.id_estado = estados.id_estado AND estados.nombre LIKE 'Finalizada'
+ 
+ OPEN publicacion 
+
+ FETCH NEXT FROM publicacion INTO @publicacionCodigo, @publicacionCodVisibilidad, @publicacionPrecio, @publicacionDescripcion
+
+ WHILE @@FETCH_STATUS = 0
  BEGIN
   INSERT INTO WOLOLOX.facturas (id_publicacion, fecha, total)
-  SELECT publicaciones.codigo, GETDATE(), visibilidades.costo_envio + visibilidades.costo_publicacion + (visibilidades.porc_producto*publicaciones.precio* 
-  (SELECT SUM(compras.cantidad)
-  FROM WOLOLOX.compras, WOLOLOX.publicaciones, inserted 
-  WHERE compras.cod_publicacion = publicaciones.codigo AND publicaciones.codigo = inserted.codigo))
-  FROM WOLOLOX.publicaciones, WOLOLOX.visibilidades, inserted
-  WHERE publicaciones.codigo = inserted.codigo
-  AND publicaciones.cod_visibilidad = visibilidades.codigo
+  SELECT @publicacionCodigo, GETDATE(), visibilidades.costo_envio + visibilidades.costo_publicacion + (visibilidades.porc_producto*@publicacionPrecio*(SELECT SUM(compras.cantidad)
+  FROM WOLOLOX.compras
+  WHERE compras.cod_publicacion = @publicacionCodigo))
+  FROM WOLOLOX.visibilidades
+  WHERE visibilidades.codigo = @publicacionCodVisibilidad
 
   -- Genero item_facutra
 
   INSERT INTO WOLOLOX.item_factura (nro_fact, monto, descripcion, cantidad)
-  SELECT SCOPE_IDENTITY(), (visibilidades.costo_envio + visibilidades.costo_publicacion + (visibilidades.porc_producto*publicaciones.precio*  
-  (SELECT SUM(compras.cantidad)
-  FROM WOLOLOX.compras, WOLOLOX.publicaciones, inserted 
-  WHERE compras.cod_publicacion = publicaciones.codigo AND publicaciones.codigo = inserted.codigo))), publicaciones.descripcion, 
-  (SELECT SUM(compras.cantidad) FROM WOLOLOX.compras, WOLOLOX.publicaciones, inserted 
-  WHERE compras.cod_publicacion = publicaciones.codigo AND publicaciones.codigo = inserted.codigo)
-  FROM WOLOLOX.publicaciones, WOLOLOX.visibilidades, inserted
-  WHERE publicaciones.codigo = inserted.codigo AND visibilidades.codigo = publicaciones.cod_visibilidad
-  
+  SELECT SCOPE_IDENTITY(), (visibilidades.costo_envio + visibilidades.costo_publicacion + (visibilidades.porc_producto*@publicacionPrecio*(SELECT SUM(compras.cantidad)
+  FROM WOLOLOX.compras WHERE compras.cod_publicacion = @publicacionCodigo))), @publicacionDescripcion, 
+  (SELECT SUM(compras.cantidad) FROM WOLOLOX.compras
+  WHERE compras.cod_publicacion = @publicacionCodigo)
+  FROM WOLOLOX.visibilidades
+  WHERE visibilidades.codigo = @publicacionCodVisibilidad
+
+  FETCH NEXT FROM publicacion INTO @publicacionCodigo, @publicacionCodVisibilidad, @publicacionPrecio, @publicacionDescripcion
  END
 
  COMMIT

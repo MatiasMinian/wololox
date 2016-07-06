@@ -95,7 +95,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
             {
                 MessageBox.Show("Complete algún campo a modificar");
             }
-            empAdapter.actualizarEmpresa(Convert.ToDecimal(id), textRacSoc.Text, Convert.ToDecimal(comboRubro.SelectedValue), textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text),Convert.ToDecimal(textPiso.Text), textDepto.Text, textLocal.Text, textCiudad.Text,textCodPos.Text, textCUIT.Text, textNomCon.Text);
+            empAdapter.ActualizarEmpresa(Convert.ToDecimal(id), textRacSoc.Text, Convert.ToDecimal(comboRubro.SelectedValue), textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text),Convert.ToDecimal(textPiso.Text), textDepto.Text, textLocal.Text, textCiudad.Text,textCodPos.Text, textCUIT.Text, textNomCon.Text);
             MessageBox.Show("Usuario modificado");
             this.Close();
         }

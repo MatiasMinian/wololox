@@ -33,7 +33,7 @@ namespace WindowsFormsApplication1.Calificar
 
 
             caliAdapter = new GD1C2016DataSetTableAdapters.calificacionesTableAdapter();
-            caliData = caliAdapter.buscarPublicacionesAcalificar(id);
+            caliData = caliAdapter.BuscarPublicacionesACalificar(id);
 
             foreach (DataRow row in caliData.Rows)
             {

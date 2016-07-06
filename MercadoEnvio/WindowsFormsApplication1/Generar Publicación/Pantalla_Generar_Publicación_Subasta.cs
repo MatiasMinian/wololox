@@ -79,7 +79,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
                 decimal id_visibilidad = Convert.ToDecimal(visiAdapter.consultaIDvisibilidad(visibilidad));               
                 decimal id_estado = Convert.ToDecimal(estadoAdapter.consultaIDestado(estado));
 
-              publiAdapter.Insert(idUser, id_estado, id_visibilidad, descripcion, stock, valorInicial, tipo,fechaInicio,fechaVencimiento);
+              publiAdapter.Insert(idUser, id_estado, id_visibilidad,fechaInicio,fechaVencimiento ,descripcion, stock, valorInicial, tipo);
 
                 for (int i = 0; i < rubros.Count; i++)
                 {

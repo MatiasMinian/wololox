@@ -80,7 +80,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
 
                 publiAdapter = new GD1C2016DataSetTableAdapters.publicacionesTableAdapter();
 
-                publiAdapter.Insert(idUser, id_estado, id_visibilidad, descripcion, stock, precio, tipo,fechaInicio,fechaVencimiento);
+                publiAdapter.Insert(idUser, id_estado, id_visibilidad, fechaInicio,fechaVencimiento, descripcion, stock, precio, tipo);
 
                 for (int i = 0; i < rubros.Count; i++)
                 {
