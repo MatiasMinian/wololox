@@ -30,7 +30,7 @@ namespace WindowsFormsApplication1
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Pantalla_Rol_Principal());
+            Application.Run(new Pantalla_Rol_Principal());
             //Application.Run(new FormularioLogin());
 
         }
