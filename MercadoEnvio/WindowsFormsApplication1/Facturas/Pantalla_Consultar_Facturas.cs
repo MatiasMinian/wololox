@@ -132,15 +132,10 @@ namespace WindowsFormsApplication1.Facturas
                             GD1C2016DataSetTableAdapters.usuariosTableAdapter userAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
                             GD1C2016DataSet.usuariosDataTable userData = new GD1C2016DataSet.usuariosDataTable();
 
-                            userData = userAdapter.consultaID(textBox3.Text);
-                            if (userData.Rows.Count == 0)
+                            idConsulta = (Decimal)userAdapter.consultaID(textBox3.Text);
+                            if (idConsulta == null)
                             {
                                 MessageBox.Show("No existe ese usuario");
-                            }
-                            else
-                            {
-                                idConsulta = Convert.ToDecimal(userData[0][0]);
-
                             }
                         }
 

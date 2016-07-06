@@ -49,7 +49,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
 
         private void botonPass_Click(object sender, EventArgs e)
         {
-            Pantalla_Modif_Eleccion_Rol pantallaModificacion = new Pantalla_Modif_Eleccion_Rol(3);
+            Pantalla_Modificación_Password pantallaModificacion = new Pantalla_Modificación_Password();
             pantallaModificacion.ShowDialog();
         }
 

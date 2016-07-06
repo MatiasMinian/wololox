@@ -61,8 +61,7 @@ namespace WindowsFormsApplication1.Generar_Publicación
         {
             GD1C2016DataSetTableAdapters.usuariosTableAdapter userAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
             GD1C2016DataSet.usuariosDataTable userData = new GD1C2016DataSet.usuariosDataTable();
-            userData = userAdapter.consultaID(user);
-            idUser = Convert.ToDecimal(userData[0][0]);
+            idUser = (Decimal) userAdapter.consultaID(user);
 
         }
     }

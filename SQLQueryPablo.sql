@@ -1580,13 +1580,25 @@ GO
 IF OBJECT_ID('WOLOLOX.ObtenerUsuariosHabilitados') IS NOT NULL
     DROP PROCEDURE WOLOLOX.ObtenerUsuariosHabilitados;
 GO
-CREATE PROCEDURE WOLOLOX.ObtenerUsuariosHabilitados
+CREATE PROCEDURE WOLOLOX.ObtenerUsuariosHabilitados(@idRol numeric(2,0))
 AS
     SELECT nombre_usuario, mail, telefono, fecha_creacion
-	FROM WOLOLOX.usuarios u
-	WHERE u.habilitado=1
-	AND  NOT EXISTS (SELECT * FROM empresas e WHERE e.id_usuario=u.id_usuario)
-	AND  NOT EXISTS (SELECT * FROM clientes c WHERE c.id_usuario=u.id_usuario)
+	FROM WOLOLOX.usuarios u, WOLOLOX.roles_usuarios r
+	WHERE u.habilitado=1 AND r.id_rol=@idRol AND r.id_usuario=u.id_usuario
+	--AND  NOT EXISTS (SELECT * FROM empresas e WHERE e.id_usuario=u.id_usuario)
+	--AND  NOT EXISTS (SELECT * FROM clientes c WHERE c.id_usuario=u.id_usuario)
+GO
+
+IF OBJECT_ID('WOLOLOX.ObtenerUsuariosBloqueados') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.ObtenerUsuariosBloqueados;
+GO
+CREATE PROCEDURE WOLOLOX.ObtenerUsuariosBloqueados(@idRol numeric(2,0))
+AS
+    SELECT nombre_usuario, mail, telefono, fecha_creacion
+	FROM WOLOLOX.usuarios u, WOLOLOX.roles_usuarios r
+	WHERE u.habilitado=0 AND r.id_rol=@idRol AND r.id_usuario=u.id_usuario
+	--AND  NOT EXISTS (SELECT * FROM empresas e WHERE e.id_usuario=u.id_usuario)
+	--AND  NOT EXISTS (SELECT * FROM clientes c WHERE c.id_usuario=u.id_usuario)
 GO
 
 IF OBJECT_ID('WOLOLOX.BuscarUsuario') IS NOT NULL
@@ -1758,6 +1770,17 @@ AS
    
 GO
 
+IF OBJECT_ID('WOLOLOX.obtenerCliente') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.obtenerCliente;
+GO
+CREATE PROCEDURE WOLOLOX.obtenerCliente(@id numeric(18,0))
+AS
+    SELECT c.nombre,c.apellido,c.dni
+    FROM WOLOLOX.clientes c, WOLOLOX.usuarios u
+	WHERE c.id_usuario=u.id_usuario AND u.id_usuario=@id
+GO
+
+
 IF OBJECT_ID('WOLOLOX.ActualizarEmpresa') IS NOT NULL
     DROP PROCEDURE WOLOLOX.ActualizarEmpresa;
 GO
@@ -1776,6 +1799,16 @@ AS
 	WHERE id_usuario=@id
 GO
 
+IF OBJECT_ID('WOLOLOX.CambiarContraseña') IS NOT NULL
+    DROP PROCEDURE WOLOLOX.CambiarContraseña;
+GO
+CREATE PROCEDURE WOLOLOX.CambiarContraseña(@nombre nvarchar(255), @contraseña nvarchar(255))
+AS
+UPDATE WOLOLOX.usuarios
+SET contraseña= HASHBYTES('SHA2_256',@contraseña)
+WHERE nombre_usuario=@nombre
+
+GO
 
 --Funcionalidades
 

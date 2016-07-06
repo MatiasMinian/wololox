@@ -16,6 +16,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
         private GD1C2016DataSetTableAdapters.usuariosTableAdapter userAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
         private GD1C2016DataSetTableAdapters.direccionesTableAdapter dirAdapter = new GD1C2016DataSetTableAdapters.direccionesTableAdapter();
         String id;
+  
 
         public Pantalla_Modificacion_Datos_Cliente(DataGridViewRow clienteSeleccionado)
         {
@@ -32,6 +33,32 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textDni.Text = clienteSeleccionado.Cells[4].Value.ToString();
             GD1C2016DataSet.usuariosDataTable usersData = userAdapter.BuscarUsuario(Convert.ToDecimal(id));
             textTel.Text = usersData.Rows[0].Field<String>("telefono");
+            GD1C2016DataSet.direccionesDataTable direccionData = dirAdapter.BuscarDireccion(Convert.ToDecimal(id));
+            textDom.Text = direccionData.Rows[0].Field<String>("calle");
+            textNumDom.Text = direccionData.Rows[0].Field<Decimal>("numero").ToString();
+            textPiso.Text = direccionData.Rows[0].Field<Decimal>("piso").ToString();
+            textDepto.Text = direccionData.Rows[0].Field<String>("departamento");
+            textLoc.Text = direccionData.Rows[0].Field<String>("localidad");
+            textCodPos.Text = direccionData.Rows[0].Field<String>("cod_postal");
+            textCiudad.Text = direccionData.Rows[0].Field<String>("ciudad");
+        }
+
+        public Pantalla_Modificacion_Datos_Cliente(decimal idUser)
+        {
+            InitializeComponent();
+            //Formato fecha
+
+            textFechaNac.Format = DateTimePickerFormat.Custom;
+            textFechaNac.CustomFormat = "dd/MM/yyyy";
+
+            GD1C2016DataSet.clientesDataTable cliData = cliAdapter.ObtenerCliente(idUser);
+            this.id = idUser.ToString();
+            textNom.Text = cliData.Rows[0].Field<String>("nombre");
+            textApe.Text = cliData.Rows[0].Field<String>("apellido");
+            textDni.Text = cliData.Rows[0].Field<String>("dni");
+            GD1C2016DataSet.usuariosDataTable usersData = userAdapter.BuscarUsuario(Convert.ToDecimal(id));
+            textTel.Text = usersData.Rows[0].Field<String>("telefono");
+            textMail.Text = usersData.Rows[0].Field<String>("nombre");
             GD1C2016DataSet.direccionesDataTable direccionData = dirAdapter.BuscarDireccion(Convert.ToDecimal(id));
             textDom.Text = direccionData.Rows[0].Field<String>("calle");
             textNumDom.Text = direccionData.Rows[0].Field<Decimal>("numero").ToString();

@@ -26,9 +26,7 @@ namespace WindowsFormsApplication1.Historial_Cliente
         {
             GD1C2016DataSetTableAdapters.usuariosTableAdapter usuAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
             GD1C2016DataSet.usuariosDataTable usuData = new GD1C2016DataSet.usuariosDataTable();
-            usuData = usuAdapter.consultaID(user);
-
-            idUser = Convert.ToDecimal(usuData[0][0]);
+            idUser = (Decimal) usuAdapter.consultaID(user);
 
             comprasAdapter = new GD1C2016DataSetTableAdapters.comprasTableAdapter();
             comprasData = comprasAdapter.busquedaDeComprasYsubastas(idUser);

@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textUser = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textPass2 = new System.Windows.Forms.TextBox();
+            this.textPass = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.textUser);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textPass2);
+            this.groupBox1.Controls.Add(this.textPass);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -55,19 +55,37 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Modificación de password";
             // 
-            // textBox2
+            // textUser
             // 
-            this.textBox2.Location = new System.Drawing.Point(148, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.textUser.Location = new System.Drawing.Point(148, 40);
+            this.textUser.Name = "textUser";
+            this.textUser.Size = new System.Drawing.Size(100, 20);
+            this.textUser.TabIndex = 0;
             // 
-            // textBox1
+            // label3
             // 
-            this.textBox1.Location = new System.Drawing.Point(148, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Username:";
+            // 
+            // textPass2
+            // 
+            this.textPass2.Location = new System.Drawing.Point(148, 89);
+            this.textPass2.Name = "textPass2";
+            this.textPass2.Size = new System.Drawing.Size(100, 20);
+            this.textPass2.TabIndex = 2;
+            this.textPass2.UseSystemPasswordChar = true;
+            // 
+            // textPass
+            // 
+            this.textPass.Location = new System.Drawing.Point(148, 64);
+            this.textPass.Name = "textPass";
+            this.textPass.Size = new System.Drawing.Size(100, 20);
+            this.textPass.TabIndex = 1;
+            this.textPass.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -92,7 +110,7 @@
             this.button1.Location = new System.Drawing.Point(12, 167);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 4;
             this.button1.Text = "Atras";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -102,26 +120,10 @@
             this.button2.Location = new System.Drawing.Point(194, 167);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
+            this.button2.TabIndex = 3;
             this.button2.Text = "Modificar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 43);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Username:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(148, 40);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
             // 
             // Pantalla_Modificación_Password
             // 
@@ -143,13 +145,13 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textPass2;
+        private System.Windows.Forms.TextBox textPass;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textUser;
         private System.Windows.Forms.Label label3;
     }
 }

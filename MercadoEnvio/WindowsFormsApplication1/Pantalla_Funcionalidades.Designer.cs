@@ -84,7 +84,7 @@
             this.botonCalificar.Name = "botonCalificar";
             this.botonCalificar.Size = new System.Drawing.Size(122, 23);
             this.botonCalificar.TabIndex = 6;
-            this.botonCalificar.Text = "Calificar Vendedor";
+            this.botonCalificar.Text = "Calificar vendedor";
             this.botonCalificar.UseVisualStyleBackColor = true;
             this.botonCalificar.Click += new System.EventHandler(this.botonCalificar_Click);
             // 
@@ -94,7 +94,7 @@
             this.botonEstadisticas.Location = new System.Drawing.Point(133, 276);
             this.botonEstadisticas.Name = "botonEstadisticas";
             this.botonEstadisticas.Size = new System.Drawing.Size(122, 23);
-            this.botonEstadisticas.TabIndex = 8;
+            this.botonEstadisticas.TabIndex = 7;
             this.botonEstadisticas.Text = "Ver estadísticas";
             this.botonEstadisticas.UseVisualStyleBackColor = true;
             this.botonEstadisticas.Click += new System.EventHandler(this.botonEstadisticas_Click);
@@ -104,7 +104,7 @@
             this.botonSalir.Location = new System.Drawing.Point(133, 392);
             this.botonSalir.Name = "botonSalir";
             this.botonSalir.Size = new System.Drawing.Size(122, 23);
-            this.botonSalir.TabIndex = 9;
+            this.botonSalir.TabIndex = 11;
             this.botonSalir.Text = "Salir";
             this.botonSalir.UseVisualStyleBackColor = true;
             this.botonSalir.Click += new System.EventHandler(this.botonSalir_Click);
@@ -115,9 +115,10 @@
             this.botonDatos.Location = new System.Drawing.Point(133, 334);
             this.botonDatos.Name = "botonDatos";
             this.botonDatos.Size = new System.Drawing.Size(122, 23);
-            this.botonDatos.TabIndex = 12;
-            this.botonDatos.Text = "Modificacion datos";
+            this.botonDatos.TabIndex = 9;
+            this.botonDatos.Text = "Modificar mis datos";
             this.botonDatos.UseVisualStyleBackColor = true;
+            this.botonDatos.Click += new System.EventHandler(this.botonDatos_Click);
             // 
             // botonVisi
             // 
@@ -125,8 +126,8 @@
             this.botonVisi.Location = new System.Drawing.Point(133, 73);
             this.botonVisi.Name = "botonVisi";
             this.botonVisi.Size = new System.Drawing.Size(122, 23);
-            this.botonVisi.TabIndex = 13;
-            this.botonVisi.Text = "ABM visibilidad";
+            this.botonVisi.TabIndex = 0;
+            this.botonVisi.Text = "ABM de Visibilidades";
             this.botonVisi.UseVisualStyleBackColor = true;
             this.botonVisi.Click += new System.EventHandler(this.botonVisi_Click);
             // 
@@ -136,8 +137,8 @@
             this.botonRoles.Location = new System.Drawing.Point(133, 102);
             this.botonRoles.Name = "botonRoles";
             this.botonRoles.Size = new System.Drawing.Size(122, 23);
-            this.botonRoles.TabIndex = 14;
-            this.botonRoles.Text = "ABM roles";
+            this.botonRoles.TabIndex = 1;
+            this.botonRoles.Text = "ABM de Roles";
             this.botonRoles.UseVisualStyleBackColor = true;
             this.botonRoles.Click += new System.EventHandler(this.botonRoles_Click);
             // 
@@ -147,8 +148,8 @@
             this.botonUsuarios.Location = new System.Drawing.Point(133, 131);
             this.botonUsuarios.Name = "botonUsuarios";
             this.botonUsuarios.Size = new System.Drawing.Size(122, 23);
-            this.botonUsuarios.TabIndex = 15;
-            this.botonUsuarios.Text = "ABM usuarios";
+            this.botonUsuarios.TabIndex = 2;
+            this.botonUsuarios.Text = "ABM de Usuarios";
             this.botonUsuarios.UseVisualStyleBackColor = true;
             this.botonUsuarios.Click += new System.EventHandler(this.botonUsuarios_Click);
             // 
@@ -158,7 +159,7 @@
             this.botonMPubli.Location = new System.Drawing.Point(133, 363);
             this.botonMPubli.Name = "botonMPubli";
             this.botonMPubli.Size = new System.Drawing.Size(122, 23);
-            this.botonMPubli.TabIndex = 16;
+            this.botonMPubli.TabIndex = 10;
             this.botonMPubli.Text = "Modificar publicacion";
             this.botonMPubli.UseVisualStyleBackColor = true;
             this.botonMPubli.Click += new System.EventHandler(this.botonMPubli_Click);
@@ -169,7 +170,7 @@
             this.botonFacturas.Location = new System.Drawing.Point(133, 305);
             this.botonFacturas.Name = "botonFacturas";
             this.botonFacturas.Size = new System.Drawing.Size(122, 23);
-            this.botonFacturas.TabIndex = 17;
+            this.botonFacturas.TabIndex = 8;
             this.botonFacturas.Text = "Consultar facturas";
             this.botonFacturas.UseVisualStyleBackColor = true;
             this.botonFacturas.Click += new System.EventHandler(this.botonFacturas_Click);
@@ -216,7 +217,7 @@
             this.Name = "Pantalla_Funcionalidades";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu cliente";
+            this.Text = "Menú inicial";
             this.ResumeLayout(false);
             this.PerformLayout();
 

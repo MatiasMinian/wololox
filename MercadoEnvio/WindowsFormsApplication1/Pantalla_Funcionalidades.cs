@@ -25,9 +25,11 @@ namespace WindowsFormsApplication1
        private GD1C2016DataSetTableAdapters.funcionalidadesTableAdapter funciAdapter;
        private GD1C2016DataSet.funcionalidadesDataTable funciData;
        private String user;
+       private String rol;
 
-        public Pantalla_Funcionalidades(String rol)
+        public Pantalla_Funcionalidades(String nombreRol)
         {
+            rol = nombreRol;
             InitializeComponent();
             foreach (Control control in this.Controls)
             {
@@ -158,8 +160,7 @@ namespace WindowsFormsApplication1
             Decimal id;
             GD1C2016DataSetTableAdapters.usuariosTableAdapter usuAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
             GD1C2016DataSet.usuariosDataTable usuData = new GD1C2016DataSet.usuariosDataTable();
-            usuData = usuAdapter.consultaID(user);
-            id = Convert.ToDecimal(usuData[0][0]);
+            id = (Decimal) usuAdapter.consultaID(user);
 
             Pantalla_Modificacion_Publicaciones pantallaMPubli = new Pantalla_Modificacion_Publicaciones();
             pantallaMPubli.guardarDatos(id);
@@ -191,6 +192,12 @@ namespace WindowsFormsApplication1
         {
             Pantalla_Consultar_Facturas pantallaFactu = new Pantalla_Consultar_Facturas();
             pantallaFactu.ShowDialog();
+        }
+
+        private void botonDatos_Click(object sender, EventArgs e)
+        {
+            Pantalla_Modificacion_Datos_Propios pantallaModif = new Pantalla_Modificacion_Datos_Propios(user,rol);
+            pantallaModif.ShowDialog();
         }
 
     }

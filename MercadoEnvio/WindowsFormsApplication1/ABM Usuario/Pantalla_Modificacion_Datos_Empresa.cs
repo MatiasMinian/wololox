@@ -16,6 +16,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
         private GD1C2016DataSetTableAdapters.usuariosTableAdapter userAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
         private GD1C2016DataSetTableAdapters.direccionesTableAdapter dirAdapter = new GD1C2016DataSetTableAdapters.direccionesTableAdapter();
         String id;
+        private string usuario;
 
         public Pantalla_Modificacion_Datos_Empresa(DataGridViewRow empresaSeleccionada)
         {
@@ -38,6 +39,29 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textCodPos.Text = direccionData.Rows[0].Field<String>("cod_postal");
             textCiudad.Text = direccionData.Rows[0].Field<String>("ciudad");
             
+        }
+
+        public Pantalla_Modificacion_Datos_Empresa(decimal idUser)
+        {
+            InitializeComponent();
+            this.rubrosTableAdapter.Fill(this.gD1C2016DataSet.rubros);
+            GD1C2016DataSet.empresasDataTable empData = empAdapter.ObtenerEmpresa(idUser);
+            this.id = idUser.ToString();
+            textRacSoc.Text = empData.Rows[0].Field<String>("razon_social");
+            comboRubro.Text = empData.Rows[0].Field<String>("descripcion_larga");
+            textCUIT.Text = empData.Rows[0].Field<String>("cuit");
+            textNomCon.Text = empData.Rows[0].Field<String>("nombre_contacto");
+            GD1C2016DataSet.usuariosDataTable usersData = userAdapter.BuscarUsuario(Convert.ToDecimal(id));
+            textMail.Text = usersData.Rows[0].Field<String>("mail");
+            textTel.Text = usersData.Rows[0].Field<String>("telefono");
+            GD1C2016DataSet.direccionesDataTable direccionData = dirAdapter.BuscarDireccion(Convert.ToDecimal(id));
+            textDom.Text = direccionData.Rows[0].Field<String>("calle");
+            textNumDom.Text = direccionData.Rows[0].Field<Decimal>("numero").ToString();
+            textPiso.Text = direccionData.Rows[0].Field<Decimal>("piso").ToString();
+            textDepto.Text = direccionData.Rows[0].Field<String>("departamento");
+            textLocal.Text = direccionData.Rows[0].Field<String>("localidad");
+            textCodPos.Text = direccionData.Rows[0].Field<String>("cod_postal");
+            textCiudad.Text = direccionData.Rows[0].Field<String>("ciudad");
         }
 
         private void button1_Click(object sender, EventArgs e)

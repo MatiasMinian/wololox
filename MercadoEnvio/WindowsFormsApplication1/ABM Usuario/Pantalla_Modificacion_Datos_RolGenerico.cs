@@ -15,6 +15,8 @@ namespace WindowsFormsApplication1.ABM_Usuario
         private GD1C2016DataSetTableAdapters.usuariosTableAdapter userAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
         private GD1C2016DataSetTableAdapters.direccionesTableAdapter dirAdapter = new GD1C2016DataSetTableAdapters.direccionesTableAdapter();
         private string id;
+        private string usuario;
+        private string rol;
 
         public Pantalla_Modificacion_Datos_RolGenerico(DataGridViewRow usuarioSeleccionado)
         {
@@ -31,6 +33,13 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textLoc.Text = direccionData.Rows[0].Field<String>("localidad");
             textCodPos.Text = direccionData.Rows[0].Field<String>("cod_postal");
             textCiudad.Text = direccionData.Rows[0].Field<String>("ciudad");
+        }
+
+        public Pantalla_Modificacion_Datos_RolGenerico(string usuario, string rol)
+        {
+            // TODO: Complete member initialization
+            this.usuario = usuario;
+            this.rol = rol;
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -27,10 +27,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
             GD1C2016DataSetTableAdapters.usuariosTableAdapter userAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
             GD1C2016DataSet.usuariosDataTable userData = new GD1C2016DataSet.usuariosDataTable();
 
-            userData = userAdapter.consultaID(user);
-
-            id = Convert.ToDecimal(userData[0][0]);
-
+            id = (Decimal) userAdapter.consultaID(user);
 
         }
 

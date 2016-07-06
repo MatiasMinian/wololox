@@ -12,9 +12,17 @@ namespace WindowsFormsApplication1.ABM_Usuario
 {
     public partial class Pantalla_Modificación_Password : Form
     {
+        private GD1C2016DataSetTableAdapters.usuariosTableAdapter userAdapter = new GD1C2016DataSetTableAdapters.usuariosTableAdapter();
         public Pantalla_Modificación_Password()
         {
             InitializeComponent();
+        }
+
+        public Pantalla_Modificación_Password(string usuario)
+        {
+            InitializeComponent();
+            textUser.Text = usuario;
+            textUser.ReadOnly = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -25,26 +33,32 @@ namespace WindowsFormsApplication1.ABM_Usuario
         private void button2_Click(object sender, EventArgs e)
         {
 
-            if (textBox1.Text == "" && textBox2.Text == "")
+            if (textPass.Text == "" && textPass2.Text == "")
             {
 
                 MessageBox.Show("Ingresa nueva password y verificala");
 
             }
-            else if (textBox3.Text=="")
+            else if (textUser.Text == "")
             {
                 MessageBox.Show("Ingresa el usuario");
             }
-            else if (textBox1.Text == "")
+            else if (textPass.Text == "")
             {
 
                 MessageBox.Show("Ingresa nueva password");
 
             }
+            else if (textPass.Text != textPass2.Text)
+            {
+                MessageBox.Show("Ingresa claves coincidentes");
+            }
             else
-
-
-                MessageBox.Show("Ingresa verificación de password");
+            {
+                userAdapter.CambiarContraseña(textUser.Text, textPass.Text);
+                MessageBox.Show("Contraseña cambiada!");
+                this.Close();
+            }
 
         }
     }
