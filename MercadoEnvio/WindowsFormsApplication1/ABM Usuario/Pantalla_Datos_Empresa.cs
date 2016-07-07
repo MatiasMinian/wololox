@@ -42,15 +42,15 @@ namespace WindowsFormsApplication1.ABM_Usuario
             textCiudad.ResetText();
             textNomCon.ResetText();
             textTel.ResetText();
-            
+
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             if (textNombre.Text == "" || textNumDom.Text == "" || textLocal.Text == "" || textMail.Text == ""
-              || textCuit.Text == "" || textDom.Text == "" || textCodPos.Text == ""
-              || textCiudad.Text == "" || textTel.Text == "")
+              || textCuit.Text == "" || textDom.Text == "" || textCodPos.Text == "" || textPiso.Text=="" || textDepto.Text==""
+              || textCiudad.Text == "" || textTel.Text == "" || comboRubro.SelectedIndex < 0)
             {
 
                 MessageBox.Show("Complete campos obligatorios");
@@ -58,11 +58,11 @@ namespace WindowsFormsApplication1.ABM_Usuario
             else
             {
                 empAdapter = new GD1C2016DataSetTableAdapters.empresasTableAdapter();
-                empAdapter.CrearEmpresa(idUsuario, contraseña, textNombre.Text, textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLocal.Text, textCiudad.Text, textCodPos.Text, textCuit.Text, Convert.ToString(comboRubro.SelectedValue), textNomCon.Text);
+                empAdapter.CrearEmpresa(idUsuario, contraseña, textNombre.Text, textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLocal.Text, textCiudad.Text, textCodPos.Text, textCuit.Text, Convert.ToDecimal(comboRubro.SelectedValue), textNomCon.Text);
                 MessageBox.Show("Usuario creado");
                 this.Close();
             }
-            
+
         }
 
         private void Pantalla_Datos_Empresa_Load(object sender, EventArgs e)

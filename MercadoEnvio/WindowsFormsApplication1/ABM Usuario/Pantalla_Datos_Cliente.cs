@@ -65,7 +65,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
         private void button3_Click(object sender, EventArgs e)
         {
             if (textNom.Text == "" || textTel.Text == "" || texDom.Text == "" || textApe.Text == ""
-               || textNumDom.Text == "" || textMail.Text == ""
+               || textNumDom.Text == "" || textMail.Text == "" || textDNI.Text=="" || textPiso.Text=="" || textDepto.Text==""
                || textLoc.Text == "" || textPost.Text == "")
             {
 
@@ -75,7 +75,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
             else
             {
                 cliAdapter = new GD1C2016DataSetTableAdapters.clientesTableAdapter();
-                cliAdapter.CrearCliente(idUsuario, contraseña, textNom.Text, textApe.Text, textMail.Text, textTel.Text, texDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textPost.Text, Convert.ToDecimal(textDNI.Text), Convert.ToDateTime(textFechaNac.Text));
+                cliAdapter.CrearCliente(idUsuario, contraseña, textNom.Text, textApe.Text, textMail.Text, textTel.Text, texDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textPost.Text, Convert.ToDecimal(textDNI.Text), textFechaNac.Text);
                 MessageBox.Show("Usuario creado");
                 this.Close();
             }

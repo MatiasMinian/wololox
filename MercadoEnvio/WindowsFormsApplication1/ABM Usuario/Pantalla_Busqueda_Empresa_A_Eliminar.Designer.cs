@@ -174,9 +174,13 @@
             // 
             // dataEmpresas
             // 
+            this.dataEmpresas.AllowUserToAddRows = false;
+            this.dataEmpresas.AllowUserToDeleteRows = false;
+            this.dataEmpresas.AllowUserToOrderColumns = true;
             this.dataEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataEmpresas.Location = new System.Drawing.Point(12, 135);
             this.dataEmpresas.Name = "dataEmpresas";
+            this.dataEmpresas.ReadOnly = true;
             this.dataEmpresas.Size = new System.Drawing.Size(503, 150);
             this.dataEmpresas.TabIndex = 2;
             this.dataEmpresas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataEmpresas_CellContentClick);
