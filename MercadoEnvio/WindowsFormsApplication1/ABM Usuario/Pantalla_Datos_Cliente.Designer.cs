@@ -147,7 +147,7 @@
             this.textFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.textFechaNac.Location = new System.Drawing.Point(111, 160);
             this.textFechaNac.Name = "textFechaNac";
-            this.textFechaNac.Size = new System.Drawing.Size(74, 20);
+            this.textFechaNac.Size = new System.Drawing.Size(97, 20);
             this.textFechaNac.TabIndex = 12;
             // 
             // label13

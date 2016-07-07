@@ -21,10 +21,19 @@ namespace WindowsFormsApplication1.ABM_Usuario
         public Pantalla_Modificacion_Datos_Cliente(DataGridViewRow clienteSeleccionado)
         {
             InitializeComponent();
+
+            var value = System.Configuration.ConfigurationManager.AppSettings["DateKey"];
+
+            String appDate = value;
+
+            
+            
             //Formato fecha
 
             textFechaNac.Format = DateTimePickerFormat.Custom;
             textFechaNac.CustomFormat = "dd/MM/yyyy";
+
+            textFechaNac.MaxDate = Convert.ToDateTime(appDate);
 
             this.id = clienteSeleccionado.Cells[0].Value.ToString();
             textNom.Text = clienteSeleccionado.Cells[1].Value.ToString();
