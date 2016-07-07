@@ -1783,7 +1783,7 @@ IF OBJECT_ID('WOLOLOX.obtenerCliente') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.obtenerCliente(@id numeric(18,0))
 AS
-    SELECT c.nombre,c.apellido,c.dni
+    SELECT u.id_usuario,c.nombre,c.apellido,c.dni
     FROM WOLOLOX.clientes c, WOLOLOX.usuarios u
 	WHERE c.id_usuario=u.id_usuario AND u.id_usuario=@id
 GO
@@ -1793,7 +1793,7 @@ IF OBJECT_ID('WOLOLOX.obtenerEmpresa') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.obtenerEmpresa(@id numeric(18,0))
 AS
-    SELECT e.razon_social,r.descripcion_larga,e.cuit,e.nombre_contacto
+    SELECT u.id_usuario, e.razon_social,r.descripcion_larga,e.cuit,e.nombre_contacto
     FROM WOLOLOX.empresas e, WOLOLOX.usuarios u, WOLOLOX.rubros r
 	WHERE e.id_usuario=u.id_usuario AND u.id_usuario=@id AND e.cod_rubro=r.codigo
 GO
