@@ -58,7 +58,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
             else
             {
                 empAdapter = new GD1C2016DataSetTableAdapters.empresasTableAdapter();
-                empAdapter.CrearEmpresa(idUsuario, contraseña, textNombre.Text, textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLocal.Text, textCiudad.Text, textCodPos.Text, textCuit.Text, Convert.ToDecimal(comboRubro.SelectedValue), textNomCon.Text);
+                empAdapter.CrearEmpresa(idUsuario, contraseña, textNombre.Text, textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLocal.Text, textCiudad.Text, textCodPos.Text, textCuit.Text, Convert.ToString(comboRubro.SelectedValue), textNomCon.Text);
                 MessageBox.Show("Usuario creado");
                 this.Close();
             }

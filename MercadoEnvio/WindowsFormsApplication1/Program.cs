@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using WindowsFormsApplication1.Listado_Estadistico;
 using WindowsFormsApplication1.ABM_Usuario;
 using WindowsFormsApplication1.ABM_Rol;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace WindowsFormsApplication1
 {
@@ -24,18 +26,41 @@ namespace WindowsFormsApplication1
 
            var value = System.Configuration.ConfigurationManager.AppSettings["DateKey"];
 
-           var appDate = DateTime.Parse(value);
+           String appDate = value;
 
-           MessageBox.Show("Actualizando publicaciones vencidas.Espere por favor...");
+           MessageBox.Show("Se van a actualizar publicaciones vencidas..");
 
-           publiAdapter.ActualizarPublicacionesVencidas(appDate);
+           String conexion = Convert.ToString(System.Configuration.ConfigurationManager.ConnectionStrings[1]);
 
-           MessageBox.Show("Publicaciones vencidas actualizadas.Presione aceptar para continuar");
+           SqlConnection cnn = new SqlConnection(conexion);
+           
+           cnn.Open();
+
+           SqlCommand cmd = new SqlCommand("WOLOLOX.ActualizarPublicacionesVencidas", cnn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Add("@fechaDeHoy", SqlDbType.NVarChar);
+            cmd.Parameters["@fechaDeHoy"].Value = appDate;
+           cmd.CommandTimeout = 1800;
+
+
+           try
+           {
+               SqlDataReader reader = cmd.ExecuteReader();
+               reader.Read();
+           }
+           catch (Exception)
+           {
+
+               MessageBox.Show("Fallo la ejecucion del procedimiento");
+               throw;
+
+           }
+
+          MessageBox.Show("Publicaciones vencidas actualizadas.Presione aceptar para continuar");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormularioLogin());
-           // Application.Run(new Pantalla_Funcionalidades("Administrador"));
 
         }
 

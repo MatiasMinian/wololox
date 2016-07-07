@@ -1875,7 +1875,7 @@ GO
 IF OBJECT_ID('WOLOLOX.ActualizarPublicacionesVencidas') IS NOT NULL
  DROP PROCEDURE WOLOLOX.ActualizarPublicacionesVencidas;
 GO
-CREATE PROCEDURE WOLOLOX.ActualizarPublicacionesVencidas(@fechaDeHoy DateTime)
+CREATE PROCEDURE WOLOLOX.ActualizarPublicacionesVencidas(@fechaDeHoy nvarchar(12))
 AS
  
  BEGIN TRANSACTION
