@@ -159,6 +159,12 @@ tipo nvarchar(255),
 primary key(codigo)
 );
 
+if object_id('WOLOLOX.indicePublic') is not null
+  drop index WOLOLOX.indicePublic;
+
+CREATE INDEX indicePublic
+ON WOLOLOX.publicaciones()
+
 if object_id('WOLOLOX.estados') is not null
   drop table WOLOLOX.estados;
 
