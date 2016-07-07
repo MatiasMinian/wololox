@@ -1893,7 +1893,7 @@ DECLARE @idEstado numeric(18,0)
 
  UPDATE WOLOLOX.publicaciones
  set publicaciones.id_estado = @idEstado
- WHERE @fechaDeHoy > publicaciones.fecha_vencimiento
+ WHERE publicaciones.id_estado != @idEstado AND @fechaDeHoy > publicaciones.fecha_vencimiento
 
  COMMIT
 
