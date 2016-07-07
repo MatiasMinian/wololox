@@ -20,18 +20,22 @@ namespace WindowsFormsApplication1
         static void Main()
         {
 
-            GD1C2016DataSetTableAdapters.publicacionesTableAdapter publiAdapter = new GD1C2016DataSetTableAdapters.publicacionesTableAdapter();
+           GD1C2016DataSetTableAdapters.publicacionesTableAdapter publiAdapter = new GD1C2016DataSetTableAdapters.publicacionesTableAdapter();
 
-            var value = System.Configuration.ConfigurationManager.AppSettings["DateKey"];
+           var value = System.Configuration.ConfigurationManager.AppSettings["DateKey"];
 
-            var appDate = DateTime.Parse(value);
+           var appDate = DateTime.Parse(value);
 
-            //publiAdapter.ActualizarPublicacionesVencidas(appDate);
-            
+           MessageBox.Show("Actualizando publicaciones vencidas.Espere por favor...");
+
+           publiAdapter.ActualizarPublicacionesVencidas(appDate);
+
+           MessageBox.Show("Publicaciones vencidas actualizadas.Presione aceptar para continuar");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormularioLogin());
-            //Application.Run(new Pantalla_Funcionalidades("Administrador"));
+           // Application.Run(new Pantalla_Funcionalidades("Administrador"));
 
         }
 

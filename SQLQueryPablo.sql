@@ -154,7 +154,7 @@ fecha_inicio datetime,
 fecha_vencimiento datetime,
 descripcion nvarchar (255),
 stock numeric(18,0),
-precio numeric(18,0),
+precio numeric(18,2),
 tipo nvarchar(255),
 primary key(codigo)
 );
@@ -174,9 +174,9 @@ if object_id('WOLOLOX.visibilidades') is not null
 create table WOLOLOX.visibilidades(
 codigo numeric(18,0) identity(1,1),
 descripcion nvarchar(255),
-costo_envio numeric(18,0),
+costo_envio numeric(18,2),
 porc_producto numeric(18,0),
-costo_publicacion numeric(18,0),
+costo_publicacion numeric(18,2),
 habilitada bit default 1,
 primary key (codigo)
 );
@@ -185,7 +185,6 @@ if object_id('WOLOLOX.direcciones') is not null
   drop table WOLOLOX.direcciones;
 
 create table WOLOLOX.direcciones(
-id numeric(18,0) identity(1,1),
 id_usuario numeric(18,0),
 calle nvarchar(255),
 numero numeric(18,0),
@@ -194,7 +193,7 @@ departamento nvarchar(50),
 localidad nvarchar(100),
 cod_postal nvarchar(50),
 ciudad nvarchar(100),
-primary key(id)
+primary key(id_usuario)
 );
 
 if object_id('WOLOLOX.usuarios') is not null
@@ -203,7 +202,6 @@ if object_id('WOLOLOX.usuarios') is not null
 create table WOLOLOX.usuarios(
 id_usuario numeric(18,0) identity(1,1),
 nombre_usuario nvarchar(255),
---contraseña nvarchar(255),
 contraseña varbinary(8000),
 intentos_login numeric(1,0),
 mail nvarchar(255),
@@ -274,6 +272,11 @@ add constraint FK_empresas_usuario
 foreign key (id_usuario)
 references WOLOLOX.usuarios (id_usuario);
 
+alter table WOLOLOX.empresas
+add constraint FK_empresas_rubros
+foreign key (cod_rubro)
+references WOLOLOX.rubros (codigo);
+
 alter table WOLOLOX.ofertas
 add constraint FK_ofertas_usuario
 foreign key (id_usuario)
@@ -321,15 +324,7 @@ GO
 
 create procedure WOLOLOX.pa_migracion_maestra  -- (@fecha_de_hoy datetime)
 AS
-declare @fecha_de_hoy datetime 
-
-insert into WOLOLOX.direcciones(calle,numero,piso,departamento,cod_postal)
-select DISTINCT Cli_Dom_Calle, Cli_Nro_Calle,Cli_Piso,Cli_Depto,Cli_Cod_Postal from gd_esquema.Maestra
-where Cli_Nro_Calle is not null
-
-insert into WOLOLOX.direcciones(calle,numero,piso,departamento,cod_postal)
-select DISTINCT Publ_Empresa_Dom_Calle, Publ_Empresa_Nro_Calle,Publ_Empresa_Piso,Publ_Empresa_Depto,Publ_Empresa_Cod_Postal from gd_esquema.Maestra
-where Publ_Empresa_Nro_Calle is not null
+declare @fecha_de_hoy datetime
 
 insert into WOLOLOX.usuarios (nombre_usuario,mail)
 select DISTINCT Cli_Mail, Cli_Mail from gd_esquema.Maestra
@@ -339,10 +334,21 @@ insert into WOLOLOX.usuarios (nombre_usuario,mail)
 select DISTINCT Publ_Cli_Mail, Publ_Cli_Mail from gd_esquema.Maestra
 where Publ_Cli_Mail is not null AND not( Publ_Cli_Mail IN(select mail from usuarios))
 
-
 insert into WOLOLOX.usuarios (nombre_usuario,mail,fecha_creacion)
 select DISTINCT Publ_Empresa_Mail,Publ_Empresa_Mail,Publ_Empresa_Fecha_Creacion from gd_esquema.Maestra
 where Publ_Empresa_Mail is not null
+
+insert into WOLOLOX.direcciones(id_usuario,calle,numero,piso,departamento,cod_postal)
+select DISTINCT (select u.id_usuario from usuarios u where u.mail like Cli_Mail),Cli_Dom_Calle, Cli_Nro_Calle,Cli_Piso,Cli_Depto,Cli_Cod_Postal from gd_esquema.Maestra
+where Cli_Nro_Calle is not null
+
+insert into WOLOLOX.direcciones(id_usuario,calle,numero,piso,departamento,cod_postal)
+select DISTINCT (select u.id_usuario from usuarios u where u.mail like Publ_Cli_Mail),Publ_Cli_Dom_Calle, Publ_Cli_Nro_Calle,Publ_Cli_Piso,Publ_Cli_Depto,Publ_Cli_Cod_Postal from gd_esquema.Maestra
+where Publ_Cli_Nro_Calle is not null AND not(Publ_Cli_Mail IN(select mail from usuarios))
+
+insert into WOLOLOX.direcciones(id_usuario,calle,numero,piso,departamento,cod_postal)
+select DISTINCT (select u.id_usuario from usuarios u where u.mail like Publ_Empresa_Mail),Publ_Empresa_Dom_Calle, Publ_Empresa_Nro_Calle,Publ_Empresa_Piso,Publ_Empresa_Depto,Publ_Empresa_Cod_Postal from gd_esquema.Maestra
+where Publ_Empresa_Nro_Calle is not null
 
 insert into WOLOLOX.estados(nombre) values('Publicada')
 insert into WOLOLOX.estados(nombre) values('Finalizada')
@@ -640,7 +646,7 @@ AS
 SELECT publicaciones.codigo,estados.nombre,visibilidades.descripcion,publicaciones.descripcion,stock,precio,tipo,fecha_inicio,fecha_vencimiento FROM WOLOLOX.publicaciones
 INNER JOIN WOLOLOX.visibilidades ON publicaciones.cod_visibilidad = visibilidades.codigo
 INNER JOIN WOLOLOX.estados ON publicaciones.id_estado = estados.id_estado
-WHERE publicaciones.id_usuario = 1 AND estados.nombre<>'Finalizada'
+WHERE publicaciones.id_usuario = @id AND estados.nombre<>'Finalizada'
 
 GO
 
@@ -1890,13 +1896,14 @@ AS
  BEGIN TRANSACTION
 
  UPDATE WOLOLOX.publicaciones
- set publicaciones.id_estado = (SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.nombre='Finalizada')
+ set publicaciones.id_estado = (SELECT id_estado FROM WOLOLOX.estados WHERE estados.nombre = 'Finalizada')
  WHERE @fechaDeHoy > publicaciones.fecha_vencimiento
 
  COMMIT
 
  GO
 
+ --SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.nombre='Finalizada'
 
 -- Eliminar usuario, elimina su dirección, sus datos, sus rol-usuario, sus ofertas, sus publicaciones y sus compras
 

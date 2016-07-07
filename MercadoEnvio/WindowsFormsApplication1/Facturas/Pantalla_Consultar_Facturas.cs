@@ -173,7 +173,7 @@ namespace WindowsFormsApplication1.Facturas
                                                        row.Field<String>("descripcion"),
                                                        row.Field<Object>("id_compra"),
                                                        row.Field<DateTime>("fecha"),
-                                                       row.Field<Decimal>("total"));
+                                                       row.Field<Object>("total"));
                             }
 
 
@@ -255,7 +255,7 @@ namespace WindowsFormsApplication1.Facturas
                                                        row.Field<String>("descripcion"),
                                                        row.Field<Object>("id_compra"),
                                                        row.Field<DateTime>("fecha"),
-                                                       row.Field<Decimal>("total"));
+                                                       row.Field<Object>("total"));
             }
 
 
@@ -289,7 +289,7 @@ namespace WindowsFormsApplication1.Facturas
                                                        row.Field<String>("descripcion"),
                                                        row.Field<Object>("id_compra"),
                                                        row.Field<DateTime>("fecha"),
-                                                       row.Field<Decimal>("total"));
+                                                       row.Field<Object>("total"));
                 }
             
         }
