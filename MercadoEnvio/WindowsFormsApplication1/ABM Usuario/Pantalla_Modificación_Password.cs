@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
@@ -55,11 +56,24 @@ namespace WindowsFormsApplication1.ABM_Usuario
             }
             else
             {
-                userAdapter.CambiarContraseña(textUser.Text, textPass.Text);
-                MessageBox.Show("Contraseña cambiada!");
-                this.Close();
+                try
+                {
+                    userAdapter.CambiarContraseña(textUser.Text, textPass.Text);
+                    MessageBox.Show("Contraseña cambiada!");
+                    this.Close();
+                }
+                catch (SqlException ex)
+                {
+                    switch (ex.Number)
+                    {
+                        case 40001:
+                            MessageBox.Show("El Usuario no existe", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            return;
+                        default: MessageBox.Show("Error desconocido" + ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            return;
+                    }
+                }
             }
-
         }
     }
 }

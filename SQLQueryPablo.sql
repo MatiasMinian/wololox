@@ -8,7 +8,7 @@ dni numeric(18,0),
 nombre nvarchar(255),
 apellido nvarchar(255),
 id_usuario numeric(18,0) ,
-fecha_nacimiento datetime,
+fecha_nacimiento date,
 primary key (id_usuario)
 );
 
@@ -410,7 +410,7 @@ insert into WOLOLOX.visibilidades(codigo,descripcion,porc_producto,costo_publica
 select DISTINCT Publicacion_Visibilidad_Cod,Publicacion_Visibilidad_Desc,Publicacion_Visibilidad_Porcentaje,Publicacion_Visibilidad_Precio,0 from gd_esquema.Maestra
 set IDENTITY_INSERT WOLOLOX.visibilidades OFF
 
-declare @fecha_inicio datetime, @fecha_vencimiento datetime
+/*declare @fecha_inicio datetime, @fecha_vencimiento datetime
 	declare cursorEstado CURSOR FOR
         SELECT fecha_inicio,fecha_vencimiento
         FROM WOLOLOX.publicaciones
@@ -432,13 +432,13 @@ declare @fecha_inicio datetime, @fecha_vencimiento datetime
 		values(@fecha_inicio,@fecha_vencimiento,@id_estado)
 		END
 		close cursorEstado
-		deallocate cursorEstado
+		deallocate cursorEstado*/
 
 insert  into WOLOLOX.rubros(descripcion_larga)
 select DISTINCT Publicacion_Rubro_Descripcion from gd_esquema.Maestra
 where Publicacion_Rubro_Descripcion is not null
 
-set IDENTITY_INSERT WOLOLOX.publicaciones ON		
+/*set IDENTITY_INSERT WOLOLOX.publicaciones ON		
 insert into WOLOLOX.publicaciones(id_usuario,codigo,id_estado,descripcion,fecha_inicio,fecha_vencimiento,precio,stock,tipo,cod_visibilidad)
 select DISTINCT u.id_usuario,Publicacion_Cod,estados.id_estado ,Publicacion_Descripcion,Publicacion_Fecha,Publicacion_Fecha_Venc,Publicacion_Precio,Publicacion_Stock,Publicacion_Tipo,Publicacion_Visibilidad_Cod from gd_esquema.Maestra, usuarios u ,estados
 where Publicacion_Cod is not null AND u.mail like Publ_Empresa_Mail AND Publicacion_Estado = estados.nombre
@@ -475,7 +475,7 @@ where Factura_Nro is not null
 
 insert into WOLOLOX.ofertas(id_usuario,fecha,monto,cod_publicacion)
 select DISTINCT (select id_usuario from usuarios where mail like Cli_Mail), Oferta_Fecha,Oferta_Monto,Publicacion_Cod from gd_esquema.Maestra
-where Oferta_Monto is not null
+where Oferta_Monto is not null*/
 
 insert into WOLOLOX.clientes (id_usuario,dni,apellido,nombre,fecha_nacimiento)
 select DISTINCT u.id_usuario,m.Cli_Dni, m.Cli_Apeliido,m.Cli_Nombre,m.Cli_Fecha_Nac 
@@ -581,7 +581,7 @@ declare @usrId numeric
 
 set @cantUsuarios = ISNULL((select COUNT(*) FROM WOLOLOX.usuarios 
 	WHERE nombre_usuario = @UserName
-	AND contraseña = HASHBYTES('SHA2_256', @Password)
+	AND contraseña = HASHBYTES('SHA2_256', @Password) AND habilitado=1
 	group by nombre_usuario
 	having count(intentos_login)<3),0)
 
@@ -595,7 +595,7 @@ IF @cantUsuarios = 0
 			return;
 		end
 		
-		if((select intentos_login from WOLOLOX.usuarios  where id_usuario = @usrId) > 2)
+		if((select intentos_login from WOLOLOX.usuarios  where id_usuario = @usrId) > 2 OR (SELECT habilitado from WOLOLOX.usuarios where id_usuario=@usrId)=0)
 		begin
 			RAISERROR (40002,-1,-1, 'Usuario Bloqueado!')
 			UPDATE usuarios
@@ -1531,14 +1531,14 @@ GO
 IF OBJECT_ID('WOLOLOX.CrearCliente') IS NOT NULL
     DROP PROCEDURE WOLOLOX.CrearCliente;
 GO
-CREATE PROCEDURE WOLOLOX.CrearCliente(@username nvarchar(50), @pass nvarchar(25), @nombre nvarchar(255), @apellido nvarchar(255), @mail nvarchar(50), @tel nvarchar(50), @domicilio nvarchar(100),@numDom numeric(19,0), @piso numeric(18,0), @depto nvarchar(50),@localidad nvarchar(100),@ciudad nvarchar(100),@codPostal nvarchar(50), @dni numeric(18,0), @fechaNac datetime)
+CREATE PROCEDURE WOLOLOX.CrearCliente(@username nvarchar(50), @pass nvarchar(25), @nombre nvarchar(255), @apellido nvarchar(255), @mail nvarchar(50), @tel nvarchar(50), @domicilio nvarchar(100),@numDom numeric(19,0), @piso numeric(18,0), @depto nvarchar(50),@localidad nvarchar(100),@ciudad nvarchar(100),@codPostal nvarchar(50), @dni numeric(18,0), @fechaNac nvarchar(25))
 AS
      
 	INSERT INTO WOLOLOX.usuarios(nombre_usuario,contraseña,mail,fecha_creacion,intentos_login,telefono)
 	VALUES (@username,HASHBYTES('SHA2_256',@pass),@mail,GETDATE(),0,@tel)
 	declare @fkUsuario numeric(18,0) = scope_identity();
 	INSERT INTO WOLOLOX.clientes(apellido,nombre, dni,fecha_nacimiento,id_usuario)
-	VALUES	(@apellido,@nombre,@dni,@fechaNac,@fkUsuario)
+	VALUES	(@apellido,@nombre,@dni,CONVERT(date,@fechaNac),@fkUsuario)
 	INSERT INTO WOLOLOX.direcciones(calle, numero, piso, departamento, localidad, cod_postal, ciudad,id_usuario)
 	VALUES (@domicilio,@numDom,@piso,@depto,@localidad,@codPostal,@ciudad,@fkUsuario)
 	INSERT INTO WOLOLOX.roles_usuarios(id_rol,id_usuario)
@@ -1549,7 +1549,7 @@ GO
 IF OBJECT_ID('WOLOLOX.CrearEmpresa') IS NOT NULL
     DROP PROCEDURE WOLOLOX.CrearEmpresa;
 GO
-CREATE PROCEDURE WOLOLOX.CrearEmpresa(@username nvarchar(50), @pass nvarchar(25), @razSoc nvarchar(255), @mail nvarchar(50), @tel nvarchar(50), @domicilio nvarchar(100),@numDom numeric(19,0), @piso numeric(18,0), @depto nvarchar(50),@localidad nvarchar(100),@ciudad nvarchar(100),@codPostal nvarchar(50), @cuit nvarchar(50),@rubro nvarchar(20), @nomContac nvarchar(100))
+CREATE PROCEDURE WOLOLOX.CrearEmpresa(@username nvarchar(50), @pass nvarchar(25), @razSoc nvarchar(255), @mail nvarchar(50), @tel nvarchar(50), @domicilio nvarchar(100),@numDom numeric(19,0), @piso numeric(18,0), @depto nvarchar(50),@localidad nvarchar(100),@ciudad nvarchar(100),@codPostal nvarchar(50), @cuit nvarchar(50),@rubro numeric(18,0), @nomContac nvarchar(100))
 AS
      
     
@@ -1557,7 +1557,7 @@ AS
 	VALUES (@username,HASHBYTES('SHA2_256',@pass),@mail,GETDATE(),0,@tel)
 	declare @fkUsuario numeric(18,0) = scope_identity();
 	INSERT INTO WOLOLOX.empresas(id_usuario,razon_social,nombre_contacto,cuit,reputacion,cod_rubro)
-	VALUES	(@fkUsuario, @razSoc,@nomContac,@cuit,0, (SELECT codigo FROM WOLOLOX.rubros where descripcion_larga=@rubro))
+	VALUES	(@fkUsuario, @razSoc,@nomContac,@cuit,0, @rubro)
 	INSERT INTO WOLOLOX.direcciones(calle, numero, piso, departamento, localidad, cod_postal, ciudad,id_usuario)
 	VALUES (@domicilio,@numDom,@piso,@depto,@localidad,@codPostal,@ciudad,@fkUsuario)
 	INSERT INTO WOLOLOX.roles_usuarios(id_rol,id_usuario)
@@ -1844,10 +1844,17 @@ IF OBJECT_ID('WOLOLOX.CambiarContraseña') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.CambiarContraseña(@nombre nvarchar(255), @contraseña nvarchar(255))
 AS
+BEGIN
 UPDATE WOLOLOX.usuarios
 SET contraseña= HASHBYTES('SHA2_256',@contraseña)
 WHERE nombre_usuario=@nombre
-
+DECLARE @usrID numeric
+SET @usrId = (select id_usuario FROM WOLOLOX.usuarios where nombre_usuario = @nombre)	
+IF (not exists (select id_usuario FROM WOLOLOX.usuarios where id_usuario = @usrId))
+BEGIN
+	RAISERROR (40001,-1,-1, 'El Usuario no existe!')
+END
+END
 GO
 
 --Funcionalidades

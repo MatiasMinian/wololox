@@ -10,12 +10,13 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.ABM_Usuario
 {
-    public partial class Pantalla_Datos_Cliente : Form{
+    public partial class Pantalla_Datos_Cliente : Form
+    {
 
         private String idUsuario;
         private String contraseña;
 
- 
+
         private GD1C2016DataSetTableAdapters.clientesTableAdapter cliAdapter;
         public Pantalla_Datos_Cliente(String id, String pass)
         {
@@ -58,17 +59,17 @@ namespace WindowsFormsApplication1.ABM_Usuario
         private void button3_Click(object sender, EventArgs e)
         {
             if (textNom.Text == "" || textTel.Text == "" || texDom.Text == "" || textApe.Text == ""
-               || textDNI.Text == "" || textNumDom.Text == "" || textMail.Text == "" || textPiso.Text == ""
-               || textDepto.Text == "" || textLoc.Text == "" || textPost.Text == "")
+               || textNumDom.Text == "" || textMail.Text == ""
+               || textLoc.Text == "" || textPost.Text == "")
             {
 
-                MessageBox.Show("Complete campos vacíos");
+                MessageBox.Show("Complete campos obligatorios");
 
             }
             else
             {
                 cliAdapter = new GD1C2016DataSetTableAdapters.clientesTableAdapter();
-                cliAdapter.CrearCliente(idUsuario, contraseña, textNom.Text, textApe.Text, textMail.Text, textTel.Text, texDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textPost.Text, Convert.ToDecimal(textDNI.Text), Convert.ToDateTime(textFechaNac.Text));
+                cliAdapter.CrearCliente(idUsuario, contraseña, textNom.Text, textApe.Text, textMail.Text, textTel.Text, texDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textPost.Text, Convert.ToDecimal(textDNI.Text), textFechaNac.Text);
                 MessageBox.Show("Usuario creado");
                 this.Close();
             }

@@ -49,16 +49,20 @@ namespace WindowsFormsApplication1.ABM_Usuario
         private void button3_Click(object sender, EventArgs e)
         {
             if (textNombre.Text == "" || textNumDom.Text == "" || textLocal.Text == "" || textMail.Text == ""
-              || textPiso.Text == "" || textCuit.Text == "" || textDom.Text == "" || textCodPos.Text == ""
-              || textDepto.Text == "" || textCiudad.Text == "" || textNomCon.Text == "" || textTel.Text == "")
+              || textCuit.Text == "" || textDom.Text == "" || textCodPos.Text == ""
+              || textCiudad.Text == "" || textTel.Text == "")
             {
 
-                MessageBox.Show("Complete campos vacíos");
+                MessageBox.Show("Complete campos obligatorios");
             }
-            empAdapter = new GD1C2016DataSetTableAdapters.empresasTableAdapter();
-            empAdapter.CrearEmpresa(idUsuario, contraseña, textNombre.Text, textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLocal.Text, textCiudad.Text, textCodPos.Text, textCuit.Text, comboRubro.SelectedText,textNomCon.Text);
-            MessageBox.Show("Usuario creado");
-            this.Close();
+            else
+            {
+                empAdapter = new GD1C2016DataSetTableAdapters.empresasTableAdapter();
+                empAdapter.CrearEmpresa(idUsuario, contraseña, textNombre.Text, textMail.Text, textTel.Text, textDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLocal.Text, textCiudad.Text, textCodPos.Text, textCuit.Text, Convert.ToDecimal(comboRubro.SelectedValue), textNomCon.Text);
+                MessageBox.Show("Usuario creado");
+                this.Close();
+            }
+            
         }
 
         private void Pantalla_Datos_Empresa_Load(object sender, EventArgs e)
