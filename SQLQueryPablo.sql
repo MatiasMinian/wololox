@@ -322,9 +322,8 @@ drop proc WOLOLOX.pa_migracion_maestra;
 
 GO
 
-create procedure WOLOLOX.pa_migracion_maestra  -- (@fecha_de_hoy datetime)
+create procedure WOLOLOX.pa_migracion_maestra
 AS
-declare @fecha_de_hoy datetime
 
 insert into WOLOLOX.usuarios (nombre_usuario,mail)
 select DISTINCT Cli_Mail, Cli_Mail from gd_esquema.Maestra
@@ -410,30 +409,6 @@ insert into WOLOLOX.visibilidades(codigo,descripcion,porc_producto,costo_publica
 select DISTINCT Publicacion_Visibilidad_Cod,Publicacion_Visibilidad_Desc,Publicacion_Visibilidad_Porcentaje,Publicacion_Visibilidad_Precio,0 from gd_esquema.Maestra
 set IDENTITY_INSERT WOLOLOX.visibilidades OFF
 
-declare @fecha_inicio datetime, @fecha_vencimiento datetime
-	declare cursorEstado CURSOR FOR
-        SELECT fecha_inicio,fecha_vencimiento
-        FROM WOLOLOX.publicaciones
-    OPEN cursorEstado
-	FETCH NEXT FROM cursorEstado INTO @fecha_inicio,@fecha_vencimiento
-
-	WHILE @@FETCH_STATUS = 0 BEGIN
-		
-		--Chequear si la fecha de vencimiento es mayor o menor a la de hoy.
-		declare @id_estado numeric(18,0)
-
-		IF(@fecha_de_hoy > @fecha_vencimiento) BEGIN
-			SET @id_estado = (select id_estado from estados where nombre like 'Finalizada')
-		END 
-		ELSE BEGIN
-		SET @id_estado = (select id_estado from estados where nombre like 'Publicada')
-		END
-		insert into WOLOLOX.publicaciones(fecha_inicio,fecha_vencimiento,id_estado)
-		values(@fecha_inicio,@fecha_vencimiento,@id_estado)
-		END
-		close cursorEstado
-		deallocate cursorEstado
-
 insert  into WOLOLOX.rubros(descripcion_larga)
 select DISTINCT Publicacion_Rubro_Descripcion from gd_esquema.Maestra
 where Publicacion_Rubro_Descripcion is not null
@@ -495,6 +470,8 @@ insert into WOLOLOX.roles_usuarios(id_usuario,id_rol)
 select u.id_usuario,(select id from roles where nombre LIKE 'empresa') from usuarios u, empresas e
 where u.id_usuario = e.id_usuario
 GO
+
+exec WOLOLOX.pa_migracion_maestra
 
 --Procedures y triggers
 
@@ -1893,17 +1870,20 @@ IF OBJECT_ID('WOLOLOX.ActualizarPublicacionesVencidas') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.ActualizarPublicacionesVencidas(@fechaDeHoy DateTime)
 AS
+ 
  BEGIN TRANSACTION
 
+DECLARE @idEstado numeric(18,0) 
+ 
+ set @idEstado = (SELECT id_estado FROM WOLOLOX.estados WHERE estados.nombre = 'Finalizada')
+
  UPDATE WOLOLOX.publicaciones
- set publicaciones.id_estado = (SELECT id_estado FROM WOLOLOX.estados WHERE estados.nombre = 'Finalizada')
+ set publicaciones.id_estado = @idEstado
  WHERE @fechaDeHoy > publicaciones.fecha_vencimiento
 
  COMMIT
 
  GO
-
- --SELECT estados.id_estado FROM WOLOLOX.estados WHERE estados.nombre='Finalizada'
 
 -- Eliminar usuario, elimina su dirección, sus datos, sus rol-usuario, sus ofertas, sus publicaciones y sus compras
 
@@ -2030,7 +2010,8 @@ AS
 
   FETCH NEXT FROM publicacion INTO @publicacionCodigo, @publicacionCodVisibilidad, @publicacionPrecio, @publicacionDescripcion
  END
-
+ CLOSE publicacion
+ DEALLOCATE publicacion
  COMMIT
 GO
 
