@@ -2077,3 +2077,19 @@ AS
 
 	COMMIT
 GO
+
+USE GD1C2016
+
+EXEC WOLOLOX.[CrearUsuarioRolGenerico]
+		@username = N'ADMIN',
+		@pass = N'ADMIN',
+		@mail = NULL,
+		@tel = NULL,
+		@domicilio = NULL,
+		@numDom = NULL,
+		@piso = NULL,
+		@depto = NULL,
+		@localidad = NULL,
+		@ciudad = NULL,
+		@codPostal = NULL,
+		@idRol = 01
