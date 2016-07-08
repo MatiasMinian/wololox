@@ -466,6 +466,11 @@ select DISTINCT u.id_usuario , (select top 1  pr.cod_rubro from publicaciones p 
 from usuarios u, gd_esquema.Maestra m
 where (m.Publ_Empresa_Mail is not null) AND u.mail like Publ_Empresa_Mail
 
+update WOLOLOX.empresas
+set  reputacion = 0, nombre_contacto=''
+where reputacion is null
+or nombre_contacto is null
+
 insert into WOLOLOX.roles_usuarios(id_usuario,id_rol)
 select u.id_usuario,(select id from roles where nombre LIKE 'empresa') from usuarios u, empresas e
 where u.id_usuario = e.id_usuario
@@ -1510,6 +1515,8 @@ IF OBJECT_ID('WOLOLOX.CrearCliente') IS NOT NULL
 GO
 CREATE PROCEDURE WOLOLOX.CrearCliente(@username nvarchar(50), @pass nvarchar(25), @nombre nvarchar(255), @apellido nvarchar(255), @mail nvarchar(50), @tel nvarchar(50), @domicilio nvarchar(100),@numDom numeric(19,0), @piso numeric(18,0), @depto nvarchar(50),@localidad nvarchar(100),@ciudad nvarchar(100),@codPostal nvarchar(50), @dni numeric(18,0), @fechaNac nvarchar(25))
 AS
+    DECLARE @fecha nvarchar(20)
+	SET @fecha = CONCAT(LEFT(@fechaNac,2),SUBSTRING(@fechaNac,4,2),RIGHT(@fechaNac,4))
 	INSERT INTO WOLOLOX.usuarios(nombre_usuario,contraseña,mail,fecha_creacion,intentos_login,telefono)
 	VALUES (@username,HASHBYTES('SHA2_256',@pass),@mail,GETDATE(),0,@tel)
 	declare @fkUsuario numeric(18,0) = scope_identity();
