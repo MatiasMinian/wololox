@@ -48,11 +48,11 @@ namespace WindowsFormsApplication1.Generar_Publicación
         private void button2_Click(object sender, EventArgs e)
         {
 
-            int number;
+            Decimal number;
 
             if (textBox1.Text == "" || textBox2.Text == "" || textBox4.Text == ""
                || comboBox1.Text == "" || textBox5.Text == "" || numericUpDown1.Value == 0
-               || !(int.TryParse(textBox2.Text, out number)))
+               || !(Decimal.TryParse(textBox2.Text, out number)))
             {
 
                 MessageBox.Show("Hay campos vacíos o inválidos");

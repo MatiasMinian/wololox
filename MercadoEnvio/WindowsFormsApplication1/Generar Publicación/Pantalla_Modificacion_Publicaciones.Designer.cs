@@ -51,7 +51,7 @@
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(12, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(807, 214);
+            this.groupBox1.Size = new System.Drawing.Size(848, 298);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de publicaciones actuales";
@@ -73,12 +73,12 @@
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(795, 189);
+            this.dataGridView1.Size = new System.Drawing.Size(832, 273);
             this.dataGridView1.TabIndex = 0;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(358, 226);
+            this.button2.Location = new System.Drawing.Point(377, 308);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(118, 23);
             this.button2.TabIndex = 2;
@@ -88,7 +88,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 226);
+            this.button1.Location = new System.Drawing.Point(12, 308);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 23);
             this.button1.TabIndex = 1;
@@ -98,7 +98,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(726, 226);
+            this.button3.Location = new System.Drawing.Point(767, 308);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(93, 23);
             this.button3.TabIndex = 3;
@@ -126,6 +126,7 @@
             // 
             this.Column4.HeaderText = "Descripcion";
             this.Column4.Name = "Column4";
+            this.Column4.Width = 109;
             // 
             // Column5
             // 
@@ -137,7 +138,7 @@
             // 
             this.Column6.HeaderText = "Precio";
             this.Column6.Name = "Column6";
-            this.Column6.Width = 50;
+            this.Column6.Width = 60;
             // 
             // Column7
             // 
@@ -159,7 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 260);
+            this.ClientSize = new System.Drawing.Size(874, 336);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
