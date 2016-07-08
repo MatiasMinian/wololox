@@ -75,7 +75,7 @@ namespace WindowsFormsApplication1.ABM_Usuario
             else
             {
                 cliAdapter = new GD1C2016DataSetTableAdapters.clientesTableAdapter();
-                cliAdapter.CrearCliente(idUsuario, contraseña, textNom.Text, textApe.Text, textMail.Text, textTel.Text, texDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textPost.Text, Convert.ToDecimal(textDNI.Text), textFechaNac.Text);
+                cliAdapter.CrearCliente(idUsuario, contraseña, textNom.Text, textApe.Text, textMail.Text, textTel.Text, texDom.Text, Convert.ToDecimal(textNumDom.Text), Convert.ToDecimal(textPiso.Text), textDepto.Text, textLoc.Text, textCiudad.Text, textPost.Text, Convert.ToDecimal(textDNI.Text), Convert.ToDateTime(textFechaNac.Text));
                 MessageBox.Show("Usuario creado");
                 this.Close();
             }

@@ -159,12 +159,6 @@ tipo nvarchar(255),
 primary key(codigo)
 );
 
-if object_id('WOLOLOX.indicePublic') is not null
-  drop index WOLOLOX.indicePublic;
-
-CREATE INDEX indicePublic
-ON WOLOLOX.publicaciones()
-
 if object_id('WOLOLOX.estados') is not null
   drop table WOLOLOX.estados;
 
@@ -671,7 +665,7 @@ IF OBJECT_ID('WOLOLOX.ActualizarPublicacion') IS NOT NULL
 
 GO
 
-CREATE PROCEDURE WOLOLOX.ActualizarPublicacion(@idPubli numeric (18,0),@id_estado numeric(18,0),@cod_visi numeric(18,0),@descripcion nvarchar(255),@stock numeric(18,0),@precio numeric(18,0),@fecha_inicio DateTime,@fecha_vencimiento DateTime)
+CREATE PROCEDURE WOLOLOX.ActualizarPublicacion(@idPubli numeric (18,0),@id_estado numeric(18,0),@cod_visi numeric(18,0),@descripcion nvarchar(255),@stock numeric(18,0),@precio numeric(18,2),@fecha_inicio DateTime,@fecha_vencimiento DateTime)
 AS
 UPDATE WOLOLOX.publicaciones
 SET publicaciones.id_estado = @id_estado,
@@ -692,12 +686,12 @@ GO
 
 CREATE PROCEDURE WOLOLOX.ActualizarPubliRubros(@idPubli numeric (18,0),@idRubro numeric(18,0))
 AS
+
 DELETE FROM WOLOLOX.publicaciones_rubros
 WHERE publicaciones_rubros.cod_publicacion = @idPubli
 
 INSERT INTO WOLOLOX.publicaciones_rubros(publicaciones_rubros.cod_publicacion,publicaciones_rubros.cod_rubro)
 VALUES(@idPubli,@idRubro)
-
 
 GO
 
@@ -968,7 +962,7 @@ GO
 IF OBJECT_ID('WOLOLOX.consultaIDrubro') IS NOT NULL
    DROP PROCEDURE WOLOLOX.consultaIDrubro;
 GO
-  CREATE PROCEDURE WOLOLOX.consultaIDrubro(@rubro nvarchar(20))
+  CREATE PROCEDURE WOLOLOX.consultaIDrubro(@rubro nvarchar(50))
 AS
 DECLARE @idrubro int
 set @idrubro = (SELECT rubros.codigo FROM WOLOLOX.rubros WHERE rubros.descripcion_larga = @rubro)
